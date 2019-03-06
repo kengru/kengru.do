@@ -2,8 +2,8 @@ import React from 'react';
 
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+
+import NavItem from "./NavItem/NavItem";
 
 const styles = {
   grow: {
@@ -15,15 +15,16 @@ const styles = {
   }
 }
 
-const navItem = props => {
+const navItems = props => {
   const { classes } = props
   return (
     <>
       <Typography component="h3" variant="headline" className={classes.grow}>
         {props.title}
       </Typography>
+      <NavItem linkTo="/bio" linkName="Bio"/>
     </>
   ) 
 }
 
-export default withStyles(styles)(navItem);
+export default withStyles(styles)(navItems);
