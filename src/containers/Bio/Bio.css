@@ -1,0 +1,14 @@
+.Bio {
+  height: 100%;
+  margin-top: 4px;
+  display: flex;
+  flex-direction: row;
+}
+
+.Menu {
+  flex-grow: 3;
+}
+
+.Info {
+  flex-grow: 7;
+}
