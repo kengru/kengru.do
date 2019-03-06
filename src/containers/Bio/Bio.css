@@ -6,9 +6,9 @@
 }
 
 .Menu {
-  flex-grow: 3;
+  flex-grow: 2;
 }
 
 .Info {
-  flex-grow: 7;
+  flex-grow: 8;
 }
