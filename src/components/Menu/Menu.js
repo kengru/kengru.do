@@ -13,7 +13,7 @@ const styles = theme => ({
     width: "100%",
     maxWidth: 360,
     backgroundColor: theme.palette.background.paper
-  },
+  }
 });
 
 const Menu = props => {
@@ -21,12 +21,14 @@ const Menu = props => {
 
   return (
     <div className={classes.root}>
-      <List component="nav" >
+      <List component="nav">
         <NavLink to={`${props.match.path}/info`}>
           <ListItem button>
             <ListItemText primary="Personal Info" />
           </ListItem>
         </NavLink>
+      </List>
+      <List>
         <ListItem button>
           <ListItemText primary="Work Experience" />
         </ListItem>
@@ -34,9 +36,6 @@ const Menu = props => {
       <List component="nav">
         <ListItem button>
           <ListItemText primary="Education" />
-        </ListItem>
-        <ListItem button>
-          <ListItemText primary="Contact Info" />
         </ListItem>
       </List>
     </div>
