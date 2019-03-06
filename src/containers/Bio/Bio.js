@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { Route } from "react-router-dom";
 
-import Typography from "@material-ui/core/Typography";
 import Menu from "../../components/Menu/Menu";
+import BioItem from "../../components/BioItem/BioItem";
 
 import "./Bio.css";
 
@@ -10,12 +11,10 @@ export default class Bio extends Component {
     return (
       <div className="Bio">
         <div className="Menu">
-          <Menu />
+          <Menu {...this.props}/>
         </div>
         <div className="Info">
-          <Typography variant="display1" align="right" gutterBottom>
-            Kendry Alexander Grullon
-          </Typography>
+          <Route path={`${this.props.match.path}/info`} component={BioItem}/>
         </div>
       </div>
     )
