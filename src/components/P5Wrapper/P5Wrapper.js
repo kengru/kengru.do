@@ -28,7 +28,7 @@ export default class P5Wrapper extends Component {
     return (
       <>
         <div
-          id="canvas2-container"
+          id="canvas1-container"
           style={{ width: "100%", textAlign: "center" }}
         />
       </>
