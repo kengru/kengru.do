@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import sketch1 from "./sketch1";
+import sketch1 from "./sketchs/challenge1";
+import sketch2 from "./sketchs/challenge2";
 
 export default class P5Wrapper extends Component {
   static propTypes = {
@@ -10,7 +11,7 @@ export default class P5Wrapper extends Component {
   };
 
   componentDidMount() {
-    this.canvas1 = new window.p5(sketch1, "canvas1-container");
+    this.canvas1 = new window.p5(sketch2, "canvas1-container");
     this.canvas1.props = this.props.p5Props;
     this.canvas1.onSetAppState = this.props.onSetAppState;
   }
