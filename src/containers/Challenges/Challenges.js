@@ -3,23 +3,26 @@ import { Route } from "react-router-dom";
 
 import P5Wrapper from "../../components/P5Wrapper/P5Wrapper";
 
+import "./Challenges.css";
+
 class Challenges extends Component {
   constructor() {
     super();
     this.state = {
-      slider: 100
+      slider: 100,
+      options: []
     };
   }
 
   onSetAppState = (newState, cb) => this.setState(newState, cb);
 
-  onSliderChange = (event) => {
+  onSliderChange = event => {
     this.setState({ slider: +event.target.value });
-  }
+  };
 
   render() {
     return (
-      <div>
+      <div className="Challenges">
         <Route
           exact
           path={`${this.props.match.path}/`}
@@ -30,7 +33,7 @@ class Challenges extends Component {
             />
           )}
         />
-        <p>valor: {this.state.slider}</p>
+        {/* <p>valor: {this.state.slider}</p>
         <input
           type="range"
           min="40"
@@ -38,7 +41,7 @@ class Challenges extends Component {
           step={1}
           value={this.state.slider}
           onChange={this.onSliderChange}
-        />
+        /> */}
       </div>
     );
   }

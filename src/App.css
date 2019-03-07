@@ -1,4 +1,9 @@
 .App {
+  display: flex;
   text-align: center;
 }
 
+main {
+  margin-top: 50px;
+  padding-top: 20px; 
+}
