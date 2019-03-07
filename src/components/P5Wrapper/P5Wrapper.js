@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import sketch1 from "./sketchs/challenge1";
+// import sketch1 from "./sketchs/challenge1";
 import sketch2 from "./sketchs/challenge2";
 
 export default class P5Wrapper extends Component {

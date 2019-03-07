@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from "react-router-dom";
 
-import Menu from "../../components/Menu/Menu";
 import BioItem from "../../components/BioItem/BioItem";
 
 import "./Bio.css";
