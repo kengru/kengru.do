@@ -10,7 +10,10 @@ class App extends Component {
     return (
       <div className="App">
         <Toolbar />
-        <Route path="/bio" component={Bio} />
+        <Route path="/bio" component={Bio} /> 
+        <Route path="/projects" component={Bio} /> 
+        <Route path="/nature" component={Bio} /> 
+        <Route path="/challenges" component={Bio} /> 
       </div>
     );
   }

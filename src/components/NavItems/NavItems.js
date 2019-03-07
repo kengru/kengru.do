@@ -23,6 +23,9 @@ const navItems = props => {
         {props.title}
       </Typography>
       <NavItem linkTo="/bio" linkName="Bio"/>
+      <NavItem linkTo="/projects" linkName="Projects"/>
+      <NavItem linkTo="/nature" linkName="Nature"/>
+      <NavItem linkTo="/challenges" linkName="Challenges"/>
     </>
   ) 
 }
