@@ -14,16 +14,7 @@ const reducer = (state = initialState, action) => {
     case type.FETCH_MENU_SUCCESS:
       return {
         ...state,
-        menuItems: [
-          {
-            text: "are u BIO",
-            link: "x"
-          },
-          {
-            text: "or are you oki",
-            link: "y"
-          }
-        ]
+        menuItems: action.items
       };
     default:
       break;

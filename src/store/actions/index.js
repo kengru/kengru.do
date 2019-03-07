@@ -1,1 +1,1 @@
-export { clearMenuItems, fetchMenuSuccess } from "./menu";
+export { clearMenuItems,  fetchMenuAsync } from "./menu";

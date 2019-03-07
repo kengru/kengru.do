@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { fetchMenuSuccess } from "../../store/actions/menu";
+import { fetchMenuAsync } from "../../store/actions/menu";
 import BioItem from "../../components/BioItem/BioItem";
 
 import "./Bio.css";
@@ -25,7 +25,7 @@ class Bio extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFetchMenu: () => dispatch(fetchMenuSuccess())
+    onFetchMenu: () => dispatch(fetchMenuAsync("bio"))
   }
 }
 
