@@ -1,8 +1,6 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router";
 import { connect } from "react-redux";
-// import { NavLink } from "react-router-dom";
-
-import { fetchMenuSuccess } from "../../store/actions/menu";
 
 import { withStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -12,7 +10,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
 import "./Menu.css";
 
-const drawerWidth = 240;
+const drawerWidth = 260;
 
 const styles = theme => ({
   drawer: {
@@ -33,11 +31,10 @@ class Menu extends Component {
 
   componentDidMount() {
     console.log("[componentDidMount]");
-    this.props.onFetchMenu();
   }
 
   render() {
-    console.log(this.props.menu);
+    console.log(this.props);
 
     return (
       <Drawer
@@ -74,10 +71,4 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onFetchMenu: () => dispatch(fetchMenuSuccess())
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Menu));
+export default withRouter(connect(mapStateToProps)(withStyles(styles)(Menu)));

@@ -43,3 +43,6 @@ A list of the things I have to do in the different main containers and applicati
  - [ ] Gather the list of APIs I will need to fill the hub.
  - [ ] Design the overall structure of it.
  - [ ] Add transitions to the component.
+
+
+To remember: every container should be in charge of their own menu.
