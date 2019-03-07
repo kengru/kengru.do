@@ -2,7 +2,7 @@ import * as type from "../actions/aTypes";
 
 const initialState = {
   menuItems: []
-}
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -15,11 +15,13 @@ const reducer = (state = initialState, action) => {
             link: "x"
           }
         ]
-      }
-  
+      };
+
     default:
       break;
   }
-}
+
+  return state;
+};
 
 export default reducer;
