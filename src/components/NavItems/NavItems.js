@@ -26,6 +26,7 @@ const navItems = props => {
       <NavItem linkTo="/projects" linkName="Projects"/>
       <NavItem linkTo="/nature" linkName="Nature"/>
       <NavItem linkTo="/challenges" linkName="Challenges"/>
+      <NavItem linkTo="/hub" linkName="Hub"/>
     </>
   ) 
 }

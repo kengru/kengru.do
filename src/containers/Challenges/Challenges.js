@@ -20,16 +20,6 @@ class Challenges extends Component {
   render() {
     return (
       <div>
-        <p>valor: {this.state.slider}</p>
-        <input
-          type="range"
-          min="40"
-          max="120"
-          step={1}
-          value={this.state.slider}
-          onChange={this.onSliderChange}
-        />
-
         <Route
           exact
           path={`${this.props.match.path}/`}
@@ -39,6 +29,15 @@ class Challenges extends Component {
               onSetAppState={this.onSetAppState}
             />
           )}
+        />
+        <p>valor: {this.state.slider}</p>
+        <input
+          type="range"
+          min="40"
+          max="120"
+          step={1}
+          value={this.state.slider}
+          onChange={this.onSliderChange}
         />
       </div>
     );
