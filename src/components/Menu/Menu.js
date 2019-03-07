@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
 
+import * as actions from "../../store/actions";
+
 import { withStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
@@ -30,7 +32,7 @@ class Menu extends Component {
   };
 
   componentDidMount() {
-    console.log("[componentDidMount]");
+    this.props.onClearMenuItems();
   }
 
   render() {
@@ -46,11 +48,11 @@ class Menu extends Component {
       >
         <div className={this.state.classes.toolbar} />
         <List>
-          {this.props.menu.map(item => (
+          {this.props.menu ? this.props.menu.map(item => (
             <ListItem button key={item.text}>
               <ListItemText primary={item.text} />
             </ListItem>
-          ))}
+          )) : null}
         </List>
         <Divider />
         <List>
@@ -71,4 +73,10 @@ const mapStateToProps = state => {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(withStyles(styles)(Menu)));
+const mapDispatchToProps = dispatch => {
+  return {
+    onClearMenuItems: () => dispatch(actions.clearMenuItems())
+  }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Menu)));
