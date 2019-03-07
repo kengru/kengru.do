@@ -8,6 +8,9 @@ A list of the things I have to do in the different main containers and applicati
 - [ ] Buy the domain I want.
 - [ ] Create the database structure on firebase.
 - [ ] Making the routing to be full width and height.
+- [ ] Document at least a function.
+- [ ] Document at least 50%.
+- [ ] Document EVERYTHING.
 - [ ] TEST ANYTHING.
 - [ ] Test practically everything.
 
