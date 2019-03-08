@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { fetchMenuAsync, setPathProp } from "../../store/actions/menu";
@@ -19,18 +19,21 @@ class Bio extends Component {
     return (
       <div className="Bio">
         <div className="Info">
-          <Route
-            path={`${this.props.match.path}/info`}
-            component={PersonalInfo}
-          />
-          <Route
-            path={`${this.props.match.path}/work`}
-            component={WorkExperience}
-          />
-          <Route
-            path={`${this.props.match.path}/education`}
-            component={Education}
-          />
+          <Switch>
+            <Route
+              exact
+              path={`${this.props.match.path}/`}
+              component={PersonalInfo}
+            />
+            <Route
+              path={`${this.props.match.path}/work`}
+              component={WorkExperience}
+            />
+            <Route
+              path={`${this.props.match.path}/education`}
+              component={Education}
+            />
+          </Switch>
         </div>
       </div>
     );
