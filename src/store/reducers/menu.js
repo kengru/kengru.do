@@ -1,7 +1,8 @@
 import * as type from "../actions/aTypes";
 
 const initialState = {
-  menuItems: []
+  menuItems: [],
+  path: ""
 };
 
 const reducer = (state = initialState, action) => {
@@ -16,6 +17,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         menuItems: action.items
       };
+    case type.SET_PATH_PROP:
+      return {
+        ...state,
+        path: action.path
+      }
     default:
       break;
   }

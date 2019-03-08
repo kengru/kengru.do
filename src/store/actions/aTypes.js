@@ -1,2 +1,3 @@
 export const FETCH_MENU_SUCCESS = "FETCH_MENU_SUCCESS";
 export const CLEAR_MENU_ITEMS = "CLEAR_MENU_ITEMS";
+export const SET_PATH_PROP = "SET_PATH_PROP";

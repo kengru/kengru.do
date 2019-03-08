@@ -1,1 +1,1 @@
-export { clearMenuItems,  fetchMenuAsync } from "./menu";
+export { clearMenuItems,  fetchMenuAsync, setPathProp } from "./menu";

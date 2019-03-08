@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
+import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
 import * as actions from "../../store/actions";
@@ -49,19 +50,14 @@ class Menu extends Component {
         <div className={this.state.classes.toolbar} />
         <List>
           {this.props.menu ? this.props.menu.map(item => (
-            <ListItem button key={item.text}>
-              <ListItemText primary={item.text} />
-            </ListItem>
-          )) : null}
+            <NavLink to={`/${this.props.path}${item.link}`} key={item.text}>
+              <ListItem button>
+                <ListItemText primary={item.text} />
+              </ListItem>
+            </NavLink>
+          ))  : null}
         </List>
         <Divider />
-        <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
       </Drawer>
     );
   }
@@ -69,7 +65,8 @@ class Menu extends Component {
 
 const mapStateToProps = state => {
   return {
-    menu: state.menuItems
+    menu: state.menuItems,
+    path: state.path
   }
 }
 

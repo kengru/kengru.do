@@ -1,7 +1,7 @@
 import * as types from "./aTypes";
 import axios from "../../axiosInstance/axiosInstance";
 
-export const fetchMenuSuccess = (menuData) => {
+export const fetchMenuSuccess = menuData => {
   return {
     type: types.FETCH_MENU_SUCCESS,
     items: menuData
@@ -14,7 +14,14 @@ export const clearMenuItems = () => {
   };
 };
 
-export const fetchMenuAsync = (menu) => {
+export const setPathProp = path => {
+  return {
+    type: types.SET_PATH_PROP,
+    path: path
+  };
+};
+
+export const fetchMenuAsync = menu => {
   const request = `/menu/${menu}.json`;
   return dispatch => {
     axios
@@ -22,7 +29,6 @@ export const fetchMenuAsync = (menu) => {
       .then(response => {
         dispatch(fetchMenuSuccess(response.data));
       })
-      .catch(error => {
-      });
+      .catch(error => {});
   };
 };
