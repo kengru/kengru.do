@@ -19,7 +19,11 @@ class Challenges extends Component {
   componentDidMount() {
     this.props.onFetchMenu();
     this.props.onSetPath();
-    this.props.onSetChallenges();
+    this.props.onSetChallenges(true);
+  }
+
+  componentWillUnmount() {
+    this.props.onSetChallenges(false);
   }
 
   onSetAppState = (newState, cb) => this.setState(newState, cb);
@@ -59,7 +63,7 @@ const mapDispatchToProps = dispatch => {
   return {
     onFetchMenu: () => dispatch(fetchMenuAsync("challenges")),
     onSetPath: () => dispatch(setPathProp("challenges")),
-    onSetChallenges: () => dispatch(setChallengesMenu(true))
+    onSetChallenges: (value) => dispatch(setChallengesMenu(value))
   }
 }
 
