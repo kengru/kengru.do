@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { fetchMenuAsync, setPathProp } from "../../store/actions/menu";
+import { fetchMenuAsync, setPathProp, setChallengesMenu } from "../../store/actions/menu";
 import P5Wrapper from "../../components/P5Wrapper/P5Wrapper";
 
 import "./Challenges.css";
@@ -19,6 +19,7 @@ class Challenges extends Component {
   componentDidMount() {
     this.props.onFetchMenu();
     this.props.onSetPath();
+    this.props.onSetChallenges();
   }
 
   onSetAppState = (newState, cb) => this.setState(newState, cb);
@@ -57,7 +58,8 @@ class Challenges extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     onFetchMenu: () => dispatch(fetchMenuAsync("challenges")),
-    onSetPath: () => dispatch(setPathProp("challenges"))
+    onSetPath: () => dispatch(setPathProp("challenges")),
+    onSetChallenges: () => dispatch(setChallengesMenu(true))
   }
 }
 

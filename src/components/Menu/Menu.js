@@ -37,7 +37,9 @@ class Menu extends Component {
   }
 
   render() {
-    console.log(this.props);
+    // let inChallengesMenu = (
+
+    // )
 
     return (
       <Drawer
@@ -49,7 +51,7 @@ class Menu extends Component {
       >
         <div className={this.state.classes.toolbar} />
         <List>
-          {this.props.menu ? this.props.menu.map(item => (
+          {this.props.menu && !this.props.inChallenges ? this.props.menu.map(item => (
             <NavLink to={`/${this.props.path}${item.link}`} key={item.text}>
               <ListItem button>
                 <ListItemText primary={item.text} />
@@ -57,6 +59,7 @@ class Menu extends Component {
             </NavLink>
           ))  : null}
         </List>
+        {this.props.inChallenges ? <p>en challenges</p> : null}
         <Divider />
       </Drawer>
     );
@@ -66,7 +69,8 @@ class Menu extends Component {
 const mapStateToProps = state => {
   return {
     menu: state.menuItems,
-    path: state.path
+    path: state.path,
+    inChallenges: state.inChallenges
   }
 }
 

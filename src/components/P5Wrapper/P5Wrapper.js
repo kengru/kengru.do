@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 // import sketch1 from "./sketchs/challenge1";
 import sketch2 from "./sketchs/challenge2";
 
-export default class P5Wrapper extends Component {
+class P5Wrapper extends Component {
   static propTypes = {
     p5Props: PropTypes.object.isRequired,
     onSetAppState: PropTypes.func.isRequired
@@ -36,3 +36,5 @@ export default class P5Wrapper extends Component {
     );
   }
 }
+
+export default P5Wrapper;

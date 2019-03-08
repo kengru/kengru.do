@@ -21,6 +21,13 @@ export const setPathProp = path => {
   };
 };
 
+export const setChallengesMenu = value => {
+  return {
+    type: types.SET_IN_CHALLENGES,
+    challenges: value
+  };
+};
+
 export const fetchMenuAsync = menu => {
   const request = `/menu/${menu}.json`;
   return dispatch => {

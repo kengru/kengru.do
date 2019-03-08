@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 import { withStyles } from "@material-ui/core/styles";
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -36,6 +36,7 @@ class App extends Component {
             <Route path="/projects" component={Bio} />
             <Route path="/nature" component={Bio} />
             <Route path="/challenges" component={Challenges} />
+            <Redirect to="/bio" from="/"/>
           </Switch>
         </main>
       </div>
