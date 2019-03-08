@@ -2,8 +2,7 @@ import * as type from "../actions/aTypes";
 
 const initialState = {
   menuItems: [],
-  path: "",
-  inChallenges: false
+  path: ""
 };
 
 const reducer = (state = initialState, action) => {
@@ -22,12 +21,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         path: action.path
-      };
-    case type.SET_IN_CHALLENGES:
-      return {
-        ...state,
-        inChallenges: action.challenges
-      };
+      }
     default:
       break;
   }

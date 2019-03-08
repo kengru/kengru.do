@@ -10,15 +10,10 @@ import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import Typography from "@material-ui/core/Typography";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-
+import Divider from "@material-ui/core/Divider";
 import "./Menu.css";
 
-const drawerWidth = 300;
+const drawerWidth = 260;
 
 const styles = theme => ({
   drawer: {
@@ -29,96 +24,40 @@ const styles = theme => ({
   drawerPaper: {
     width: drawerWidth
   },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    flexBasis: "33.33%",
-    flexShrink: 0
-  },
-  secondaryHeading: {
-    fontSize: theme.typography.pxToRem(15),
-    color: theme.palette.text.secondary
-  },
   toolbar: theme.mixins.toolbar
 });
 
 class Menu extends Component {
   state = {
-    expanded: null
+    classes: this.props.classes
   };
 
   componentDidMount() {
-    if (this.props.location) {
-      this.props.onFetchMenu(this.props.location.pathname.slice(1));
-    } else {
-      this.props.onFetchMenu("bio");
-    }
+    this.props.onClearMenuItems();
   }
 
-  handleChange = panel => (event, expanded) => {
-    this.setState({
-      expanded: expanded ? panel : false
-    });
-  };
-
   render() {
-    const { classes } = this.props;
-    const { expanded } = this.state;
-
-    let inChallengesMenu = (
-      <List>
-        {this.props.inChallenges &&
-        this.props.menu[this.props.location.pathname]
-          ? this.props.menu.map(item => (
-              <ExpansionPanel
-                expanded={expanded === `panel${item.order}`}
-                onChange={this.handleChange(`panel${item.order}`)}
-                key={item.order}
-              >
-                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                  <Typography className={classes.heading}>
-                    {item.text}
-                  </Typography>
-                </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
-                  {console.log(item)}
-                  {item.controls.map(control => (
-                    <div key={control.name}>
-                      <label>{control.name}</label>
-                      <input
-                        type={control.type}
-                        min={control.min}
-                        max={control.max}
-                      />
-                    </div>
-                  ))}
-                </ExpansionPanelDetails>
-              </ExpansionPanel>
-            ))
-          : null}
-      </List>
-    );
+    console.log(this.props);
 
     return (
       <Drawer
-        className={classes.drawer}
+        className={this.state.classes.drawer}
         variant="permanent"
         classes={{
-          paper: classes.drawerPaper
+          paper: this.state.classes.drawerPaper
         }}
       >
-        <div className={classes.toolbar} />
+        <div className={this.state.classes.toolbar} />
         <List>
-          {this.props.menu && !this.props.inChallenges
-            ? this.props.menu.map(item => (
-                <NavLink to={`/${this.props.path}${item.link}`} key={item.text}>
-                  <ListItem button>
-                    <ListItemText primary={item.text} />
-                  </ListItem>
-                </NavLink>
-              ))
-            : null}
+          {this.props.menu ? this.props.menu.map(item => (
+            <NavLink to={`/${this.props.path}${item.link}`} key={item.text}>
+              <ListItem button>
+                <ListItemText primary={item.text} />
+              </ListItem>
+            </NavLink>
+          ))  : null}
         </List>
-        {this.props.inChallenges ? inChallengesMenu : null}
+        <Divider />
       </Drawer>
     );
   }
@@ -127,21 +66,14 @@ class Menu extends Component {
 const mapStateToProps = state => {
   return {
     menu: state.menuItems,
-    path: state.path,
-    inChallenges: state.inChallenges
-  };
-};
+    path: state.path
+  }
+}
 
 const mapDispatchToProps = dispatch => {
   return {
-    onClearMenuItems: () => dispatch(actions.clearMenuItems()),
-    onFetchMenu: value => dispatch(actions.fetchMenuAsync(value))
-  };
-};
+    onClearMenuItems: () => dispatch(actions.clearMenuItems())
+  }
+}
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(withStyles(styles)(Menu))
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Menu)));
