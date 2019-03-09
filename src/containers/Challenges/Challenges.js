@@ -32,7 +32,7 @@ class Challenges extends Component {
       <div className="Challenges">
         <Route
           exact
-          path={`${this.props.match.path}/`}
+          path={`${this.props.match.path}/:id`}
           render={() => (
             <P5Wrapper
               p5Props={{ slider: this.state.slider }}

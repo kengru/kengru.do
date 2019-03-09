@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router";
+
 import PropTypes from "prop-types";
 
-// import sketch1 from "./sketchs/challenge1";
-import sketch2 from "./sketchs/challenge2";
+import sketches from "./sketches";
 
 class P5Wrapper extends Component {
   static propTypes = {
@@ -11,9 +12,10 @@ class P5Wrapper extends Component {
   };
 
   componentDidMount() {
-    this.canvas1 = new window.p5(sketch2, "canvas1-container");
+    this.canvas1 = new window.p5(sketches[this.props.match.params.id - 1], "canvas1-container");
     this.canvas1.props = this.props.p5Props;
     this.canvas1.onSetAppState = this.props.onSetAppState;
+    console.log(this.props);
   }
 
   shouldComponentUpdate(nextProps) {
@@ -37,4 +39,4 @@ class P5Wrapper extends Component {
   }
 }
 
-export default P5Wrapper;
+export default withRouter(P5Wrapper);
