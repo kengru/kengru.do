@@ -5,11 +5,13 @@ import PropTypes from "prop-types";
 
 import * as actions from "../../store/actions";
 import sketches from "./sketches";
+import Input from "../UI/Input/Input";
 
 class P5Wrapper extends Component {
   state = {
     title: "",
-    description: ""
+    description: "",
+    controls: []
   };
 
   static propTypes = {
@@ -39,6 +41,20 @@ class P5Wrapper extends Component {
   }
 
   render() {
+    let sketchConfig = null;
+    
+    if (this.props.sketch.controls) {
+      sketchConfig = this.props.sketch.controls.map(control => (
+        <Input
+          key={control.name}
+          type={control.type}
+          label={control.name}
+          value={control.value}
+          elementConfig={control.config}
+          changed={event => this.inputChanged(event)}
+        />
+      ));
+    }
     return (
       <>
         <h2>{this.props.sketch.title}</h2>
@@ -47,6 +63,7 @@ class P5Wrapper extends Component {
           id="canvas1-container"
           style={{ width: "100%", textAlign: "center" }}
         />
+        {sketchConfig}
       </>
     );
   }
