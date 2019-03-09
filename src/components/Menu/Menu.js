@@ -47,13 +47,15 @@ class Menu extends Component {
       >
         <div className={this.state.classes.toolbar} />
         <List>
-          {this.props.menu ? this.props.menu.map(item => (
-            <NavLink to={`/${this.props.path}${item.link}`} key={item.text}>
-              <ListItem button>
-                <ListItemText primary={item.text} />
-              </ListItem>
-            </NavLink>
-          ))  : null}
+          {this.props.menu
+            ? this.props.menu.map(item => (
+                <NavLink to={`/${this.props.path}${item.link}`} key={item.text}>
+                  <ListItem button>
+                    <ListItemText primary={item.text} />
+                  </ListItem>
+                </NavLink>
+              ))
+            : null}
         </List>
         <Divider />
       </Drawer>
@@ -65,13 +67,18 @@ const mapStateToProps = state => {
   return {
     menu: state.menu.menuItems,
     path: state.menu.path
-  }
-}
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
     onClearMenuItems: () => dispatch(actions.clearMenuItems())
-  }
-}
+  };
+};
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Menu)));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(withStyles(styles)(Menu))
+);

@@ -21,7 +21,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         path: action.path
-      }
+      };
     default:
       break;
   }

@@ -10,11 +10,11 @@ class P5Wrapper extends Component {
   state = {
     title: "",
     description: ""
-  }
+  };
 
   static propTypes = {
     p5Props: PropTypes.object.isRequired,
-    onSetAppState: PropTypes.func.isRequired,
+    onSetAppState: PropTypes.func.isRequired
   };
 
   componentDidMount() {
@@ -27,11 +27,6 @@ class P5Wrapper extends Component {
     this.props.onFetchSketch(this.props.match.params.id);
     this.canvas1.props = this.props.p5Props;
     this.canvas1.onSetAppState = this.props.onSetAppState;
-    console.log(this.props);
-  }
-
-  componentDidUpdate() {
-    console.log("[p5wrapper comp did update]")
   }
 
   shouldComponentUpdate(nextProps) {
@@ -60,13 +55,16 @@ class P5Wrapper extends Component {
 const mapStateToProps = state => {
   return {
     sketch: state.challenges.sketch
-  }
-}
+  };
+};
 
 const mapDispatchToState = dispatch => {
   return {
-    onFetchSketch: (id) => dispatch(actions.fetchSketchAsync(id))
-  }
-}
+    onFetchSketch: id => dispatch(actions.fetchSketchAsync(id))
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToState)(withRouter(P5Wrapper));
+export default connect(
+  mapStateToProps,
+  mapDispatchToState
+)(withRouter(P5Wrapper));

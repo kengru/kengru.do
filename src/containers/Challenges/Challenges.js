@@ -43,7 +43,7 @@ class Challenges extends Component {
               />
             )}
           />
-          <Redirect exact from="/challenges" to="/challenges/1"/>
+          <Redirect exact from="/challenges" to="/challenges/1" />
         </Switch>
         {/* <p>valor: {this.state.slider}</p>
         <input
@@ -63,8 +63,11 @@ const mapDispatchToProps = dispatch => {
   return {
     onFetchMenu: () => dispatch(actions.fetchMenuAsync("challenges")),
     onSetPath: () => dispatch(actions.setPathProp("challenges")),
-    onFetchSketch: (id) => dispatch(actions.fetchSketchAsync(id))
-  }
-}
+    onFetchSketch: id => dispatch(actions.fetchSketchAsync(id))
+  };
+};
 
-export default connect(null, mapDispatchToProps)(Challenges);
+export default connect(
+  null,
+  mapDispatchToProps
+)(Challenges);

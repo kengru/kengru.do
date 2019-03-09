@@ -1,11 +1,13 @@
 export default function(s) {
   s.props = {};
   s.onSetAppState = () => {};
+  let x;
 
   s.setup = function() {
     s.createCanvas(900, 300);
     console.log("::: displayDensity:", s.displayDensity());
     console.log("::: pixelDensity:", s.pixelDensity());
+    x = 10;
   };
 
   s.draw = function() {
@@ -19,6 +21,11 @@ export default function(s) {
     s.stroke(127, 255, 205);
     const alpha = s.map(s.props.slider, 5, 290, 255, 0);
     s.fill(127, 255, 205, alpha);
-    s.ellipse(s.width / 2, s.height / 2, s.props.slider);
+    if (x <= 100) {
+      x = x + 10;
+    } else {
+      x = x - 10;
+    }
+    s.ellipse(s.width / 2, s.height / 2, x);
   };
 }

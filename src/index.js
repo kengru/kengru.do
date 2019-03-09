@@ -16,14 +16,11 @@ import "./index.css";
 const reducers = combineReducers({
   menu: menuReducer,
   challenges: challengesReducer
-})
+});
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(
-  reducers,
-  composeEnhancers(applyMiddleware(thunk))
-);
+const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
 
 const app = (
   <Provider store={store}>
