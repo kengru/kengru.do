@@ -37,8 +37,6 @@ class Menu extends Component {
   }
 
   render() {
-    console.log(this.props);
-
     return (
       <Drawer
         className={this.state.classes.drawer}
@@ -65,8 +63,8 @@ class Menu extends Component {
 
 const mapStateToProps = state => {
   return {
-    menu: state.menuItems,
-    path: state.path
+    menu: state.menu.menuItems,
+    path: state.menu.path
   }
 }
 

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, Redirect, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { fetchMenuAsync, setPathProp } from "../../store/actions/menu";
+import * as actions from "../../store/actions";
 import P5Wrapper from "../../components/P5Wrapper/P5Wrapper";
 
 import "./Challenges.css";
@@ -19,6 +19,7 @@ class Challenges extends Component {
   componentDidMount() {
     this.props.onFetchMenu();
     this.props.onSetPath();
+    console.log("[challenges comp did mount]");
   }
 
   onSetAppState = (newState, cb) => this.setState(newState, cb);
@@ -30,16 +31,20 @@ class Challenges extends Component {
   render() {
     return (
       <div className="Challenges">
-        <Route
-          exact
-          path={`${this.props.match.path}/:id`}
-          render={() => (
-            <P5Wrapper
-              p5Props={{ slider: this.state.slider }}
-              onSetAppState={this.onSetAppState}
-            />
-          )}
-        />
+        <Switch>
+          <Route
+            exact
+            key={window.location.href}
+            path={`${this.props.match.path}/:id`}
+            render={() => (
+              <P5Wrapper
+                p5Props={{ slider: this.state.slider }}
+                onSetAppState={this.onSetAppState}
+              />
+            )}
+          />
+          <Redirect exact from="/challenges" to="/challenges/1"/>
+        </Switch>
         {/* <p>valor: {this.state.slider}</p>
         <input
           type="range"
@@ -56,8 +61,9 @@ class Challenges extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFetchMenu: () => dispatch(fetchMenuAsync("challenges")),
-    onSetPath: () => dispatch(setPathProp("challenges"))
+    onFetchMenu: () => dispatch(actions.fetchMenuAsync("challenges")),
+    onSetPath: () => dispatch(actions.setPathProp("challenges")),
+    onFetchSketch: (id) => dispatch(actions.fetchSketchAsync(id))
   }
 }
 
