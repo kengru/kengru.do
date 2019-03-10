@@ -21,7 +21,6 @@ class Challenges extends Component {
   componentDidMount() {
     this.props.onFetchMenu();
     this.props.onSetPath();
-    console.log("[challenges comp did mount]");
   }
 
   shouldComponentUpdate(nextProps) {
@@ -29,7 +28,8 @@ class Challenges extends Component {
     if (this.state.controls && nextProps.sketch.controls) {
       shouldUpdate = _.difference(
         Object.keys(this.state.controls),
-        Object.keys(nextProps.sketch.controls))
+        Object.keys(nextProps.sketch.controls)
+      );
     }
     return shouldUpdate;
   }
@@ -56,8 +56,8 @@ class Challenges extends Component {
 
   render() {
     let sketchConfig = null;
-
     const formElementsArray = [];
+
     if (this.state.controls) {
       for (let key in this.state.controls) {
         formElementsArray.push({
@@ -76,9 +76,11 @@ class Challenges extends Component {
         />
       ));
     }
+
     return (
       <div className="Challenges">
         <Switch>
+          <Redirect exact from="/challenges" to="/challenges/1" />
           <Route
             exact
             key={window.location.href}
@@ -90,19 +92,8 @@ class Challenges extends Component {
               />
             )}
           />
-          <Redirect exact from="/challenges" to="/challenges/1" />
         </Switch>
         {sketchConfig}
-        {/* <p>valor: {this.state.slider}</p>
-        <input
-          type="range"
-          min="40"
-          max="120"
-          step={1}
-          value={this.state.slider}
-          onChange={this.onSliderChange}
-        />
-         */}
       </div>
     );
   }
