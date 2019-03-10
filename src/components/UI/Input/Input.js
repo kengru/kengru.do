@@ -7,7 +7,7 @@ const input = props => {
     case "range":
       inputElement = (
         <input
-          {...props.elementConfig}
+          {...props.config}
           type={props.type}
           value={props.value}
           onChange={props.changed}

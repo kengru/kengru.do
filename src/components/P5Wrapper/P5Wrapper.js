@@ -33,24 +33,42 @@ class P5Wrapper extends Component {
 
   shouldComponentUpdate(nextProps) {
     this.canvas1.props = nextProps.p5Props;
-    return this.props.sketch !== nextProps.sketch;
+    const shouldUpdate = this.props.sketch.controls !== nextProps.sketch.controls
+    
+    return shouldUpdate;
+  }
+
+  componentDidUpdate () {
+    
+    this.setState({ controls: this.props.sketch.controls });
   }
 
   componentWillUnmount() {
     this.canvas1.remove();
   }
 
+  onSliderChange = event => {
+    this.setState({ slider: +event.target.value });
+  };
+
   render() {
     let sketchConfig = null;
-    
-    if (this.props.sketch.controls) {
-      sketchConfig = this.props.sketch.controls.map(control => (
+
+    const formElementsArray = [];
+    if (this.state.controls) {
+      for (let key in this.state.controls) {
+        formElementsArray.push({
+          id: key,
+          config: this.state.controls[key]
+        });
+      }
+      sketchConfig = formElementsArray.map(control => (
         <Input
-          key={control.name}
-          type={control.type}
-          label={control.name}
-          value={control.value}
-          elementConfig={control.config}
+          key={control.id}
+          type={control.config.type}
+          label={control.config.label}
+          value={control.config.value}
+          config={control.config.config}
           changed={event => this.inputChanged(event)}
         />
       ));

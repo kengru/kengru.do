@@ -10,6 +10,7 @@ A list of the things I have to do in the different main containers and applicati
 - [ ] Making the routing to be full width and height.
 - [ ] Make it a little bit mobile friendly.
 - [ ] App is now responsive.
+- [ ] Install Lodash to increase efficiency.
 - [ ] Document at least a function.
 - [ ] Document at least 50%.
 - [ ] Document EVERYTHING.
@@ -34,8 +35,8 @@ A list of the things I have to do in the different main containers and applicati
 
 ## Challenges
 
- - [ ] Create the structure for the controllers of the sketches.
- - [ ] Create the side menu with expansion panels for descriptions.
+ - [x] Create the structure for the controllers of the sketches.
+ - [x] Create the side menu with expansion panels for descriptions.
  - [ ] Add transitions to the component.
 
 ## Hub
