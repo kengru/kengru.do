@@ -19,6 +19,7 @@ class P5Wrapper extends Component {
   };
 
   componentDidMount() {
+    console.log("[P5Wrapper component did mount.]", this.props);
     this.canvas1 = new window.p5(
       sketches[this.props.match.params.id - 1],
       "canvas1-container"
@@ -66,7 +67,7 @@ const mapDispatchToState = dispatch => {
   };
 };
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToState
-)(withRouter(P5Wrapper));
+)(P5Wrapper));

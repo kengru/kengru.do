@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Route, Redirect, Switch } from "react-router-dom";
+import { withRouter } from "react-router";
+import { Route} from "react-router-dom";
 import { connect } from "react-redux";
 import _ from "lodash";
 
@@ -79,20 +80,19 @@ class Challenges extends Component {
 
     return (
       <div className="Challenges">
-        <Switch>
-          <Redirect exact from="/challenges" to="/challenges/1" />
-          <Route
-            exact
-            key={window.location.href}
-            path={`${this.props.match.path}/:id`}
-            render={() => (
-              <P5Wrapper
-                p5Props={{ controls: this.state.controls }}
-                onSetAppState={this.onSetAppState}
-              />
-            )}
-          />
-        </Switch>
+        {console.log("challenges render", this.props.match.path)}
+        <Route
+          exact
+          key={window.location.href}
+          path={`${this.props.match.path}/:id`}
+          render={() => (
+            <P5Wrapper
+              p5Props={{ controls: this.state.controls }}
+              onSetAppState={this.onSetAppState}
+            />
+          )}
+        />
+        {/* <Redirect exact from="/challenges" to="/challenges/1" /> */}
         {sketchConfig}
       </div>
     );
@@ -108,12 +108,11 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onFetchMenu: () => dispatch(actions.fetchMenuAsync("challenges")),
-    onSetPath: () => dispatch(actions.setPathProp("challenges")),
-    onFetchSketch: id => dispatch(actions.fetchSketchAsync(id))
+    onSetPath: () => dispatch(actions.setPathProp("challenges"))
   };
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Challenges);
+)(withRouter(Challenges));
