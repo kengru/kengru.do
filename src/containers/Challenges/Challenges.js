@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
-import { Route} from "react-router-dom";
+import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 import _ from "lodash";
 
@@ -22,6 +22,8 @@ class Challenges extends Component {
   componentDidMount() {
     this.props.onFetchMenu();
     this.props.onSetPath();
+    console.log("[Component did mount]", this.props);
+    this.props.onFetchSketch(1);
   }
 
   shouldComponentUpdate(nextProps) {
@@ -80,7 +82,6 @@ class Challenges extends Component {
 
     return (
       <div className="Challenges">
-        {console.log("challenges render", this.props.match.path)}
         <Route
           exact
           key={window.location.href}
@@ -101,14 +102,16 @@ class Challenges extends Component {
 
 const mapStateToProps = state => {
   return {
-    sketch: state.challenges.sketch
+    sketch: state.challenges.sketch,
+    path: state.menu.path
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     onFetchMenu: () => dispatch(actions.fetchMenuAsync("challenges")),
-    onSetPath: () => dispatch(actions.setPathProp("challenges"))
+    onSetPath: () => dispatch(actions.setPathProp("challenges")),
+    onFetchSketch: id => dispatch(actions.fetchSketchAsync(id))
   };
 };
 
