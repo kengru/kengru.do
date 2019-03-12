@@ -7,6 +7,7 @@ import Toolbar from "./components/Toolbar/Toolbar";
 import Menu from "./components/Menu/Menu";
 import Bio from "./containers/Bio/Bio";
 import Challenges from "./containers/Challenges/Challenges";
+import Projects from "./containers/Projects/Projects";
 
 import "./App.css";
 
@@ -33,7 +34,7 @@ class App extends Component {
           <div className={this.state.toolbar} />
           <Switch>
             <Route path="/bio" component={Bio} />
-            <Route path="/projects" component={Bio} />
+            <Route path="/projects" component={Projects} />
             <Route path="/nature" component={Bio} />
             <Route path="/challenges" component={Challenges} />
             <Redirect to="/bio" from="/" />

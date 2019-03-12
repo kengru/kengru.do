@@ -9,13 +9,15 @@ import App from "./App";
 
 import menuReducer from "./store/reducers/menu";
 import challengesReducer from "./store/reducers/challenges";
+import projectsReducer from "./store/reducers/projects";
 
 import "typeface-raleway";
 import "./index.css";
 
 const reducers = combineReducers({
   menu: menuReducer,
-  challenges: challengesReducer
+  challenges: challengesReducer,
+  projects: projectsReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
