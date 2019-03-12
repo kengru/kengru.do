@@ -22,7 +22,6 @@ class Challenges extends Component {
   componentDidMount() {
     this.props.onFetchMenu();
     this.props.onSetPath();
-    console.log("[Component did mount]", this.props);
     this.props.onFetchSketch(1);
   }
 
