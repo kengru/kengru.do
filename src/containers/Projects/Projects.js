@@ -11,13 +11,15 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
 import * as actions from "../../store/actions";
+import "./Projects.css";
 
 const styles = {
   card: {
-    maxWidth: 345
+    maxWidth: 345,
+    margin: 20
   },
   media: {
-    height: 140
+    height: 200
   }
 };
 
@@ -36,7 +38,7 @@ class Projects extends Component {
     let cards = null;
     if (this.props.projects) {
       cards = this.props.projects.map(project => 
-        <Card className={this.state.classes.card}>
+        <Card className={this.state.classes.card} key={project.name}>
           <CardActionArea>
             <CardMedia
               className={this.state.classes.media}
@@ -53,15 +55,15 @@ class Projects extends Component {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size="small" color="primary">
-              Learn More
+            <Button size="small" color="secondary">
+              <a href={project.vc}>Code</a>
             </Button>
           </CardActions>
         </Card>
       );
     }
     return (
-      <div>
+      <div className="Projects">
         {cards}
       </div>
     );
