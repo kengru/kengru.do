@@ -1,4 +1,5 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -15,20 +16,34 @@ const styles = {
   }
 };
 
-const navItems = props => {
-  const { classes } = props;
-  return (
-    <>
-      <Typography component="h3" variant="headline" className={classes.grow}>
-        {props.title}
-      </Typography>
-      <NavItem linkTo="/bio" linkName="Bio" />
-      <NavItem linkTo="/projects" linkName="Projects" />
-      <NavItem linkTo="/nature" linkName="Nature" />
-      <NavItem linkTo="/challenges" linkName="Challenges" />
-      <NavItem linkTo="/hub" linkName="Hub" />
-    </>
-  );
+class NavItems extends Component {
+  state = {
+    classes: this.props.classes
+  };
+  render() {
+    return (
+      <>
+        <Typography
+          component="h3"
+          variant="headline"
+          className={this.state.classes.grow}
+        >
+          {this.props.title.charAt(0).toUpperCase() + this.props.title.slice(1)}
+        </Typography>
+        <NavItem linkTo="/bio" linkName="Bio" />
+        <NavItem linkTo="/projects" linkName="Projects" />
+        <NavItem linkTo="/nature" linkName="Nature" />
+        <NavItem linkTo="/challenges" linkName="Challenges" />
+        <NavItem linkTo="/hub" linkName="Hub" />
+      </>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    title: state.menu.path
+  };
 };
 
-export default withStyles(styles)(navItems);
+export default connect(mapStateToProps)(withStyles(styles)(NavItems));
