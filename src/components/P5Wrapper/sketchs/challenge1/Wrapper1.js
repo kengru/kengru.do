@@ -3,14 +3,18 @@ import { withRouter } from "react-router";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import * as actions from "../../store/actions";
-import sketches from "./sketches";
+import * as actions from "../../../../store/actions";
+import sketches from "../../sketches";
 
 class P5Wrapper extends Component {
   state = {
     title: "",
     description: "",
-    controls: []
+    controls: {
+      size: {
+        value: 40
+      }
+    }
   };
 
   static propTypes = {
@@ -18,15 +22,17 @@ class P5Wrapper extends Component {
     onSetAppState: PropTypes.func.isRequired
   };
 
+  onSetAppState = (newState, cb) => this.setState(newState, cb);
+
   componentDidMount() {
-    console.log("[P5Wrapper component did mount.]", this.props);
     this.canvas1 = new window.p5(
-      sketches[this.props.match.params.id - 1],
+      sketches[0],
       "canvas1-container"
     );
-    this.props.onFetchSketch(this.props.match.params.id);
-    this.canvas1.props = this.props.p5Props;
-    this.canvas1.onSetAppState = this.props.onSetAppState;
+    this.props.onFetchSketch(1);
+    console.log("[comp did mount]", this.state.controls);
+    this.canvas1.props = this.state.controls;
+    this.canvas1.onSetAppState = this.onSetAppState;
   }
 
   shouldComponentUpdate(nextProps) {
@@ -44,6 +50,7 @@ class P5Wrapper extends Component {
   render() {
     return (
       <>
+        HEY WRAP1
         <h2>{this.props.sketch.title}</h2>
         <p>{this.props.sketch.description}</p>
         <div
