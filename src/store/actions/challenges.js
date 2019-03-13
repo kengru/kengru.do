@@ -10,11 +10,11 @@ export const fetchSingleSketch = sketch => {
 
 export const fetchSketchAsync = id => {
   const request = `/sketchs/${id}.json`;
+  console.log("[fetching sketch: ]", id);
   return dispatch => {
     axios
       .get(request)
       .then(response => {
-        console.log(response);
         dispatch(fetchSingleSketch(response.data));
       })
       .catch(error => {});

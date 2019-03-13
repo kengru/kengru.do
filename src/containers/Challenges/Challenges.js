@@ -32,7 +32,9 @@ class Challenges extends Component {
         Object.keys(this.state.controls),
         Object.keys(nextProps.sketch.controls)
       );
+      return shouldUpdate.length ? false : true
     }
+    
     return shouldUpdate;
   }
 
