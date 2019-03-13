@@ -6,7 +6,6 @@ class P5Container extends Component {
   render() {
     return (
       <div>
-        HEY
         {routes.map((route, i) => (
           <RouteWithSubs key={i} {...route} />
         ))}

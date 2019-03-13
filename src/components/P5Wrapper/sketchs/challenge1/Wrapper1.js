@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
 
 import * as actions from "../../../../store/actions";
 import sketches from "../../sketches";
+
+import Input from "../../../UI/Input/Input";
 
 class P5Wrapper extends Component {
   state = {
@@ -12,51 +13,75 @@ class P5Wrapper extends Component {
     description: "",
     controls: {
       size: {
+        config: {
+          max: 100,
+          min: 0,
+          step: 1
+        },
+        type: "range",
+        label: "Size",
         value: 40
       }
     }
   };
 
-  static propTypes = {
-    p5Props: PropTypes.object.isRequired,
-    onSetAppState: PropTypes.func.isRequired
+  inputChangedHandler = (event, inputId) => {
+    const updatedControlElement = {
+      ...this.state.controls[inputId],
+      value: +event.target.value
+    };
+    const updatedControls = {
+      ...this.state.controls,
+      [inputId]: updatedControlElement
+    };
+    this.setState({ controls: updatedControls });
   };
 
   onSetAppState = (newState, cb) => this.setState(newState, cb);
 
   componentDidMount() {
-    this.canvas1 = new window.p5(
-      sketches[0],
-      "canvas1-container"
-    );
+    this.canvas1 = new window.p5(sketches[0], "canvas1-container");
     this.props.onFetchSketch(1);
-    console.log("[comp did mount]", this.state.controls);
     this.canvas1.props = this.state.controls;
     this.canvas1.onSetAppState = this.onSetAppState;
   }
 
-  shouldComponentUpdate(nextProps) {
-    this.canvas1.props = nextProps.p5Props;
-    return this.props.sketch.controls !== nextProps.sketch.controls;
-  }
-
-  componentDidUpdate () {
-    this.setState({ controls: this.props.sketch.controls });
+  componentDidUpdate() {
+    this.canvas1.props = this.state.controls;
   }
 
   componentWillUnmount() {
     this.canvas1.remove();
   }
+
   render() {
+    const formElementsArray = [];
+    for (let key in this.state.controls) {
+      formElementsArray.push({
+        id: key,
+        config: this.state.controls[key]
+      });
+    }
+    const sketchConfig = formElementsArray.map(control => (
+      <Input
+        key={control.id}
+        type={control.config.type}
+        label={control.config.label}
+        value={control.config.value}
+        config={control.config.config}
+        changed={event => this.inputChangedHandler(event, control.id)}
+      />
+    ));
+
     return (
       <>
-        HEY WRAP1
         <h2>{this.props.sketch.title}</h2>
         <p>{this.props.sketch.description}</p>
         <div
           id="canvas1-container"
           style={{ width: "100%", textAlign: "center" }}
         />
+        {sketchConfig}
       </>
     );
   }
@@ -74,7 +99,9 @@ const mapDispatchToState = dispatch => {
   };
 };
 
-export default withRouter(connect(
-  mapStateToProps,
-  mapDispatchToState
-)(P5Wrapper));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToState
+  )(P5Wrapper)
+);
