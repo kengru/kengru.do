@@ -1,13 +1,18 @@
+/*
+  Description:
+    The starting point component, holds the Menu, Toolbar and the different containers.
+*/
+
 import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 import { withStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Toolbar from "./components/Toolbar/Toolbar";
-import Menu from "./components/Menu/Menu";
-import Bio from "./containers/Bio/Bio";
-import Challenges from "./containers/Challenges/Challenges";
-import Projects from "./containers/Projects/Projects";
+import Toolbar from "../../components/Toolbar/Toolbar";
+import Menu from "../../components/Menu/Menu";
+import Bio from "../Bio/Bio";
+import Challenges from "../Challenges/Challenges";
+import Projects from "../Projects/Projects";
 
 import "./App.css";
 

@@ -5,7 +5,7 @@ import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import * as serviceWorker from "./serviceWorker";
-import App from "./App";
+import App from "./containers/App/App";
 
 import menuReducer from "./store/reducers/menu";
 import challengesReducer from "./store/reducers/challenges";

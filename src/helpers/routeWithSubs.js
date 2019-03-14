@@ -1,3 +1,10 @@
+/*
+  Description:
+    Generates routes with subroutes from a route config file.
+  Props:
+    route: route item with path, and other routes inside.
+*/
+
 import React from "react";
 import { Route } from "react-router-dom";
 
