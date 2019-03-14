@@ -1,3 +1,11 @@
+/*
+  Description:
+    Side menu, holds the routes to handle navigation between containers.
+  Props:
+    path: Path the user is on, used to retrieve the corresponding menu items.
+    menu: All the menu items with their routes.
+*/
+
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { NavLink } from "react-router-dom";

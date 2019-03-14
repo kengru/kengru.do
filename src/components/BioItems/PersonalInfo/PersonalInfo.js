@@ -1,3 +1,9 @@
+/*
+  Description:
+    Component for the presentation of my personal information.
+    Including name, residence, age, hobbies, interests, language skills.
+*/
+
 import React from "react";
 
 import Typography from "@material-ui/core/Typography";

@@ -1,3 +1,8 @@
+/*
+  Description:
+    Component for the presentation of the places I've worked. 
+*/
+
 import React from "react";
 
 import Typography from "@material-ui/core/Typography";

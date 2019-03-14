@@ -1,3 +1,11 @@
+/*
+  Description:
+    Content inside the toolbar.
+  Props:
+    title: holds the Toolbar title, depending on the container the user is on.
+      Data comes from Redux.
+*/
+
 import React, { Component } from "react";
 import { connect } from "react-redux";
 

@@ -1,3 +1,11 @@
+/*
+  Description:
+    Buttons that hold individual NavLinks. 
+  Props:
+    linkTo: refers to the route it leads.
+    linkName: the name of the section it links to.
+*/
+
 import React from "react";
 import { NavLink } from "react-router-dom";
 

@@ -1,3 +1,9 @@
+/*
+  Description:
+    Component for the presentation of the courses I've taken.
+    Including my highschool degree. 
+*/
+
 import React from "react";
 
 import Typography from "@material-ui/core/Typography";
