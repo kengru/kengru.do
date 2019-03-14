@@ -1,3 +1,7 @@
+/*
+  Updates the store state of the menu items.
+*/
+
 import * as type from "../actions/aTypes";
 
 const initialState = {

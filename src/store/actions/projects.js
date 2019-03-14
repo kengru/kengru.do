@@ -15,6 +15,7 @@ export const selectProject = project => {
   };
 };
 
+// Fetching the projects I've made asynchronously, thanks to thunk.
 export const fetchProjectsAsync = () => {
   const request = `/projects.json`;
   return dispatch => {

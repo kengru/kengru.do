@@ -8,6 +8,7 @@ export const fetchSingleSketch = sketch => {
   };
 };
 
+// Fetching the current sketch information asynchronously.
 export const fetchSketchAsync = id => {
   const request = `/sketchs/${id}.json`;
   return dispatch => {

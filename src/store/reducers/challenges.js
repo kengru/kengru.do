@@ -1,3 +1,7 @@
+/*
+  Updates the store state of the sketch presented in the screen at the moment.
+*/
+
 import * as types from "../actions/aTypes";
 
 const initialState = {

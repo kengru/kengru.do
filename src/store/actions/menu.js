@@ -21,6 +21,7 @@ export const setPathProp = path => {
   };
 };
 
+// Fetching the current menu items with their routes asynchronously.
 export const fetchMenuAsync = menu => {
   const request = `/menu/${menu}.json`;
   return dispatch => {
