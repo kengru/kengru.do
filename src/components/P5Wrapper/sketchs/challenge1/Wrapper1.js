@@ -1,3 +1,8 @@
+/* 
+  Description:
+    example wrapper for p5js, containing challenges.
+*/
+
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
