@@ -8,8 +8,9 @@
     onChange: function which changes the value of the input and 
       handles the state changes of the parent.
 */
-
 import React from "react";
+import Typography from "@material-ui/core/Typography";
+import "./Input.css";
 
 const input = props => {
   let inputElement = null;
@@ -30,10 +31,10 @@ const input = props => {
   }
 
   return (
-    <>
-      <label>{props.label}</label>
+    <div className="Control">
+      <Typography variant="subtitle1">{props.label}</Typography>
       {inputElement}
-    </>
+    </div>
   );
 };
 

@@ -92,7 +92,7 @@ class P5Wrapper extends Component {
           id="canvas1-container"
           style={{ width: "100%", textAlign: "center" }}
         />
-        {sketchConfig}
+        <div className="Controls">{sketchConfig}</div>
       </div>
     );
   }

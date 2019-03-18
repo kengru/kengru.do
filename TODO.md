@@ -38,7 +38,7 @@ A list of the things I have to do in the different main containers and applicati
 
 - [x] Create the structure for the controllers of the sketches.
 - [x] Create the side menu with expansion panels for descriptions.
-- [ ] Create the front presentation with the explanation of the challenges.
+- [x] Create the front presentation with the explanation of the challenges.
 - [ ] Add transitions to the component.
 
 ## Hub

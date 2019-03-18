@@ -1,3 +1,9 @@
 .Sketch {
   margin-top: 1em;
 }
+
+.Controls {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
