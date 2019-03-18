@@ -1,5 +1,4 @@
-## kengru
+# kengru.do
 
-#### Palettes
-
-<!-- "CFF09E | A8DBA8 | 79BD9A | 3B8686 | 0B486B" -->
+My personal webpage.
+Constructed using [React.js](http://reactjs.org/), [Material-ui](material-ui.com/getting-started/usage/), [Redux](https://redux.js.org/introduction/getting-started) and some API's I give credit on their use.
