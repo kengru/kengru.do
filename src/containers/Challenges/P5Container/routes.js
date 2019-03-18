@@ -3,7 +3,7 @@ import Wrapper2 from "../../../components/P5Wrapper/sketchs/challenge2/Wrapper2"
 
 const routes = [
   {
-    path: "/challenges/circle",
+    path: "/challenges/starfield",
     component: Wrapper1
   },
   {

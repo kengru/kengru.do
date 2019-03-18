@@ -19,15 +19,15 @@ class P5Wrapper extends Component {
     title: "",
     description: "",
     controls: {
-      size: {
+      speed: {
         config: {
-          max: 100,
-          min: 0,
+          max: 50,
+          min: 1,
           step: 1
         },
         type: "range",
-        label: "Size",
-        value: 40
+        label: "Speed",
+        value: 1
       }
     }
   };
