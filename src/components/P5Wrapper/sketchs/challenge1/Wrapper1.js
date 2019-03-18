@@ -6,6 +6,8 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
+import Typography from "@material-ui/core/Typography";
+import "../Challenge.css";
 
 import * as actions from "../../../../store/actions";
 import sketches from "../../sketches";
@@ -79,15 +81,19 @@ class P5Wrapper extends Component {
     ));
 
     return (
-      <>
-        <h2>{this.props.sketch.title}</h2>
-        <p>{this.props.sketch.description}</p>
+      <div className="Sketch">
+        <Typography align="center" variant="h3">
+          {this.props.sketch.title}
+        </Typography>
+        <Typography align="center" variant="subtitle1" paragraph>
+          {this.props.sketch.description}
+        </Typography>
         <div
           id="canvas1-container"
           style={{ width: "100%", textAlign: "center" }}
         />
         {sketchConfig}
-      </>
+      </div>
     );
   }
 }
