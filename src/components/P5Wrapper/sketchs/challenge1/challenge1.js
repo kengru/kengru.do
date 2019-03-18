@@ -4,7 +4,7 @@ export default function(s) {
   let x;
 
   s.setup = function() {
-    s.createCanvas(900, 300);
+    s.createCanvas(600, 500);
     x = 10;
   };
 

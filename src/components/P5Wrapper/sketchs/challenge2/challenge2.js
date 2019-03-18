@@ -3,7 +3,7 @@ export default function(s) {
   s.onSetAppState = () => {};
 
   s.setup = function() {
-    s.createCanvas(900, 300);
+    s.createCanvas(600, 500);
   };
 
   s.draw = function() {

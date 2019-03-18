@@ -10,7 +10,7 @@ const ChallengeHome = () => {
         The Coding Train Challenges
       </Typography>
       <div className="Paragraph">
-        <Typography align="right" variant="h5" paragraph>
+        <Typography align="right" variant="display1" paragraph>
           Here is a compilation of challenges created by{" "}
           <a
             style={{ color: "cadetblue" }}
@@ -22,7 +22,7 @@ const ChallengeHome = () => {
           </a>
           .
         </Typography>
-        <Typography align="right" variant="h5" paragraph>
+        <Typography align="right" variant="display1">
           All of them are done using{" "}
           <a
             href="https://p5js.org/"
@@ -34,6 +34,20 @@ const ChallengeHome = () => {
           </a>
           , a javascript library created to be used by artist, designers,
           educators and beginners.
+        </Typography>
+        <Typography align="right" variant="display1" paragraph>
+          I'll try to have some controls on all the sketches so you can modify
+          variables and achieve different results.
+        </Typography>
+        <Typography align="right" variant="display1" paragraph>
+          Source Code for the challenges: <a
+            href="https://github.com/kengru/CTChallenges"
+            style={{ color: "cadetblue" }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Challenges
+          </a>
         </Typography>
       </div>
     </div>

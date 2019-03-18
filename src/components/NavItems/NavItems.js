@@ -31,7 +31,7 @@ class NavItems extends Component {
   render() {
     return (
       <>
-        <Typography
+        <Typography style={{ color: "white" }}
           component="h3"
           variant="headline"
           className={this.state.classes.grow}
