@@ -7,3 +7,12 @@ main {
   margin-top: 50px;
   padding-top: 20px; 
 }
+
+.switch {
+  position: relative;
+}
+
+.switch > div {
+  position: absolute;
+  width: -webkit-fill-available;
+}

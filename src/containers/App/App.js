@@ -4,7 +4,8 @@
 */
 
 import React, { Component } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
+import { AnimatedSwitch } from "react-router-transition";
 
 import { withStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -37,13 +38,18 @@ class App extends Component {
         <CssBaseline />
         <main className={this.state.classes.content}>
           <div className={this.state.toolbar} />
-          <Switch>
+          <AnimatedSwitch
+            atEnter={{ opacity: 0 }}
+            atLeave={{ opacity: 0 }}
+            atActive={{ opacity: 1 }}
+            className="switch"
+          >
             <Route path="/bio" component={Bio} />
             <Route path="/projects" component={Projects} />
             <Route path="/nature" component={Bio} />
             <Route path="/challenges" component={Challenges} />
             <Redirect to="/bio" from="/" />
-          </Switch>
+          </AnimatedSwitch>
         </main>
       </div>
     );
