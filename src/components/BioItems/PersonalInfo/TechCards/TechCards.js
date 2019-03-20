@@ -7,7 +7,8 @@ import Typography from "@material-ui/core/Typography";
 
 const styles = {
   card: {
-    minWidth: 230
+    minWidth: 230,
+    margin: 20
   },
   title: {
     fontSize: 14
@@ -21,10 +22,9 @@ const TechCards = props => {
     <div className="TechCards slide-in-blurred-top">
       {props.items
         ? props.items.map(item => (
-            <Card className={classes.card} key={item.title}>
+            <Card className={classes.card} key={item}>
               <CardContent>
-                <Typography variant="h5">{item.title}</Typography>
-                <Typography component="p">{item.description}</Typography>
+                <Typography variant="h5">{item}</Typography>
               </CardContent>
             </Card>
           ))

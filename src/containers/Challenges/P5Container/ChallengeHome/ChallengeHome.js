@@ -40,7 +40,8 @@ const ChallengeHome = () => {
           variables and achieve different results.
         </Typography>
         <Typography align="right" variant="display1" paragraph>
-          Source Code for the challenges: <a
+          Source Code for the challenges:{" "}
+          <a
             href="https://github.com/kengru/CTChallenges"
             style={{ color: "cadetblue" }}
             target="_blank"

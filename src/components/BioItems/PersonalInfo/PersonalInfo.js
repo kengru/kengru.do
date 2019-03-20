@@ -10,23 +10,18 @@ import Moment from "moment";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 
+import PersonalItem from "./PersonalItem/PersonalItem";
 import TechCards from "./TechCards/TechCards";
 import "./PersonalInfo.css";
 
 const personalInfo = props => {
   const techItems = [
-    {
-      title: "React.js",
-      description: "1 year of work experience"
-    },
-    {
-      title: "Node.js",
-      description: "2 years of work experience"
-    },
-    {
-      title: "Python",
-      description: "4 years of work experience"
-    }
+    "React.js",
+    "Redux",
+    "Node.js",
+    "Python",
+    "Django",
+    "SQL & NoSQL"
   ];
 
   let age = Moment();
@@ -43,39 +38,55 @@ const personalInfo = props => {
         Kendry Alexander Grullón
       </Typography>
       <Divider variant="middle" />
-      <Typography
-        variant="display1"
-        align="right"
-        gutterBottom
-        className="Data focus-data-expand"
-      >
+      <PersonalItem>
         <b>age</b>: {age}
-      </Typography>
-      <Typography
-        variant="display1"
-        align="right"
-        gutterBottom
-        className="Data focus-data-expand"
-      >
+      </PersonalItem>
+      <PersonalItem>
         <b>email</b>: kengrullon@gmail.com
-      </Typography>
-      <Typography
-        variant="display1"
-        align="right"
-        gutterBottom
-        className="Data focus-data-expand"
-      >
+      </PersonalItem>
+      <PersonalItem>
         <b>number</b>: 1-809-729-5448
-      </Typography>
+      </PersonalItem>
+      <PersonalItem>
+        <a
+          style={{ color: "cadetblue" }}
+          href="https://github.com/kengru"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Github
+        </a>
+      </PersonalItem>
+      <PersonalItem>
+        <a
+          style={{ color: "cadetblue" }}
+          href="https://twitter.com/kxngru"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Twitter
+        </a>
+      </PersonalItem>
+      <PersonalItem>
+        <a
+          style={{ color: "cadetblue" }}
+          href="https://medium.com/@kengru"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Medium
+        </a>
+      </PersonalItem>
       <Divider variant="middle" />
       <Typography
         className="focus-data-expand"
         style={{ margin: "20px" }}
         variant="h4"
+        align="left"
         gutterBottom
       >
         {" "}
-        Technologies
+        Web Skills
       </Typography>
       <TechCards items={techItems} />
     </div>
