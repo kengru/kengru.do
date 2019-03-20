@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
 
 const styles = {
   card: {
-    minWidth: 230,
+    minWidth: 150,
     margin: 20
   },
   title: {
@@ -24,7 +24,7 @@ const TechCards = props => {
         ? props.items.map(item => (
             <Card className={classes.card} key={item}>
               <CardContent>
-                <Typography variant="h5">{item}</Typography>
+                <Typography variant="subtitle1">{item}</Typography>
               </CardContent>
             </Card>
           ))
