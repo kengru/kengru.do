@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import { withStyles } from "@material-ui/core/styles";
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
@@ -35,7 +36,7 @@ class Projects extends Component {
   }
 
   render() {
-    let cards = null;
+    let cards = <CircularProgress size={70}/>;
     if (this.props.projects) {
       cards = this.props.projects.map(project => 
         <Card className={this.state.classes.card} key={project.name}>
