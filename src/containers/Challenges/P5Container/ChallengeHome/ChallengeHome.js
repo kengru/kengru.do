@@ -20,7 +20,7 @@ const ChallengeHome = () => {
           >
             Daniel Shiffman
           </a>
-          .
+          &nbsp;and coded by me.
         </Typography>
         <Typography align="right" variant="display1">
           All of them are done using{" "}
