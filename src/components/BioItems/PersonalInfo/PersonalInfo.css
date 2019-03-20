@@ -15,8 +15,8 @@
 }
 
 .slide-in-blurred-top {
-  -webkit-animation: slide-in-blurred-top 1s ease-out 1.4s both;
-  animation: slide-in-blurred-top 1s ease-out 1.4s both;
+  -webkit-animation: slide-in-blurred-top 0.7s ease-out 1.2s both;
+  animation: slide-in-blurred-top 0.7s ease-out 1.2s both;
 }
 
 .focus-in-expand {

@@ -5,34 +5,32 @@
 */
 
 import React from "react";
+import Moment from "moment";
 
-import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
 
+import TechCards from "./TechCards/TechCards";
 import "./PersonalInfo.css";
 
-const styles = {
-  card: {
-    minWidth: 275
-  },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)"
-  },
-  title: {
-    fontSize: 14
-  },
-  pos: {
-    marginBottom: 12
-  }
-};
-
 const personalInfo = props => {
-  const { classes } = props;
+  const techItems = [
+    {
+      title: "React.js",
+      description: "1 year of work experience"
+    },
+    {
+      title: "Node.js",
+      description: "2 years of work experience"
+    },
+    {
+      title: "Python",
+      description: "4 years of work experience"
+    }
+  ];
+
+  let age = Moment();
+  age = age.diff(Moment([1994, 5, 2]), "years");
 
   return (
     <div className="BioItem">
@@ -51,7 +49,7 @@ const personalInfo = props => {
         gutterBottom
         className="Data focus-data-expand"
       >
-        <b>age</b>: 24
+        <b>age</b>: {age}
       </Typography>
       <Typography
         variant="display1"
@@ -70,58 +68,18 @@ const personalInfo = props => {
         <b>number</b>: 1-809-729-5448
       </Typography>
       <Divider variant="middle" />
-      <Typography className="focus-data-expand" style={{ margin: "20px" }} variant="h4" gutterBottom>
+      <Typography
+        className="focus-data-expand"
+        style={{ margin: "20px" }}
+        variant="h4"
+        gutterBottom
+      >
         {" "}
         Technologies
       </Typography>
-      <div className="TechCards slide-in-blurred-top">
-        <Card className={classes.card}>
-          <CardContent>
-            <Typography
-              className={classes.title}
-              color="textSecondary"
-              gutterBottom
-            >
-              React.js
-            </Typography>
-            <Typography variant="h5" component="h2">
-              be nev lent
-            </Typography>
-            <Typography className={classes.pos} color="textSecondary">
-              adjective
-            </Typography>
-            <Typography component="p">
-              well meaning and kindly.
-              <br />
-              {'"a benevolent smile"'}
-            </Typography>
-          </CardContent>
-        </Card>
-        <Card className={classes.card}>
-          <CardContent>
-            <Typography
-              className={classes.title}
-              color="textSecondary"
-              gutterBottom
-            >
-              Sql
-            </Typography>
-            <Typography variant="h5" component="h2">
-              be nev lent
-            </Typography>
-            <Typography className={classes.pos} color="textSecondary">
-              adjective
-            </Typography>
-            <Typography component="p">
-              well meaning and kindly.
-              <br />
-              {'"a benevolent smile"'}
-            </Typography>
-          </CardContent>
-        </Card>
-      </div>
+      <TechCards items={techItems} />
     </div>
   );
 };
 
-export default withStyles(styles)(personalInfo);
+export default personalInfo;
