@@ -8,6 +8,7 @@ import * as serviceWorker from "./serviceWorker";
 import App from "./containers/App/App";
 
 import menuReducer from "./store/reducers/menu";
+import bioReducer from "./store/reducers/bio";
 import challengesReducer from "./store/reducers/challenges";
 import projectsReducer from "./store/reducers/projects";
 
@@ -17,7 +18,8 @@ import "./index.css";
 const reducers = combineReducers({
   menu: menuReducer,
   challenges: challengesReducer,
-  projects: projectsReducer
+  projects: projectsReducer,
+  bio: bioReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
