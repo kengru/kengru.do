@@ -15,18 +15,18 @@
 }
 
 .slide-in-blurred-top {
-  -webkit-animation: slide-in-blurred-top 0.7s ease-out 1.2s both;
-  animation: slide-in-blurred-top 0.7s ease-out 1.2s both;
+  -webkit-animation: slide-in-blurred-top 0.6s ease-out 1s both;
+  animation: slide-in-blurred-top 0.6s ease-out 1s both;
 }
 
 .focus-in-expand {
-  -webkit-animation: focus-in-expand 0.7s ease-out both;
-  animation: focus-in-expand 0.7s ease-out both;
+  -webkit-animation: focus-in-expand 0.5s ease-out both;
+  animation: focus-in-expand 0.5s ease-out both;
 }
 
 .focus-data-expand {
-  -webkit-animation: focus-in-expand 1.4s ease-out both;
-  animation: focus-in-expand 1.4s ease-out both;
+  -webkit-animation: focus-in-expand 1.2s ease-out both;
+  animation: focus-in-expand 1.2s ease-out both;
 }
 
 @-webkit-keyframes focus-in-expand {

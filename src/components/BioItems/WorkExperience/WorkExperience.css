@@ -5,3 +5,9 @@
 .Data {
   padding: 20px;
 }
+
+.WorkItems {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
