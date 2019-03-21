@@ -3,31 +3,57 @@
     Component for the presentation of the places I've worked. 
 */
 
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
+import * as actions from "../../../store/actions";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 
 import WorkItem from "./WorkItem/WorkItem";
 import "./WorkExperience.css";
 
-const workExperience = () => {
-  return (
-    <div className="BioItem">
-      <Typography
-        variant="h3"
-        align="right"
-        className="focus-in-expand"
-        gutterBottom
-      >
-        Work Experience
-      </Typography>
-      <Divider variant="middle" />
-      <div className="WorkItems">
-        <WorkItem />
+class WorkExperience extends Component {
+  componentDidMount() {
+    this.props.onFetchWe();
+  }
+
+  render() {
+    return (
+      <div className="BioItem">
+        <Typography
+          variant="h3"
+          align="right"
+          className="focus-in-expand"
+          gutterBottom
+        >
+          Work Experience
+        </Typography>
+        <Divider variant="middle" />
+        <div className="WorkItems">
+          {this.props.work
+            ? this.props.work.map(item => <WorkItem key={item.company} item={item} />)
+            : null}
+          <WorkItem />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    work: state.bio.work
+  };
 };
 
-export default workExperience;
+const mapDispatchToProps = dispatch => {
+  return {
+    onFetchWe: () => dispatch(actions.fetchWorkAsync())
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(WorkExperience);

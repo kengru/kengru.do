@@ -26,7 +26,7 @@ const WorkItem = props => {
       <Card className={classes.card}>
         <CardContent>
           <Typography className={classes.title} color="textSecondary" gutterBottom>
-            Necomplus Dominicana
+            {props.item.company}
           </Typography>
           <Typography variant="h5" component="h2">
             Web Developer

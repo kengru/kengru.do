@@ -13,7 +13,6 @@ class Bio extends Component {
   componentDidMount() {
     this.props.onFetchMenu();
     this.props.onSetPath();
-    this.props.onFetchWe();
     this.props.onFetchEd();
   }
 
@@ -25,11 +24,11 @@ class Bio extends Component {
             <Route
               exact
               path={`${this.props.match.path}/`}
-              render={() => <PersonalInfo items={this.props.personal} />}
+              render={() => <PersonalInfo />}
             />
             <Route
               path={`${this.props.match.path}/work`}
-              render={() => <WorkExperience items={this.props.work} />}
+              render={() => <WorkExperience />}
             />
             <Route
               path={`${this.props.match.path}/education`}
@@ -54,7 +53,6 @@ const mapDispatchToProps = dispatch => {
   return {
     onFetchMenu: () => dispatch(actions.fetchMenuAsync("bio")),
     onSetPath: () => dispatch(actions.setPathProp("bio")),
-    onFetchWe: () => dispatch(actions.fetchWorkAsync()),
     onFetchEd: () => dispatch(actions.fetchEducationAsync())
   };
 };
