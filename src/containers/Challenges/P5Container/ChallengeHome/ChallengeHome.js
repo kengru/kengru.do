@@ -5,7 +5,7 @@ import "./ChallengeHome.css";
 
 const ChallengeHome = () => {
   return (
-    <div className="Home">
+    <div className="Home focus-in-expand">
       <Typography align="right" variant="h2">
         The Coding Train Challenges
       </Typography>
