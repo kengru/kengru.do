@@ -20,8 +20,8 @@ const TechCards = props => {
 
   return (
     <div className="TechCards slide-in-blurred-top">
-      {props.items
-        ? props.items.map(item => (
+      {props.items.skills
+        ? props.items.skills.map(item => (
             <Card className={classes.card} key={item}>
               <CardContent>
                 <Typography variant="subtitle1">{item}</Typography>

@@ -4,93 +4,109 @@
     Including name, residence, age, hobbies, interests, language skills.
 */
 
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import Moment from "moment";
 
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 
+import * as actions from "../../../store/actions/";
 import PersonalItem from "./PersonalItem/PersonalItem";
 import TechCards from "./TechCards/TechCards";
 import "./PersonalInfo.css";
 
-const personalInfo = props => {
-  const techItems = [
-    "React.js",
-    "Redux",
-    "Node.js",
-    "Python",
-    "Django",
-    "SQL & NoSQL"
-  ];
+class PersonalInfo extends Component {
+  state = {
+    age: 0
+  };
 
-  let age = Moment();
-  age = age.diff(Moment([1994, 5, 2]), "years");
+  componentDidMount() {
+    this.props.onFetchPi();
+    this.setState({ age: Moment().diff(Moment([1994, 5, 2]), "years") });
+  }
 
-  return (
-    <div className="BioItem">
-      <Typography
-        variant="h3"
-        align="right"
-        className="focus-in-expand"
-        gutterBottom
-      >
-        Kendry Alexander Grullón
-      </Typography>
-      <Divider variant="middle" />
-      <PersonalItem>
-        <b>age</b>: {age}
-      </PersonalItem>
-      <PersonalItem>
-        <b>email</b>: kengrullon@gmail.com
-      </PersonalItem>
-      <PersonalItem>
-        <b>number</b>: 1-809-729-5448
-      </PersonalItem>
-      <PersonalItem>
-        <a
-          style={{ color: "cadetblue" }}
-          href="https://github.com/kengru"
-          target="_blank"
-          rel="noopener noreferrer"
+  render() {
+    return (
+      <div className="BioItem">
+        <Typography
+          variant="h3"
+          align="right"
+          className="focus-in-expand"
+          gutterBottom
         >
-          Github
-        </a>
-      </PersonalItem>
-      <PersonalItem>
-        <a
-          style={{ color: "cadetblue" }}
-          href="https://twitter.com/kxngru"
-          target="_blank"
-          rel="noopener noreferrer"
+          Kendry Alexander Grullón
+        </Typography>
+        <Divider variant="middle" />
+        <PersonalItem>
+          <b>age</b>: {this.state.age}
+        </PersonalItem>
+        <PersonalItem>
+          <b>email</b>: kengrullon@gmail.com
+        </PersonalItem>
+        <PersonalItem>
+          <b>number</b>: 1-809-729-5448
+        </PersonalItem>
+        <PersonalItem>
+          <a
+            style={{ color: "cadetblue" }}
+            href="https://github.com/kengru"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Github
+          </a>
+        </PersonalItem>
+        <PersonalItem>
+          <a
+            style={{ color: "cadetblue" }}
+            href="https://twitter.com/kxngru"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Twitter
+          </a>
+        </PersonalItem>
+        <PersonalItem>
+          <a
+            style={{ color: "cadetblue" }}
+            href="https://medium.com/@kengru"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Medium
+          </a>
+        </PersonalItem>
+        <Divider variant="middle" />
+        <Typography
+          className="focus-data-expand"
+          style={{ margin: "20px" }}
+          variant="h4"
+          align="left"
+          gutterBottom
         >
-          Twitter
-        </a>
-      </PersonalItem>
-      <PersonalItem>
-        <a
-          style={{ color: "cadetblue" }}
-          href="https://medium.com/@kengru"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Medium
-        </a>
-      </PersonalItem>
-      <Divider variant="middle" />
-      <Typography
-        className="focus-data-expand"
-        style={{ margin: "20px" }}
-        variant="h4"
-        align="left"
-        gutterBottom
-      >
-        {" "}
-        Web Skills
-      </Typography>
-      <TechCards items={techItems} />
-    </div>
-  );
+          {" "}
+          Web Skills
+        </Typography>
+        <TechCards items={this.props.personal} />
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    personal: state.bio.personal
+  };
 };
 
-export default personalInfo;
+const mapDispatchToProps = dispatch => {
+  return {
+    onFetchPi: () => dispatch(actions.fetchPersonalAsync())
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PersonalInfo);

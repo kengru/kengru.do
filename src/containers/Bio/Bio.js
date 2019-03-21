@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { fetchMenuAsync, setPathProp } from "../../store/actions/menu";
+import * as actions from "../../store/actions";
 import PersonalInfo from "../../components/BioItems/PersonalInfo/PersonalInfo";
 import WorkExperience from "../../components/BioItems/WorkExperience/WorkExperience";
 import Education from "../../components/BioItems/Education/Education";
@@ -13,6 +13,8 @@ class Bio extends Component {
   componentDidMount() {
     this.props.onFetchMenu();
     this.props.onSetPath();
+    this.props.onFetchWe();
+    this.props.onFetchEd();
   }
 
   render() {
@@ -23,15 +25,15 @@ class Bio extends Component {
             <Route
               exact
               path={`${this.props.match.path}/`}
-              component={PersonalInfo}
+              render={() => <PersonalInfo items={this.props.personal} />}
             />
             <Route
               path={`${this.props.match.path}/work`}
-              component={WorkExperience}
+              render={() => <WorkExperience items={this.props.work} />}
             />
             <Route
               path={`${this.props.match.path}/education`}
-              component={Education}
+              render={() => <Education items={this.props.education} />}
             />
           </Switch>
         </div>
@@ -40,14 +42,24 @@ class Bio extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    personal: state.bio.personal,
+    work: state.bio.work,
+    education: state.bio.education
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
-    onFetchMenu: () => dispatch(fetchMenuAsync("bio")),
-    onSetPath: () => dispatch(setPathProp("bio"))
+    onFetchMenu: () => dispatch(actions.fetchMenuAsync("bio")),
+    onSetPath: () => dispatch(actions.setPathProp("bio")),
+    onFetchWe: () => dispatch(actions.fetchWorkAsync()),
+    onFetchEd: () => dispatch(actions.fetchEducationAsync())
   };
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Bio);
