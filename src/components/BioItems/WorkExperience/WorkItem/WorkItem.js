@@ -15,7 +15,7 @@ const styles = {
     fontSize: 14
   },
   chip: {
-    margin: 10
+    margin: 7
   }
 };
 
@@ -25,6 +25,9 @@ const WorkItem = props => {
     <>
       <Card className={classes.card}>
         <CardContent>
+          <Typography className={classes.title} color="textSecondary" gutterBottom>
+            Necomplus Dominicana
+          </Typography>
           <Typography variant="h5" component="h2">
             Web Developer
           </Typography>
