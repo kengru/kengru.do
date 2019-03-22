@@ -30,7 +30,7 @@ class WorkExperience extends Component {
           Work Experience
         </Typography>
         <Divider variant="middle" />
-        <div className="WorkItems">
+        <div className="WorkItems slide-in-blurred-top">
           {this.props.work
             ? this.props.work.map(item => <WorkItem key={item.company} item={item} />)
             : null}

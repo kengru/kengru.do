@@ -8,7 +8,8 @@ import Chip from "@material-ui/core/Chip";
 
 const styles = {
   card: {
-    minWidth: 400,
+    minWidth: 300,
+    maxWidth: 450,
     margin: 20
   },
   title: {
@@ -21,33 +22,38 @@ const styles = {
 
 const WorkItem = props => {
   const { classes } = props;
-  return (
-    <>
+  let card = null;
+  card = props.item ? (
+    <div>
       <Card className={classes.card}>
         <CardContent>
-          <Typography className={classes.title} color="textSecondary" gutterBottom>
+          <Typography
+            className={classes.title}
+            color="textSecondary"
+            gutterBottom
+          >
             {props.item.company}
           </Typography>
           <Typography variant="h5" component="h2">
-            Web Developer
+            {props.item.position}
           </Typography>
           <Typography className={classes.pos} color="textSecondary">
-            March 2018 - Present
+            {props.item.from} - {props.item.to}
           </Typography>
+          <br />
           <Typography component="p">
-            Developed a series of whatever goes here.
-            <br />
-            {'"a benevolent smile"'}
+            {props.item.description}
           </Typography>
         </CardContent>
       </Card>
       <ul>
-        <Chip label="ASP.NET Core" color="primary" className={classes.chip}/>
-        <Chip label="Vue.js" color="primary" className={classes.chip}/>
-        <Chip label="Bootstrap" color="primary" className={classes.chip}/>
+        {props.item.skills.map(item => (
+          <Chip label={item} key={item} color="primary" className={classes.chip} />
+        ))}
       </ul>
-    </>
-  );
+    </div>
+  ) : null;
+  return card;
 };
 
 export default withStyles(styles)(WorkItem);
