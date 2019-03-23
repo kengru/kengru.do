@@ -1,23 +1,80 @@
+let angle = 0;
+let colorBB = 0;
+let sponge = [];
+
 export default function(s) {
+  class BigBox {
+    constructor(x, y, z, size) {
+      this.size = size;
+      this.x = x;
+      this.y = y;
+      this.z = z;
+    }
+
+    generate() {
+      let boxes = [];
+      for (let x = -1; x < 2; x++) {
+        for (let y = -1; y < 2; y++) {
+          for (let z = -1; z < 2; z++) {
+            let sum = Math.abs(x) + Math.abs(y) + Math.abs(z);
+            let newSize = this.size / 3;
+            if (sum > 1) {
+              let b = new BigBox(
+                this.x + x * newSize,
+                this.y + y * newSize,
+                this.z + z * newSize,
+                newSize
+              );
+              boxes.push(b);
+            }
+          }
+        }
+      }
+      return boxes;
+    }
+
+    show() {
+      s.push();
+      s.stroke(255);
+      s.fill(colorBB);
+      s.translate(this.x, this.y, this.z);
+      s.box(this.size);
+      s.pop();
+    }
+  }
+
   s.props = {};
   s.onSetAppState = () => {};
 
   s.setup = function() {
-    s.createCanvas(600, 500);
+    s.createCanvas(800, 600, s.WEBGL);
+    colorBB = s.color(51, 102, 204);
+    let bb = new BigBox(0, 0, 0, 300);
+    sponge.push(bb);
   };
 
   s.draw = function() {
-    if (s.frameCount % 60 === 1) {
-      s.onSetAppState({ frameRate: s.frameRate().toFixed(1) });
+    s.background(0);
+    s.ambientLight(200, 200);
+    s.ambientMaterial(200);
+    s.noFill();
+    s.rotateX(angle);
+    s.rotateY(angle);
+    for (let i = 0; i < sponge.length; i++) {
+      sponge[i].show();
     }
-
-    s.background(0, 0, 50);
-    s.stroke(127, 255, 205);
-    let color = 30;
-    if (s.props.color) color = s.props.color.value;
-    s.fill(color, 255, 205, 100);
-    let size = 50;
-    if (s.props.size) size = s.props.size.value;
-    s.ellipse(s.width / 2, s.height / 2, size);
+    angle += 0.005;
   };
+  
+  s.mousePressed = function() {
+    if (sponge.length < 100) {
+      let next = [];
+
+      for (let i = 0; i < sponge.length; i++) {
+        let newGen = sponge[i].generate();
+        next.push(...newGen);
+      }
+      sponge = next;
+    }
+  }
 }

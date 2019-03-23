@@ -39,13 +39,13 @@ class PersonalInfo extends Component {
         </Typography>
         <Divider variant="middle" />
         <PersonalItem>
-          <b>age</b>: {this.state.age}
+          <b>Age</b>: {this.state.age}
         </PersonalItem>
         <PersonalItem>
-          <b>email</b>: kengrullon@gmail.com
+          <b>Email</b>: kengrullon@gmail.com
         </PersonalItem>
         <PersonalItem>
-          <b>number</b>: 1-809-729-5448
+          <b>Number</b>: 1-809-729-5448
         </PersonalItem>
         <PersonalItem>
           <a
