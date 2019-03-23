@@ -14,25 +14,25 @@ class P5Wrapper extends Component {
     title: "",
     description: "",
     controls: {
-      size: {
+      rotX: {
         config: {
-          max: 100,
+          max: 0.03,
           min: 0,
-          step: 1
+          step: 0.001
         },
         type: "range",
-        label: "Size",
-        value: 40
+        label: "Rotation in X",
+        value: 0.003
       },
-      color: {
+      rotY: {
         config: {
-          max: 255,
+          max: 0.03,
           min: 0,
-          step: 2
+          step: 0.001
         },
         type: "range",
-        label: "Color",
-        value: 100
+        label: "Rotation in Y",
+        value: 0.003
       }
     }
   };

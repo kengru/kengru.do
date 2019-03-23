@@ -7,7 +7,7 @@ const routes = [
     component: Wrapper1
   },
   {
-    path: "/challenges/rectangle",
+    path: "/challenges/menger",
     component: Wrapper2
   }
 ];

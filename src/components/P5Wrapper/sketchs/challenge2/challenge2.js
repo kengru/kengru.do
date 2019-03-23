@@ -1,4 +1,5 @@
-let angle = 0;
+let angleX = 0;
+let angleY = 0;
 let colorBB = 0;
 let sponge = [];
 
@@ -49,6 +50,7 @@ export default function(s) {
   s.setup = function() {
     s.createCanvas(800, 600, s.WEBGL);
     colorBB = s.color(51, 102, 204);
+    sponge = [];
     let bb = new BigBox(0, 0, 0, 300);
     sponge.push(bb);
   };
@@ -58,14 +60,23 @@ export default function(s) {
     s.ambientLight(200, 200);
     s.ambientMaterial(200);
     s.noFill();
-    s.rotateX(angle);
-    s.rotateY(angle);
+    s.rotateX(angleX);
+    s.rotateY(angleY);
     for (let i = 0; i < sponge.length; i++) {
       sponge[i].show();
     }
-    angle += 0.005;
+    if (s.props.rotX) {
+      angleX += s.props.rotX.value;
+    } else {
+      angleX += 0.003;
+    }
+    if (s.props.rotY) {
+      angleY += s.props.rotY.value;
+    } else {
+      angleY += 0.003;
+    }
   };
-  
+
   s.mousePressed = function() {
     if (sponge.length < 100) {
       let next = [];
@@ -76,5 +87,5 @@ export default function(s) {
       }
       sponge = next;
     }
-  }
+  };
 }
