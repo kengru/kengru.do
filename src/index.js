@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import * as serviceWorker from "./serviceWorker";
 import App from "./containers/App/App";
+import NewApp from "./containers/NewApp/NewApp";
 
 import menuReducer from "./store/reducers/menu";
 import bioReducer from "./store/reducers/bio";
@@ -34,8 +35,14 @@ const app = (
   </Provider>
 );
 
-ReactDOM.render(app, document.getElementById("root"));
+const newApp = (
+  <BrowserRouter>
+    <NewApp />
+  </BrowserRouter>
+);
 
+// ReactDOM.render(app, document.getElementById("root"));
+ReactDOM.render(newApp, document.getElementById("root"));
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
