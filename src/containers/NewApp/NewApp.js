@@ -1,32 +1,17 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import { Hero, Navbar, Section, Container, Footer, Content } from "rbx";
+import { Hero, Footer, Content } from "rbx";
 import "rbx/index.css";
 
 import "./NewApp.css";
+import Navigation from "../../components/Navigation/Navigation";
 import NewBio from "../NewBio/NewBio";
 
 export default class NewApp extends Component {
   render() {
     return (
       <div className="site">
-        <Section>
-          <Container>
-            <Navbar>
-              <Navbar.Brand>
-                <Navbar.Item>
-                  <img
-                    src="https://bulma.io/images/bulma-logo.png"
-                    alt=""
-                    width="112"
-                    height="28"
-                  />
-                </Navbar.Item>
-                <Navbar.Burger />
-              </Navbar.Brand>
-            </Navbar>
-          </Container>
-        </Section>
+        <Navigation />
         <Hero size="medium" className="site-content">
           <Hero.Body>
             <Switch>
@@ -34,7 +19,7 @@ export default class NewApp extends Component {
             </Switch>
           </Hero.Body>
         </Hero>
-        <Footer>
+        <Footer style={{ padding: "2rem 1.5rem 2rem"}}>
           <Content textAlign="centered">
             <p>
               <strong>kengru.do</strong> by{" "}

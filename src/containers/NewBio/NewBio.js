@@ -15,18 +15,11 @@ const NewBio = () => {
           </p>
         </Content>
       </Column>
-      <Column textAlign="centered" style={{ overflow: "scroll"}}>
+      <Column textAlign="centered">
         <Card>
           <Card.Header>
             <Card.Header.Title>Web Developer @ Necomplus</Card.Header.Title>
           </Card.Header>
-          <Card.Content>
-            <Content>
-              In charge of developing new features for a managing website using
-              ASP.NET as the backend of the application and Vue.js as the front
-              end.
-            </Content>
-          </Card.Content>
           <Card.Footer>
             <Tag>vue.js</Tag>
             <Tag>c#</Tag>
@@ -38,17 +31,6 @@ const NewBio = () => {
               Full-Stack Developer @ Instacarro.com
             </Card.Header.Title>
           </Card.Header>
-          <Card.Content>
-            <Content>
-              In charge of developing and maintaining websites for updating
-              the clients and users of the different applications used in
-              Instacarro. Creating APIs in Node.js using the koa.js framework on
-              top of it while using mongo db and it's language as a mean to
-              connection to the database. Also on the front side of the
-              development using Angular.js and React.js both on different parts
-              of the web pages.
-            </Content>
-          </Card.Content>
           <Card.Footer>
             <Tag>node.js</Tag>
             <Tag>angular.js</Tag>
