@@ -9,3 +9,7 @@
   align-items: flex-start;
   flex-wrap: wrap;
 }
+
+.separation {
+  padding-bottom: 5vh;
+}

@@ -2,6 +2,8 @@ import React from "react";
 import { Column, Card, Tag } from "rbx";
 import "rbx/index.css";
 
+import "./WorkCards.css";
+
 const WorkCards = props => {
   let items = null;
   if (props.workItems) {
@@ -28,7 +30,7 @@ const WorkCards = props => {
     ));
   }
 
-  return <Column.Group textAlign="centered">{items}</Column.Group>;
+  return <Column.Group className="work-column" textAlign="centered" multiline centered>{items}</Column.Group>;
 };
 
 export default WorkCards;

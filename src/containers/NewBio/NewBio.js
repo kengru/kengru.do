@@ -15,7 +15,7 @@ class Bio extends Component {
   render() {
     return (
       <div className="bio">
-        <Column size="one-third">
+        <Column className="separation" size="one-third">
           <Content>
             <Title size={4}>Kendry Alexander Grullón</Title>
             <p>
@@ -23,7 +23,7 @@ class Bio extends Component {
             </p>
           </Content>
         </Column>
-        <WorkCards workItems={this.props.work}/>
+        <WorkCards workItems={this.props.work} />
       </div>
     );
   }
