@@ -8,7 +8,7 @@ import Navigation from "../../components/Navigation/Navigation";
 import FullFooter from "../../components/FullFooter/FullFooter";
 import NewBio from "../NewBio/NewBio";
 
-export default class NewApp extends Component {
+class NewApp extends Component {
   render() {
     return (
       <div className="site">
@@ -25,3 +25,5 @@ export default class NewApp extends Component {
     );
   }
 }
+
+export default NewApp;

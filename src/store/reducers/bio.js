@@ -5,27 +5,15 @@
 import * as types from "../actions/aTypes";
 
 const initialState = {
-  personal: [],
-  work: [],
-  education: []
+  work: []
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.FETCH_PI_ITEMS:
-      return {
-        ...state,
-        personal: action.personal
-      };
     case types.FETCH_WE_ITEMS:
       return {
         ...state,
         work: action.work
-      };
-    case types.FETCH_ED_ITEMS:
-      return {
-        ...state,
-        education: action.education
       };
     default:
       break;
