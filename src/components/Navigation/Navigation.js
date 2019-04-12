@@ -21,9 +21,15 @@ const Navigation = () => {
           </Navbar.Brand>
           <Navbar.Menu>
             <Navbar.Segment align="start">
-              <Navbar.Item active>Home</Navbar.Item>
-              <Navbar.Item>Projects</Navbar.Item>
-              <Navbar.Item>Challenges</Navbar.Item>
+              <Navbar.Item active as="div">
+                <NavLink to="/">Home</NavLink>
+              </Navbar.Item>
+              <Navbar.Item as="div">
+                <NavLink to="/projects">Projects</NavLink>
+              </Navbar.Item>
+              <Navbar.Item as="div">
+                <NavLink to="/challenges">Challenges</NavLink>
+              </Navbar.Item>
             </Navbar.Segment>
             <Navbar.Segment align="end">
               <Navbar.Item>
