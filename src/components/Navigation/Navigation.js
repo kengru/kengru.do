@@ -32,16 +32,16 @@ const Navigation = () => {
               </Navbar.Item>
             </Navbar.Segment>
             <Navbar.Segment align="end">
-              <Navbar.Item>
-                <i className="fab fa-github" />
+              <Navbar.Item target="_blank" rel="noopener noreferrer" href="https://github.com/kengru">
+                  <i className="fab fa-github" />
               </Navbar.Item>
-              <Navbar.Item>
+              <Navbar.Item target="_blank" rel="noopener noreferrer" href="https://twitter.com/kxngru">
                 <i className="fab fa-twitter" />
               </Navbar.Item>
-              <Navbar.Item>
+              <Navbar.Item target="_blank" rel="noopener noreferrer" href="https://medium.com/@kengru">
                 <i className="fab fa-medium-m" />
               </Navbar.Item>
-              <Navbar.Item>
+              <Navbar.Item download target="_blank" rel="noopener noreferrer" href={`https://firebasestorage.googleapis.com/v0/b/kengru-do.appspot.com/o/public%2FKGrullon-Resume.pdf?alt=media&token=c884163a-356c-437e-9df5-5ca29c8b96f5`}>
                 <Button.Group>
                   <Button color="link">Resume</Button>
                 </Button.Group>
