@@ -15,7 +15,7 @@ const NewBio = () => {
           </p>
         </Content>
       </Column>
-      <Column textAlign="centered">
+      <Column textAlign="centered" style={{ overflow: "scroll"}}>
         <Card>
           <Card.Header>
             <Card.Header.Title>Web Developer @ Necomplus</Card.Header.Title>
@@ -40,7 +40,7 @@ const NewBio = () => {
           </Card.Header>
           <Card.Content>
             <Content>
-              In charge of developing and maintaining the websites for updating
+              In charge of developing and maintaining websites for updating
               the clients and users of the different applications used in
               Instacarro. Creating APIs in Node.js using the koa.js framework on
               top of it while using mongo db and it's language as a mean to
@@ -55,6 +55,9 @@ const NewBio = () => {
             <Tag>mongoDb</Tag>
             <Tag>docker</Tag>
             <Tag>aws</Tag>
+            <Card.Footer.Item>
+              2016 - 2018
+            </Card.Footer.Item>
           </Card.Footer>
         </Card>
       </Column>
