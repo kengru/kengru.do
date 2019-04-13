@@ -13,7 +13,6 @@ class NewProjects extends Component {
   }
 
   render() {
-    console.log(this.props.projects);
     return (
       <React.Fragment>
         <Container fluid>

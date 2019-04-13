@@ -1,5 +1,5 @@
 import React from "react";
-import { Column, Card, Title, Image, Media, Content } from "rbx";
+import { Column, Card, Title, Image, Media, Content, Tag } from "rbx";
 import "rbx/index.css";
 
 import "./ProjectCards.css";
@@ -18,20 +18,32 @@ const ProjectCards = props => {
           <Card.Content>
             <Media>
               <Media.Item>
-                <Title as="p" size={4}>
-                  {item.name}
+                <Title
+                  as="a"
+                  size={4}
+                  href={item.vc}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {item.name} &nbsp;
+                  <i className="fas fa-link" />
                 </Title>
               </Media.Item>
             </Media>
             <Content>{item.description}</Content>
           </Card.Content>
+          <Card.Footer>
+            {item.tools.map(skill => (
+              <Tag key={skill}>{skill}</Tag>
+            ))}
+          </Card.Footer>
         </Card>
       </Column>
     ));
   }
 
   return (
-    <Column.Group textAlign="centered" multiline centered>
+    <Column.Group textAlign="centered" multiline>
       {items}
     </Column.Group>
   );
