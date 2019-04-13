@@ -1,18 +1,9 @@
-.App {
+.site {
   display: flex;
-  text-align: center;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
-main {
-  margin-top: 50px;
-  padding-top: 20px; 
-}
-
-.switch {
-  position: relative;
-}
-
-.switch > div {
-  position: absolute;
-  width: -webkit-fill-available;
+.site-content {
+  flex: 1;
 }

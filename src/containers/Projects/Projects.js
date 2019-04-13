@@ -1,93 +1,41 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Container } from "rbx";
+import "rbx/index.css";
 
-import { withStyles } from "@material-ui/core/styles";
-import CircularProgress from '@material-ui/core/CircularProgress';
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-
-import * as actions from "../../store/actions";
 import "./Projects.css";
-
-const styles = {
-  card: {
-    maxWidth: 345,
-    margin: 20
-  },
-  media: {
-    height: 200
-  }
-};
+import * as actions from "../../store/actions";
+import ProjectCards from "../../components/ProjectCards/ProjectCards";
 
 class Projects extends Component {
-  state = {
-    classes: this.props.classes
-  };
-
   componentDidMount() {
-    this.props.onFetchMenu();
-    this.props.onSetPath();
     this.props.onFetchProjects();
   }
 
   render() {
-    let cards = <CircularProgress size={70}/>;
-    if (this.props.projects) {
-      cards = this.props.projects.map(project => 
-        <Card className={this.state.classes.card} key={project.name}>
-          <CardActionArea>
-            <CardMedia
-              className={this.state.classes.media}
-              image={project.image}
-              title={project.name}
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                {project.name}
-              </Typography>
-              <Typography component="p">
-                {project.description}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-          <CardActions>
-            <Button size="small" color="secondary">
-              <a href={project.vc}>Code</a>
-            </Button>
-          </CardActions>
-        </Card>
-      );
-    }
     return (
-      <div className="Projects">
-        {cards}
-      </div>
+      <React.Fragment>
+        <Container fluid>
+          <ProjectCards projectItems={this.props.projects} />
+        </Container>
+      </React.Fragment>
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    projects: state.projects.projects,
-    selectedProject: state.projects.selectedProject
+    projects: state.projects.projects
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFetchMenu: () => dispatch(actions.fetchMenuAsync("projects")),
-    onSetPath: () => dispatch(actions.setPathProp("projects")),
-    onFetchProjects: () => dispatch(actions.fetchProjectsAsync()),
-    onSelectProject: project => dispatch(actions.selectProject(project))
+    onFetchProjects: () => dispatch(actions.fetchProjectsAsync())
   };
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withStyles(styles)(Projects));
+)(Projects);
