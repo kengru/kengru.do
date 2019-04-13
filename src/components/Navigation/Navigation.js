@@ -21,13 +21,13 @@ const Navigation = () => {
           </Navbar.Brand>
           <Navbar.Menu>
             <Navbar.Segment align="start">
-              <Navbar.Item active as="div">
+              <Navbar.Item>
                 <NavLink to="/">Home</NavLink>
               </Navbar.Item>
-              <Navbar.Item as="div">
+              <Navbar.Item>
                 <NavLink to="/projects">Projects</NavLink>
               </Navbar.Item>
-              <Navbar.Item as="div">
+              <Navbar.Item>
                 <NavLink to="/challenges">Challenges</NavLink>
               </Navbar.Item>
             </Navbar.Segment>

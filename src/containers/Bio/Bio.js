@@ -1,41 +1,36 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
-
-import * as actions from "../../store/actions";
-import PersonalInfo from "../../components/BioItems/PersonalInfo/PersonalInfo";
-import WorkExperience from "../../components/BioItems/WorkExperience/WorkExperience";
-import Education from "../../components/BioItems/Education/Education";
+import Moment from "moment";
+import { Column, Title, Content } from "rbx";
+import "rbx/index.css";
 
 import "./Bio.css";
+import * as actions from "../../store/actions";
+import WorkCards from "../../components/WorkCards/WorkCards";
 
 class Bio extends Component {
+  state = {
+    age: 0
+  }
+  
   componentDidMount() {
-    this.props.onFetchMenu();
-    this.props.onSetPath();
-    this.props.onFetchEd();
+    this.props.onFetchWi();
+    this.setState({ age: Moment().diff(Moment([1994, 5, 2]), "years") });
   }
 
   render() {
     return (
-      <div className="Bio">
-        <div className="Info">
-          <Switch>
-            <Route
-              exact
-              path={`${this.props.match.path}/`}
-              render={() => <PersonalInfo />}
-            />
-            <Route
-              path={`${this.props.match.path}/work`}
-              render={() => <WorkExperience />}
-            />
-            <Route
-              path={`${this.props.match.path}/education`}
-              render={() => <Education items={this.props.education} />}
-            />
-          </Switch>
-        </div>
+      <div className="bio">
+        <Column className="separation" size="one-third">
+          <Content>
+            <Title size={3}>Kendry Alexander Grullón</Title>
+            <p>
+              {this.state.age} years old programmer from Dominican Republic <br />
+              Trying to do stuffs mainly in <strong>javascript</strong> <br />
+            </p>
+          </Content>
+        </Column>
+        <WorkCards workItems={this.props.work} />
       </div>
     );
   }
@@ -43,17 +38,13 @@ class Bio extends Component {
 
 const mapStateToProps = state => {
   return {
-    personal: state.bio.personal,
-    work: state.bio.work,
-    education: state.bio.education
+    work: state.bio.work
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFetchMenu: () => dispatch(actions.fetchMenuAsync("bio")),
-    onSetPath: () => dispatch(actions.setPathProp("bio")),
-    onFetchEd: () => dispatch(actions.fetchEducationAsync())
+    onFetchWi: () => dispatch(actions.fetchWorkAsync())
   };
 };
 

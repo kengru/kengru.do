@@ -6,7 +6,7 @@ import "rbx/index.css";
 import "./NewApp.css";
 import Navigation from "../../components/Navigation/Navigation";
 import FullFooter from "../../components/FullFooter/FullFooter";
-import NewBio from "../NewBio/NewBio";
+import Bio from "../Bio/Bio";
 
 class NewApp extends Component {
   render() {
@@ -16,7 +16,8 @@ class NewApp extends Component {
         <Hero size="medium" className="site-content">
           <Hero.Body>
             <Switch>
-              <Route path="/" component={NewBio} />
+              <Route path="/" component={Bio} />
+              {/* <Route path="/projects" component={} /> */}
             </Switch>
           </Hero.Body>
         </Hero>
