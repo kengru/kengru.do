@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Title, Container } from "rbx";
+import { Container } from "rbx";
 import "rbx/index.css";
 
-import * as actions from "../../store/actions";
 import "./NewProjects.css";
+import * as actions from "../../store/actions";
+import ProjectCards from "../../components/ProjectCards/ProjectCards";
 
 class NewProjects extends Component {
   componentDidMount() {
@@ -16,10 +17,7 @@ class NewProjects extends Component {
     return (
       <React.Fragment>
         <Container fluid>
-          <Title size={2}>Projects</Title>
-        </Container>
-        <Container fluid>
-          
+          <ProjectCards projectItems={this.props.projects} />
         </Container>
       </React.Fragment>
     );

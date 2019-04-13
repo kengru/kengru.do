@@ -30,7 +30,16 @@ const WorkCards = props => {
     ));
   }
 
-  return <Column.Group className="work-column" textAlign="centered" multiline centered>{items}</Column.Group>;
+  return (
+    <Column.Group
+      className="work-column"
+      textAlign="centered"
+      multiline
+      centered
+    >
+      {items}
+    </Column.Group>
+  );
 };
 
 export default WorkCards;
