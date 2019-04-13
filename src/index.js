@@ -9,16 +9,16 @@ import * as serviceWorker from "./serviceWorker";
 import NewApp from "./containers/NewApp/NewApp";
 
 import bioReducer from "./store/reducers/bio";
+import projectsReducer from "./store/reducers/projects";
 // import menuReducer from "./store/reducers/menu";
 // import challengesReducer from "./store/reducers/challenges";
-// import projectsReducer from "./store/reducers/projects";
 
 import "./index.css";
 
 const reducers = combineReducers({
   // menu: menuReducer,
   // challenges: challengesReducer,
-  // projects: projectsReducer,
+  projects: projectsReducer,
   bio: bioReducer
 });
 

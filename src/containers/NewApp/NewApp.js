@@ -7,6 +7,7 @@ import "./NewApp.css";
 import Navigation from "../../components/Navigation/Navigation";
 import FullFooter from "../../components/FullFooter/FullFooter";
 import Bio from "../Bio/Bio";
+import NewProjects from "../NewProjects/NewProjects";
 
 class NewApp extends Component {
   render() {
@@ -16,8 +17,8 @@ class NewApp extends Component {
         <Hero size="medium" className="site-content">
           <Hero.Body>
             <Switch>
+              <Route path="/projects" component={NewProjects} />
               <Route path="/" component={Bio} />
-              {/* <Route path="/projects" component={} /> */}
             </Switch>
           </Hero.Body>
         </Hero>

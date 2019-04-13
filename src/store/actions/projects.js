@@ -8,13 +8,6 @@ export const fetchProjects = projects => {
   };
 };
 
-export const selectProject = project => {
-  return {
-    type: types.SELECT_PROJECT,
-    selectedProject: project
-  };
-};
-
 // Fetching the projects I've made asynchronously, thanks to thunk.
 export const fetchProjectsAsync = () => {
   const request = `/projects.json`;
@@ -22,7 +15,6 @@ export const fetchProjectsAsync = () => {
     axios
       .get(request)
       .then(response => {
-        console.log(response);
         dispatch(fetchProjects(response.data));
       })
       .catch(error => {});

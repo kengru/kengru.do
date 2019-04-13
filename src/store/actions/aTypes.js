@@ -8,7 +8,6 @@ export const FETCH_WE_ITEMS = "FETCH_WE_ITEMS";
 
 // Projects Actions.
 export const FETCH_PROJECTS = "FETCH_PROJECTS";
-export const SELECT_PROJECT = "SELECT_PROJECT";
 
 // Challenges Actions.
 export const FETCH_SINGLE_SKETCH = "FETCH_SINGLE_SKETCH";
