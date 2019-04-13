@@ -5,11 +5,10 @@ A list of the things I have to do in the different main containers and applicati
 ## APP
 
 - [ ] Buy the domain I want.
-- [ ] Create the database structure on firebase.
-- [ ] Making the routing to be full width and height.
-- [ ] Make it a little bit mobile friendly.
+- [x] Create the database structure on firebase.
+- [x] Make it a little bit mobile friendly.
 - [ ] App is now responsive.
-- [ ] Change the overall palette of colors.
+- [x] Change the overall palette of colors.
 - [x] Install Lodash to increase efficiency.
 - [x] Document at least a function.
 - [ ] Document at least 50%.
@@ -19,8 +18,7 @@ A list of the things I have to do in the different main containers and applicati
 
 ## Bio
 
-- [ ] Generate structure for showing the data.
-- [ ] Fix the html/css of the side menu.
+- [x] Generate structure for showing the data.
 - [ ] Add transitions to the component.
 
 ## Projects
@@ -46,5 +44,3 @@ A list of the things I have to do in the different main containers and applicati
 - [ ] Gather the list of APIs I will need to fill the hub.
 - [ ] Design the overall structure of it.
 - [ ] Add transitions to the component.
-
-To remember: every container should be in charge of their own menu.

@@ -17,9 +17,10 @@ class Bio extends Component {
       <div className="bio">
         <Column className="separation" size="one-third">
           <Content>
-            <Title size={4}>Kendry Alexander Grullón</Title>
+            <Title size={3}>Kendry Alexander Grullón</Title>
             <p>
-              A 24 years old programmer from Dominican Republic <br /> asd
+              24 years old programmer from Dominican Republic <br />
+              Trying to do stuffs mainly in <strong>javascript</strong> <br />
             </p>
           </Content>
         </Column>

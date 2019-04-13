@@ -8,6 +8,8 @@
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
+  padding-left: 4vh;
+  padding-right: 4vh;
 }
 
 .separation {
