@@ -13,8 +13,8 @@ const Navigation = () => {
           <Navbar.Brand>
             <Navbar.Item>
               <img
-                src="https://bulma.io/images/bulma-logo.png"
-                alt=""
+                src={`https://firebasestorage.googleapis.com/v0/b/kengru-do.appspot.com/o/public%2Fkengru_web_b.png?alt=media&token=8e1a3ca4-9f80-483d-adb0-f8b9b3df98e8`}
+                alt="logo"
                 width="112"
                 height="70"
               />
@@ -22,15 +22,21 @@ const Navigation = () => {
             <Navbar.Burger />
           </Navbar.Brand>
           <Navbar.Menu>
-            <Navbar.Segment align="start">
+            <Navbar.Segment align="end">
               <Navbar.Item as="div">
-                <NavLink activeClassName="navActive" exact to="/">Home</NavLink>
+                <NavLink activeClassName="navActive" exact to="/">
+                  Home
+                </NavLink>
               </Navbar.Item>
               <Navbar.Item as="div">
-                <NavLink activeClassName="navActive" to="/projects">Projects</NavLink>
+                <NavLink activeClassName="navActive" to="/projects">
+                  Projects
+                </NavLink>
               </Navbar.Item>
               <Navbar.Item as="div">
-                <NavLink activeClassName="navActive" to="/challenges">Challenges</NavLink>
+                <NavLink activeClassName="navActive" to="/challenges">
+                  Challenges
+                </NavLink>
               </Navbar.Item>
             </Navbar.Segment>
             <Navbar.Segment align="end">
