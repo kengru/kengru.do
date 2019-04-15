@@ -1,0 +1,8 @@
+language: node__js
+deploy:
+  provider: gae
+  keyfile: gae-info.json
+  project: kengru-do
+before_install:
+- openssl aes-256-cbc -K $encrypted_04145aa3abce_key -iv $encrypted_04145aa3abce_iv
+  -in gae-info.json.enc -out gae-info.json -d
