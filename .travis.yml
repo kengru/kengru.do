@@ -1,9 +1,9 @@
 language: node__js
 deploy:
   provider: gae
-  keyfile: secrets.json
+  keyfile: gae-secret.json
   project: kengru-do
   on: master
 before_install:
-- openssl aes-256-cbc -K $encrypted_04145aa3abce_key -iv $encrypted_04145aa3abce_iv
-  -in secrets.json.enc -out secrets.json -d
+- openssl aes-256-cbc -K $encrypted_c5644d2faee2_key -iv $encrypted_c5644d2faee2_iv
+  -in gae-secret.json.enc -out gae-secret.json -d
