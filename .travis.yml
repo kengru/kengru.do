@@ -1,6 +1,9 @@
 language: node__js
 node__js:
-  - 8
+  - "10"
+  - "9"
+  - "8"
+  - "7"
 cache:
   directories:
     - node_modules
