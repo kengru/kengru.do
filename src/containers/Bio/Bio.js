@@ -26,7 +26,7 @@ class Bio extends Component {
             <Title size={3}>Kendry Alexander Grullón</Title>
             <p>
               {this.state.age} years old programmer from Dominican Republic <br />
-              Trying to do stuffs mainly using <strong>javascript</strong>. UPDATED. <br />
+              Trying to do stuffs mainly using <strong>javascript</strong>.<br />
             </p>
           </Content>
         </Column>
