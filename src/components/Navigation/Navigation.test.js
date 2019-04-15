@@ -2,14 +2,35 @@ import React from "react";
 import { configure, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 
+import { NavLink } from "react-router-dom";
 import Navigation from "./Navigation";
-import { Navbar } from "rbx";
+import { Navbar, Button } from "rbx";
 
 configure({ adapter: new Adapter() });
 
 describe("<Navigation />", () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallow(<Navigation />);
+  });
+
   it("should render one <Navbar /> element", () => {
-    const wrapper = shallow(<Navigation />);
     expect(wrapper.find(Navbar)).toHaveLength(1);
+  });
+
+  it("should render one <Navbar.Brand /> element", () => {
+    expect(wrapper.find(Navbar.Brand)).toHaveLength(1);
+  });
+
+  it("should render three <NavLink /> elements", () => {
+    expect(wrapper.find(NavLink)).toHaveLength(3);
+  });
+
+  it("should render three icon elements", () => {
+    expect(wrapper.find("i")).toHaveLength(3);
+  });
+
+  it("should render one download button", () => {
+    expect(wrapper.find(Button)).toHaveLength(1);
   });
 });
