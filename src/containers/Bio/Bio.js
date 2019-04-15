@@ -25,7 +25,7 @@ class Bio extends Component {
           <Content>
             <Title size={3}>Kendry Alexander Grullón</Title>
             <p>
-              {this.state.age} years old programmer from Dominican Republic <br />
+              {this.state.age} years old programmer() from Dominican Republic <br />
               Trying to do stuffs mainly using <strong>javascript</strong> <br />
             </p>
           </Content>
