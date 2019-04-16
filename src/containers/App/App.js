@@ -13,10 +13,6 @@ import Challenges from "../Challenges/Challenges";
 // import Challenges from "../Challenges/P5Container/P5Container";
 
 class App extends Component {
-  componentDidMount() {
-    console.log(this.props);
-  }
-
   render() {
     return (
       <div className="site">

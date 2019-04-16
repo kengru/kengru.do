@@ -5,6 +5,7 @@
 import * as types from "../actions/aTypes";
 
 const initialState = {
+  menuItems: [],
   sketch: {}
 };
 
@@ -14,6 +15,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         sketch: action.sketch
+      };
+    case types.FETCH_MENU_SUCCESS:
+      return {
+        ...state,
+        menuItems: action.items
       };
     default:
       break;

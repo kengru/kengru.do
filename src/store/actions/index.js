@@ -1,4 +1,3 @@
-export { clearMenuItems, fetchMenuAsync, setPathProp } from "./menu";
 export { fetchWorkAsync } from "./bio";
-export { fetchSketchAsync } from "./challenges";
 export { fetchProjectsAsync } from "./projects";
+export { fetchSketchAsync, fetchMenuAsync } from "./challenges";

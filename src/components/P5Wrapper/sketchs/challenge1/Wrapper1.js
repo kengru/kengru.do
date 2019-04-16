@@ -7,6 +7,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
 import Typography from "@material-ui/core/Typography";
+
 import "../Challenge.css";
 
 import * as actions from "../../../../store/actions";

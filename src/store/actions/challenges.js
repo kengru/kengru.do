@@ -8,6 +8,13 @@ export const fetchSingleSketch = sketch => {
   };
 };
 
+export const fetchMenuSuccess = menuData => {
+  return {
+    type: types.FETCH_MENU_SUCCESS,
+    items: menuData
+  };
+};
+
 // Fetching the current sketch information asynchronously.
 export const fetchSketchAsync = id => {
   const request = `/sketchs/${id}.json`;
@@ -16,6 +23,19 @@ export const fetchSketchAsync = id => {
       .get(request)
       .then(response => {
         dispatch(fetchSingleSketch(response.data));
+      })
+      .catch(error => {});
+  };
+};
+
+// Fetching the current menu items with their routes asynchronously.
+export const fetchMenuAsync = () => {
+  const request = `/menu/challenges.json`;
+  return dispatch => {
+    axios
+      .get(request)
+      .then(response => {
+        dispatch(fetchMenuSuccess(response.data));
       })
       .catch(error => {});
   };

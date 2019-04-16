@@ -9,16 +9,14 @@ import App from "./containers/App/App";
 
 import bioReducer from "./store/reducers/bio";
 import projectsReducer from "./store/reducers/projects";
-// import menuReducer from "./store/reducers/menu";
 import challengesReducer from "./store/reducers/challenges";
 
 import "./index.css";
 
 const reducers = combineReducers({
-  // menu: menuReducer,
-  challenges: challengesReducer,
+  bio: bioReducer,
   projects: projectsReducer,
-  bio: bioReducer
+  challenges: challengesReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
