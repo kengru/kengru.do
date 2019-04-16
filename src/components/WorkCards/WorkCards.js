@@ -6,7 +6,7 @@ import "./WorkCards.css";
 
 const WorkCards = props => {
   let items = null;
-  if (props.workItems) {
+  if (props.workItems.length) {
     items = props.workItems.map(item => (
       <Column key={item.company}>
         <Card>

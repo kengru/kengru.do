@@ -19,7 +19,7 @@ class Challenges extends Component {
     return (
       <Column.Group>
         <Column size="one-quarter">
-          <ChallengeMenu />
+          <ChallengeMenu menuItems={this.props.menu} />
         </Column>
         <Column>
           <Route exact path="/challenges" component={ChallengeHome} />

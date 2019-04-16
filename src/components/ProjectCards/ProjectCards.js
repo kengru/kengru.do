@@ -6,7 +6,7 @@ import "./ProjectCards.css";
 
 const ProjectCards = props => {
   let items = null;
-  if (props.projectItems) {
+  if (props.projectItems.length) {
     items = props.projectItems.map(item => (
       <Column key={item.name}>
         <Card>
