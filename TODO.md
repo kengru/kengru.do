@@ -4,16 +4,16 @@ A list of the things I have to do in the different main containers and applicati
 
 ## APP
 
-- [ ] Buy the domain I want.
+- [x] Buy the domain I want.
 - [x] Create the database structure on firebase.
 - [x] Make it a little bit mobile friendly.
-- [ ] App is now responsive.
+- [x] App is now responsive.
 - [x] Change the overall palette of colors.
 - [x] Install Lodash to increase efficiency.
 - [x] Document at least a function.
 - [ ] Document at least 50%.
 - [ ] Document EVERYTHING.
-- [ ] TEST ANYTHING.
+- [x] TEST ANYTHING.
 - [ ] Test practically everything.
 
 ## Bio

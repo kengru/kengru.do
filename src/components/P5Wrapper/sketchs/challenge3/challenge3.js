@@ -51,7 +51,7 @@ export default function(s) {
     }
 
     show() {
-      s.fill(255);
+      s.fill(0);
       for (let i = 0; i < this.tail.length; i++) {
         s.rect(this.tail[i].x, this.tail[i].y, this.size, this.size);
       }
@@ -81,8 +81,15 @@ export default function(s) {
     point = new Point(pickLocation());
   };
 
-  s.draw = function() {
-    s.background(0);
+  s.draw = function() {    
+    s.background(255);
+    // Drawing a border
+    s.stroke(170);
+    s.line(0, 0, s.width - 1, 0);
+    s.line(s.width - 1, 0, s.width - 1, s.height - 1);
+    s.line(s.width - 1, s.height - 1, 0, s.height - 1);
+    s.line(0, s.height - 1, 0, 0);
+
     s.textSize(32);
     s.text(`Points: ${snake.score}`, 10, 30);
     point.show();

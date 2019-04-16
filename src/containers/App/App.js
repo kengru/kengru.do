@@ -20,8 +20,8 @@ class App extends Component {
         <Hero size="medium" className="site-content">
           <Switch>
             <Route path="/challenges" component={Challenges} />
-            <Route path="/projects" exact component={Projects} />
-            <Route path="/" exact component={Bio} />
+            <Route path="/projects" component={Projects} />
+            <Route path="/" component={Bio} />
           </Switch>
         </Hero>
         <FullFooter />
