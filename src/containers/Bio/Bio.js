@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Moment from "moment";
-import { Column, Title, Content } from "rbx";
+import { Column, Title, Content, Hero } from "rbx";
 import "rbx/index.css";
 
 import "./Bio.css";
@@ -11,8 +11,8 @@ import WorkCards from "../../components/WorkCards/WorkCards";
 class Bio extends Component {
   state = {
     age: 0
-  }
-  
+  };
+
   componentDidMount() {
     this.props.onFetchWi();
     this.setState({ age: Moment().diff(Moment([1994, 5, 2]), "years") });
@@ -20,18 +20,22 @@ class Bio extends Component {
 
   render() {
     return (
-      <div className="bio">
-        <Column className="separation" size="one-third">
-          <Content>
-            <Title size={3}>Kendry Alexander Grullón</Title>
-            <p>
-              {this.state.age} years old programmer from Dominican Republic <br />
-              Trying to do stuffs mainly using <strong>javascript</strong>.<br />
-            </p>
-          </Content>
-        </Column>
-        <WorkCards workItems={this.props.work} />
-      </div>
+      <Hero.Body>
+        <div className="bio">
+          <Column className="separation" size="one-third">
+            <Content>
+              <Title size={3}>Kendry Alexander Grullón</Title>
+              <p>
+                {this.state.age} years old programmer from Dominican Republic{" "}
+                <br />
+                Trying to do stuffs mainly using <strong>javascript</strong>.
+                <br />
+              </p>
+            </Content>
+          </Column>
+          <WorkCards workItems={this.props.work} />
+        </div>
+      </Hero.Body>
     );
   }
 }

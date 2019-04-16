@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Container } from "rbx";
+import { Container, Hero } from "rbx";
 import "rbx/index.css";
 
 import "./Projects.css";
@@ -14,11 +14,11 @@ class Projects extends Component {
 
   render() {
     return (
-      <div>
+      <Hero.Body>
         <Container fluid>
           <ProjectCards projectItems={this.props.projects} />
         </Container>
-      </div>
+      </Hero.Body>
     );
   }
 }

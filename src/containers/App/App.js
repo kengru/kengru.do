@@ -22,13 +22,11 @@ class App extends Component {
       <div className="site">
         <Navigation />
         <Hero size="medium" className="site-content">
-          <Hero.Body>
-            <Switch>
-              <Route path="/challenges" component={Challenges} />
-              <Route path="/projects" exact component={Projects} />
-              <Route path="/" exact component={Bio} />
-            </Switch>
-          </Hero.Body>
+          <Switch>
+            <Route path="/challenges" component={Challenges} />
+            <Route path="/projects" exact component={Projects} />
+            <Route path="/" exact component={Bio} />
+          </Switch>
         </Hero>
         <FullFooter />
       </div>
