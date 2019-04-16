@@ -14,11 +14,11 @@ class Projects extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div>
         <Container fluid>
           <ProjectCards projectItems={this.props.projects} />
         </Container>
-      </React.Fragment>
+      </div>
     );
   }
 }

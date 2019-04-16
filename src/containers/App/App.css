@@ -7,3 +7,11 @@
 .site-content {
   flex: 1;
 }
+
+.switchAnimation {
+  position: relative;
+}
+
+.switchAnimation > div {
+  position: absolute;
+}
