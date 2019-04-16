@@ -6,7 +6,8 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
-import Typography from "@material-ui/core/Typography";
+import { Title } from "rbx";
+import "rbx/index.css";
 
 import "../Challenge.css";
 
@@ -83,12 +84,12 @@ class P5Wrapper extends Component {
 
     return (
       <div className="Sketch">
-        <Typography align="center" variant="h3">
+        <Title size="3" align="center">
           {this.props.sketch.title}
-        </Typography>
-        <Typography align="center" variant="subtitle1" paragraph>
+        </Title>
+        <Title subtitle align="center" size="6">
           {this.props.sketch.description}
-        </Typography>
+        </Title>
         <div
           id="canvas1-container"
           style={{ width: "100%", textAlign: "center" }}

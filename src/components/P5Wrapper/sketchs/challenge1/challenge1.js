@@ -45,7 +45,7 @@ export default function(s) {
   s.onSetAppState = () => {};
 
   s.setup = function() {
-    s.createCanvas(700, 500);
+    s.createCanvas(700, 400);
     s.background(0);
     for (let i = 0; i <= 800; i++) {
       stars[i] = new Star();

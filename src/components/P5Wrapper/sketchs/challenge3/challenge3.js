@@ -75,7 +75,7 @@ export default function(s) {
   s.onSetAppState = () => {};
 
   s.setup = function() {
-    s.createCanvas(600, 600);
+    s.createCanvas(800, 500);
     s.frameRate(10);
     snake = new Snake(s.width / 2, s.width / 2, scl);
     point = new Point(pickLocation());

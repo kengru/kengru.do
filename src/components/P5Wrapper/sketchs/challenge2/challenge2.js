@@ -36,7 +36,7 @@ export default function(s) {
 
     show() {
       s.push();
-      s.stroke(255);
+      s.stroke(0);
       s.fill(colorBB);
       s.translate(this.x, this.y, this.z);
       s.box(this.size);
@@ -56,7 +56,7 @@ export default function(s) {
   };
 
   s.draw = function() {
-    s.background(0);
+    s.background(255);
     s.ambientLight(200, 200);
     s.ambientMaterial(200);
     s.noFill();
