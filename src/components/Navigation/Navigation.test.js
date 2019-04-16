@@ -14,23 +14,23 @@ describe("<Navigation />", () => {
     wrapper = shallow(<Navigation />);
   });
 
-  it("should render one <Navbar /> element", () => {
+  it(`should render one <Navbar /> element`, () => {
     expect(wrapper.find(Navbar)).toHaveLength(1);
   });
 
-  it("should render one <Navbar.Brand /> element", () => {
+  it(`should render one <Navbar.Brand /> element`, () => {
     expect(wrapper.find(Navbar.Brand)).toHaveLength(1);
   });
 
-  it("should render three <NavLink /> elements", () => {
+  it(`should render three <NavLink /> elements`, () => {
     expect(wrapper.find(NavLink)).toHaveLength(3);
   });
 
-  it("should render three icon elements", () => {
+  it(`should render three icon elements`, () => {
     expect(wrapper.find("i")).toHaveLength(3);
   });
 
-  it("should render one download button", () => {
+  it(`should render one download button`, () => {
     expect(wrapper.find(Button)).toHaveLength(1);
   });
 });
