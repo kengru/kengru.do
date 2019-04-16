@@ -13,11 +13,23 @@ describe("<FullFooter />", () => {
     wrapper = shallow(<FullFooter />);
   });
 
-  it("should render one <Footer /> element", () => {
+  it(`should render one <Footer /> element`, () => {
     expect(wrapper.find(Footer)).toHaveLength(1);
   });
 
-  it("should render three links", () => {
+  it(`should render three links`, () => {
     expect(wrapper.find("a")).toHaveLength(3);
+  });
+
+  it(`should have link elements with target blank`, () => {
+    expect(
+      wrapper.find("a").filterWhere(item => {
+        return item.prop("target") === "_blank";
+      })
+    ).toHaveLength(3);
+  });
+
+  it(`should have the footer class`, () => {
+    expect(wrapper.exists(".footer")).toEqual(true);
   });
 });
