@@ -1,16 +1,15 @@
 import React from "react";
+import { Title, Content } from "rbx";
+import "rbx/index.css";
 
-import Typography from "@material-ui/core/Typography";
 import "./ChallengeHome.css";
 
 const ChallengeHome = () => {
   return (
     <div className="Home focus-in-expand">
-      <Typography align="right" variant="h2">
-        The Coding Train Challenges
-      </Typography>
-      <div className="Paragraph">
-        <Typography align="right" variant="display1" paragraph>
+      <Title size={3}>The Coding Train Challenges</Title>
+      <Content>
+        <Title size={4}>
           Here is a compilation of challenges created by{" "}
           <a
             style={{ color: "cadetblue" }}
@@ -21,8 +20,8 @@ const ChallengeHome = () => {
             Daniel Shiffman
           </a>
           &nbsp;and coded by me.
-        </Typography>
-        <Typography align="right" variant="display1">
+        </Title>
+        <Title size={4}>
           All of them are done using{" "}
           <a
             href="https://p5js.org/"
@@ -34,12 +33,12 @@ const ChallengeHome = () => {
           </a>
           , a javascript library created to be used by artist, designers,
           educators and beginners.
-        </Typography>
-        <Typography align="right" variant="display1" paragraph>
+        </Title>
+        <Title size={4}>
           I'll try to have some controls on all the sketches so you can modify
           variables and achieve different results.
-        </Typography>
-        <Typography align="right" variant="display1" paragraph>
+        </Title>
+        <Title size={4}>
           Source Code for the challenges:{" "}
           <a
             href="https://github.com/kengru/CTChallenges"
@@ -49,8 +48,8 @@ const ChallengeHome = () => {
           >
             Challenges
           </a>
-        </Typography>
-      </div>
+        </Title>
+      </Content>
     </div>
   );
 };

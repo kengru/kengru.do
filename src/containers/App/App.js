@@ -1,17 +1,16 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
-import { Route } from "react-router-dom";
-import { AnimatedSwitch } from "react-router-transition";
+import { Route, Switch } from "react-router-dom";
 import { Hero } from "rbx";
 import "rbx/index.css";
 
 import "./App.css";
-import animations from "./appTransitions";
 import Navigation from "../../components/Navigation/Navigation";
 import FullFooter from "../../components/FullFooter/FullFooter";
 import Bio from "../Bio/Bio";
 import Projects from "../Projects/Projects";
 import Challenges from "../Challenges/Challenges";
+// import Challenges from "../Challenges/P5Container/P5Container";
 
 class App extends Component {
   componentDidMount() {
@@ -24,16 +23,11 @@ class App extends Component {
         <Navigation />
         <Hero size="medium" className="site-content">
           <Hero.Body>
-            <AnimatedSwitch
-              atEnter={animations.atEnter}
-              atLeave={animations.atLeave}
-              atActive={animations.atActive}
-              className="switchAnimation"
-            >
+            <Switch>
               <Route path="/challenges" component={Challenges} />
               <Route path="/projects" exact component={Projects} />
               <Route path="/" exact component={Bio} />
-            </AnimatedSwitch>
+            </Switch>
           </Hero.Body>
         </Hero>
         <FullFooter />
