@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import { Column, Title, Content, Hero } from "rbx";
+import { Column } from "rbx";
 import "rbx/index.css";
 
 import routes from "./routes";
 import RouteWithSubs from "../../helpers/routeWithSubs";
-import ChallengeHome from "./ChallengeHome/ChallengeHome";
-import ChallengeMenu from "./ChallengeMenu/ChallengeMenu";
+import ChallengeHome from "../../components/ChallengesItems/ChallengeHome/ChallengeHome";
+import ChallengeMenu from "../../components/ChallengesItems/ChallengeMenu/ChallengeMenu";
 
 class Challenges extends Component {
   render() {
