@@ -35,7 +35,7 @@ const ChallengeHome = () => {
           educators and beginners.
         </Title>
         <Title subtitle size={4}>
-          I'll try to have some controls the sketches so you can modify
+          I'll try to have some controls on the sketches so you can modify
           variables and achieve different results.
         </Title>
         <Title subtitle size={4}>
