@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Menu, Section } from "rbx";
+import { Menu, Section, Title } from "rbx";
 import "rbx/index.css";
 
 import "./ChallengeMenu.css";
@@ -22,7 +22,7 @@ const ChallengeMenu = props => {
   return (
     <Section>
       <Menu>
-        <Menu.Label>Challenges</Menu.Label>
+        <Menu.Label><Title size={4}>Challenges</Title></Menu.Label>
         <Menu.List>{items}</Menu.List>
       </Menu>
     </Section>
