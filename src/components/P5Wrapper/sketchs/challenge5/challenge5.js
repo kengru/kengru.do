@@ -121,43 +121,56 @@ export default function(s) {
       }
     }
 
-    // Enemies
-    for (let i = enemies.length - 1; i >= 0; i--) {
-      if (!show) {
-        enemies[i].move();
-      }
-      enemies[i].show();
-      if (bullets.length) {
-        for (let b = bullets.length - 1; b >= 0; b--) {
-          if (enemies[i].shotDown(bullets[b])) {
-            enemies.splice(i, 1);
-            bullets.splice(b, 1);
+    try {
+      // Enemies
+      for (let i = enemies.length - 1; i >= 0; i--) {
+        if (!show) {
+          enemies[i].move();
+        }
+        enemies[i].show();
+        if (bullets.length) {
+          for (let b = bullets.length - 1; b >= 0; b--) {
+            if (enemies[i].shotDown(bullets[b])) {
+              enemies.splice(i, 1);
+              bullets.splice(b, 1);
+            }
           }
+        }
+      }
+    } catch (error) {
+      // console.log(error);
+    }
+
+    // Enemies Movement
+    if (enemies.length) {
+      if (enemies[enemies.length - 1].x >= s.width - 20) {
+        speed *= -1;
+        for (let i = enemies.length - 1; i >= 0; i--) {
+          enemies[i].down();
+        }
+      } else if (enemies[0].x <= 20) {
+        speed *= -1;
+        for (let i = enemies.length - 1; i >= 0; i--) {
+          enemies[i].down();
         }
       }
     }
 
-    // Enemies Movement
-    if (enemies[enemies.length - 1].x >= s.width - 20) {
-      speed *= -1;
-      for (let i = enemies.length - 1; i >= 0; i--) {
-        enemies[i].down();
-      }
-    } else if (enemies[0].x <= 20) {
-      speed *= -1;
-      for (let i = enemies.length - 1; i >= 0; i--) {
-        enemies[i].down();
-      }
-    }
-
     // Game Status
-    if (enemies[enemies.length - 1].y > s.height - 100) {
+    if (enemies.length) {
+      if (enemies[enemies.length - 1].y > s.height - 100) {
+        show = true;
+      }
+    } else {
       show = true;
     }
+
     if (show) {
       s.stroke(255);
       s.textSize(24);
-      s.text("Lost", 30, 30);
+      if (enemies.length) {
+        s.text("Lost", 30, 30);
+      } else s.text("Won", 30, 30);
     }
   };
 

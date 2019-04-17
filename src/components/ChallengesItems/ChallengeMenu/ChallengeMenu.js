@@ -7,7 +7,6 @@ import "rbx/index.css";
 import "./ChallengeMenu.css";
 
 const ChallengeMenu = props => {
-  console.log(props);
   let items = null;
   if (props.menuItems.length) {
     items = props.menuItems.map(item => (
@@ -25,11 +24,7 @@ const ChallengeMenu = props => {
   return (
     <Section>
       <Menu>
-        <Menu.Label>
-          <Title size={4} as="p">
-            Challenges
-          </Title>
-        </Menu.Label>
+        <Menu.Label textSize={4} textWeight="bold" textColor="black">Challenges</Menu.Label>
         <Menu.List>{items}</Menu.List>
       </Menu>
     </Section>
