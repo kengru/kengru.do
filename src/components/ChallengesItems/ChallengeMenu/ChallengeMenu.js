@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router";
 import { NavLink } from "react-router-dom";
-import { Menu, Section, Title } from "rbx";
+import { Menu, Section} from "rbx";
 import "rbx/index.css";
 
 import "./ChallengeMenu.css";
