@@ -9,6 +9,8 @@ import challenge4 from "./sketchs/challenge4/challenge4";
 import challenge5 from "./sketchs/challenge5/challenge5";
 import challenge6 from "./sketchs/challenge6/challenge6";
 import challenge7 from "./sketchs/challenge7/challenge7";
+import challenge8 from "./sketchs/challenge8/challenge8";
+import challenge9 from "./sketchs/challenge9/challenge9";
 
 const challenges = [
   challenge1,
@@ -17,7 +19,9 @@ const challenges = [
   challenge4,
   challenge5,
   challenge6,
-  challenge7
+  challenge7,
+  challenge8,
+  challenge9
 ];
 
 export default challenges;

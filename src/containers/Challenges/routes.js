@@ -5,6 +5,8 @@ import Wrapper4 from "../../components/P5Wrapper/sketchs/challenge4/Wrapper4";
 import Wrapper5 from "../../components/P5Wrapper/sketchs/challenge5/Wrapper5";
 import Wrapper6 from "../../components/P5Wrapper/sketchs/challenge6/Wrapper6";
 import Wrapper7 from "../../components/P5Wrapper/sketchs/challenge7/Wrapper7";
+import Wrapper8 from "../../components/P5Wrapper/sketchs/challenge8/Wrapper8";
+import Wrapper9 from "../../components/P5Wrapper/sketchs/challenge9/Wrapper9";
 
 const routes = [
   {
@@ -32,8 +34,16 @@ const routes = [
     component: Wrapper6
   },
   {
-    path: "/challenges/ssystem2D",
+    path: "/challenges/ssystem2d",
     component: Wrapper7
+  },
+  {
+    path: "/challenges/ssystem3d",
+    component: Wrapper8
+  },
+  {
+    path: "/challenges/ssystem3dt",
+    component: Wrapper9
   }
 ];
 
