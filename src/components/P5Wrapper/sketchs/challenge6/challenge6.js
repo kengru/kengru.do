@@ -33,7 +33,7 @@ export default function(s) {
   s.setup = function() {
     s.createCanvas(700, 400);
     for(let i = 0; i < 8; i++) {
-      cells.push(new Cell(s.random(50, s.width - 50), s.random(50, s.height - 50), s.random(15, 30)));
+      cells.push(new Cell(s.random(50, s.width - 50), s.random(50, s.height - 50), s.random(30, 60)));
     }
   };
 
