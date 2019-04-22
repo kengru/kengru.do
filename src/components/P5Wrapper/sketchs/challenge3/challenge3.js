@@ -1,5 +1,6 @@
 let snake = {};
 let point = {};
+let speed = 10;
 let movX = 0;
 let movY = 0;
 let scl = 20;
@@ -75,8 +76,7 @@ export default function(s) {
   s.onSetAppState = () => {};
 
   s.setup = function() {
-    s.createCanvas(800, 500);
-    s.frameRate(10);
+    s.createCanvas(600, 400);
     snake = new Snake(s.width / 2, s.width / 2, scl);
     point = new Point(pickLocation());
   };
@@ -84,6 +84,8 @@ export default function(s) {
   s.draw = function() {    
     s.background(255);
     // Drawing a border
+    if (s.props.speed) speed = s.props.speed.value;
+    s.frameRate(speed);
     s.stroke(170);
     s.line(0, 0, s.width - 1, 0);
     s.line(s.width - 1, 0, s.width - 1, s.height - 1);

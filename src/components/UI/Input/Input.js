@@ -9,7 +9,8 @@
       handles the state changes of the parent.
 */
 import React from "react";
-import Typography from "@material-ui/core/Typography";
+import { Label, Control } from "rbx";
+import "rbx/index.css";
 import "./Input.css";
 
 const input = props => {
@@ -18,24 +19,24 @@ const input = props => {
   switch (props.type) {
     case "range":
       inputElement = (
-        <input
-          {...props.config}
-          type={props.type}
-          value={props.value}
-          onChange={props.changed}
-        />
+        <React.Fragment>
+          <Label>{props.label}</Label>
+          <Control>
+            <input
+              {...props.config}
+              type={props.type}
+              value={props.value}
+              onChange={props.changed}
+            />
+          </Control>
+        </React.Fragment>
       );
       break;
     default:
       break;
   }
 
-  return (
-    <div className="Control">
-      <Typography variant="subtitle1">{props.label}</Typography>
-      {inputElement}
-    </div>
-  );
+  return inputElement;
 };
 
 export default input;

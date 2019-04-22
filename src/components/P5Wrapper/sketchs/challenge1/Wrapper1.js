@@ -6,7 +6,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
-import { Title } from "rbx";
+import { Title, Field } from "rbx";
 import "rbx/index.css";
 
 import "../Challenge.css";
@@ -72,14 +72,15 @@ class P5Wrapper extends Component {
       });
     }
     const sketchConfig = formElementsArray.map(control => (
-      <Input
-        key={control.id}
-        type={control.config.type}
-        label={control.config.label}
-        value={control.config.value}
-        config={control.config.config}
-        changed={event => this.inputChangedHandler(event, control.id)}
-      />
+      <Field key={control.id} style={{ paddingRight: "1em" }}>
+        <Input
+          type={control.config.type}
+          label={control.config.label}
+          value={control.config.value}
+          config={control.config.config}
+          changed={event => this.inputChangedHandler(event, control.id)}
+        />
+      </Field>
     ));
 
     return (
@@ -94,7 +95,9 @@ class P5Wrapper extends Component {
           id="canvas1-container"
           style={{ width: "100%", textAlign: "center" }}
         />
-        <div className="Controls">{sketchConfig}</div>
+        <Field kind="group" multiline>
+          {sketchConfig}
+        </Field>
       </div>
     );
   }
