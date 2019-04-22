@@ -1,87 +1,145 @@
-let sun = {};
-let imgs;
-let imgp;
+let w = 40;
+let current;
+let cols, rows;
+let grid = [];
+let stack = [];
 
 export default function(s) {
-  function c3D() {
-    let angle = Math.random() * s.TWO_PI;
-    let vz = Math.random() * 2 - 1;
-    let vzBase = Math.sqrt(1 - vz * vz);
-    let vx = vzBase * Math.cos(angle);
-    let vy = vzBase * Math.sin(angle);
-    return s.createVector(vx, vy, vz);
+  class Cell {
+    constructor(i, j) {
+      this.i = i;
+      this.j = j;
+      this.walls = [true, true, true, true];
+      this.visited = false;
+    }
+
+    checkNeighbors() {
+      let neighbors = [];
+
+      let top = grid[index(this.i, this.j - 1)];
+      let right = grid[index(this.i + 1, this.j)];
+      let bot = grid[index(this.i, this.j + 1)];
+      let left = grid[index(this.i - 1, this.j)];
+
+      if (top && !top.visited) {
+        neighbors.push(top);
+      }
+
+      if (right && !right.visited) {
+        neighbors.push(right);
+      }
+
+      if (bot && !bot.visited) {
+        neighbors.push(bot);
+      }
+
+      if (left && !left.visited) {
+        neighbors.push(left);
+      }
+
+      if (neighbors.length > 0) {
+        let r = s.floor(s.random(0, neighbors.length));
+        return neighbors[r];
+      } else {
+        return undefined;
+      }
+    }
+
+    display() {
+      let x = this.i * w;
+      let y = this.j * w;
+      s.stroke(0);
+      if (this.walls[0]) {
+        s.line(x, y, x + w, y);
+      }
+      if (this.walls[1]) {
+        s.line(x + w, y, x + w, y + w);
+      }
+      if (this.walls[2]) {
+        s.line(x + w, y + w, x, y + w);
+      }
+      if (this.walls[3]) {
+        s.line(x, y + w, x, y);
+      }
+      if (this.visited) {
+        s.noStroke();
+        s.fill(200, 100, 50, 180);
+        s.rect(x, y, w, w);
+      }
+    }
+
+    highlight() {
+      let x = this.i * w;
+      let y = this.j * w;
+      s.noStroke();
+      s.fill(200, 0, 10, 210);
+      s.rect(x, y, w, w);
+    }
   }
 
-  class Planet {
-    constructor(r, d, o, tex) {
-      this.r = r;
-      this.d = d;
-      this.angle = s.random(s.TWO_PI);
-      this.planets = [];
-      this.orbitsp = o;
-      this.v = c3D();
-      this.v = this.v.mult(this.d);
-      this.tex = tex;
+  function index(i, j) {
+    if (i < 0 || j < 0 || i > cols - 1 || j > rows - 1) {
+      return -1;
+    } else {
+      return i + j * cols;
+    }
+  }
+
+  function removeWalls(a, b) {
+    let x = a.i - b.i;
+    if (x === 1) {
+      a.walls[3] = false;
+      b.walls[1] = false;
+    } else if (x === -1) {
+      a.walls[1] = false;
+      b.walls[3] = false;
     }
 
-    spawnMoons(qty, level) {
-      for (let i = 0; i < qty; i++) {
-        let radius = this.r / (level * 1.4);
-        let max = this.r + radius;
-        let distance = s.random(max, max * 1.3);
-        let speed = s.random(-0.03, 0.03);
-        this.planets.push(new Planet(radius, distance, speed, imgp));
-      }
-      for (let p of this.planets) {
-        if (level < 2) {
-          let moons = s.random(3);
-          p.spawnMoons(moons, level + 1);
-        }
-      }
-    }
-
-    orbit() {
-      this.angle += this.orbitsp;
-    }
-
-    show() {
-      s.push();
-      let a = s.createVector(1, 0, 1);
-      let b = this.v.cross(a);
-      s.rotate(this.angle, b);
-      s.translate(this.v.x, this.v.y, this.v.z);
-      s.fill(200 - this.d / 2, 0, 20);
-      s.noStroke();
-      s.texture(this.tex);
-      s.sphere(this.r);
-      for (let i = 0; i < this.planets.length; i++) {
-        this.planets[i].show();
-        this.planets[i].orbit();
-      }
-      s.pop();
+    let y = a.j - b.j;
+    if (y === 1) {
+      a.walls[0] = false;
+      b.walls[2] = false;
+    } else if (y === -1) {
+      a.walls[2] = false;
+      b.walls[0] = false;
     }
   }
 
   s.props = {};
   s.onSetAppState = () => {};
 
-  s.preload = function() {
-    imgs = s.loadImage(process.env.PUBLIC_URL + "/skImgs/earthlights1k.jpg");
-    imgp = s.loadImage(process.env.PUBLIC_URL + "/skImgs/moonmap1k.jpg");
-  }
-
   s.setup = function() {
-    s.createCanvas(600, 400, s.WEBGL);
-    sun = new Planet(50, 1, 0, imgs);
-    sun.spawnMoons(3, 1);
+    s.createCanvas(800, 400);
+    s.frameRate(20);
+    cols = s.floor(s.width / w);
+    rows = s.floor(s.height / w);
+
+    for (let j = 0; j < rows; j++) {
+      for (let i = 0; i < cols; i++) {
+        grid.push(new Cell(i, j));
+      }
+    }
+
+    current = grid[0];
   };
 
   s.draw = function() {
     s.background(255);
-    s.ambientLight(255);
-    s.smooth();
-    s.orbitControl();
-    s.translate(0, 0, 50);
-    sun.show();
+    for (let i = 0; i < grid.length; i++) {
+      grid[i].display();
+    }
+
+    current.visited = true;
+    current.highlight();
+    let next = current.checkNeighbors();
+    if (next) {
+      next.visited = true;
+      stack.push(current);
+      removeWalls(current, next);
+      current = next;
+    } else if (stack.length > 0) {
+      let cl = stack.pop();
+      current = cl;
+    }
   };
 }
