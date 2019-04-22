@@ -15,8 +15,8 @@ export default function(s) {
       s.ellipse(this.pos.x, this.pos.y, this.r, this.r);
     }
     
-    move() {
-      let movement = s.createVector(s.random(-0.5, 0.5), s.random(-0.5, 0.5));
+    move(min, max) {
+      let movement = s.createVector(s.random(min, max), s.random(min, max));
       this.pos.add(movement);
     }
     
@@ -32,16 +32,19 @@ export default function(s) {
 
   s.setup = function() {
     s.createCanvas(700, 400);
-    for(let i = 0; i < 8; i++) {
+    for(let i = 0; i < 10; i++) {
       cells.push(new Cell(s.random(50, s.width - 50), s.random(50, s.height - 50), s.random(30, 60)));
     }
   };
 
   s.draw = function() {
     s.background(255);
+    let movement = 0.5;
+    if (s.props.movement) movement = s.props.movement.value;
+
     for(let c of cells) {
       c.show();
-      c.move();
+      c.move(movement * -1, movement);
     }
     cells = cells.filter(c => {
       return !c.dead;
@@ -50,7 +53,7 @@ export default function(s) {
 
   s.mousePressed = function() {
     for(let i = cells.length - 1; i >= 0; i--) {
-      if (s.dist(cells[i].pos.x, cells[i].pos.y, s.mouseX, s.mouseY) <= cells[i].r) {
+      if (s.dist(cells[i].pos.x, cells[i].pos.y, s.mouseX, s.mouseY) < cells[i].r) {
         cells[i].mitosis();
       }
     }

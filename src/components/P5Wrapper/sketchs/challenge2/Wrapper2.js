@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
-import { Title, Field, Fieldset } from "rbx";
+import { Title, Field } from "rbx";
 import "rbx/index.css";
 
 import "../Challenge.css";
