@@ -3,7 +3,7 @@ let next = [];
 let da = 1;
 let db = 0.5;
 let dt = 1.0003;
-let feed = 0.055;
+let feed = 0.0545;
 let k = 0.062;
 
 export default function(s) {
@@ -47,7 +47,7 @@ export default function(s) {
   }
 
   s.setup = function() {
-    s.createCanvas(600, 400);
+    s.createCanvas(800, 400);
     s.pixelDensity(1);
     s.frameRate(120);
     for (let x = 0; x < s.width; x++) {
@@ -61,14 +61,24 @@ export default function(s) {
 
     for (let i = 1; i < s.width; i++) {
       for (let j = 1; j < s.height; j++) {
-        // let index = i + j
-        // if (index % 60 === 0 && (i + j) < (s.width + s.height) / 2) {
+        let offset = 30;
+        for (let div = 1; div < s.width / 100; div++) {
+          for (let div2 = 1; div2 < s.height / 100; div2++) {
+            if (
+              i > div * 100 - offset &&
+              i < div * 100 + offset &&
+              j > div2 * 100 - offset &&
+              j < div2 * 100 + offset
+            ) {
+              // if (index === 30 ) {
+              grid[i][j].b = 1;
+            }
+          }
+        }
+        // let value = s.random();
+        // if (value > 0.86) {
         //   grid[i][j].b = 1;
         // }
-        let value = s.random();
-        if (value > 0.9) {
-          grid[i][j].b = 1;
-        }
       }
     }
   };
@@ -102,6 +112,14 @@ export default function(s) {
       }
     }
     s.updatePixels();
+
+    // console.log(s.mouseX);
+
+    // try{
+    //   next[s.round(s.mouseX)][s.round(s.mouseY)].b = 1;
+    // } catch (err) {
+    //   console.log(err);
+    // }
 
     swap();
   };
