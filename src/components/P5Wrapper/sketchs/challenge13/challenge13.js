@@ -2,7 +2,7 @@ let grid = [];
 let next = [];
 let da = 1;
 let db = 0.5;
-let dt = 1.0001;
+let dt = 1.0003;
 let feed = 0.055;
 let k = 0.062;
 
@@ -49,6 +49,7 @@ export default function(s) {
   s.setup = function() {
     s.createCanvas(600, 400);
     s.pixelDensity(1);
+    s.frameRate(120);
     for (let x = 0; x < s.width; x++) {
       grid[x] = [];
       next[x] = [];
@@ -60,8 +61,12 @@ export default function(s) {
 
     for (let i = 1; i < s.width; i++) {
       for (let j = 1; j < s.height; j++) {
-        let index = i + j
-        if (index % 60 === 0 && (i + j) < (s.width + s.height) / 2) {
+        // let index = i + j
+        // if (index % 60 === 0 && (i + j) < (s.width + s.height) / 2) {
+        //   grid[i][j].b = 1;
+        // }
+        let value = s.random();
+        if (value > 0.9) {
           grid[i][j].b = 1;
         }
       }
