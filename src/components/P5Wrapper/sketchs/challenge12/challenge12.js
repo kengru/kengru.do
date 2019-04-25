@@ -1,7 +1,7 @@
 let x = 0.01;
 let y = 0;
-let z = 0;
-let dt = 0.02;
+let z = 1;
+let dt = 0.01;
 const sigma = 10; // 10
 const rho = 40; // 28
 const beta = 8 / 3; // 8 / 3
@@ -34,8 +34,8 @@ export default function(s) {
     // )]);
 
     s.stroke(0);
-    s.scale(3);
-    let h = 5;
+    s.scale(4);
+    // let h = 5;
     s.noFill();
     s.beginShape();
     for (let p of points) {
@@ -46,15 +46,15 @@ export default function(s) {
       // // let sine = c3D();
       // sine.mult(0.001);
       // p.add(sine);
-      if (h > 10) {
-        s.endShape();
-        s.beginShape();
-      }
+      // if (h > 10) {
+      //   s.endShape();
+      //   s.beginShape();
+      // }
       s.vertex(p.x, p.y, p.z);
-      h = h + 1;
-      if (h > 15) {
-        h = 5;
-      }
+      // h = h + 1;
+      // if (h > 15) {
+      //   h = 5;
+      // }
     }
     s.endShape();
     //console.log(x, y, z);
