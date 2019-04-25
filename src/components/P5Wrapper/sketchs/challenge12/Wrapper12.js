@@ -34,7 +34,7 @@ class P5Wrapper extends Component {
 
   componentDidMount() {
     this.canvas1 = new window.p5(sketches[11], "canvas1-container");
-    this.props.onFetchSketch(11);
+    this.props.onFetchSketch(12);
     this.canvas1.props = this.state.controls;
     this.canvas1.onSetAppState = this.onSetAppState;
   }
