@@ -1,65 +1,38 @@
-let cols, rows;
-let w = 1800;
-let h = 1000;
-let scale = 10;
-let terrain = [];
-let flying = 0;
-// TODO: a bird flying by.
-
+let grid = [];
+let next = [];
 
 export default function(s) {
   s.props = {};
   s.onSetAppState = () => {};
 
   s.setup = function() {
-    s.createCanvas(800, 400, s.WEBGL);
-    cols = w / scale;
-    rows = h / scale;
-
-    let yoff = 0;
-    for (let y = 0; y < rows; y++) {
-      let xoff = 0;
-      terrain[y] = [];
-      for (let x = 0; x < cols; x++) {
-        terrain[y][x] = s.map(s.noise(yoff, xoff), 0, 1, -50, 50);
-        xoff += 0.2;
+    s.createCanvas(600, 400);
+    s.pixelDensity(1);
+    for (let x = 0; x < s.width; x++) {
+      grid[x] = [];
+      next[x] = [];
+      for (let y = 0; y < s.height; y++) {
+        grid[x][y] = { a: s.random(1), b: s.random(1) };
+        next[x][y] = { a: 0, b: 0 };
       }
-      yoff += 0.2;
     }
   };
 
   s.draw = function() {
-    s.ambientLight(150);
-    s.lights();
-    s.smooth();
+    s.background(51);
 
-    flying -= 0.1;
-    let yoff = flying;
-    for (let y = 0; y < rows; y++) {
-      let xoff = 0;
-      terrain[y] = [];
-      for (let x = 0; x < cols; x++) {
-        terrain[y][x] = s.map(s.noise(yoff, xoff), 0, 1, -40, 40);
-        xoff += 0.1;
+    s.loadPixels();
+    for (let x = 0; x < s.width; x++) {
+      for (let y = 0; y < s.height; y++) {
+        let pix = (x + y * s.width) * 4;
+        s.pixels[pix + 0] = s.floor(grid[x][y].a * 255);
+        s.pixels[pix + 1] = 0;
+        s.pixels[pix + 2] = s.floor(grid[x][y].b * 255);
+        s.pixels[pix + 3] = 100;
       }
-      yoff += 0.1;
     }
-
-    s.background(255);
-    s.noStroke();
-    s.fill(20, 140, 50, 100);
-
-    s.rotateX(s.PI/3);
-    s.translate(-w/2, -h/2);
-
-    for (let y = 0; y < rows-1; y++) {
-      s.beginShape(s.TRIANGLE_STRIP);
-      // s.texture(img);
-      for (let x = 0; x < cols; x++) {
-        s.vertex(x * scale, y * scale, terrain[y][x]);
-        s.vertex(x * scale, (y+1) * scale, terrain[y][x]);
-      }
-      s.endShape();
-    }
+    s.updatePixels();
+    s.strokeWeight(2);
+    s.line(0, 0, s.width, s.height);
   };
 }
