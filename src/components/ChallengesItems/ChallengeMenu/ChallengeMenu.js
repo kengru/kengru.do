@@ -25,7 +25,7 @@ const ChallengeMenu = props => {
     <Section>
       <Menu>
         <Menu.Label textSize={4} textWeight="bold" textColor="black">Challenges</Menu.Label>
-        <Menu.List>{items}</Menu.List>
+        <Menu.List className="menu-list">{items}</Menu.List>
       </Menu>
     </Section>
   );
