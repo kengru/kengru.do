@@ -7,12 +7,11 @@ export default function(s) {
   s.onSetAppState = () => {};
 
   s.setup = function() {
-    s.createCanvas(800, 500);
+    s.createCanvas(600, 400);
     let a = s.createVector(s.width / 2, s.height);
     let b = s.createVector(s.width / 2, s.height - 100);
     let root = new Branch(a, b, 3);
     tree[0] = root;
-    console.log(s.createVector);
   };
 
   s.draw = function() {
@@ -25,9 +24,11 @@ export default function(s) {
 
     for (let leaf of leaves) {
       leaf.show();
-      leaf.movement();
+      // leaf.movement();
     }
+  };
 
+  s.mousePressed = function() {
     if (count < 7) {
       for (let i = tree.length - 1; i >= 0; i--) {
         if (!tree[i].finished) {
@@ -49,6 +50,16 @@ export default function(s) {
         }
       }
     }
+  };
+
+  s.doubleClicked = function() {
+    count = 0;
+    tree = [];
+    leaves = [];
+    let a = s.createVector(s.width / 2, s.height);
+    let b = s.createVector(s.width / 2, s.height - 100);
+    let root = new Branch(a, b, 3);
+    tree[0] = root;
   };
 
   class Branch {
@@ -73,7 +84,6 @@ export default function(s) {
           this.begin.x + direct.x,
           this.begin.y + direct.y
         );
-        console.log(newEnd);
         s.line(this.begin.x, this.begin.y, newEnd.x, newEnd.y);
         this.grow += 0.05;
       } else {
