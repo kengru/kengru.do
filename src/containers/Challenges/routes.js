@@ -9,6 +9,13 @@ import Wrapper8 from "../../components/P5Wrapper/sketchs/challenge8/Wrapper8";
 import Wrapper9 from "../../components/P5Wrapper/sketchs/challenge9/Wrapper9";
 import Wrapper10 from "../../components/P5Wrapper/sketchs/challenge10/Wrapper10";
 import Wrapper11 from "../../components/P5Wrapper/sketchs/challenge11/Wrapper11";
+import Wrapper12 from "../../components/P5Wrapper/sketchs/challenge12/Wrapper12";
+import Wrapper13 from "../../components/P5Wrapper/sketchs/challenge13/Wrapper13";
+import Wrapper14 from "../../components/P5Wrapper/sketchs/challenge14/Wrapper14";
+import Wrapper15 from "../../components/P5Wrapper/sketchs/challenge15/Wrapper15";
+import Wrapper16 from "../../components/P5Wrapper/sketchs/challenge16/Wrapper16";
+import Wrapper17 from "../../components/P5Wrapper/sketchs/challenge17/Wrapper17";
+import Wrapper18 from "../../components/P5Wrapper/sketchs/challenge18/Wrapper18";
 
 const routes = [
   {
@@ -54,6 +61,34 @@ const routes = [
   {
     path: "/challenges/perlinterrain",
     component: Wrapper11
+  },
+  {
+    path: "/challenges/lorenzattractor",
+    component: Wrapper12
+  },
+  {
+    path: "/challenges/reactiondifussion",
+    component: Wrapper13
+  },
+  {
+    path: "/challenges/ftrecursive",
+    component: Wrapper14
+  },
+  {
+    path: "/challenges/ftoop",
+    component: Wrapper15
+  },
+  {
+    path: "/challenges/ftlsystem",
+    component: Wrapper16
+  },
+  {
+    path: "/challenges/ftspace",
+    component: Wrapper17
+  },
+  {
+    path: "/challenges/ft3d",
+    component: Wrapper18
   }
 ];
 

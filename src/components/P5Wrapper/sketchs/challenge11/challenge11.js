@@ -4,6 +4,8 @@ let h = 1000;
 let scale = 10;
 let terrain = [];
 let flying = 0;
+// TODO: a bird flying by.
+
 
 export default function(s) {
   s.props = {};
