@@ -1,5 +1,5 @@
 let tree;
-let max_dist = 40;
+let max_dist = 30;
 let min_dist = 10;
 
 export default function(s) {
@@ -21,7 +21,7 @@ export default function(s) {
     constructor() {
       this.leaves = [];
       this.branches = [];
-      for (var i = 0; i < 500; i++) {
+      for (var i = 0; i < 1000; i++) {
         this.leaves.push(new Leaf());
       }
       let position = s.createVector(s.width / 2, s.height);
@@ -56,7 +56,6 @@ export default function(s) {
     }
 
     grow() {
-      // console.log("grow");
       for (let i = 0; i < this.leaves.length; i++) {
         let leaf = this.leaves[i];
         let closestBranch = null;
@@ -109,7 +108,7 @@ export default function(s) {
       this.dir = dir;
       this.originDir = this.dir.copy();
       this.count = 0;
-      this.length = 5;
+      this.length = 4;
     }
 
     reset() {
@@ -137,14 +136,14 @@ export default function(s) {
 
   class Leaf {
     constructor() {
-      this.pos = s.createVector(s.random(s.width), s.random(s.height - 100));
+      this.pos = s.createVector(s.random(100, s.width - 100), s.random(s.height - 100));
       this.reached = false;
     }
 
     show() {
-      s.fill(0);
+      s.fill(0, 200, 0, 160);
       s.noStroke();
-      s.ellipse(this.pos.x, this.pos.y, 4, 4);
+      s.ellipse(this.pos.x, this.pos.y, 4, 9);
     }
   }
 }
