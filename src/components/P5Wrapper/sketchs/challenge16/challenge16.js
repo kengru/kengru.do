@@ -1,65 +1,78 @@
-let cols, rows;
-let w = 1800;
-let h = 1000;
-let scale = 10;
-let terrain = [];
-let flying = 0;
-// TODO: a bird flying by.
+// Variables: A B
+// Axiom: A
+// rules: (A -> AB), (B -> A)
 
+let angle;
+let axiom = "F";
+let sentence = axiom;
+let len = 80;
+
+let rules = [];
+
+rules[0] = {
+  a: "F",
+  b: "FF+[F-F-F]-[-F+F+F]+[-F+]-[+F-]"
+};
 
 export default function(s) {
   s.props = {};
   s.onSetAppState = () => {};
 
   s.setup = function() {
-    s.createCanvas(800, 400, s.WEBGL);
-    cols = w / scale;
-    rows = h / scale;
-
-    let yoff = 0;
-    for (let y = 0; y < rows; y++) {
-      let xoff = 0;
-      terrain[y] = [];
-      for (let x = 0; x < cols; x++) {
-        terrain[y][x] = s.map(s.noise(yoff, xoff), 0, 1, -50, 50);
-        xoff += 0.2;
-      }
-      yoff += 0.2;
-    }
-  };
-
-  s.draw = function() {
-    s.ambientLight(150);
-    s.lights();
-    s.smooth();
-
-    flying -= 0.1;
-    let yoff = flying;
-    for (let y = 0; y < rows; y++) {
-      let xoff = 0;
-      terrain[y] = [];
-      for (let x = 0; x < cols; x++) {
-        terrain[y][x] = s.map(s.noise(yoff, xoff), 0, 1, -40, 40);
-        xoff += 0.1;
-      }
-      yoff += 0.1;
-    }
-
+    s.createCanvas(700, 500);
     s.background(255);
-    s.noStroke();
-    s.fill(20, 140, 50, 100);
-
-    s.rotateX(s.PI/3);
-    s.translate(-w/2, -h/2);
-
-    for (let y = 0; y < rows-1; y++) {
-      s.beginShape(s.TRIANGLE_STRIP);
-      // s.texture(img);
-      for (let x = 0; x < cols; x++) {
-        s.vertex(x * scale, y * scale, terrain[y][x]);
-        s.vertex(x * scale, (y+1) * scale, terrain[y][x]);
-      }
-      s.endShape();
-    }
+    angle = s.radians(25);
+    turtle();
   };
+
+  s.mousePressed = function() {
+    generate();
+  };
+
+  function turtle() {
+    s.background(255);
+    angle += s.radians(2);
+    s.resetMatrix();
+    s.translate(s.width / 2, s.height);
+    s.stroke(10, 150, 0, 100);
+    for (let i = 0; i < sentence.length; i++) {
+      let current = sentence.charAt(i);
+
+      if (current === "F") {
+        s.line(0, 0, 0, -len);
+        s.translate(0, -len);
+      } else if (current === "+") {
+        s.rotate(angle);
+      } else if (current === "-") {
+        s.rotate(-angle);
+      } else if (current === "[") {
+        s.push();
+      } else if (current === "]") {
+        s.pop();
+      }
+    }
+  }
+
+  function generate() {
+    if (len > 25) {
+      len *= 0.6;
+      let nextSentence = "";
+      for (let i = 0; i < sentence.length; i++) {
+        let current = sentence.charAt(i);
+        let found = false;
+        for (let j = 0; j < rules.length; j++) {
+          if (current === rules[j].a) {
+            found = true;
+            nextSentence += rules[j].b;
+            break;
+          }
+        }
+        if (!found) {
+          nextSentence += current;
+        }
+      }
+      sentence = nextSentence;
+      turtle();
+    }
+  }
 }
