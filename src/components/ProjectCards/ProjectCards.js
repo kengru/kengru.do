@@ -33,6 +33,26 @@ const ProjectCards = props => {
             <Content>{item.description}</Content>
           </Card.Content>
           <Card.Footer>
+            <Card.Footer.Item
+              as="a"
+              href={item.vc}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Source Code
+            </Card.Footer.Item>
+            {item.link ? (
+              <Card.Footer.Item
+                as="a"
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Live link
+              </Card.Footer.Item>
+            ) : null}
+          </Card.Footer>
+          <Card.Footer>
             {item.tools.map(skill => (
               <Tag key={skill}>{skill}</Tag>
             ))}

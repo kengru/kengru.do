@@ -57,6 +57,13 @@ const Navigation = () => {
               <Navbar.Item
                 target="_blank"
                 rel="noopener noreferrer"
+                href="https://www.linkedin.com/in/kengru/"
+              >
+                <i className="fab fa-linkedin" />
+              </Navbar.Item>
+              <Navbar.Item
+                target="_blank"
+                rel="noopener noreferrer"
                 href="https://medium.com/@kengru"
               >
                 <i className="fab fa-medium-m" />
