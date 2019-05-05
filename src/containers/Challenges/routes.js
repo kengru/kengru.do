@@ -16,6 +16,7 @@ import Wrapper15 from "../../components/P5Wrapper/sketchs/challenge15/Wrapper15"
 import Wrapper16 from "../../components/P5Wrapper/sketchs/challenge16/Wrapper16";
 import Wrapper17 from "../../components/P5Wrapper/sketchs/challenge17/Wrapper17";
 import Wrapper18 from "../../components/P5Wrapper/sketchs/challenge18/Wrapper18";
+import Wrapper19 from "../../components/P5Wrapper/sketchs/challenge19/Wrapper19";
 
 const routes = [
   {
@@ -89,6 +90,10 @@ const routes = [
   {
     path: "/challenges/ft3d",
     component: Wrapper18
+  },
+  {
+    path: "/challenges/superellipse",
+    component: Wrapper19
   }
 ];
 

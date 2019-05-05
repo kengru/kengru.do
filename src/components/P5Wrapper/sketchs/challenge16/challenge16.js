@@ -2,6 +2,8 @@
 // Axiom: A
 // rules: (A -> AB), (B -> A)
 
+//TODO: Make it look like it's growing by its own.
+
 let angle;
 let axiom = "F";
 let sentence = axiom;
