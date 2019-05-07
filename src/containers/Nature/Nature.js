@@ -34,13 +34,13 @@ class Nature extends Component {
 
 const mapStateToProps = state => {
   return {
-    menu: state.challenges.menuItems
+    menu: state.nature.menuItems
   };
 };
 
 const mapDispatchToState = dispatch => {
   return {
-    onFetchMenu: id => dispatch(actions.fetchMenuAsync())
+    onFetchMenu: id => dispatch(actions.fetchMenuNatureAsync())
   };
 };
 

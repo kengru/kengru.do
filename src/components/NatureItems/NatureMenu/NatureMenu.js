@@ -14,7 +14,7 @@ const NatureMenu = props => {
         key={item.text}
         as={NavLink}
         to={"/nature" + item.link}
-        active={item.link === props.location.pathname.slice(11)}
+        active={item.link === props.location.pathname.slice(7)}
       >
         {item.text}
       </Menu.List.Item>

@@ -10,13 +10,15 @@ import App from "./containers/App/App";
 import bioReducer from "./store/reducers/bio";
 import projectsReducer from "./store/reducers/projects";
 import challengesReducer from "./store/reducers/challenges";
+import natureReducer from "./store/reducers/nature";
 
 import "./index.css";
 
 const reducers = combineReducers({
   bio: bioReducer,
   projects: projectsReducer,
-  challenges: challengesReducer
+  challenges: challengesReducer,
+  nature: natureReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
