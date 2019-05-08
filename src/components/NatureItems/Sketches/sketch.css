@@ -3,7 +3,10 @@
 }
 
 .Sketch {
-  margin-top: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 15px;
+  justify-content: space-around;
 }
 
 .Controls {

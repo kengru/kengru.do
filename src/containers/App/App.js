@@ -10,7 +10,7 @@ import FullFooter from "../../components/FullFooter/FullFooter";
 import Bio from "../Bio/Bio";
 import Projects from "../Projects/Projects";
 import Challenges from "../Challenges/Challenges";
-// import Challenges from "../Challenges/P5Container/P5Container";
+import Nature from "../Nature/Nature";
 
 class App extends Component {
   render() {
@@ -19,6 +19,7 @@ class App extends Component {
         <Navigation />
         <Hero size="medium" className="site-content">
           <Switch>
+            <Route path="/nature" component={Nature} />
             <Route path="/challenges" component={Challenges} />
             <Route path="/projects" component={Projects} />
             <Route path="/" component={Bio} />

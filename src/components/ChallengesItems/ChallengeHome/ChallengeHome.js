@@ -7,7 +7,7 @@ import "./ChallengeHome.css";
 const ChallengeHome = () => {
   return (
     <div className="Home focus-in-expand">
-      <Title size={2}>The Coding Train Challenges</Title>
+      <Title size={2} textAlign="centered">The Coding Train Challenges</Title>
       <Section>
         <Title subtitle size={4}>
           Here is a compilation of challenges created by{" "}

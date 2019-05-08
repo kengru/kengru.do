@@ -38,6 +38,11 @@ const Navigation = () => {
                   Challenges
                 </NavLink>
               </Navbar.Item>
+              <Navbar.Item as="div">
+                <NavLink activeClassName="navActive" to="/nature">
+                  Nature of Code
+                </NavLink>
+              </Navbar.Item>
             </Navbar.Segment>
             <Navbar.Segment align="end">
               <Navbar.Item
