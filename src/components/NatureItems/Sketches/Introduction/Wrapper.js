@@ -47,12 +47,15 @@ class P5Wrapper extends Component {
   onSetAppState = (newState, cb) => this.setState(newState, cb);
 
   componentDidMount() {
-    this.canvas1 = new window.p5(sketches[0], "canvas1-container");
+    this.canvas1 = new window.p5(sketches[0], "compareMov-container");
     this.canvas1.props = this.state.controls;
     this.canvas1.onSetAppState = this.onSetAppState;
-    this.canvas2 = new window.p5(sketches[1], "canvas2-container");
+    this.canvas2 = new window.p5(sketches[1], "perlin-container");
     this.canvas2.props = this.state.controls;
     this.canvas2.onSetAppState = this.onSetAppState;
+    this.canvas3 = new window.p5(sketches[2], "fog-container");
+    this.canvas3.props = this.state.controls;
+    this.canvas3.onSetAppState = this.onSetAppState;
   }
 
   componentDidUpdate() {
@@ -105,7 +108,7 @@ class P5Wrapper extends Component {
           <Field kind="group" multiline>
             {sketchConfig[0]}
           </Field>
-          <div id="canvas1-container" style={{ textAlign: "center" }} />
+          <div id="compareMov-container" style={{ textAlign: "center" }} />
         </div>
         <p>
           As you can see, the blue circle moves in very little steps (2px at
@@ -113,14 +116,35 @@ class P5Wrapper extends Component {
           natural.
         </p>
         <p>
-          Perlin Noise it's useful to get random continuous numbers between 0 and 1 that
-          are somewhat related to each other. It's done by passing up a number
-          and increasing the value by every iteration. Here you can see the
-          input to the noise function and it's output.
+          Perlin Noise it's useful to get random continuous numbers between 0
+          and 1 that are somewhat related to each other. It's done by passing up
+          a number and increasing the value by every iteration. Here you can see
+          the input to the noise function and it's output.
         </p>
         <div className="Sketch">
-          <div id="canvas2-container" style={{ textAlign: "center" }} />
+          <div id="perlin-container" style={{ textAlign: "center" }} />
         </div>
+        <p>
+          Other two applications could be to represent some kind of fog in 2D,
+          since every pixel brightness is related to it's neighbour.
+        </p>
+        <div className="Sketch">
+          <div id="fog-container" style={{ textAlign: "center" }} />
+        </div>
+        <p>
+          As well as represent a terrain in 3D by adding a Z value to the perlin
+          algorithm.
+        </p>
+        <div className="Sketch">
+          <div id="perlin-container" style={{ textAlign: "center" }} />
+        </div>
+        <p>
+          In conclusion, perlin noise it's a smooth way to represent randomness
+          that makes a little bit of sense. It has many applications but could
+          be a mistake to use in every kind of movement, as there are many
+          things that could benefit from a real random function. Next stop,{" "}
+          <b>Vectors</b>.
+        </p>
       </div>
     );
   }
