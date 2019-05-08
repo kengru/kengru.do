@@ -11,12 +11,12 @@ const NatureHome = () => {
         Nature of Code
       </Title>
       <Section>
-        <Title size={5}>
+        <Title subtitle size={5}>
           Here is my attempt to represent a creature and it's environment using
           the book{" "}
           <a
             style={{ color: "cadetblue" }}
-            href="https://natureofcode.com/ "
+            href="https://natureofcode.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -33,7 +33,7 @@ const NatureHome = () => {
           </a>
           &nbsp;and coded by me.
         </Title>
-        <Title size={5}>
+        <Title subtitle size={5}>
           This attempt comes from my mere fascination of implementing real life
           physics in code, in here, I'll try to implement a environment I have
           in mind, which I hope it involves Jellyfishes. I'll be using{" "}
@@ -48,10 +48,14 @@ const NatureHome = () => {
           , a javascript library created to be used by artist, designers,
           educators and beginners. And Maybe one or two helper libraries.
         </Title>
-        <Title size={5}>
+        <Title subtitle size={5}>
           As with the challenges, I'll try to have some controls on the sketches
           so you can modify variables and achieve different results with the
           environment.
+        </Title>
+        <Title size={4}>
+          I wanted to see if I could fully grasp the notion of the book, so I
+          try to explain it on a short and illustrative way.
         </Title>
       </Section>
     </div>

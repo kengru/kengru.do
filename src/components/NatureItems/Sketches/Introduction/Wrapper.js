@@ -21,13 +21,13 @@ class P5Wrapper extends Component {
     controls: {
       speed: {
         config: {
-          max: 50,
-          min: 1,
-          step: 1
+          max: 1,
+          min: 0,
+          step: 0.2
         },
         type: "range",
         label: "Speed",
-        value: 1
+        value: 0.2
       }
     }
   };
@@ -50,6 +50,9 @@ class P5Wrapper extends Component {
     this.canvas1 = new window.p5(sketches[0], "canvas1-container");
     this.canvas1.props = this.state.controls;
     this.canvas1.onSetAppState = this.onSetAppState;
+    this.canvas2 = new window.p5(sketches[1], "canvas2-container");
+    this.canvas2.props = this.state.controls;
+    this.canvas2.onSetAppState = this.onSetAppState;
   }
 
   componentDidUpdate() {
@@ -81,20 +84,43 @@ class P5Wrapper extends Component {
     ));
 
     return (
-      <div className="Sketch">
+      <div className="FullDiv">
         <Title size="3" align="center">
           Introduction
         </Title>
-        <Title subtitle align="center" size="6">
-          Description
-        </Title>
-        <div
-          id="canvas1-container"
-          style={{ width: "100%", textAlign: "center" }}
-        />
-        <Field kind="group" multiline>
-          {sketchConfig}
-        </Field>
+        <p>
+          On this first sketch, it's showed the difference between an individual
+          moving at random unrelated steps (the blue circle) and using{" "}
+          <a
+            style={{ color: "cadetblue" }}
+            href="https://en.wikipedia.org/wiki/Perlin_noise"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Perlin Noise
+          </a>{" "}
+          (the black circle) to map it's location on a 2D plane.
+        </p>
+        <div className="Sketch">
+          <Field kind="group" multiline>
+            {sketchConfig[0]}
+          </Field>
+          <div id="canvas1-container" style={{ textAlign: "center" }} />
+        </div>
+        <p>
+          As you can see, the blue circle moves in very little steps (2px at
+          each frame to be precise) and it's movement does not look very
+          natural.
+        </p>
+        <p>
+          Perlin Noise it's useful to get random continuous numbers between 0 and 1 that
+          are somewhat related to each other. It's done by passing up a number
+          and increasing the value by every iteration. Here you can see the
+          input to the noise function and it's output.
+        </p>
+        <div className="Sketch">
+          <div id="canvas2-container" style={{ textAlign: "center" }} />
+        </div>
       </div>
     );
   }

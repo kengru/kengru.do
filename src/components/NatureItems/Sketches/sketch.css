@@ -1,5 +1,12 @@
-.Sketch {
+.FullDiv {
   margin-top: 1em;
+}
+
+.Sketch {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 15px;
+  justify-content: space-around;
 }
 
 .Controls {
