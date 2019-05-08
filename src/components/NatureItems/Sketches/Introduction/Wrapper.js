@@ -56,6 +56,9 @@ class P5Wrapper extends Component {
     this.canvas3 = new window.p5(sketches[2], "fog-container");
     this.canvas3.props = this.state.controls;
     this.canvas3.onSetAppState = this.onSetAppState;
+    this.canvas4 = new window.p5(sketches[3], "terrain-container");
+    this.canvas4.props = this.state.controls;
+    this.canvas4.onSetAppState = this.onSetAppState;
   }
 
   componentDidUpdate() {
@@ -136,9 +139,9 @@ class P5Wrapper extends Component {
           algorithm.
         </p>
         <div className="Sketch">
-          <div id="perlin-container" style={{ textAlign: "center" }} />
+          <div id="terrain-container" style={{ textAlign: "center" }} />
         </div>
-        <p>
+        <p style={{ marginBottom: "1em" }}>
           In conclusion, perlin noise it's a smooth way to represent randomness
           that makes a little bit of sense. It has many applications but could
           be a mistake to use in every kind of movement, as there are many

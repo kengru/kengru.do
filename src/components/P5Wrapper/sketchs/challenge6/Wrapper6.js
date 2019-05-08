@@ -79,7 +79,7 @@ class P5Wrapper extends Component {
     ));
 
     return (
-      <div className="Sketch">
+      <div className="FullDiv">
         <Title size="3" align="center">
           {this.props.sketch.title}
         </Title>
