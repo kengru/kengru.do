@@ -20,7 +20,8 @@
     "react-scripts": "^2.1.8",
     "react-transition-group": "^2.9.0",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "toxiclibsjs": "^0.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
