@@ -97,7 +97,7 @@ const routes = [
     component: Wrapper19
   },
   {
-    path: "/challenges/3dcloth",
+    path: "/challenges/cloth",
     component: Wrapper20
   }
 ];

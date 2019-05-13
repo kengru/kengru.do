@@ -53,7 +53,7 @@ export default function(s) {
     p2.lock();
     let p3 = particles[0][cols - 1];
     p3.lock();
-    let p4 = particles[cols - 1][cols - 1];
+    let p4 = particles[cols - 2][cols - 2];
     p4.lock();
   };
 
