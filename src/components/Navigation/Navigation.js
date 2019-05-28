@@ -43,6 +43,11 @@ const Navigation = () => {
                   Nature of Code
                 </NavLink>
               </Navbar.Item>
+              <Navbar.Item as="div">
+                <NavLink activeClassName="navActive" to="/render">
+                  Renders
+                </NavLink>
+              </Navbar.Item>
             </Navbar.Segment>
             <Navbar.Segment align="end">
               <Navbar.Item
