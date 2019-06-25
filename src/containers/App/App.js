@@ -11,7 +11,7 @@ import Bio from "../Bio/Bio";
 import Projects from "../Projects/Projects";
 import Challenges from "../Challenges/Challenges";
 import Nature from "../Nature/Nature";
-import Render from "../Render/Render";
+import Renders from "../Renders/Renders";
 
 class App extends Component {
   render() {
@@ -20,7 +20,7 @@ class App extends Component {
         <Navigation />
         <Hero size="medium" className="site-content">
           <Switch>
-            <Route path="/render" component={Render} />
+            <Route path="/renders" component={Renders} />
             <Route path="/nature" component={Nature} />
             <Route path="/challenges" component={Challenges} />
             <Route path="/projects" component={Projects} />

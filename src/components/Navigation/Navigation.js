@@ -34,6 +34,11 @@ const Navigation = () => {
                 </NavLink>
               </Navbar.Item>
               <Navbar.Item as="div">
+                <NavLink activeClassName="navActive" to="/renders">
+                  3D Modeling
+                </NavLink>
+              </Navbar.Item>
+              <Navbar.Item as="div">
                 <NavLink activeClassName="navActive" to="/challenges">
                   Challenges
                 </NavLink>
@@ -41,11 +46,6 @@ const Navigation = () => {
               <Navbar.Item as="div">
                 <NavLink activeClassName="navActive" to="/nature">
                   Nature of Code
-                </NavLink>
-              </Navbar.Item>
-              <Navbar.Item as="div">
-                <NavLink activeClassName="navActive" to="/render">
-                  Renders
                 </NavLink>
               </Navbar.Item>
             </Navbar.Segment>
