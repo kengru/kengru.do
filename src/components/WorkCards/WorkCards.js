@@ -8,20 +8,20 @@ const WorkCards = props => {
   let items = null;
   if (props.workItems.length) {
     items = props.workItems.map(item => (
-      <Column key={item.company}>
+      <Column key={item.company} size={4}>
         <Card>
           <Card.Header>
             <Card.Header.Title>
               {item.position} @ {item.company}
             </Card.Header.Title>
           </Card.Header>
-          <Card.Footer>
+          <Card.Footer textAlign="centered" style={{ display: "block" }}>
             {item.skills.map(skill => (
               <Tag key={skill}>{skill}</Tag>
             ))}
           </Card.Footer>
           <Card.Footer>
-            <Card.Footer.Item>
+            <Card.Footer.Item >
               {item.from} - {item.to}
             </Card.Footer.Item>
           </Card.Footer>
