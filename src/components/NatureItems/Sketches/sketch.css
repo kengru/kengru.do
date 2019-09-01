@@ -1,5 +1,9 @@
 .FullDiv {
   margin-top: 1em;
+  padding: 3em;
+  padding-left: 8em;
+  padding-right: 8em;
+  text-align: center;
 }
 
 .Sketch {

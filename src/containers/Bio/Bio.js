@@ -22,18 +22,20 @@ class Bio extends Component {
     return (
       <Hero.Body>
         <div className="bio">
-          <Column className="separation" size="one-third">
-            <Content>
-              <Title size={3}>Kendry Alexander Grullón</Title>
-              <p>
-                {this.state.age} years old programmer from Dominican Republic{" "}
-                <br />
-                Trying to do stuffs mainly using <strong>javascript</strong>.
-                <br />
-              </p>
-            </Content>
-          </Column>
-          <WorkCards workItems={this.props.work} />
+          <Column.Group>
+            <Column className="separation" size="one-third">
+              <Content>
+                <Title size={3}>Kendry Alexander Grullón</Title>
+                <p>
+                  {this.state.age} years old programmer from the Dominican Republic{" "}
+                  <br />
+                  Trying to do stuffs mainly using <strong>javascript</strong>.
+                  <br />I like art and I have developed a thing for 3D Modeling.
+                </p>
+              </Content>
+            </Column>
+            <WorkCards workItems={this.props.work} />
+          </Column.Group>
         </div>
       </Hero.Body>
     );

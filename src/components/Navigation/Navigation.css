@@ -1,5 +1,6 @@
 .navActive {
   /* background-color: bisque; */
   font-weight: bold;
+  font-size: 1.1em;
   color: rgb(13, 13, 88);
 }

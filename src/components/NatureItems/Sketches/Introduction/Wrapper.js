@@ -5,98 +5,43 @@
 
 import React, { Component } from "react";
 import { withRouter } from "react-router";
-import { Title, Field } from "rbx";
+import { Title } from "rbx";
 import "rbx/index.css";
 
 import "../sketch.css";
 
-import sketches from "../sketches";
-
-import Input from "../../../UI/Input/Input";
-
 class P5Wrapper extends Component {
-  state = {
-    title: "",
-    description: "",
-    controls: {
-      speed: {
-        config: {
-          max: 1,
-          min: 0,
-          step: 0.2
-        },
-        type: "range",
-        label: "Speed",
-        value: 0.2
-      }
-    }
-  };
-
-  inputChangedHandler = (event, inputId) => {
-    const updatedControlElement = {
-      ...this.state.controls[inputId],
-      value: +event.target.value
-    };
-    const updatedControls = {
-      ...this.state.controls,
-      [inputId]: updatedControlElement
-    };
-    this.setState({ controls: updatedControls });
-  };
-
-  onSetAppState = (newState, cb) => this.setState(newState, cb);
-
-  componentDidMount() {
-    this.canvas1 = new window.p5(sketches[0], "compareMov-container");
-    this.canvas1.props = this.state.controls;
-    this.canvas1.onSetAppState = this.onSetAppState;
-    this.canvas2 = new window.p5(sketches[1], "perlin-container");
-    this.canvas2.props = this.state.controls;
-    this.canvas2.onSetAppState = this.onSetAppState;
-    this.canvas3 = new window.p5(sketches[2], "fog-container");
-    this.canvas3.props = this.state.controls;
-    this.canvas3.onSetAppState = this.onSetAppState;
-    this.canvas4 = new window.p5(sketches[3], "terrain-container");
-    this.canvas4.props = this.state.controls;
-    this.canvas4.onSetAppState = this.onSetAppState;
-  }
-
-  componentDidUpdate() {
-    this.canvas1.props = this.state.controls;
-  }
-
-  componentWillUnmount() {
-    this.canvas1.remove();
-  }
-
   render() {
-    const formElementsArray = [];
-    for (let key in this.state.controls) {
-      formElementsArray.push({
-        id: key,
-        config: this.state.controls[key]
-      });
-    }
-    const sketchConfig = formElementsArray.map(control => (
-      <Field key={control.id} style={{ paddingRight: "1em" }}>
-        <Input
-          type={control.config.type}
-          label={control.config.label}
-          value={control.config.value}
-          config={control.config.config}
-          changed={event => this.inputChangedHandler(event, control.id)}
-        />
-      </Field>
-    ));
-
     return (
       <div className="FullDiv">
-        <Title size="3" align="center">
-          Introduction
+        <Title size="2" align="center">
+          First steps, literally
         </Title>
         <p>
-          On this first sketch, it's showed the difference between an individual
-          moving at random unrelated steps (the blue circle) and using{" "}
+          Let’s give our creature a shape and a name (one day we will refine
+          it’s shape, colors and form). Let’s call it Robinson.
+          <br />
+          <br />
+          <img
+            src={`${process.env.PUBLIC_URL}/images/rob1.png`}
+            alt="Robinson"
+          />
+          <br />
+          <br />
+          Robinson doesn’t have any purpose, in fact, he doesn’t even know how
+          to move, but we have some choices for him.
+        </p>
+        <br />
+        <p>
+          Say we wanted to represent the movement of Robinson. Animals from our
+          perspective may take random steps, but their steps tend to be related
+          to a step they took before. That means that if they were running left,
+          the next step they will take is more likely to be left than right,
+          since it’s trying to go somewhere.
+        </p>
+        <br />
+        <p>
+          That’s where{" "}
           <a
             style={{ color: "cadetblue" }}
             href="https://en.wikipedia.org/wiki/Perlin_noise"
@@ -105,48 +50,68 @@ class P5Wrapper extends Component {
           >
             Perlin Noise
           </a>{" "}
-          (the black circle) to map it's location on a 2D plane.
+          comes in. Instead of giving Robinson random unrelated numbers to move,
+          e.g. -2 then 4 then -3, we use the Perlin noise algorithm to receive
+          random outputs related to the outputs given before. Here is an
+          example:
         </p>
-        <div className="Sketch">
-          <Field kind="group" multiline>
-            {sketchConfig[0]}
-          </Field>
-          <div id="compareMov-container" style={{ textAlign: "center" }} />
-        </div>
+        <br />
+        <br />
+        <img
+          src={`${process.env.PUBLIC_URL}/images/perlinComp.gif`}
+          alt="pelinComparition"
+        />
+        <br />
+        <br />
         <p>
-          As you can see, the blue circle moves in very little steps (2px at
-          each frame to be precise) and it's movement does not look very
-          natural.
+          To really appreciate the difference between randomness and noise we
+          invite Robinson’s evil twin:
         </p>
+        <br />
+        <br />
+        <img
+          src={`${process.env.PUBLIC_URL}/images/perlinBroComp.gif`}
+          alt="pelinComparition"
+        />
+        <br />
+        <br />
         <p>
-          Perlin Noise it's useful to get random continuous numbers between 0
-          and 1 that are somewhat related to each other. It's done by passing up
-          a number and increasing the value by every iteration. Here you can see
-          the input to the noise function and it's output.
+          As you can see, moving a creature by just adding random values makes
+          for an unnatural way of moving. <br /> Perlin Noise is used in a wide
+          variety of cases, for example, we could create some 2D fog-like image
+          by changing the brightness of each pixel to a brightness close to it’s
+          neighbor pixel:
         </p>
-        <div className="Sketch">
-          <div id="perlin-container" style={{ textAlign: "center" }} />
-        </div>
+        <br />
+        <br />
+        <img
+          src={`${process.env.PUBLIC_URL}/images/perlinFog.gif`}
+          alt="pelinComparition"
+        />
+        <br />
+        <br />
         <p>
-          Other two applications could be to represent some kind of fog in 2D,
-          since every pixel brightness is related to it's neighbour.
+          Or create random 3D terrain by mapping the z value (the height of the
+          ground) to a noise value.
         </p>
-        <div className="Sketch">
-          <div id="fog-container" style={{ textAlign: "center" }} />
-        </div>
+        <br />
+        <br />
+        <img
+          src={`${process.env.PUBLIC_URL}/images/terrainGen.gif`}
+          alt="pelinComparition"
+        />
+        <br />
+        <br />
         <p>
-          As well as represent a terrain in 3D by adding a Z value to the perlin
-          algorithm.
-        </p>
-        <div className="Sketch">
-          <div id="terrain-container" style={{ textAlign: "center" }} />
-        </div>
-        <p style={{ marginBottom: "1em" }}>
-          In conclusion, perlin noise it's a smooth way to represent randomness
-          that makes a little bit of sense. It has many applications but could
-          be a mistake to use in every kind of movement, as there are many
-          things that could benefit from a real random function. Next stop,{" "}
-          <b>Vectors</b>.
+          This is still no fun since first, Robinson’s movement it’s still not
+          as organic as what it should represent, second, it does not have any
+          interaction or awareness of his environment (you could say that about
+          a bunch of humans too) and third, it should have any type of
+          discernible behavior. But we will make it happen.
+          <br />
+          This was just a brief introduction to what we want to eventually
+          build. First we will start fixing Robinson’s movement in the next post
+          of the series: Vectors!
         </p>
       </div>
     );
