@@ -17,6 +17,11 @@ import Wrapper16 from "../../components/P5Wrapper/sketchs/challenge16/Wrapper16"
 import Wrapper17 from "../../components/P5Wrapper/sketchs/challenge17/Wrapper17";
 import Wrapper18 from "../../components/P5Wrapper/sketchs/challenge18/Wrapper18";
 import Wrapper19 from "../../components/P5Wrapper/sketchs/challenge19/Wrapper19";
+import Wrapper20 from "../../components/P5Wrapper/sketchs/challenge20/Wrapper20";
+import Wrapper21 from "../../components/P5Wrapper/sketchs/challenge21/Wrapper21";
+import Wrapper22 from "../../components/P5Wrapper/sketchs/challenge22/Wrapper22";
+import Wrapper23 from "../../components/P5Wrapper/sketchs/challenge23/Wrapper23";
+import Wrapper24 from "../../components/P5Wrapper/sketchs/challenge24/Wrapper24";
 
 const routes = [
   {
@@ -94,6 +99,26 @@ const routes = [
   {
     path: "/challenges/superellipse",
     component: Wrapper19
+  },
+  {
+    path: "/challenges/cloth",
+    component: Wrapper20
+  },
+  {
+    path: "/challenges/mandelbrot",
+    component: Wrapper21
+  },
+  {
+    path: "/challenges/juliaset",
+    component: Wrapper22
+  },
+  {
+    path: "/challenges/supershapes",
+    component: Wrapper23
+  },
+  {
+    path: "/challenges/flowfield",
+    component: Wrapper24
   }
 ];
 

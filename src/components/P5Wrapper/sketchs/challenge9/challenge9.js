@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 let sun = {};
 let imgs;
 let imgp;

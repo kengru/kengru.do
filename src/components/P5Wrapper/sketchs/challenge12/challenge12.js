@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 let x = 0.01;
 let y = 0;
 let z = 1;

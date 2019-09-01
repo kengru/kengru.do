@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
-import { Title, Field } from "rbx";
+import { Title } from "rbx";
 import "rbx/index.css";
 
 import "../Challenge.css";
@@ -15,28 +15,7 @@ class P5Wrapper extends Component {
   state = {
     title: "",
     description: "",
-    controls: {
-      rotX: {
-        config: {
-          max: 0.03,
-          min: 0,
-          step: 0.001
-        },
-        type: "range",
-        label: "Rotation in X",
-        value: 0.003
-      },
-      rotY: {
-        config: {
-          max: 0.03,
-          min: 0,
-          step: 0.001
-        },
-        type: "range",
-        label: "Rotation in Y",
-        value: 0.003
-      }
-    }
+    controls: {}
   };
 
   inputChangedHandler = (event, inputId) => {
@@ -54,8 +33,8 @@ class P5Wrapper extends Component {
   onSetAppState = (newState, cb) => this.setState(newState, cb);
 
   componentDidMount() {
-    this.canvas1 = new window.p5(sketches[1], "canvas1-container");
-    this.props.onFetchSketch(2);
+    this.canvas1 = new window.p5(sketches[19], "canvas1-container");
+    this.props.onFetchSketch(20);
     this.canvas1.props = this.state.controls;
     this.canvas1.onSetAppState = this.onSetAppState;
   }
@@ -78,15 +57,14 @@ class P5Wrapper extends Component {
       });
     }
     const sketchConfig = formElementsArray.map(control => (
-      <Field key={control.id} style={{ paddingRight: "1em" }}>
-        <Input
-          type={control.config.type}
-          label={control.config.label}
-          value={control.config.value}
-          config={control.config.config}
-          changed={event => this.inputChangedHandler(event, control.id)}
-        />
-      </Field>
+      <Input
+        key={control.id}
+        type={control.config.type}
+        label={control.config.label}
+        value={control.config.value}
+        config={control.config.config}
+        changed={event => this.inputChangedHandler(event, control.id)}
+      />
     ));
 
     return (
@@ -101,9 +79,7 @@ class P5Wrapper extends Component {
           id="canvas1-container"
           style={{ width: "100%", textAlign: "center" }}
         />
-        <Field kind="group" multiline>
-          {sketchConfig}
-        </Field>
+        <div className="Controls">{sketchConfig}</div>
       </div>
     );
   }
