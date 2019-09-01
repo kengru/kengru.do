@@ -8,7 +8,7 @@ const ProjectCards = props => {
   let items = null;
   if (props.projectItems.length) {
     items = props.projectItems.map(item => (
-      <Column key={item.name}>
+      <Column key={item.name} size={3}>
         <Card>
           <Card.Image>
             <Image.Container size={128}>
@@ -52,7 +52,7 @@ const ProjectCards = props => {
               </Card.Footer.Item>
             ) : null}
           </Card.Footer>
-          <Card.Footer>
+          <Card.Footer  style={{ display: "block" }}>
             {item.tools.map(skill => (
               <Tag key={skill}>{skill}</Tag>
             ))}

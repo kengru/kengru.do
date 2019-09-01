@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Container, Hero } from "rbx";
+import { Container, Hero, Column } from "rbx";
 import "rbx/index.css";
 
 import "./Projects.css";
@@ -16,7 +16,9 @@ class Projects extends Component {
     return (
       <Hero.Body>
         <Container fluid>
-          <ProjectCards projectItems={this.props.projects} />
+          <Column.Group>
+            <ProjectCards projectItems={this.props.projects} />
+          </Column.Group>
         </Container>
       </Hero.Body>
     );
