@@ -59,12 +59,13 @@ class P5Wrapper extends Component {
     this.canvas1.props = this.state.controls;
   }
 
-  componentWillUnmount() {
+  UNSAFE_componentWillUnmount() {
     this.canvas1.remove();
   }
 
   render() {
     const formElementsArray = [];
+    // eslint-disable-next-line no-unused-vars
     for (let key in this.state.controls) {
       formElementsArray.push({
         id: key,

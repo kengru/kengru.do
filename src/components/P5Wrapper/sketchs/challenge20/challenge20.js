@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import toxi from "toxiclibsjs";
 
 let VerletPhysics2D = toxi.physics2d.VerletPhysics2D;
@@ -67,8 +68,8 @@ export default function(s) {
     //   }
     // }
 
-    for (let s of springs) {
-      s.display();
+    for (let sp of springs) {
+      sp.display();
     }
   };
 

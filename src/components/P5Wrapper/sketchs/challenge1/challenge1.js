@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 let speed = 1;
 let stars = [];
 

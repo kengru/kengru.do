@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 let sun = {};
 
 export default function(s) {
