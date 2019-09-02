@@ -9,6 +9,7 @@ import App from "./containers/App/App";
 
 import bioReducer from "./store/reducers/bio";
 import projectsReducer from "./store/reducers/projects";
+import gamesReducer from "./store/reducers/games";
 import challengesReducer from "./store/reducers/challenges";
 import natureReducer from "./store/reducers/nature";
 
@@ -17,6 +18,7 @@ import "./index.css";
 const reducers = combineReducers({
   bio: bioReducer,
   projects: projectsReducer,
+  games: gamesReducer,
   challenges: challengesReducer,
   nature: natureReducer
 });
