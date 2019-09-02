@@ -9,7 +9,7 @@ const GamesMenu = props => {
       <Column key={item.name} size={3}>
         <Card>
           <Card.Image>
-            <Image.Container size="3by3">
+            <Image.Container size="1by1">
               <Image src={item.image} />
             </Image.Container>
           </Card.Image>

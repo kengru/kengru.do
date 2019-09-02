@@ -11,7 +11,7 @@ const ProjectCards = props => {
       <Column key={item.name} size={3}>
         <Card>
           <Card.Image>
-            <Image.Container size={128}>
+            <Image.Container size="100">
               <Image src={item.image} />
             </Image.Container>
           </Card.Image>
