@@ -10,3 +10,6 @@ export const FETCH_MENU_SUCCESS = "FETCH_MENU_SUCCESS";
 
 // Nature Actions.
 export const FETCH_MENU_NATURE = "FETCH_MENU_NATURE";
+
+// Games Actions.
+export const FETCH_GAMES = "FETCH_GAMES";

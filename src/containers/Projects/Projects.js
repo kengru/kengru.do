@@ -14,7 +14,7 @@ class Projects extends Component {
 
   render() {
     return (
-      <Hero.Body>
+      <Hero.Body className="projectsBody">
         <Container fluid>
           <Column.Group>
             <ProjectCards projectItems={this.props.projects} />
