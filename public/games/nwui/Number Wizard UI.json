@@ -1,0 +1,16 @@
+{
+"companyName": "DefaultCompany",
+"productName": "Number Wizard UI",
+"productVersion": "0.1",
+"dataUrl": "Number Wizard UI.data.unityweb",
+"wasmCodeUrl": "Number Wizard UI.wasm.code.unityweb",
+"wasmFrameworkUrl": "Number Wizard UI.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.2.3f1"
+}
