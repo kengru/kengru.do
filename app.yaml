@@ -1,4 +1,6 @@
-runtime: nodejs10
+runtime: nodejs
+env: flex
+
 handlers:
 - url: /static
   static_dir: build/static
