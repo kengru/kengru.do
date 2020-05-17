@@ -40,11 +40,11 @@ const Navigation = () => {
                   Projects
                 </NavLink>
               </Navbar.Item>
-              <Navbar.Item as="div" onClick={nItem}>
+              {/* <Navbar.Item as="div" onClick={nItem}>
                 <NavLink activeClassName="navActive" to="/games">
                   Games
                 </NavLink>
-              </Navbar.Item>
+              </Navbar.Item> */}
               <Navbar.Item as="div" onClick={nItem}>
                 <NavLink activeClassName="navActive" to="/renders">
                   3D Modeling

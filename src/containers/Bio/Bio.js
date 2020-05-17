@@ -27,11 +27,12 @@ class Bio extends Component {
               <Content>
                 <Title size={3}>Kendry Alexander Grullón</Title>
                 <p>
-                  {this.state.age} years old programmer from the Dominican Republic{" "}
-                  <br />
+                  {this.state.age} years old programmer from the Dominican
+                  Republic <br />
                   Trying to do stuffs mainly using <strong>javascript</strong>.
                   <br />I like art and I have developed a thing for 3D Modeling.
                 </p>
+                <p>I'm listening to:</p>
               </Content>
             </Column>
             <WorkCards workItems={this.props.work} />
@@ -54,7 +55,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Bio);
+export default connect(mapStateToProps, mapDispatchToProps)(Bio);
