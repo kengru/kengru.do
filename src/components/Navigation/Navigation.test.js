@@ -22,12 +22,12 @@ describe("<Navigation />", () => {
     expect(wrapper.find(Navbar.Brand)).toHaveLength(1);
   });
 
-  it(`should render three <NavLink /> elements`, () => {
-    expect(wrapper.find(NavLink)).toHaveLength(3);
+  it(`should render five <NavLink /> elements`, () => {
+    expect(wrapper.find(NavLink)).toHaveLength(5);
   });
 
-  it(`should render three icon elements`, () => {
-    expect(wrapper.find("i")).toHaveLength(3);
+  it(`should render four icon elements`, () => {
+    expect(wrapper.find("i")).toHaveLength(4);
   });
 
   it(`should render one download button`, () => {
