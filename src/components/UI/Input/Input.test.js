@@ -19,8 +19,8 @@ describe("<Input />", () => {
     wrapper = shallow(<Input {...input}/>);
   });
 
-  it(`should have the control class`, () => {
-    expect(wrapper.exists(".Control")).toEqual(true);
+  it(`should not have the control class`, () => {
+    expect(wrapper.exists(".Control")).toEqual(false);
   });
 
   it(`should have one <input /> element`, () => {

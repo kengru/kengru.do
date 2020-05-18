@@ -1,6 +1,6 @@
 {
   "name": "kengrudo",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
@@ -19,7 +19,8 @@
     "react-unity-webgl": "^7.1.7",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
-    "toxiclibsjs": "^0.3.3"
+    "toxiclibsjs": "^0.3.3",
+    "video-react": "^0.14.1"
   },
   "scripts": {
     "start": "react-scripts start",
