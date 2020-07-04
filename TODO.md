@@ -16,6 +16,8 @@ A list of the things I have to do in the different main containers and applicati
 - [x] TEST ANYTHING.
 - [ ] Test practically everything.
 
+- [ ] Remove Redux.
+
 ## Bio
 
 - [x] Generate structure for showing the data.
