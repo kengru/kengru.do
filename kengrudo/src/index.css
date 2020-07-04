@@ -1,13 +1,89 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* Normal Raleway */
+@font-face {
+  font-family: "rale-n100";
+  src: url(./fonts/Raleway-Thin.ttf) format("truetype");
+}
+@font-face {
+  font-family: "rale-n200";
+  src: url(./fonts/Raleway-ExtraLight.ttf) format("truetype");
+}
+@font-face {
+  font-family: "rale-n300";
+  src: url(./fonts/Raleway-Light.ttf) format("truetype");
+}
+@font-face {
+  font-family: "rale-n400";
+  src: url(./fonts/Raleway-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "rale-n500";
+  src: url(./fonts/Raleway-Medium.ttf) format("truetype");
+}
+@font-face {
+  font-family: "rale-n600";
+  src: url(./fonts/Raleway-SemiBold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "rale-n700";
+  src: url(./fonts/Raleway-Bold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "rale-n800";
+  src: url(./fonts/Raleway-ExtraBold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "rale-n900";
+  src: url(./fonts/Raleway-Black.ttf) format("truetype");
+}
+
+/* Italic Raleway */
+@font-face {
+  font-family: "rale-i100";
+  src: url(./fonts/Raleway-ThinItalic.ttf) format("truetype");
+}
+@font-face {
+  font-family: "rale-i200";
+  src: url(./fonts/Raleway-ExtraLightItalic.ttf) format("truetype");
+}
+@font-face {
+  font-family: "rale-i300";
+  src: url(./fonts/Raleway-LightItalic.ttf) format("truetype");
+}
+@font-face {
+  font-family: "rale-i400";
+  src: url(./fonts/Raleway-Italic.ttf) format("truetype");
+}
+@font-face {
+  font-family: "rale-i500";
+  src: url(./fonts/Raleway-MediumItalic.ttf) format("truetype");
+}
+@font-face {
+  font-family: "rale-i600";
+  src: url(./fonts/Raleway-SemiBoldItalic.ttf) format("truetype");
+}
+@font-face {
+  font-family: "rale-i700";
+  src: url(./fonts/Raleway-BoldItalic.ttf) format("truetype");
+}
+@font-face {
+  font-family: "rale-i800";
+  src: url(./fonts/Raleway-ExtraBoldItalic.ttf) format("truetype");
+}
+@font-face {
+  font-family: "rale-i900";
+  src: url(./fonts/Raleway-BlackItalic.ttf) format("truetype");
 }

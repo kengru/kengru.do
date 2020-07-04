@@ -1,24 +1,25 @@
 import React from "react";
-import "./App.css";
+import { StyleSheet, css } from "aphrodite";
+
+import { SideInfo } from "../components/SideInfo";
+
+const styles = StyleSheet.create({
+  kengru: {
+    // backgroundColor: "#572555",
+    // backgroundColor: "#1F141E"
+    // backgroundColor: "#212021",
+    backgroundColor: "#F5F5F5",
+    minHeight: "100vh",
+    fontFamily: "rale-n400"
+  }
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={css(styles.kengru)}>
+      <SideInfo />
     </div>
   );
 }
 
-export default App;
+export { App };
