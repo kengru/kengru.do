@@ -8,8 +8,8 @@ import logo from "../images/kengru_logo.png";
 const styles = StyleSheet.create({
   side: {
     display: "flex",
+    width: "18em",
     height: "100%",
-    width: "20%",
     paddingLeft: "2em",
     flexDirection: "column",
     justifyContent: "center",
