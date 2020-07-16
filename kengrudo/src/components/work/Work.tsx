@@ -1,16 +1,18 @@
 import React from "react";
 import { StyleSheet, css } from "aphrodite/no-important";
 
+import { WorkItem } from "./WorkItem";
 import { rales } from "../../fonts/fonts";
 
 const styles = StyleSheet.create({
   work: {
     display: "flex",
     height: "100%",
-    width: "50%",
-    paddingLeft: "2em",
+    width: "100%",
+    margin: "0em 2em 0em 2em",
     flexDirection: "column",
     justifyContent: "center",
+    alignContent: "center",
     fontSize: "calc(3px + 2vmin)"
   },
   logo: {
@@ -28,11 +30,7 @@ const styles = StyleSheet.create({
 function Work() {
   return (
     <div className={css(styles.work)}>
-      <div className={css(styles.name)}>Kendry Alexander Grullón</div>
-      <p className={css(styles.text)}>
-        Programming things, mainly using javascript.
-        <br />I have developed a thing for 3D.
-      </p>
+      <WorkItem />
     </div>
   );
 }

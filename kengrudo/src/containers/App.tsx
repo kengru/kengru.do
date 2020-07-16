@@ -17,6 +17,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#F5F5F5",
     fontFamily: rales.n400
   },
+  transitionGroup: {
+    display: "flex",
+    flexGrow: 1
+  },
   fadeEnter: {
     opacity: 0,
     zIndex: 1
@@ -38,7 +42,7 @@ function App() {
   return (
     <div className={css(styles.kengru)}>
       <SideInfo />
-      <TransitionGroup>
+      <TransitionGroup className={css(styles.transitionGroup)}>
         <CSSTransition
           key={location.key}
           classNames={{ enter: fade.enter, enterActive: fade.enterActive }}
