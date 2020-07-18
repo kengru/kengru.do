@@ -8,7 +8,7 @@ import logo from "../images/kengru_logo.png";
 const styles = StyleSheet.create({
   side: {
     display: "flex",
-    width: "18em",
+    width: "16em",
     height: "100%",
     paddingLeft: "2em",
     flexDirection: "column",
@@ -55,10 +55,10 @@ function SideInfo() {
         <img className={css(styles.logo)} src={logo} alt="logo" />
       </Link>
       <div className={css(styles.name)}>Kendry Alexander Grullón</div>
-      <p className={css(styles.text)}>
+      {/* <p className={css(styles.text)}>
         Programming things, mainly using javascript.
         <br />I have developed a thing for 3D.
-      </p>
+      </p> */}
       <nav>
         <ul className={css(styles.navList)}>
           <NavLink
