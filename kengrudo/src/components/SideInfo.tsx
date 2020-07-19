@@ -1,6 +1,13 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { StyleSheet, css } from "aphrodite/no-important";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGithub,
+  faTwitter,
+  faLinkedinIn,
+  faMedium
+} from "@fortawesome/free-brands-svg-icons";
 
 import { rales } from "../fonts/fonts";
 import logo from "../images/kengru_logo.png";
@@ -12,7 +19,7 @@ const styles = StyleSheet.create({
     height: "100%",
     paddingLeft: "2em",
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "flex-end",
     fontSize: "calc(3px + 2vmin)"
   },
   logo: {
@@ -45,45 +52,131 @@ const styles = StyleSheet.create({
   },
   listItemActive: {
     fontWeight: "bold"
+  },
+  container: {
+    display: "flex",
+    height: "65%",
+    flexDirection: "column",
+    justifyContent: "space-between"
+  },
+  first: {},
+  icons: {
+    marginBottom: "1em"
+  },
+  brandLink: {
+    textDecoration: "none",
+    ":hover": {
+      color: "#03254C"
+    },
+    ":visited": {
+      color: "#07020D"
+    }
+  },
+  icon: {
+    color: "#07020D",
+    textDecoration: "none",
+    ":hover": {
+      color: "#1167b1"
+    },
+    height: "2em",
+    paddingLeft: "1em",
+    paddingRight: "1em"
+  },
+  footer: {
+    marginBottom: "2em"
   }
 });
 
 function SideInfo() {
   return (
     <div className={css(styles.side)}>
-      <Link to="/">
-        <img className={css(styles.logo)} src={logo} alt="logo" />
-      </Link>
-      <div className={css(styles.name)}>Kendry Alexander Grullón</div>
-      {/* <p className={css(styles.text)}>
-        Programming things, mainly using javascript.
-        <br />I have developed a thing for 3D.
-      </p> */}
-      <nav>
-        <ul className={css(styles.navList)}>
-          <NavLink
-            activeClassName={css(styles.listItemActive)}
-            className={css(styles.listItem)}
-            to={"/work"}
+      <div className={css(styles.container)}>
+        <div className={css(styles.first)}>
+          <Link to="/">
+            <img className={css(styles.logo)} src={logo} alt="logo" />
+          </Link>
+          <div className={css(styles.name)}>Kendry Alexander Grullón</div>
+          {/* <p className={css(styles.text)}>
+            Programming things, mainly using javascript.
+            <br />I have developed a thing for 3D.
+          </p> */}
+          <nav>
+            <ul className={css(styles.navList)}>
+              <NavLink
+                activeClassName={css(styles.listItemActive)}
+                className={css(styles.listItem)}
+                to={"/work"}
+              >
+                work
+              </NavLink>
+              <NavLink
+                activeClassName={css(styles.listItemActive)}
+                className={css(styles.listItem)}
+                to={"/projects"}
+              >
+                projects
+              </NavLink>
+              <NavLink
+                activeClassName={css(styles.listItemActive)}
+                className={css(styles.listItem)}
+                to={"/skills"}
+              >
+                skills
+              </NavLink>
+            </ul>
+          </nav>
+          <div className={css(styles.icons)}>
+            <a
+              className={css(styles.brandLink)}
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/kengru"
+            >
+              <FontAwesomeIcon className={css(styles.icon)} icon={faGithub} />
+            </a>
+            <a
+              className={css(styles.brandLink)}
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://twitter.com/kxngru"
+            >
+              <FontAwesomeIcon className={css(styles.icon)} icon={faTwitter} />
+            </a>
+            <a
+              className={css(styles.brandLink)}
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.linkedin.com/in/kengru/"
+            >
+              <FontAwesomeIcon
+                className={css(styles.icon)}
+                icon={faLinkedinIn}
+              />
+            </a>
+            <a
+              className={css(styles.brandLink)}
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://medium.com/@kengru"
+            >
+              <FontAwesomeIcon className={css(styles.icon)} icon={faMedium} />
+            </a>
+          </div>
+        </div>
+        <div className={css(styles.footer)}>
+          <strong>kengru.do</strong> by{" "}
+          <a
+            className={css(styles.brandLink)}
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/kengru"
           >
-            work
-          </NavLink>
-          <NavLink
-            activeClassName={css(styles.listItemActive)}
-            className={css(styles.listItem)}
-            to={"/projects"}
-          >
-            projects
-          </NavLink>
-          <NavLink
-            activeClassName={css(styles.listItemActive)}
-            className={css(styles.listItem)}
-            to={"/skills"}
-          >
-            skills
-          </NavLink>
-        </ul>
-      </nav>
+            Kendry Grullon
+          </a>
+          .
+          <br />
+        </div>
+      </div>
     </div>
   );
 }

@@ -13,8 +13,9 @@ const styles = StyleSheet.create({
     margin: "1em",
     padding: "1.6em",
     zIndex: 1,
-    boxShadow: "0px 0px 6px 1px rgba(0,0,0,0.2)",
-    borderRadius: "0.8em"
+    fontSize: "calc(7px + 1vmin)",
+    boxShadow: "0px 0px 6px 1px rgba(0,0,0,0.1)",
+    borderRadius: "0.5em"
   },
   card: {
     width: "100%",
@@ -50,12 +51,12 @@ const styles = StyleSheet.create({
   },
   date: {
     fontSize: "calc(7px + 1vmin)",
-    fontFamily: rales.n300
+    fontFamily: rales.n400
   },
   text: {
     fontFamily: rales.n500,
     textAlign: "center",
-    fontSize: "calc(7px + 2vmin)"
+    fontSize: "calc(2px + 2vmin)"
   },
   at: {
     fontFamily: rales.i500,
