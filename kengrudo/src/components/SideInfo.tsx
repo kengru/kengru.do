@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     paddingLeft: "2em",
     flexDirection: "column",
     justifyContent: "flex-end",
-    fontSize: "calc(3px + 2vmin)"
+    fontSize: "calc(10px + 1vmin)"
   },
   logo: {
     alignSelf: "flex-start"
@@ -162,6 +162,14 @@ function SideInfo() {
               <FontAwesomeIcon className={css(styles.icon)} icon={faMedium} />
             </a>
           </div>
+          {/* <div>
+            <a
+              className={css(styles.brandLink)}
+              target="_blank"
+              rel="noopener noreferrer"
+              href={`https://firebasestorage.googleapis.com/v0/b/kengru-do.appspot.com/o/public%2FKGrullon-Resume.pdf?alt=media&token=c884163a-356c-437e-9df5-5ca29c8b96f5`}
+            >Resume</a>
+          </div> */}
         </div>
         <div className={css(styles.footer)}>
           <strong>kengru.do</strong> by{" "}
