@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     // backgroundColor: "#212021",
     display: "flex",
     height: "100%",
-    backgroundColor: "#F5F5F5",
+    backgroundColor: "#F9F9F9",
     fontFamily: rales.n400
   },
   transitionGroup: {
@@ -49,6 +49,9 @@ function App() {
           timeout={300}
         >
           <Switch>
+            <Route exact path="/">
+              <Work />
+            </Route>
             <Route path="/work">
               <Work />
             </Route>

@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, css } from "aphrodite/no-important";
 
-import { WorkItem } from "./WorkItem";
+import { WorkItem } from "./WorkItemV2";
 
 const styles = StyleSheet.create({
   work: {
