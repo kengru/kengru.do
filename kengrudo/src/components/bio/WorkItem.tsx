@@ -12,6 +12,9 @@ const styles = StyleSheet.create({
     margin: "1em",
     boxShadow: "0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1)"
   },
+  highlight: {
+    boxShadow: "0 2px 3px rgba(10,40,10,.3), 0 0 0 1px rgba(10,40,10,.3)"
+  },
   header: {
     display: "flex",
     alignItems: "stretch",
@@ -22,18 +25,18 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     padding: "0.70rem",
     wordWrap: "normal",
-    fontSize: "1.2rem",
+    fontSize: "1.4rem",
     fontFamily: rales.n600
   },
   headerWork: {
-    fontSize: "1rem",
-    fontFamily: rales.n500
+    fontSize: "1.2rem",
+    fontFamily: rales.n400
   },
   skills: {
     display: "block",
     textAlign: "center",
     alignItems: "stretch",
-    borderTop: "1px solid #dbdbdb"
+    borderTop: "1px solid #DBDBDB"
   },
   tag: {
     display: "inline-grid",
@@ -43,14 +46,28 @@ const styles = StyleSheet.create({
     padding: "0em 0.75em 0em 0.75em",
     justifyContent: "center",
     whiteSpace: "nowrap",
-    lineHeight: "1.5",
+    lineHeight: 1,
     backgroundColor: "#F5F5F5"
+  },
+  footer: {
+    display: "flex",
+    padding: "0.6rem",
+    alignItems: "stretch",
+    fontSize: "1rem",
+    fontFamily: rales.n400,
+    borderTop: "1px solid #DBDBDB"
   }
 });
 
-export const WorkItem = () => {
+type Props = {
+  highlighted: boolean;
+};
+
+export const WorkItem = (props: Props) => {
+  const { highlighted } = props;
+  
   return (
-    <div className={css(styles.main)}>
+    <div className={css(styles.main, highlighted ? styles.highlight : null)}>
       <div className={css(styles.header)}>
         <div className={css(styles.headerTitle)}>
           Frontend Developer
@@ -63,6 +80,9 @@ export const WorkItem = () => {
         <span className={css(styles.tag)}>Redux</span>
         <span className={css(styles.tag)}>Docker</span>
         <span className={css(styles.tag)}>Enzyme</span>
+      </div>
+      <div className={css(styles.footer)}>
+        May 2019 - January 2020
       </div>
     </div>
   );

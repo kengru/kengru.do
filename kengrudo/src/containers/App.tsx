@@ -4,7 +4,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { StyleSheet, css } from "aphrodite";
 
 import { SideInfo } from "../components/SideInfo";
-import { Work } from "../components/work/Work";
+import { Bio } from "../components/bio/Bio";
 import { rales } from "../fonts/fonts";
 
 const styles = StyleSheet.create({
@@ -50,10 +50,7 @@ function App() {
         >
           <Switch>
             <Route exact path="/">
-              <Work />
-            </Route>
-            <Route path="/work">
-              <Work />
+              <Bio />
             </Route>
           </Switch>
         </CSSTransition>

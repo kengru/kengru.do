@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
   listItem: {
     color: "#07020D",
-    width: "fit-content",
+    width: "100%",
     textDecoration: "none",
     padding: "0.4em 0em 0.4em 0em",
     transform: "perspective(1px) translateZ(0)",
@@ -102,13 +102,6 @@ function SideInfo() {
           </p> */}
           <nav>
             <ul className={css(styles.navList)}>
-              <NavLink
-                activeClassName={css(styles.listItemActive)}
-                className={css(styles.listItem)}
-                to={"/work"}
-              >
-                work
-              </NavLink>
               <NavLink
                 activeClassName={css(styles.listItemActive)}
                 className={css(styles.listItem)}
