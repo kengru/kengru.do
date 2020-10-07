@@ -5,6 +5,7 @@ import { StyleSheet, css } from "aphrodite";
 
 import { SideInfo } from "../components/SideInfo";
 import { Bio } from "../components/bio/Bio";
+import { Projects } from "../components/projects/Projects";
 import { rales } from "../fonts/fonts";
 
 const styles = StyleSheet.create({
@@ -51,6 +52,9 @@ function App() {
           <Switch>
             <Route exact path="/">
               <Bio />
+            </Route>
+            <Route path="/projects">
+              <Projects />
             </Route>
           </Switch>
         </CSSTransition>

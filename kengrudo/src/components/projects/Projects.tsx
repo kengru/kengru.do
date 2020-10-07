@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, css } from "aphrodite/no-important";
 
-import { WorkItem } from "./WorkItem";
+import { ProjectItem } from "./ProjectItem";
 
 const styles = StyleSheet.create({
   main: {
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     alignContent: "center",
     fontSize: "calc(3px + 2vmin)"
   },
-  workItems: {
+  projectItems: {
     display: "flex",
     margin: "auto",
     height: "80%",
@@ -23,14 +23,11 @@ const styles = StyleSheet.create({
   }
 });
 
-export const Bio = () => {
+export const Projects = () => {
   return (
     <div className={css(styles.main)}>
-      <div className={css(styles.workItems)}>
-        <WorkItem highlighted />
-        <WorkItem highlighted={false} />
-        <WorkItem highlighted={false} />
-        <WorkItem highlighted={false} />
+      <div className={css(styles.projectItems)}>
+        <ProjectItem />
       </div>
     </div>
   );
