@@ -29,7 +29,10 @@ const styles = StyleSheet.create({
     margin: "0.8rem 0rem 0.8rem 0rem"
   },
   workItems: {
+    display: "flex",
     margin: "auto",
+    height: "80%",
+    flexWrap: "wrap",
     justifyContent: "center",
     alignContent: "center"
   }
@@ -38,13 +41,6 @@ const styles = StyleSheet.create({
 export const Bio = () => {
   return (
     <div className={css(styles.main)}>
-      <div className={css(styles.bio)}>
-        <ul className={css(styles.points)}>
-          <li className={css(styles.singlePoint)}>» Frontend Development</li>
-          <li className={css(styles.singlePoint)}>» 3D Modeling</li>
-          <li className={css(styles.singlePoint)}>» Video Games</li>
-        </ul>
-      </div>
       <div className={css(styles.workItems)}>
         <WorkItem highlighted />
         <WorkItem highlighted={false} />

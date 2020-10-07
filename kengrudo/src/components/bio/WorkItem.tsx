@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     boxShadow: "0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1)"
   },
   highlight: {
-    boxShadow: "0 2px 3px rgba(10,40,10,.3), 0 0 0 1px rgba(10,40,10,.3)"
+    boxShadow: "0 2px 3px rgba(10,40,10,.2), 0 0 0 1px rgba(10,40,10,.2)"
   },
   header: {
     display: "flex",
