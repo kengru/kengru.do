@@ -6,6 +6,7 @@ import { WorkItem } from "./WorkItem";
 const styles = StyleSheet.create({
   main: {
     display: "flex",
+    flexDirection: "column",
     height: "100%",
     width: "100%",
     margin: "0em 2em 0em 1em",
@@ -13,10 +14,15 @@ const styles = StyleSheet.create({
     alignContent: "center",
     fontSize: "calc(3px + 2vmin)"
   },
+  present: {
+    display: "flex",
+    alignContent: "center",
+    justifyContent: "center"
+  },
   workItems: {
     display: "flex",
     margin: "auto",
-    height: "80%",
+    height: "70%",
     flexWrap: "wrap",
     justifyContent: "center",
     alignContent: "center"
@@ -26,8 +32,10 @@ const styles = StyleSheet.create({
 export const Bio = () => {
   return (
     <div className={css(styles.main)}>
-      <div className={css(styles.workItems)}>
+      <div className={css(styles.present)}>
         <WorkItem highlighted />
+      </div>
+      <div className={css(styles.workItems)}>
         <WorkItem highlighted={false} />
         <WorkItem highlighted={false} />
         <WorkItem highlighted={false} />

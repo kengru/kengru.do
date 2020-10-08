@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, css } from "aphrodite";
+import { StyleSheet, css } from "aphrodite/no-important";
 
 import { rales } from "../../fonts/fonts";
 
@@ -65,7 +65,7 @@ type Props = {
 
 export const WorkItem = (props: Props) => {
   const { highlighted } = props;
-  
+
   return (
     <div className={css(styles.main, highlighted ? styles.highlight : null)}>
       <div className={css(styles.header)}>
@@ -81,9 +81,7 @@ export const WorkItem = (props: Props) => {
         <span className={css(styles.tag)}>Docker</span>
         <span className={css(styles.tag)}>Enzyme</span>
       </div>
-      <div className={css(styles.footer)}>
-        May 2019 - January 2020
-      </div>
+      <div className={css(styles.footer)}>May 2019 - January 2020</div>
     </div>
   );
 };
