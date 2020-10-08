@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     position: "relative",
-    width: "16em",
+    width: "12em",
     margin: "1em",
     boxShadow: "0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1)"
   },
@@ -21,11 +21,7 @@ const styles = StyleSheet.create({
     display: "block",
     position: "relative",
     margin: 0,
-    padding: 0,
-    marginBlockStart: "1em",
-    marginBlockEnd: "1em",
-    marginInlineStart: "40px",
-    marginInlineEnd: "40px"
+    padding: 0
   },
   hasRatio: {
     display: "block",
@@ -34,25 +30,25 @@ const styles = StyleSheet.create({
     maxWidth: "100%"
   },
   content: {
-    padding: "1.4rem",
+    padding: "0em 1em 1em 1em",
     backgroundColor: "initial"
   },
-  header: {
+  contentTitle: {
     display: "flex",
-    alignItems: "stretch",
-    boxShadow: "0 1px 2px rgba(10,10,10,.1)"
+    marginTop: "1rem",
+    marginBottom: "1rem",
+    textAlign: "left",
+    alignItems: "flex-start"
   },
-  headerTitle: {
-    display: "flex",
-    flexDirection: "column",
-    padding: "0.70rem",
-    wordWrap: "normal",
+  contentTitleText: {
     fontSize: "1.4rem",
-    fontFamily: rales.n600
+    lineHeight: "1.125",
+    fontFamily: rales.n500,
+    wordBreak: "break-word"
   },
-  headerWork: {
-    fontSize: "1.2rem",
-    fontFamily: rales.n400
+  contentBody: {
+    textAlign: "center",
+    fontSize: "1rem"
   },
   skills: {
     display: "block",
@@ -62,9 +58,9 @@ const styles = StyleSheet.create({
   },
   tag: {
     display: "inline-grid",
-    height: "2em",
+    height: "1.5em",
     color: "#4A4A4A",
-    fontSize: "0.75rem",
+    fontSize: "0.6rem",
     padding: "0em 0.75em 0em 0.75em",
     justifyContent: "center",
     whiteSpace: "nowrap",
@@ -78,17 +74,42 @@ const styles = StyleSheet.create({
     fontSize: "1rem",
     fontFamily: rales.n400,
     borderTop: "1px solid #DBDBDB"
+  },
+  footerItem: {
+    display: "flex",
+    flexBasis: 0,
+    flexGrow: 1,
+    flexShrink: 0,
+    padding: "0.75rem",
+    color: "#3273DC",
+    cursor: "pointer",
+    textDecoration: "none",
+    justifyContent: "center"
   }
 });
 
 export const ProjectItem = () => {
   return (
     <div className={css(styles.main)}>
-      <div className={css(styles.header)}>
-        <div className={css(styles.headerTitle)}>
-          Frontend Developer
-          <div className={css(styles.headerWork)}>Soshace</div>
+      <div className={css(styles.cardImage)}>
+        <figure className={css(styles.image)}>
+          <img
+            className={css(styles.hasRatio)}
+            src="https://via.placeholder.com/250"
+            alt="Giru"
+          />
+        </figure>
+      </div>
+      <div className={css(styles.content)}>
+        <div className={css(styles.contentTitle)}>
+          <span className={css(styles.contentTitleText)}>Giru</span>
         </div>
+        <div className={css(styles.contentBody)}>
+          A telegram bot, designed to be used by my friends.
+        </div>
+      </div>
+      <div className={css(styles.footer)}>
+        <a className={css(styles.footerItem)} href="/#">Source code</a>
       </div>
       <div className={css(styles.skills)}>
         <span className={css(styles.tag)}>React.js</span>
@@ -97,7 +118,6 @@ export const ProjectItem = () => {
         <span className={css(styles.tag)}>Docker</span>
         <span className={css(styles.tag)}>Enzyme</span>
       </div>
-      <div className={css(styles.footer)}>May 2019 - January 2020</div>
     </div>
   );
 };

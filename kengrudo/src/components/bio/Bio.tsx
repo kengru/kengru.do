@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
   },
   present: {
     display: "flex",
+    marginTop: "2em",
     alignContent: "center",
     justifyContent: "center"
   },

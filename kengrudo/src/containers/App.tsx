@@ -29,12 +29,16 @@ const styles = StyleSheet.create({
   fadeEnterActive: {
     opacity: 1,
     transition: "opacity 250ms ease-in"
+  },
+  fadeExit: {
+    opacity: 0
   }
 });
 
 const fade = {
   enter: css(styles.fadeEnter),
-  enterActive: css(styles.fadeEnterActive)
+  enterActive: css(styles.fadeEnterActive),
+  exit: css(styles.fadeExit)
 };
 
 function App() {
@@ -46,7 +50,7 @@ function App() {
       <TransitionGroup className={css(styles.transitionGroup)}>
         <CSSTransition
           key={location.key}
-          classNames={{ enter: fade.enter, enterActive: fade.enterActive }}
+          classNames={{ enter: fade.enter, enterActive: fade.enterActive, exit: fade.exit }}
           timeout={300}
         >
           <Switch>
