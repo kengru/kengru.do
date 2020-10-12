@@ -9,8 +9,8 @@ import {
   faMedium
 } from "@fortawesome/free-brands-svg-icons";
 
-import { rales } from "../fonts/fonts";
-import logo from "../images/kengru_logo.png";
+import { roboto } from "../fonts/fonts";
+import logo from "../images/kengru-logo.png";
 
 const styles = StyleSheet.create({
   side: {
@@ -23,11 +23,12 @@ const styles = StyleSheet.create({
     fontSize: "calc(10px + 1vmin)"
   },
   logo: {
-    alignSelf: "flex-start"
+    alignSelf: "flex-start",
+    height: "2em"
   },
   name: {
     paddingTop: "0.2em",
-    fontSize: rales.i500
+    fontSize: roboto.i500
   },
   text: {
     fontSize: "calc(9px + 1vmin)"

@@ -1,4 +1,6 @@
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
 }
 
@@ -16,78 +18,54 @@ code {
     monospace;
 }
 
-/* Normal Raleway */
+/* Normal Roboto */
 @font-face {
-  font-family: "rale-n100";
-  src: url(./fonts/Raleway-Thin.ttf) format("truetype");
+  font-family: "roboto-n100";
+  src: url(./fonts/Roboto-Thin.ttf) format("truetype");
 }
 @font-face {
-  font-family: "rale-n200";
-  src: url(./fonts/Raleway-ExtraLight.ttf) format("truetype");
+  font-family: "roboto-n300";
+  src: url(./fonts/Roboto-Light.ttf) format("truetype");
 }
 @font-face {
-  font-family: "rale-n300";
-  src: url(./fonts/Raleway-Light.ttf) format("truetype");
+  font-family: "roboto-n400";
+  src: url(./fonts/Roboto-Regular.ttf) format("truetype");
 }
 @font-face {
-  font-family: "rale-n400";
-  src: url(./fonts/Raleway-Regular.ttf) format("truetype");
+  font-family: "roboto-n500";
+  src: url(./fonts/Roboto-Medium.ttf) format("truetype");
 }
 @font-face {
-  font-family: "rale-n500";
-  src: url(./fonts/Raleway-Medium.ttf) format("truetype");
+  font-family: "roboto-n700";
+  src: url(./fonts/Roboto-Bold.ttf) format("truetype");
 }
 @font-face {
-  font-family: "rale-n600";
-  src: url(./fonts/Raleway-SemiBold.ttf) format("truetype");
-}
-@font-face {
-  font-family: "rale-n700";
-  src: url(./fonts/Raleway-Bold.ttf) format("truetype");
-}
-@font-face {
-  font-family: "rale-n800";
-  src: url(./fonts/Raleway-ExtraBold.ttf) format("truetype");
-}
-@font-face {
-  font-family: "rale-n900";
-  src: url(./fonts/Raleway-Black.ttf) format("truetype");
+  font-family: "roboto-n900";
+  src: url(./fonts/Roboto-Black.ttf) format("truetype");
 }
 
-/* Italic Raleway */
+/* Italic Roboto */
 @font-face {
-  font-family: "rale-i100";
-  src: url(./fonts/Raleway-ThinItalic.ttf) format("truetype");
+  font-family: "roboto-i100";
+  src: url(./fonts/Roboto-ThinItalic.ttf) format("truetype");
 }
 @font-face {
-  font-family: "rale-i200";
-  src: url(./fonts/Raleway-ExtraLightItalic.ttf) format("truetype");
+  font-family: "roboto-i300";
+  src: url(./fonts/Roboto-LightItalic.ttf) format("truetype");
 }
 @font-face {
-  font-family: "rale-i300";
-  src: url(./fonts/Raleway-LightItalic.ttf) format("truetype");
+  font-family: "roboto-i400";
+  src: url(./fonts/Roboto-Italic.ttf) format("truetype");
 }
 @font-face {
-  font-family: "rale-i400";
-  src: url(./fonts/Raleway-Italic.ttf) format("truetype");
+  font-family: "roboto-i500";
+  src: url(./fonts/Roboto-MediumItalic.ttf) format("truetype");
 }
 @font-face {
-  font-family: "rale-i500";
-  src: url(./fonts/Raleway-MediumItalic.ttf) format("truetype");
+  font-family: "roboto-i700";
+  src: url(./fonts/Roboto-BoldItalic.ttf) format("truetype");
 }
 @font-face {
-  font-family: "rale-i600";
-  src: url(./fonts/Raleway-SemiBoldItalic.ttf) format("truetype");
-}
-@font-face {
-  font-family: "rale-i700";
-  src: url(./fonts/Raleway-BoldItalic.ttf) format("truetype");
-}
-@font-face {
-  font-family: "rale-i800";
-  src: url(./fonts/Raleway-ExtraBoldItalic.ttf) format("truetype");
-}
-@font-face {
-  font-family: "rale-i900";
-  src: url(./fonts/Raleway-BlackItalic.ttf) format("truetype");
+  font-family: "roboto-i900";
+  src: url(./fonts/Roboto-BlackItalic.ttf) format("truetype");
 }

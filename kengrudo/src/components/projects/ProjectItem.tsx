@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, css } from "aphrodite";
 
-import { rales } from "../../fonts/fonts";
+import { roboto } from "../../fonts/fonts";
 
 const styles = StyleSheet.create({
   main: {
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   contentTitleText: {
     fontSize: "1.4rem",
     lineHeight: "1.125",
-    fontFamily: rales.n500,
+    fontFamily: roboto.n500,
     wordBreak: "break-word"
   },
   contentBody: {
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     padding: "0.6rem",
     alignItems: "stretch",
     fontSize: "1rem",
-    fontFamily: rales.n400,
+    fontFamily: roboto.n400,
     borderTop: "1px solid #DBDBDB"
   },
   footerItem: {
@@ -109,7 +109,9 @@ export const ProjectItem = () => {
         </div>
       </div>
       <div className={css(styles.footer)}>
-        <a className={css(styles.footerItem)} href="/#">Source code</a>
+        <a className={css(styles.footerItem)} href="/#">
+          Source code
+        </a>
       </div>
       <div className={css(styles.skills)}>
         <span className={css(styles.tag)}>React.js</span>

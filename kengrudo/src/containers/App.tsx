@@ -6,7 +6,7 @@ import { StyleSheet, css } from "aphrodite";
 import { SideInfo } from "../components/SideInfo";
 import { Bio } from "../components/bio/Bio";
 import { Projects } from "../components/projects/Projects";
-import { rales } from "../fonts/fonts";
+import { roboto } from "../fonts/fonts";
 
 const styles = StyleSheet.create({
   kengru: {
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     display: "flex",
     height: "100%",
     backgroundColor: "#F9F9F9",
-    fontFamily: rales.n400
+    fontFamily: roboto.n400
   },
   transitionGroup: {
     display: "flex",

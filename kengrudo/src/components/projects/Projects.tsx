@@ -28,6 +28,7 @@ export const Projects = () => {
     <div className={css(styles.main)}>
       <div className={css(styles.projectItems)}>
         <ProjectItem />
+        <ProjectItem />
       </div>
     </div>
   );

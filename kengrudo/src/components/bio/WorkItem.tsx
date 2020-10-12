@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, css } from "aphrodite/no-important";
 
-import { rales } from "../../fonts/fonts";
+import { roboto } from "../../fonts/fonts";
 
 const styles = StyleSheet.create({
   main: {
@@ -26,11 +26,11 @@ const styles = StyleSheet.create({
     padding: "0.70rem",
     wordWrap: "normal",
     fontSize: "1.4rem",
-    fontFamily: rales.n600
+    fontFamily: roboto.n700
   },
   headerWork: {
     fontSize: "1.2rem",
-    fontFamily: rales.n400
+    fontFamily: roboto.n400
   },
   skills: {
     display: "block",
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     padding: "0.6rem",
     alignItems: "stretch",
     fontSize: "1rem",
-    fontFamily: rales.n400,
+    fontFamily: roboto.n400,
     borderTop: "1px solid #DBDBDB"
   }
 });
