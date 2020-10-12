@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
   workItems: {
     display: "flex",
     margin: "auto",
-    height: "70%",
     flexWrap: "wrap",
     justifyContent: "center",
     alignContent: "center"
@@ -53,24 +52,40 @@ export const Work: React.FC = () => {
   }, []);
 
   const workItems = items
-    ? items.map((item) => (
-        <WorkItem
-          key={item.title}
-          title={item.title}
-          placeOfWork={item.placeOfWork}
-          skills={item.skills}
-          from={item.from}
-          to={item.to}
-          highlighted={item.present}
-        />
-      ))
+    ? items.map((item) =>
+        !item.present ? (
+          <WorkItem
+            key={item.placeOfWork}
+            title={item.title}
+            placeOfWork={item.placeOfWork}
+            skills={item.skills}
+            from={item.from}
+            to={item.to}
+            highlighted={item.present}
+          />
+        ) : null
+      )
+    : null;
+
+  const highlighted = items
+    ? items
+        .filter((item) => item.present)
+        .map((item) => (
+          <WorkItem
+            key={item.placeOfWork}
+            title={item.title}
+            placeOfWork={item.placeOfWork}
+            skills={item.skills}
+            from={item.from}
+            to={item.to}
+            highlighted={item.present}
+          />
+        ))
     : null;
 
   return (
     <div className={css(styles.main)}>
-      {/* <div className={css(styles.present)}>
-        <WorkItem highlighted />
-      </div> */}
+      <div className={css(styles.present)}>{highlighted}</div>
       <div className={css(styles.workItems)}>{workItems}</div>
     </div>
   );

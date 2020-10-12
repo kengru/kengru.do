@@ -20,25 +20,34 @@ const styles = StyleSheet.create({
   },
   transitionGroup: {
     display: "flex",
-    flexGrow: 1
+    flexGrow: 1,
+    transition: "opacity 250ms ease-in"
   },
   fadeEnter: {
     opacity: 0,
-    zIndex: 1
+    transform: "scale(0.9)"
   },
   fadeEnterActive: {
     opacity: 1,
-    transition: "opacity 250ms ease-in"
+    transform: "translateX(0)",
+    transition: "opacity 300ms, transform 300ms"
   },
   fadeExit: {
-    opacity: 0
+    opacity: 1,
+    transition: "opacity 250ms ease-in"
+  },
+  fadeExitActive: {
+    opacity: 0,
+    transform: "scale(0.9)",
+    transition: "opacity 300ms, transform 300ms"
   }
 });
 
 const fade = {
   enter: css(styles.fadeEnter),
   enterActive: css(styles.fadeEnterActive),
-  exit: css(styles.fadeExit)
+  exit: css(styles.fadeExit),
+  exitActive: css(styles.fadeExitActive)
 };
 
 function App() {
@@ -53,11 +62,12 @@ function App() {
           classNames={{
             enter: fade.enter,
             enterActive: fade.enterActive,
-            exit: fade.exit
+            exit: fade.exit,
+            exitActive: fade.exitActive
           }}
-          timeout={300}
+          timeout={200}
         >
-          <Switch>
+          <Switch location={location}>
             <Route exact path="/">
               <Work />
             </Route>

@@ -88,37 +88,47 @@ const styles = StyleSheet.create({
   }
 });
 
-export const ProjectItem = () => {
+type Props = {
+  name: string;
+  desc: string;
+  img: string;
+  code: string;
+  live: string;
+  skills: string[];
+};
+
+export const ProjectItem = (props: Props) => {
+  const { name, desc, img, code, skills } = props;
+
   return (
     <div className={css(styles.main)}>
       <div className={css(styles.cardImage)}>
         <figure className={css(styles.image)}>
-          <img
-            className={css(styles.hasRatio)}
-            src="https://via.placeholder.com/250"
-            alt="Giru"
-          />
+          <img className={css(styles.hasRatio)} src={img} alt={name} />
         </figure>
       </div>
       <div className={css(styles.content)}>
         <div className={css(styles.contentTitle)}>
-          <span className={css(styles.contentTitleText)}>Giru</span>
+          <span className={css(styles.contentTitleText)}>{name}</span>
         </div>
-        <div className={css(styles.contentBody)}>
-          A telegram bot, designed to be used by my friends.
-        </div>
+        <div className={css(styles.contentBody)}>{desc}</div>
       </div>
       <div className={css(styles.footer)}>
-        <a className={css(styles.footerItem)} href="/#">
+        <a
+          className={css(styles.footerItem)}
+          target="_blank"
+          rel="noopener noreferrer"
+          href={code}
+        >
           Source code
         </a>
       </div>
       <div className={css(styles.skills)}>
-        <span className={css(styles.tag)}>React.js</span>
-        <span className={css(styles.tag)}>Typescript</span>
-        <span className={css(styles.tag)}>Redux</span>
-        <span className={css(styles.tag)}>Docker</span>
-        <span className={css(styles.tag)}>Enzyme</span>
+        {skills.map((skill) => (
+          <span key={skill} className={css(styles.tag)}>
+            {skill}
+          </span>
+        ))}
       </div>
     </div>
   );

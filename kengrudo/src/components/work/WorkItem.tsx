@@ -9,9 +9,12 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     position: "relative",
-    width: "16em",
+    width: "25%",
     margin: "1em",
-    boxShadow: "0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1)"
+    boxShadow: "0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1)",
+    "@media (max-width: 1500px)": {
+      width: "20%"
+    }
   },
   highlight: {
     boxShadow: "0 2px 3px rgba(10,40,10,.2), 0 0 0 1px rgba(10,40,10,.2)"
@@ -26,11 +29,11 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     padding: "0.70rem",
     wordWrap: "normal",
-    fontSize: "1.4rem",
+    fontSize: "calc(10px + 1vmin)",
     fontFamily: roboto.n700
   },
   headerWork: {
-    fontSize: "1.2rem",
+    fontSize: "calc(8px + 1vmin)",
     fontFamily: roboto.n400
   },
   skills: {
@@ -48,7 +51,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     whiteSpace: "nowrap",
     lineHeight: 1,
-    backgroundColor: "#F5F5F5"
+    backgroundColor: "#F5F5F5",
+    "@media (max-width: 1500px)": {
+      fontSize: "0.7rem"
+    }
   },
   footer: {
     display: "flex",
