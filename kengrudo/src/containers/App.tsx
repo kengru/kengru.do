@@ -4,8 +4,8 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { StyleSheet, css } from "aphrodite";
 
 import { SideInfo } from "../components/SideInfo";
-import { Bio } from "../components/bio/Bio";
-import { Projects } from "../components/projects/Projects";
+import { Work } from "../components/work";
+import { Projects } from "../components/projects";
 import { roboto } from "../fonts/fonts";
 
 const styles = StyleSheet.create({
@@ -50,12 +50,16 @@ function App() {
       <TransitionGroup className={css(styles.transitionGroup)}>
         <CSSTransition
           key={location.key}
-          classNames={{ enter: fade.enter, enterActive: fade.enterActive, exit: fade.exit }}
+          classNames={{
+            enter: fade.enter,
+            enterActive: fade.enterActive,
+            exit: fade.exit
+          }}
           timeout={300}
         >
           <Switch>
             <Route exact path="/">
-              <Bio />
+              <Work />
             </Route>
             <Route path="/projects">
               <Projects />

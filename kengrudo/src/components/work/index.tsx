@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { StyleSheet, css } from "aphrodite/no-important";
 
+import { odin } from "../../utils/axios";
 import { WorkItem } from "./WorkItem";
 
 const styles = StyleSheet.create({
@@ -30,7 +31,29 @@ const styles = StyleSheet.create({
   }
 });
 
-export const Bio = () => {
+interface Item {
+  title: string;
+  placeOfWork: string;
+  skills: string[];
+  from: Date;
+  to: Date;
+  present: boolean;
+}
+
+export const Work: React.FC = () => {
+  const [items, setItems] = useState<Item[] | null>(null);
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      const workItems = await odin.get(`/kengru/work`);
+      setItems(workItems.data.data as Item[]);
+    };
+
+    fetchItems();
+  }, []);
+
+  const workItems = items ? items.map(item => ) : null;
+
   return (
     <div className={css(styles.main)}>
       <div className={css(styles.present)}>
