@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, css } from "aphrodite/no-important";
 
 import { odin } from "../../utils/axios";
@@ -52,18 +52,26 @@ export const Work: React.FC = () => {
     fetchItems();
   }, []);
 
-  const workItems = items ? items.map(item => ) : null;
+  const workItems = items
+    ? items.map((item) => (
+        <WorkItem
+          key={item.title}
+          title={item.title}
+          placeOfWork={item.placeOfWork}
+          skills={item.skills}
+          from={item.from}
+          to={item.to}
+          highlighted={item.present}
+        />
+      ))
+    : null;
 
   return (
     <div className={css(styles.main)}>
-      <div className={css(styles.present)}>
+      {/* <div className={css(styles.present)}>
         <WorkItem highlighted />
-      </div>
-      <div className={css(styles.workItems)}>
-        <WorkItem highlighted={false} />
-        <WorkItem highlighted={false} />
-        <WorkItem highlighted={false} />
-      </div>
+      </div> */}
+      <div className={css(styles.workItems)}>{workItems}</div>
     </div>
   );
 };

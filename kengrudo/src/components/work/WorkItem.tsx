@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 import { StyleSheet, css } from "aphrodite/no-important";
 
 import { roboto } from "../../fonts/fonts";
@@ -60,28 +61,37 @@ const styles = StyleSheet.create({
 });
 
 type Props = {
+  title: string;
+  placeOfWork: string;
+  skills: string[];
+  from: Date;
+  to: Date;
   highlighted: boolean;
 };
 
 export const WorkItem = (props: Props) => {
-  const { highlighted } = props;
+  const { title, placeOfWork, from, to, skills, highlighted } = props;
 
   return (
     <div className={css(styles.main, highlighted ? styles.highlight : null)}>
       <div className={css(styles.header)}>
         <div className={css(styles.headerTitle)}>
-          Frontend Developer
-          <div className={css(styles.headerWork)}>Soshace</div>
+          {title}
+          <div className={css(styles.headerWork)}>{placeOfWork}</div>
         </div>
       </div>
       <div className={css(styles.skills)}>
-        <span className={css(styles.tag)}>React.js</span>
-        <span className={css(styles.tag)}>Typescript</span>
-        <span className={css(styles.tag)}>Redux</span>
-        <span className={css(styles.tag)}>Docker</span>
-        <span className={css(styles.tag)}>Enzyme</span>
+        {skills.map((skill) => (
+          <span key={skill} className={css(styles.tag)}>
+            {skill}
+          </span>
+        ))}
       </div>
-      <div className={css(styles.footer)}>May 2019 - January 2020</div>
+      <div className={css(styles.footer)}>{`${moment(from).format(
+        "MMM YYYY"
+      )} - ${
+        moment() < moment(to) ? "present" : moment(to).format("MMM YYYY")
+      }`}</div>
     </div>
   );
 };
