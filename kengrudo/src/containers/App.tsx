@@ -1,6 +1,6 @@
 import React from "react";
-import { Switch, Route, useLocation } from "react-router-dom";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { Route } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
 import { StyleSheet, css } from "aphrodite";
 
 import { SideInfo } from "../components/SideInfo";
@@ -27,14 +27,14 @@ const styles = StyleSheet.create({
   },
   fadeEnterActive: {
     opacity: 1,
-    transition: "opacity 200ms"
+    transition: "opacity 500ms"
   },
   fadeExit: {
     opacity: 1
   },
   fadeExitActive: {
-    opacity: 0,
-    transition: "opacity 200ms"
+    display: "none",
+    transition: "opacity 300ms"
   }
 });
 
@@ -65,13 +65,9 @@ function App() {
           {({ match }) => (
             <CSSTransition
               in={match != null}
-              classNames={{
-                enter: fade.enter,
-                enterActive: fade.enterActive,
-                exit: fade.exit,
-                exitActive: fade.exitActive
-              }}
-              timeout={300}
+              classNames={fade}
+              timeout={500}
+              unmountOnExit
             >
               <Component />
             </CSSTransition>
