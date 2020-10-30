@@ -20,26 +20,21 @@ const styles = StyleSheet.create({
   },
   transitionGroup: {
     display: "flex",
-    flexGrow: 1,
-    transition: "opacity 250ms ease-in"
+    flexGrow: 1
   },
   fadeEnter: {
-    opacity: 0,
-    transform: "scale(0.9)"
+    opacity: 0
   },
   fadeEnterActive: {
     opacity: 1,
-    transform: "translateX(0)",
-    transition: "opacity 300ms, transform 300ms"
+    transition: "opacity 200ms"
   },
   fadeExit: {
-    opacity: 1,
-    transition: "opacity 250ms ease-in"
+    opacity: 1
   },
   fadeExitActive: {
     opacity: 0,
-    transform: "scale(0.9)",
-    transition: "opacity 300ms, transform 300ms"
+    transition: "opacity 200ms"
   }
 });
 
@@ -50,33 +45,39 @@ const fade = {
   exitActive: css(styles.fadeExitActive)
 };
 
-function App() {
-  let location = useLocation();
+const routes = [
+  {
+    path: "/",
+    Component: Work
+  },
+  {
+    path: "/projects",
+    Component: Projects
+  }
+];
 
+function App() {
   return (
     <div className={css(styles.kengru)}>
       <SideInfo />
-      <TransitionGroup className={css(styles.transitionGroup)}>
-        <CSSTransition
-          key={location.key}
-          classNames={{
-            enter: fade.enter,
-            enterActive: fade.enterActive,
-            exit: fade.exit,
-            exitActive: fade.exitActive
-          }}
-          timeout={200}
-        >
-          <Switch location={location}>
-            <Route exact path="/">
-              <Work />
-            </Route>
-            <Route path="/projects">
-              <Projects />
-            </Route>
-          </Switch>
-        </CSSTransition>
-      </TransitionGroup>
+      {routes.map(({ path, Component }) => (
+        <Route key={path} exact path={path}>
+          {({ match }) => (
+            <CSSTransition
+              in={match != null}
+              classNames={{
+                enter: fade.enter,
+                enterActive: fade.enterActive,
+                exit: fade.exit,
+                exitActive: fade.exitActive
+              }}
+              timeout={300}
+            >
+              <Component />
+            </CSSTransition>
+          )}
+        </Route>
+      ))}
     </div>
   );
 }
