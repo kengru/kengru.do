@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { StyleSheet, css } from "aphrodite/no-important";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,6 +11,9 @@ import {
 
 import { roboto } from "../fonts/fonts";
 import logo from "../images/kengru-logo.png";
+import { lastfm } from "../utils/axios";
+import { Config } from "../utils/config";
+import classes from "*.module.css";
 
 const styles = StyleSheet.create({
   side: {
@@ -83,12 +86,37 @@ const styles = StyleSheet.create({
     paddingLeft: "1em",
     paddingRight: "1em"
   },
+  listening: {
+    display: "flex",
+    marginBottom: "2em",
+    flexDirection: "column",
+    fontSize: "calc(7px + 1vmin)"
+  },
+  lto: {
+    fontFamily: roboto.i500
+  },
   footer: {
     marginBottom: "2em"
   }
 });
 
 function SideInfo() {
+  const [artist, setArtist] = useState("");
+  const [track, setTrack] = useState("");
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      const listening = await lastfm.get(
+        `/?method=user.getrecenttracks&user=kengru&api_key=${Config.LASTFM_KEY}&format=json`
+      );
+      const lastSong = listening.data.recenttracks.track[0];
+      setArtist(lastSong.artist["#text"]);
+      setTrack(lastSong.name);
+    };
+
+    fetchItems();
+  }, []);
+
   return (
     <div className={css(styles.side)}>
       <div className={css(styles.container)}>
@@ -97,10 +125,6 @@ function SideInfo() {
             <img className={css(styles.logo)} src={logo} alt="logo" />
           </Link>
           <div className={css(styles.name)}>Kendry Alexander Grullón</div>
-          {/* <p className={css(styles.text)}>
-            Programming things, mainly using javascript.
-            <br />I have developed a thing for 3D.
-          </p> */}
           <nav>
             <ul className={css(styles.navList)}>
               <NavLink
@@ -119,6 +143,11 @@ function SideInfo() {
               </NavLink>
             </ul>
           </nav>
+          <div className={css(styles.listening)}>
+            <span className={css(styles.lto)}>Listening to:</span>
+            <span>{artist}</span>
+            <span>{track}</span>
+          </div>
           <div className={css(styles.icons)}>
             <a
               className={css(styles.brandLink)}
