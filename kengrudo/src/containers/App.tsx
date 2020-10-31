@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   },
   fadeEnterActive: {
     opacity: 1,
-    transition: "opacity 500ms"
+    transition: "opacity 700ms"
   },
   fadeExit: {
     opacity: 1
@@ -66,7 +66,7 @@ function App() {
             <CSSTransition
               in={match != null}
               classNames={fade}
-              timeout={500}
+              timeout={700}
               unmountOnExit
             >
               <Component />
