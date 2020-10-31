@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     maxWidth: "100%"
   },
   content: {
+    height: "4em",
     padding: "0em 1em 1em 1em",
     backgroundColor: "initial"
   },
@@ -84,7 +85,10 @@ const styles = StyleSheet.create({
     color: "#3273DC",
     cursor: "pointer",
     textDecoration: "none",
-    justifyContent: "center"
+    justifyContent: "center",
+    ":not(:last-child)": {
+      borderRight: "1px solid #dbdbdb"
+    }
   }
 });
 
@@ -98,7 +102,7 @@ type Props = {
 };
 
 export const ProjectItem = (props: Props) => {
-  const { name, desc, img, code, skills } = props;
+  const { name, desc, img, code, live, skills } = props;
 
   return (
     <div className={css(styles.main)}>
@@ -114,14 +118,26 @@ export const ProjectItem = (props: Props) => {
         <div className={css(styles.contentBody)}>{desc}</div>
       </div>
       <div className={css(styles.footer)}>
-        <a
-          className={css(styles.footerItem)}
-          target="_blank"
-          rel="noopener noreferrer"
-          href={code}
-        >
-          Source code
-        </a>
+        {code !== "" ? (
+          <a
+            className={css(styles.footerItem)}
+            target="_blank"
+            rel="noopener noreferrer"
+            href={code}
+          >
+            Source Code
+          </a>
+        ) : null}
+        {live !== "" ? (
+          <a
+            className={css(styles.footerItem)}
+            target="_blank"
+            rel="noopener noreferrer"
+            href={live}
+          >
+            Live
+          </a>
+        ) : null}
       </div>
       <div className={css(styles.skills)}>
         {skills.map((skill) => (

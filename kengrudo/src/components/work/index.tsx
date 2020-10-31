@@ -39,7 +39,7 @@ interface Item {
   present: boolean;
 }
 
-export const Work: React.FC = () => {
+export const Work = () => {
   const [items, setItems] = useState<Item[] | null>(null);
 
   useEffect(() => {
