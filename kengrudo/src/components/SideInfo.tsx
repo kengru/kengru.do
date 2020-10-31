@@ -8,12 +8,11 @@ import {
   faLinkedinIn,
   faMedium
 } from "@fortawesome/free-brands-svg-icons";
-
-import { roboto } from "../fonts/fonts";
 import logo from "../images/kengru-logo.png";
-import { lastfm } from "../utils/axios";
+
 import { Config } from "../utils/config";
-import classes from "*.module.css";
+import { lastfm } from "../utils/axios";
+import { roboto } from "../fonts/fonts";
 
 const styles = StyleSheet.create({
   side: {
