@@ -79,13 +79,12 @@ export const Skills = () => {
                 .filter((item) => item.stack === Stack.FrontEnd)
                 .map((item) => (
                   <SkillBar
+                    key={item.name}
                     label={item.name}
                     completedPCT={item.pct}
                   />
                 ))
             : null}
-          <SkillBar label={"React"} completedPCT={90} />
-          <SkillBar label={"Redux"} completedPCT={75} />
         </div>
       </div>
       <div className={css(styles.sections)}>
@@ -96,14 +95,12 @@ export const Skills = () => {
                 .filter((item) => item.stack === Stack.BackEnd)
                 .map((item) => (
                   <SkillBar
+                  key={item.name}
                     label={item.name}
                     completedPCT={item.pct}
                   />
                 ))
             : null}
-          <SkillBar label={"Node"} completedPCT={80} />
-          <SkillBar label={"MongoDB"} completedPCT={80} />
-          <SkillBar label={"Typescript"} completedPCT={90} />
         </div>
       </div>
     </div>
