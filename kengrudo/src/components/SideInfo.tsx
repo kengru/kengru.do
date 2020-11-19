@@ -22,7 +22,10 @@ const styles = StyleSheet.create({
     paddingLeft: "2em",
     flexDirection: "column",
     justifyContent: "flex-end",
-    fontSize: "calc(10px + 1vmin)"
+    fontSize: "calc(10px + 1vmin)",
+    "@media (max-width: 1110px)": {
+      display: "none"
+    }
   },
   logo: {
     alignSelf: "flex-start",

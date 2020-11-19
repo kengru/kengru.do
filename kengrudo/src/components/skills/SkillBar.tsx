@@ -1,4 +1,34 @@
 import React, { useEffect, useState } from "react";
+import { StyleSheet, css } from "aphrodite/no-important";
+
+const styles = StyleSheet.create({
+  mainStyles: {
+    display: "flex",
+    width: "400px",
+    margin: "0.3em 0em 0.3em 0em",
+    alignItems: "center",
+    justifyContent: "center",
+    alignSelf: "center",
+    textAlign: "left" as const,
+    transition: "width 200ms linear",
+    "@media (max-width: 1500px)": {
+      width: "280px"
+    }
+  },
+  labelStyles: {
+    fontSize: "17px",
+    width: "200px",
+    "@media (max-width: 1500px)": {
+      width: "180px"
+    }
+  },
+  parentStyles: {
+    height: "1em",
+    borderRadius: 6,
+    backgroundColor: "#e0e0de",
+    width: "100%"
+  }
+});
 
 interface Props {
   label: string;
@@ -18,28 +48,6 @@ export const SkillBar = (props: Props) => {
     return () => clearInterval(intervalId);
   }, [limit, completedPCT]);
 
-  const mainStyles = {
-    display: "flex",
-    width: "400px",
-    margin: "0.3em 0em 0.3em 0em",
-    alignItems: "center",
-    justifyContent: "center",
-    alignSelf: "center",
-    textAlign: "left" as const
-  };
-
-  const labelStyles = {
-    fontSize: "20px",
-    width: "200px"
-  };
-
-  const parentStyles = {
-    height: "1em",
-    borderRadius: 6,
-    backgroundColor: "#e0e0de",
-    width: "100%"
-  };
-
   const fillerStyles = {
     height: "100%",
     width: `${limit}%`,
@@ -49,9 +57,9 @@ export const SkillBar = (props: Props) => {
   };
 
   return (
-    <div style={mainStyles}>
-      <span style={labelStyles}>{label}</span>
-      <div style={parentStyles}>
+    <div className={css(styles.mainStyles)}>
+      <span className={css(styles.labelStyles)}>{label}</span>
+      <div className={css(styles.parentStyles)}>
         <div style={fillerStyles}></div>
       </div>
     </div>

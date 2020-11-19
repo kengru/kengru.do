@@ -14,14 +14,20 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignContent: "center",
     fontSize: "calc(3px + 2vmin)",
-    textAlign: "center"
+    textAlign: "center",
+    "@media (max-width: 1110px)": {
+      flexDirection: "column"
+    }
   },
   sections: {
     display: "flex",
     width: "50%",
     flexDirection: "column",
     justifyContent: "center",
-    alignContent: "center"
+    alignContent: "center",
+    "@media (max-width: 1110px)": {
+      width: "100%"
+    }
   },
   title: {
     color: "#2d2d2d",
