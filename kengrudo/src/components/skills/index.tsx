@@ -32,8 +32,12 @@ const styles = StyleSheet.create({
   title: {
     color: "#2d2d2d",
     fontSize: "30px",
+    width: "100%",
     fontFamily: roboto.i500,
-    marginBottom: "1.2em"
+    marginBottom: "1.2em",
+    "@media (max-width: 500px)": {
+      fontSize: "24px"
+    }
   },
   card: {
     display: "flex",

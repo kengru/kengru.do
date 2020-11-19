@@ -13,13 +13,20 @@ const styles = StyleSheet.create({
     transition: "width 200ms linear",
     "@media (max-width: 1500px)": {
       width: "280px"
+    },
+    "@media (max-width: 500px)": {
+      width: "200px"
     }
   },
   labelStyles: {
-    fontSize: "17px",
     width: "200px",
+    fontSize: "17px",
     "@media (max-width: 1500px)": {
       width: "180px"
+    },
+    "@media (max-width: 500px)": {
+      width: "150px",
+      fontSize: "14px"
     }
   },
   parentStyles: {

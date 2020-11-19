@@ -108,12 +108,16 @@ function SideInfo() {
 
   useEffect(() => {
     const fetchItems = async () => {
-      const listening = await lastfm.get(
-        `/?method=user.getrecenttracks&user=kengru&api_key=${Config.LASTFM_KEY}&format=json`
-      );
-      const lastSong = listening.data.recenttracks.track[0];
-      setArtist(lastSong.artist["#text"]);
-      setTrack(lastSong.name);
+      try {
+        const listening = await lastfm.get(
+          `/?method=user.getrecenttracks&user=kengru&api_key=${Config.LASTFM_KEY}&format=json`
+        );
+        const lastSong = listening.data.recenttracks.track[0];
+        setArtist(lastSong.artist["#text"]);
+        setTrack(lastSong.name);
+      } catch (error) {
+        setArtist(`Error with the lastFM API.`);
+      }
     };
 
     fetchItems();
