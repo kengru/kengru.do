@@ -12,15 +12,24 @@ const styles = StyleSheet.create({
     margin: "0em 2em 0em 1em",
     justifyContent: "center",
     alignContent: "center",
-    fontSize: "calc(3px + 2vmin)"
+    fontSize: "calc(3px + 2vmin)",
+    "@media (max-width: 500px)": {
+      overflowY: "scroll",
+      fontSize: "16px",
+      margin: 0
+    }
   },
   projectItems: {
     display: "flex",
     margin: "auto",
-    height: "80%",
     flexWrap: "wrap",
     justifyContent: "center",
-    alignContent: "center"
+    alignContent: "center",
+    "@media (max-width: 500px)": {
+      width: "100%",
+      flexWrap: "nowrap",
+      flexDirection: "column"
+    }
   }
 });
 

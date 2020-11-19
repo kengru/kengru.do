@@ -15,6 +15,13 @@ const styles = StyleSheet.create({
     ":hover": {
       transform: "scale(1.05, 1.05)"
     },
+    "@media (max-width: 1450px)": {
+      width: "10em"
+    },
+    "@media (max-width: 500px)": {
+      alignSelf: "center",
+      width: "14em"
+    }
   },
   cardImage: {
     display: "block",
@@ -36,7 +43,10 @@ const styles = StyleSheet.create({
   content: {
     height: "4em",
     padding: "0em 1em 1em 1em",
-    backgroundColor: "initial"
+    backgroundColor: "initial",
+    "@media (max-width: 1450px)": {
+      height: "3em"
+    }
   },
   contentTitle: {
     display: "flex",
@@ -49,11 +59,23 @@ const styles = StyleSheet.create({
     fontSize: "1.4rem",
     lineHeight: "1.125",
     fontFamily: roboto.n500,
-    wordBreak: "break-word"
+    wordBreak: "break-word",
+    "@media (max-width: 1450px)": {
+      fontSize: "1rem"
+    },
+    "@media (max-width: 500px)": {
+      fontSize: "1.2rem"
+    }
   },
   contentBody: {
     textAlign: "center",
-    fontSize: "1rem"
+    fontSize: "1rem",
+    "@media (max-width: 1450px)": {
+      fontSize: "0.7rem"
+    },
+    "@media (max-width: 500px)": {
+      display: "none"
+    }
   },
   skills: {
     display: "block",
@@ -78,7 +100,15 @@ const styles = StyleSheet.create({
     alignItems: "stretch",
     fontSize: "1rem",
     fontFamily: roboto.n400,
-    borderTop: "1px solid #DBDBDB"
+    borderTop: "1px solid #DBDBDB",
+    "@media (max-width: 1450px)": {
+      fontSize: "0.7rem",
+      padding: "0.5rem"
+    },
+    "@media (max-width: 500px)": {
+      fontSize: "0.9rem",
+      padding: "0.6rem"
+    }
   },
   footerItem: {
     display: "flex",
@@ -90,8 +120,12 @@ const styles = StyleSheet.create({
     cursor: "pointer",
     textDecoration: "none",
     justifyContent: "center",
+    alignContent: "center",
     ":not(:last-child)": {
       borderRight: "1px solid #dbdbdb"
+    },
+    "@media (max-width: 1450px)": {
+      padding: "0.4rem 0.2rem 0.4rem"
     }
   }
 });
