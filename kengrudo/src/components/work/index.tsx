@@ -13,7 +13,11 @@ const styles = StyleSheet.create({
     margin: "0em 2em 0em 1em",
     justifyContent: "center",
     alignContent: "center",
-    fontSize: "calc(3px + 2vmin)"
+    fontSize: "calc(3px + 2vmin)",
+    "@media (max-width: 550px)": {
+      overflowY: "scroll",
+      margin: 0
+    }
   },
   present: {
     display: "flex",
