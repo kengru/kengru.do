@@ -6,6 +6,7 @@ import { StyleSheet, css } from "aphrodite";
 import { SideInfo } from "../components/SideInfo";
 import { Work } from "../components/work";
 import { Projects } from "../components/projects";
+import { Skills } from "../components/skills";
 import { roboto } from "../fonts/fonts";
 
 const styles = StyleSheet.create({
@@ -53,6 +54,10 @@ const routes = [
   {
     path: "/projects",
     Component: Projects
+  },
+  {
+    path: "/skills",
+    Component: Skills
   }
 ];
 
