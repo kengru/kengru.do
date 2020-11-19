@@ -12,9 +12,13 @@ const styles = StyleSheet.create({
     width: "25%",
     margin: "1em",
     boxShadow: "0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1)",
+    transition: "transform 0.2s linear",
+    ":hover": {
+      transform: "scale(1.05, 1.05)"
+    },
     "@media (max-width: 1500px)": {
       width: "20%"
-    }
+    },
   },
   highlight: {
     boxShadow: "0 2px 3px rgba(10,40,10,.2), 0 0 0 1px rgba(10,40,10,.2)"

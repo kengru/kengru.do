@@ -10,7 +10,11 @@ const styles = StyleSheet.create({
     position: "relative",
     width: "12em",
     margin: "1em",
-    boxShadow: "0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1)"
+    boxShadow: "0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1)",
+    transition: "transform 0.2s linear",
+    ":hover": {
+      transform: "scale(1.05, 1.05)"
+    },
   },
   cardImage: {
     display: "block",
