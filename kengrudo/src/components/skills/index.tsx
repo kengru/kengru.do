@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, css } from "aphrodite/no-important";
 
-import { SkillBar, Colors } from "./SkillBar";
+import { SkillBar } from "./SkillBar";
+import { roboto } from "../../fonts/fonts";
+import { odin } from "../../utils/axios";
 
 const styles = StyleSheet.create({
   main: {
@@ -21,11 +23,16 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignContent: "center"
   },
+  title: {
+    color: "#2d2d2d",
+    fontSize: "30px",
+    fontFamily: roboto.n500
+  },
   card: {
     display: "flex",
     flexDirection: "column",
     alignContent: "center",
-    margin: "2em",
+    margin: "1em",
     padding: "1em",
     height: "200px",
     width: "70%",
@@ -39,26 +46,64 @@ const styles = StyleSheet.create({
   }
 });
 
+enum Stack {
+  FrontEnd = 0,
+  BackEnd = 1
+}
+
+interface Item {
+  name: string;
+  pct: number;
+  stack: Stack;
+}
+
 export const Skills = () => {
+  const [items, setItems] = useState<Item[] | null>(null);
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      const skillItems = await odin.get(`/kengru/skills`);
+      setItems(skillItems.data.data as Item[]);
+    };
+
+    fetchItems();
+  }, []);
+
   return (
     <div className={css(styles.main)}>
       <div className={css(styles.sections)}>
-        <h4>Front-end</h4>
+        <span className={css(styles.title)}>Front-end</span>
         <div className={css(styles.card)}>
-          <SkillBar label={"React"} completedPCT={90} color={Colors.blue} />
-          <SkillBar label={"Redux"} completedPCT={75} color={Colors.blue} />
+          {items
+            ? items
+                .filter((item) => item.stack === Stack.FrontEnd)
+                .map((item) => (
+                  <SkillBar
+                    label={item.name}
+                    completedPCT={item.pct}
+                  />
+                ))
+            : null}
+          <SkillBar label={"React"} completedPCT={90} />
+          <SkillBar label={"Redux"} completedPCT={75} />
         </div>
       </div>
       <div className={css(styles.sections)}>
-        <h4>Back-end</h4>
+        <span className={css(styles.title)}>Back-end</span>
         <div className={css(styles.card)}>
-          <SkillBar label={"Node"} completedPCT={80} color={Colors.blue} />
-          <SkillBar label={"MongoDB"} completedPCT={80} color={Colors.blue} />
-          <SkillBar
-            label={"Typescript"}
-            completedPCT={90}
-            color={Colors.blue}
-          />
+          {items
+            ? items
+                .filter((item) => item.stack === Stack.BackEnd)
+                .map((item) => (
+                  <SkillBar
+                    label={item.name}
+                    completedPCT={item.pct}
+                  />
+                ))
+            : null}
+          <SkillBar label={"Node"} completedPCT={80} />
+          <SkillBar label={"MongoDB"} completedPCT={80} />
+          <SkillBar label={"Typescript"} completedPCT={90} />
         </div>
       </div>
     </div>

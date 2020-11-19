@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   },
   name: {
     paddingTop: "0.2em",
-    fontSize: roboto.i500
+    fontFamily: roboto.i500
   },
   text: {
     fontSize: "calc(9px + 1vmin)"

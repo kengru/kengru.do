@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-export enum Colors {
-  blue = "#3d7ea6"
-}
-
 interface Props {
   label: string;
   completedPCT: number;
-  color: Colors;
 }
 
 export const SkillBar = (props: Props) => {
-  const { label, completedPCT, color } = props;
+  const { label, completedPCT } = props;
   const [limit, setLimit] = useState(0);
 
   useEffect(() => {
@@ -26,6 +21,7 @@ export const SkillBar = (props: Props) => {
   const mainStyles = {
     display: "flex",
     width: "400px",
+    margin: "0.3em 0em 0.em 0em",
     alignItems: "center",
     justifyContent: "center",
     alignSelf: "center",
@@ -33,6 +29,7 @@ export const SkillBar = (props: Props) => {
   };
 
   const labelStyles = {
+    fontSize: "20px",
     width: "200px"
   };
 
@@ -46,7 +43,7 @@ export const SkillBar = (props: Props) => {
   const fillerStyles = {
     height: "100%",
     width: `${limit}%`,
-    backgroundColor: color,
+    backgroundColor: "#3d7ea6",
     borderRadius: "inherit",
     transition: "width 200ms linear"
   };
