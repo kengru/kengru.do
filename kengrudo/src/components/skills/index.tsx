@@ -26,22 +26,24 @@ const styles = StyleSheet.create({
   title: {
     color: "#2d2d2d",
     fontSize: "30px",
-    fontFamily: roboto.n500
+    fontFamily: roboto.i500,
+    marginBottom: "1.2em"
   },
   card: {
     display: "flex",
     flexDirection: "column",
     alignContent: "center",
     margin: "1em",
-    padding: "1em",
-    height: "200px",
-    width: "70%",
+    padding: "1.5em",
+    width: "60%",
     alignSelf: "center",
-    border: "1px solid rgba(0,0,0,0.3)",
+    border: "1px solid rgba(0,0,0,0.1)",
     borderRadius: "14px",
-    transition: "transform 0.2s linear",
+    zIndex: 2,
+    boxShadow: "0px 0px 8px 0px rgba(0,0,0,0.10)",
+    transition: "transform 0.1s linear",
     ":hover": {
-      transform: "scale(1.05, 1.05)"
+      transform: "scale(1.03, 1.03)"
     }
   }
 });
@@ -72,8 +74,8 @@ export const Skills = () => {
   return (
     <div className={css(styles.main)}>
       <div className={css(styles.sections)}>
-        <span className={css(styles.title)}>Front-end</span>
         <div className={css(styles.card)}>
+          <span className={css(styles.title)}>Front-end</span>
           {items
             ? items
                 .filter((item) => item.stack === Stack.FrontEnd)
@@ -88,14 +90,14 @@ export const Skills = () => {
         </div>
       </div>
       <div className={css(styles.sections)}>
-        <span className={css(styles.title)}>Back-end</span>
         <div className={css(styles.card)}>
+          <span className={css(styles.title)}>Back-end</span>
           {items
             ? items
                 .filter((item) => item.stack === Stack.BackEnd)
                 .map((item) => (
                   <SkillBar
-                  key={item.name}
+                    key={item.name}
                     label={item.name}
                     completedPCT={item.pct}
                   />

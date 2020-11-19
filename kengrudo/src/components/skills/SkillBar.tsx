@@ -21,7 +21,7 @@ export const SkillBar = (props: Props) => {
   const mainStyles = {
     display: "flex",
     width: "400px",
-    margin: "0.3em 0em 0.em 0em",
+    margin: "0.3em 0em 0.3em 0em",
     alignItems: "center",
     justifyContent: "center",
     alignSelf: "center",
@@ -35,7 +35,7 @@ export const SkillBar = (props: Props) => {
 
   const parentStyles = {
     height: "1em",
-    borderRadius: 50,
+    borderRadius: 6,
     backgroundColor: "#e0e0de",
     width: "100%"
   };
