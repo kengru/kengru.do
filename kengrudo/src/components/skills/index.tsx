@@ -16,7 +16,8 @@ const styles = StyleSheet.create({
     fontSize: "calc(3px + 2vmin)",
     textAlign: "center",
     "@media (max-width: 1110px)": {
-      flexDirection: "column"
+      flexDirection: "column",
+      margin: 0
     }
   },
   sections: {

@@ -13,6 +13,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignContent: "center",
     fontSize: "calc(3px + 2vmin)",
+    "@media (max-width: 1110px)": {
+      overflowY: "scroll",
+      margin: 0
+    },
     "@media (max-width: 500px)": {
       overflowY: "scroll",
       fontSize: "16px",

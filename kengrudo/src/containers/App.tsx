@@ -4,6 +4,7 @@ import { CSSTransition } from "react-transition-group";
 import { StyleSheet, css } from "aphrodite";
 
 import { SideInfo } from "../components/SideInfo";
+import { TopInfo } from "../components/TopInfo";
 import { Work } from "../components/work";
 import { Projects } from "../components/projects";
 import { Skills } from "../components/skills";
@@ -17,7 +18,10 @@ const styles = StyleSheet.create({
     display: "flex",
     height: "100%",
     backgroundColor: "#F9F9F9",
-    fontFamily: roboto.n400
+    fontFamily: roboto.n400,
+    "@media (max-width: 1110px)": {
+      flexDirection: "column"
+    }
   },
   transitionGroup: {
     display: "flex",
@@ -65,6 +69,7 @@ function App() {
   return (
     <div className={css(styles.kengru)}>
       <SideInfo />
+      <TopInfo />
       {routes.map(({ path, Component }) => (
         <Route key={path} exact path={path}>
           {({ match }) => (
