@@ -1,9 +1,0 @@
-.Challenges {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.site-content {
-  flex: 1;
-}
