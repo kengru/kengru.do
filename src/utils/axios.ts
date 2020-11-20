@@ -6,5 +6,5 @@ export const odin = axios.create({
 });
 
 export const lastfm = axios.create({
-  baseURL: `http://ws.audioscrobbler.com/2.0`
+  baseURL: `https://ws.audioscrobbler.com/2.0`
 });
