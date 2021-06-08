@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { StyleSheet, css } from "aphrodite/no-important";
 
 import { odin } from "../../utils/axios";
-import { WorkItem } from "./WorkItem";
+import { JobItem } from "./JobItem";
 
 const styles = StyleSheet.create({
   main: {
     display: "flex",
     flexDirection: "column",
     height: "100%",
-    width: "100%",
+    flex: 6,
     justifyContent: "center",
     alignContent: "center",
     fontSize: "calc(3px + 2vmin)",
@@ -43,22 +43,22 @@ interface Item {
   present: boolean;
 }
 
-export const Work = () => {
+export const Jobs = () => {
   const [items, setItems] = useState<Item[] | null>(null);
 
   useEffect(() => {
     const fetchItems = async () => {
-      const workItems = await odin.get(`/kengru/work`);
-      setItems(workItems.data.data as Item[]);
+      const jobItems = await odin.get(`/kengru/works`);
+      setItems(jobItems.data.data as Item[]);
     };
 
     fetchItems();
   }, []);
 
-  const workItems = items
+  const jobItems = items
     ? items.map((item) =>
         !item.present ? (
-          <WorkItem
+          <JobItem
             key={item.placeOfWork}
             title={item.title}
             placeOfWork={item.placeOfWork}
@@ -75,7 +75,7 @@ export const Work = () => {
     ? items
         .filter((item) => item.present)
         .map((item) => (
-          <WorkItem
+          <JobItem
             key={item.placeOfWork}
             title={item.title}
             placeOfWork={item.placeOfWork}
@@ -90,7 +90,7 @@ export const Work = () => {
   return (
     <div className={css(styles.main)}>
       <div className={css(styles.present)}>{highlighted}</div>
-      <div className={css(styles.workItems)}>{workItems}</div>
+      <div className={css(styles.workItems)}>{jobItems}</div>
     </div>
   );
 };

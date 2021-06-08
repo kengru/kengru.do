@@ -1,4 +1,3 @@
-import React from "react";
 import moment from "moment";
 import { StyleSheet, css } from "aphrodite/no-important";
 
@@ -102,7 +101,7 @@ type Props = {
   highlighted: boolean;
 };
 
-export const WorkItem = (props: Props) => {
+export const JobItem = (props: Props) => {
   const { title, placeOfWork, from, to, skills, highlighted } = props;
 
   return (

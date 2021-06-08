@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { StyleSheet, css } from "aphrodite/no-important";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,16 +8,19 @@ import {
   faLinkedinIn,
   faMedium
 } from "@fortawesome/free-brands-svg-icons";
-import logo from "../images/kengru-logo.png";
+import { useLanguage } from "../context/language";
 
+import { ToggleLang } from "./ToggleLang";
 import { Config } from "../utils/config";
 import { lastfm } from "../utils/axios";
 import { roboto } from "../fonts/fonts";
 
+import logo from "../images/kengru-logo.png";
+
 const styles = StyleSheet.create({
   side: {
     display: "flex",
-    width: "16em",
+    flex: 2,
     height: "100%",
     paddingLeft: "2em",
     flexDirection: "column",
@@ -61,11 +64,11 @@ const styles = StyleSheet.create({
   },
   container: {
     display: "flex",
-    height: "65%",
+    height: "100%",
     flexDirection: "column",
     justifyContent: "space-between"
   },
-  first: {},
+  menu: {},
   icons: {
     marginBottom: "1em"
   },
@@ -92,7 +95,8 @@ const styles = StyleSheet.create({
     display: "flex",
     marginBottom: "2em",
     flexDirection: "column",
-    fontSize: "calc(7px + 1vmin)"
+    fontSize: "calc(7px + 1vmin)",
+    lineHeight: "1.3"
   },
   lto: {
     fontFamily: roboto.i500
@@ -105,9 +109,10 @@ const styles = StyleSheet.create({
 function SideInfo() {
   const [artist, setArtist] = useState("");
   const [track, setTrack] = useState("");
+  const { resources } = useLanguage();
 
   useEffect(() => {
-    const fetchItems = async () => {
+    const fetchArtistTrack = async () => {
       try {
         const listening = await lastfm.get(
           `/?method=user.getrecenttracks&user=kengru&api_key=${Config.LASTFM_KEY}&format=json`
@@ -120,13 +125,14 @@ function SideInfo() {
       }
     };
 
-    fetchItems();
+    fetchArtistTrack();
   }, []);
 
   return (
     <div className={css(styles.side)}>
       <div className={css(styles.container)}>
-        <div className={css(styles.first)}>
+        <ToggleLang />
+        <div className={css(styles.menu)}>
           <Link to="/">
             <img className={css(styles.logo)} src={logo} alt="logo" />
           </Link>
@@ -138,19 +144,19 @@ function SideInfo() {
                 className={css(styles.listItem)}
                 to={"/projects"}
               >
-                projects
+                {resources.Projects}
               </NavLink>
               <NavLink
                 activeClassName={css(styles.listItemActive)}
                 className={css(styles.listItem)}
                 to={"/skills"}
               >
-                skills
+                {resources.Skills}
               </NavLink>
             </ul>
           </nav>
           <div className={css(styles.listening)}>
-            <span className={css(styles.lto)}>Listening to:</span>
+            <span className={css(styles.lto)}>{resources.ListeningTo}</span>
             <span>{artist}</span>
             <span>{track}</span>
           </div>
@@ -201,7 +207,7 @@ function SideInfo() {
           </div> */}
         </div>
         <div className={css(styles.footer)}>
-          <strong>kengru.do</strong> by{" "}
+          <strong>kengru.do</strong> {resources.By}{" "}
           <a
             className={css(styles.brandLink)}
             target="_blank"
