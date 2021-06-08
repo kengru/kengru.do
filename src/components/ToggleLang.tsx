@@ -5,7 +5,7 @@ import { useLanguage } from "../context/language";
 import { enResources } from "../resources/resources";
 import { esResources } from "../resources/resources-es";
 
-type Languages = "English" | "Español";
+type Languages = "EN" | "ES";
 
 const styles = StyleSheet.create({
   container: {
@@ -47,14 +47,14 @@ const styles = StyleSheet.create({
 
 export const ToggleLang = () => {
   const { setResources } = useLanguage();
-  const [language, setLanguage] = useState<Languages>("English");
+  const [language, setLanguage] = useState<Languages>("EN");
 
   const onToggle = useCallback(() => {
-    if (language === "English") {
-      setLanguage("Español");
+    if (language === "EN") {
+      setLanguage("ES");
       setResources(esResources);
     } else {
-      setLanguage("English");
+      setLanguage("EN");
       setResources(enResources);
     }
   }, [language, setResources]);
@@ -65,13 +65,11 @@ export const ToggleLang = () => {
         <div
           className={css(
             styles.toggleIn,
-            language === "English" ? styles.left : styles.right
+            language === "EN" ? styles.left : styles.right
           )}
         ></div>
       </div>
-      <span className={css(styles.language)}>
-        {language.substring(0, 2).toUpperCase()}
-      </span>
+      <span className={css(styles.language)}>{language}</span>
     </div>
   );
 };
