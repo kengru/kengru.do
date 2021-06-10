@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     display: "flex",
     fontSize: "calc(7px + 1vmin)",
-    marginTop: "20px"
+    marginTop: "20px",
+    width: "60%"
   },
   language: {
     fontWeight: 700,
