@@ -1,8 +1,6 @@
-import React from "react";
 import { Route } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import { StyleSheet, css } from "aphrodite";
-import { LanguageProvider } from "../context/language";
 
 import { SideInfo } from "../components/SideInfo";
 import { TopInfo } from "../components/TopInfo";
@@ -70,24 +68,22 @@ const routes = [
 function App() {
   return (
     <div className={css(styles.kengru)}>
-      <LanguageProvider>
-        <SideInfo />
-        <TopInfo />
-        {routes.map(({ path, Component }) => (
-          <Route key={path} exact path={path}>
-            {({ match }) => (
-              <CSSTransition
-                in={match != null}
-                classNames={fade}
-                timeout={700}
-                unmountOnExit
-              >
-                <Component />
-              </CSSTransition>
-            )}
-          </Route>
-        ))}
-      </LanguageProvider>
+      <SideInfo />
+      <TopInfo />
+      {routes.map(({ path, Component }) => (
+        <Route key={path} exact path={path}>
+          {({ match }) => (
+            <CSSTransition
+              in={match != null}
+              classNames={fade}
+              timeout={700}
+              unmountOnExit
+            >
+              <Component />
+            </CSSTransition>
+          )}
+        </Route>
+      ))}
     </div>
   );
 }
