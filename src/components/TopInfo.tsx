@@ -1,5 +1,3 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
 import { StyleSheet, css } from "aphrodite/no-important";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -91,28 +89,8 @@ function TopInfo() {
     <div className={css(styles.top)}>
       <div className={css(styles.container)}>
         <div className={css(styles.first)}>
-          <Link to="/">
-            <img className={css(styles.logo)} src={logo} alt="logo" />
-          </Link>
-          <nav>
-            <ul className={css(styles.navList)}>
-              <NavLink
-                activeClassName={css(styles.listItemActive)}
-                className={css(styles.listItem)}
-                to={"/projects"}
-              >
-                projects
-              </NavLink>
-              <NavLink
-                activeClassName={css(styles.listItemActive)}
-                className={css(styles.listItem)}
-                to={"/skills"}
-              >
-                skills
-              </NavLink>
-            </ul>
-          </nav>
-          <div className={css(styles.icons)}>
+          <img className={css(styles.logo)} src={logo} alt="logo" />
+          {/* <div className={css(styles.icons)}>
             <a
               className={css(styles.brandLink)}
               target="_blank"
@@ -148,7 +126,7 @@ function TopInfo() {
             >
               <FontAwesomeIcon className={css(styles.icon)} icon={faMedium} />
             </a>
-          </div>
+          </div> */}
           {/* <div>
             <a
               className={css(styles.brandLink)}

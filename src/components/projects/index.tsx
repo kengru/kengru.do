@@ -1,58 +1,38 @@
-import React, { useEffect, useState } from "react";
-import { StyleSheet, css } from "aphrodite/no-important";
-
-import { ProjectItem } from "./ProjectItem";
+import { useEffect, useState } from "react";
 import { odin } from "../../utils/axios";
+import { ProjectItem } from "./ProjectItem";
 
-const styles = StyleSheet.create({
-  main: {
-    display: "flex",
-    height: "100%",
-    flex: 6,
-    margin: "0em 2em 0em 1em",
-    justifyContent: "center",
-    alignContent: "center",
-    fontSize: "calc(3px + 2vmin)",
-    "@media (max-width: 1110px)": {
-      overflowY: "scroll",
-      margin: 0
-    },
-    "@media (max-width: 500px)": {
-      overflowY: "scroll",
-      fontSize: "16px",
-      margin: 0
-    }
+import type { AxiosResponse } from "axios";
+import type { TProject } from "../../typings";
+
+const mockedItems: TProject[] = [
+  {
+    img: "https://firebasestorage.googleapis.com/v0/b/kengru-do.appspot.com/o/images%2Fphoto_2019-03-11_23-00-29.jpg?alt=media&token=ff774397-92ca-410f-9696-7db67d010c4d",
+    name: "Giru",
+    desc: "A telegram bot just for fun.",
+    code: "https://github.com/kengru/Giru",
+    live: "",
+    skills: ["python", "telegram-bot"]
   },
-  projectItems: {
-    display: "flex",
-    margin: "auto",
-    flexWrap: "wrap",
-    justifyContent: "center",
-    alignContent: "center",
-    "@media (max-width: 500px)": {
-      width: "100%",
-      flexWrap: "nowrap",
-      flexDirection: "column"
-    }
+  {
+    img: "https://firebasestorage.googleapis.com/v0/b/kengru-do.appspot.com/o/images%2Fminesweeper.png?alt=media&token=eec6aeed-b0ea-4e1d-b77c-7a5d7d1ba388",
+    name: "Minesweeper",
+    desc: "Minesweeper game made with React.",
+    code: "https://github.com/kengru/minesweeper",
+    live: "https://kg-minesweeper.netlify.app/",
+    skills: ["react", "typescript"]
   }
-});
-
-interface Item {
-  name: string;
-  desc: string;
-  img: string;
-  code: string;
-  live: string;
-  skills: string[];
-}
+];
 
 export const Projects = () => {
-  const [items, setItems] = useState<Item[] | null>(null);
+  const [items, setItems] = useState<TProject[] | null>(mockedItems);
 
   useEffect(() => {
     const fetchItems = async () => {
-      const projectItems = await odin.get(`/kengru/projects`);
-      setItems(projectItems.data.data as Item[]);
+      const projectItems = await odin.get<AxiosResponse<TProject[]>>(
+        `/kengru/projects`
+      );
+      // setItems(projectItems.data.data);
     };
 
     fetchItems();
@@ -72,9 +52,5 @@ export const Projects = () => {
       ))
     : null;
 
-  return (
-    <div className={css(styles.main)}>
-      <div className={css(styles.projectItems)}>{projectItems}</div>
-    </div>
-  );
+  return <div className="m-auto">{projectItems}</div>;
 };

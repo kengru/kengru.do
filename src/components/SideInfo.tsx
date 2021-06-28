@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
 import { StyleSheet, css } from "aphrodite/no-important";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -20,7 +19,6 @@ import logo from "../images/kengru-logo.png";
 const styles = StyleSheet.create({
   side: {
     display: "flex",
-    flex: 2,
     height: "100%",
     paddingLeft: "2em",
     flexDirection: "column",
@@ -93,7 +91,7 @@ const styles = StyleSheet.create({
   },
   listening: {
     display: "flex",
-    marginBottom: "2em",
+    marginTop: "2em",
     flexDirection: "column",
     fontSize: "calc(7px + 1vmin)",
     lineHeight: "1.3"
@@ -133,34 +131,14 @@ function SideInfo() {
       <div className={css(styles.container)}>
         <ToggleLang />
         <div className={css(styles.menu)}>
-          <Link to="/">
-            <img className={css(styles.logo)} src={logo} alt="logo" />
-          </Link>
+          <img className={css(styles.logo)} src={logo} alt="logo" />
           <div className={css(styles.name)}>Kendry Alexander Grullón</div>
-          <nav>
-            <ul className={css(styles.navList)}>
-              <NavLink
-                activeClassName={css(styles.listItemActive)}
-                className={css(styles.listItem)}
-                to={"/projects"}
-              >
-                {resources.Projects}
-              </NavLink>
-              <NavLink
-                activeClassName={css(styles.listItemActive)}
-                className={css(styles.listItem)}
-                to={"/skills"}
-              >
-                {resources.Skills}
-              </NavLink>
-            </ul>
-          </nav>
           <div className={css(styles.listening)}>
             <span className={css(styles.lto)}>{resources.ListeningTo}</span>
             <span>{artist}</span>
             <span>{track}</span>
           </div>
-          <div className={css(styles.icons)}>
+          {/* <div className={css(styles.icons)}>
             <a
               className={css(styles.brandLink)}
               target="_blank"
@@ -196,7 +174,7 @@ function SideInfo() {
             >
               <FontAwesomeIcon className={css(styles.icon)} icon={faMedium} />
             </a>
-          </div>
+          </div> */}
           {/* <div>
             <a
               className={css(styles.brandLink)}
@@ -205,19 +183,6 @@ function SideInfo() {
               href={`https://firebasestorage.googleapis.com/v0/b/kengru-do.appspot.com/o/public%2FKGrullon-Resume.pdf?alt=media&token=c884163a-356c-437e-9df5-5ca29c8b96f5`}
             >Resume</a>
           </div> */}
-        </div>
-        <div className={css(styles.footer)}>
-          <strong>kengru.do</strong> {resources.By}{" "}
-          <a
-            className={css(styles.brandLink)}
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/kengru"
-          >
-            Kendry Grullon
-          </a>
-          .
-          <br />
         </div>
       </div>
     </div>
