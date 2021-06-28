@@ -10,10 +10,13 @@ type Languages = "EN" | "ES";
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
+    position: "absolute",
     display: "flex",
     fontSize: "calc(7px + 1vmin)",
-    marginTop: "20px",
-    width: "60%"
+    // marginTop: "20px",
+    // width: "60%"
+    left: "20px",
+    top: "20px"
   },
   language: {
     fontWeight: 700,
@@ -25,24 +28,6 @@ const styles = StyleSheet.create({
     borderRadius: "20px",
     height: "30px",
     width: "60px"
-  },
-  toggleIn: {
-    // border: "1px solid black",
-    borderRadius: "100%",
-    height: "23px",
-    left: "5px",
-    position: "relative",
-    transition: "left 200ms",
-    top: "3px",
-    width: "23px"
-  },
-  left: {
-    backgroundColor: "#0066b2",
-    left: "5px"
-  },
-  right: {
-    backgroundColor: "#29AB87",
-    left: "32px"
   }
 });
 
@@ -64,10 +49,11 @@ export const ToggleLang = () => {
     <div className={css(styles.container)} onClick={onToggle}>
       <div className={css(styles.toggleOut)}>
         <div
-          className={css(
-            styles.toggleIn,
-            language === "EN" ? styles.left : styles.right
-          )}
+          className={`rounded-full h-6 w-6 left-0.5 relative top-0.5 transition-all ${
+            language === "EN"
+              ? "bg-indigo-600	left-0.5"
+              : "bg-green-600 left-3.5"
+          }`}
         ></div>
       </div>
       <span className={css(styles.language)}>{language}</span>

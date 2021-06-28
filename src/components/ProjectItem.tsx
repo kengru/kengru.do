@@ -1,5 +1,5 @@
-import { useLanguage } from "../../context/language";
-import type { TProject } from "../../typings";
+import { useLanguage } from "../context/language";
+import type { TProject } from "../typings";
 
 export const ProjectItem = ({
   name,

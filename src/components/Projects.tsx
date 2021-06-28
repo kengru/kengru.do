@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { odin } from "../../utils/axios";
 import { ProjectItem } from "./ProjectItem";
+import { odin } from "../utils/axios";
 
 import type { AxiosResponse } from "axios";
-import type { TProject } from "../../typings";
+import type { TProject } from "../typings";
 
 const mockedItems: TProject[] = [
   {

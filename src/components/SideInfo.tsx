@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     display: "flex",
     height: "100%",
     flexDirection: "column",
-    justifyContent: "space-between"
+    justifyContent: "center"
   },
   menu: {},
   icons: {
@@ -129,7 +129,6 @@ function SideInfo() {
   return (
     <div className={css(styles.side)}>
       <div className={css(styles.container)}>
-        <ToggleLang />
         <div className={css(styles.menu)}>
           <img className={css(styles.logo)} src={logo} alt="logo" />
           <div className={css(styles.name)}>Kendry Alexander Grullón</div>
