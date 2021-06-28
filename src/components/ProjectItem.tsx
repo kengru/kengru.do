@@ -17,9 +17,9 @@ export const ProjectItem = ({
     <div className="flex bg-white rounded-xl mb-6 border border-gray-300 m-4 md:m-6">
       <div className="flex-none w-40 relative">
         <img
-          src={img}
-          alt={name}
           className="absolute inset-0 w-full h-full object-contain"
+          alt={name}
+          src={img}
         />
       </div>
       <div className="flex-auto p-4">
@@ -32,7 +32,10 @@ export const ProjectItem = ({
         <div className="flex items-baseline mt-2 mb-4">
           <ul className="space-x-6 flex">
             {skills.map((skill) => (
-              <li className="text-sm w-15 h-9 flex items-center text-gray-600">
+              <li
+                key={skill}
+                className="text-sm w-15 h-9 flex items-center text-gray-600"
+              >
                 {skill}
               </li>
             ))}

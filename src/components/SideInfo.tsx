@@ -9,7 +9,6 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { useLanguage } from "../context/language";
 
-import { ToggleLang } from "./ToggleLang";
 import { Config } from "../utils/config";
 import { lastfm } from "../utils/axios";
 import { roboto } from "../fonts/fonts";
@@ -28,37 +27,9 @@ const styles = StyleSheet.create({
       display: "none"
     }
   },
-  logo: {
-    alignSelf: "flex-start",
-    height: "2em"
-  },
   name: {
     paddingTop: "0.2em",
     fontFamily: roboto.i500
-  },
-  text: {
-    fontSize: "calc(9px + 1vmin)"
-  },
-  navList: {
-    display: "flex",
-    flexDirection: "column",
-    listStyle: "none",
-    padding: "0em"
-  },
-  listItem: {
-    color: "#07020D",
-    width: "100%",
-    textDecoration: "none",
-    padding: "0.4em 0em 0.4em 0em",
-    transform: "perspective(1px) translateZ(0)",
-    transitionProperty: "transform",
-    transitionDuration: "0.3s",
-    ":hover": {
-      transform: "translateX(8px)"
-    }
-  },
-  listItemActive: {
-    fontWeight: "bold"
   },
   container: {
     display: "flex",
@@ -66,48 +37,19 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center"
   },
-  menu: {},
-  icons: {
-    marginBottom: "1em"
-  },
-  brandLink: {
-    textDecoration: "none",
-    ":hover": {
-      color: "#03254C"
-    },
-    ":visited": {
-      color: "#07020D"
-    }
-  },
-  icon: {
-    color: "#07020D",
-    textDecoration: "none",
-    ":hover": {
-      color: "#1167b1"
-    },
-    height: "2em",
-    paddingLeft: "1em",
-    paddingRight: "1em"
-  },
   listening: {
     display: "flex",
     marginTop: "2em",
     flexDirection: "column",
     fontSize: "calc(7px + 1vmin)",
     lineHeight: "1.3"
-  },
-  lto: {
-    fontFamily: roboto.i500
-  },
-  footer: {
-    marginBottom: "2em"
   }
 });
 
 function SideInfo() {
-  const [artist, setArtist] = useState("");
-  const [track, setTrack] = useState("");
   const { resources } = useLanguage();
+  const [artist, setArtist] = useState("Loading");
+  const [track, setTrack] = useState("Song");
 
   useEffect(() => {
     const fetchArtistTrack = async () => {
@@ -129,59 +71,76 @@ function SideInfo() {
   return (
     <div className={css(styles.side)}>
       <div className={css(styles.container)}>
-        <div className={css(styles.menu)}>
-          <img className={css(styles.logo)} src={logo} alt="logo" />
-          <div className={css(styles.name)}>Kendry Alexander Grullón</div>
-          <div className={css(styles.listening)}>
-            <span className={css(styles.lto)}>{resources.ListeningTo}</span>
-            <span>{artist}</span>
-            <span>{track}</span>
-          </div>
-          {/* <div className={css(styles.icons)}>
+        <img className="object-fit h-10" src={logo} alt="logo" />
+        <div className={css(styles.name)}>Kendry Alexander Grullón</div>
+        <div className="flex flex-col mt-5 text-base">
+          <span className="font-semibold italic">{resources.ListeningTo}</span>
+          <span>{artist}</span>
+          <span>{track}</span>
+        </div>
+        <ul className="flex mt-5 mb-5">
+          <li>
             <a
-              className={css(styles.brandLink)}
+              aria-label="Github"
               target="_blank"
               rel="noopener noreferrer"
               href="https://github.com/kengru"
             >
-              <FontAwesomeIcon className={css(styles.icon)} icon={faGithub} />
+              <FontAwesomeIcon
+                className="hover:text-indigo-800 m-2"
+                icon={faGithub}
+              />
             </a>
+          </li>
+          <li>
             <a
-              className={css(styles.brandLink)}
+              aria-label="Twitter"
               target="_blank"
               rel="noopener noreferrer"
               href="https://twitter.com/kxngru"
             >
-              <FontAwesomeIcon className={css(styles.icon)} icon={faTwitter} />
+              <FontAwesomeIcon
+                className="hover:text-indigo-800 m-2"
+                icon={faTwitter}
+              />
             </a>
+          </li>
+          <li>
             <a
-              className={css(styles.brandLink)}
+              aria-label="LinkedIn"
               target="_blank"
               rel="noopener noreferrer"
               href="https://www.linkedin.com/in/kengru/"
             >
               <FontAwesomeIcon
-                className={css(styles.icon)}
+                className="hover:text-indigo-800 m-2"
                 icon={faLinkedinIn}
               />
             </a>
+          </li>
+          <li>
             <a
-              className={css(styles.brandLink)}
+              aria-label="Medium"
               target="_blank"
               rel="noopener noreferrer"
               href="https://medium.com/@kengru"
             >
-              <FontAwesomeIcon className={css(styles.icon)} icon={faMedium} />
+              <FontAwesomeIcon
+                className="hover:text-indigo-800 m-2"
+                icon={faMedium}
+              />
             </a>
-          </div> */}
-          {/* <div>
-            <a
-              className={css(styles.brandLink)}
-              target="_blank"
-              rel="noopener noreferrer"
-              href={`https://firebasestorage.googleapis.com/v0/b/kengru-do.appspot.com/o/public%2FKGrullon-Resume.pdf?alt=media&token=c884163a-356c-437e-9df5-5ca29c8b96f5`}
-            >Resume</a>
-          </div> */}
+          </li>
+        </ul>
+        <div>
+          <a
+            className="w-24 h-10 flex items-center justify-center rounded-md bg-black text-white"
+            target="_blank"
+            rel="noopener noreferrer"
+            href={`https://firebasestorage.googleapis.com/v0/b/kengru-do.appspot.com/o/public%2FKAG_Resume.pdf?alt=media&token=6741e986-0571-40ce-8c3d-edbb507f2590`}
+          >
+            Resume
+          </a>
         </div>
       </div>
     </div>

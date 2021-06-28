@@ -15,7 +15,7 @@ const mockedItems: TProject[] = [
     skills: ["python", "telegram-bot"]
   },
   {
-    img: "https://firebasestorage.googleapis.com/v0/b/kengru-do.appspot.com/o/images%2Fminesweeper.png?alt=media&token=eec6aeed-b0ea-4e1d-b77c-7a5d7d1ba388",
+    img: "https://firebasestorage.googleapis.com/v0/b/kengru-do.appspot.com/o/images%2Fminesweeper%20(1).png?alt=media&token=431c6d02-8aef-46d6-b029-e09dc50a9b3b",
     name: "Minesweeper",
     desc: "Minesweeper game made with React.",
     code: "https://github.com/kengru/minesweeper",
