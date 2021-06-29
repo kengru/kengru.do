@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { StyleSheet, css } from "aphrodite/no-important";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGithub,
@@ -11,45 +10,20 @@ import { useLanguage } from "../context/language";
 
 import { Config } from "../utils/config";
 import { lastfm } from "../utils/axios";
-import { roboto } from "../fonts/fonts";
 
 import logo from "../images/kengru-logo.png";
 
-const styles = StyleSheet.create({
-  side: {
-    display: "flex",
-    height: "100%",
-    paddingLeft: "2em",
-    flexDirection: "column",
-    justifyContent: "flex-end",
-    fontSize: "calc(10px + 1vmin)",
-    "@media (max-width: 1110px)": {
-      display: "none"
-    }
-  },
-  name: {
-    paddingTop: "0.2em",
-    fontFamily: roboto.i500
-  },
-  container: {
-    display: "flex",
-    height: "100%",
-    flexDirection: "column",
-    justifyContent: "center"
-  },
-  listening: {
-    display: "flex",
-    marginTop: "2em",
-    flexDirection: "column",
-    fontSize: "calc(7px + 1vmin)",
-    lineHeight: "1.3"
-  }
-});
+type LastFMData = {
+  artist: string;
+  track: string;
+};
 
 function SideInfo() {
   const { resources } = useLanguage();
-  const [artist, setArtist] = useState("Loading");
-  const [track, setTrack] = useState("Song");
+  const [lastFM, setLastFM] = useState<LastFMData>({
+    artist: "Loading",
+    track: "Song"
+  });
 
   useEffect(() => {
     const fetchArtistTrack = async () => {
@@ -58,10 +32,15 @@ function SideInfo() {
           `/?method=user.getrecenttracks&user=kengru&api_key=${Config.LASTFM_KEY}&format=json`
         );
         const lastSong = listening.data.recenttracks.track[0];
-        setArtist(lastSong.artist["#text"]);
-        setTrack(lastSong.name);
+        setLastFM({
+          artist: lastSong.artist["#text"],
+          track: lastSong.name
+        });
       } catch (error) {
-        setArtist(`Error with the lastFM API.`);
+        setLastFM({
+          artist: `Error with the lastFM API.`,
+          track: ``
+        });
       }
     };
 
@@ -69,14 +48,20 @@ function SideInfo() {
   }, []);
 
   return (
-    <div className={css(styles.side)}>
-      <div className={css(styles.container)}>
-        <img className="object-fit h-10" src={logo} alt="logo" />
-        <div className={css(styles.name)}>Kendry Alexander Grullón</div>
+    <div className="flex flex-col sm:h-full pl-4 pr-4 sm:pl-8 sm:pr-0 mt-10 justify-end">
+      <div className="flex h-full flex-col justify-center">
+        <img
+          className="object-fit w-40 sm:h-10 sm:w-60"
+          src={logo}
+          alt="logo"
+        />
+        <div className="pt-1 font-semibold italic">
+          Kendry Alexander Grullón
+        </div>
         <div className="flex flex-col mt-5 text-base">
           <span className="font-semibold italic">{resources.ListeningTo}</span>
-          <span>{artist}</span>
-          <span>{track}</span>
+          <span>{lastFM.artist}</span>
+          <span>{lastFM.track}</span>
         </div>
         <ul className="flex mt-5 mb-5">
           <li>
@@ -132,7 +117,7 @@ function SideInfo() {
             </a>
           </li>
         </ul>
-        <div>
+        <div className="hidden sm:block">
           <a
             className="w-24 h-10 flex items-center justify-center rounded-md bg-black text-white"
             target="_blank"

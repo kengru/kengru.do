@@ -7,4 +7,11 @@ type TProject = {
   skills: string[];
 };
 
-export type { TProject };
+type OdinResponse<T> = {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: T;
+};
+
+export type { TProject, OdinResponse };

@@ -25,7 +25,7 @@ export const ProjectItem = ({
       <div className="flex-auto p-4">
         <div className="flex flex-wrap">
           <h1 className="flex-auto text-xl font-semibold">{name}</h1>
-          <div className="w-full flex-none text-sm font-medium text-gray-500">
+          <div className="hidden sm:block w-full flex-none text-sm font-medium text-gray-500">
             {desc}
           </div>
         </div>
@@ -42,7 +42,7 @@ export const ProjectItem = ({
           </ul>
         </div>
         <div className="flex space-x-3 mb-4 mt-4 text-sm font-medium">
-          <div className="flex space-x-10">
+          <div className="flex space-x-6">
             {showCode ? (
               <a
                 className="w-20 h-10 flex items-center justify-center rounded-md bg-black text-white"
