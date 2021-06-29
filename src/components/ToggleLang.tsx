@@ -1,50 +1,10 @@
 import { useCallback, useState } from "react";
-import { StyleSheet, css } from "aphrodite/no-important";
 
 import { useLanguage } from "../context/language";
 import { enResources } from "../resources/resources";
 import { esResources } from "../resources/resources-es";
 
 type Languages = "EN" | "ES";
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: "center",
-    display: "flex",
-    fontSize: "calc(7px + 1vmin)",
-    marginTop: "20px",
-    width: "60%"
-  },
-  language: {
-    fontWeight: 700,
-    marginLeft: "10px"
-  },
-  toggleOut: {
-    backgroundColor: "rbg(128, 128, 128)",
-    border: "2px solid rgba(17, 103, 177, 0.44)",
-    borderRadius: "20px",
-    height: "30px",
-    width: "60px"
-  },
-  toggleIn: {
-    // border: "1px solid black",
-    borderRadius: "100%",
-    height: "23px",
-    left: "5px",
-    position: "relative",
-    transition: "left 200ms",
-    top: "3px",
-    width: "23px"
-  },
-  left: {
-    backgroundColor: "#0066b2",
-    left: "5px"
-  },
-  right: {
-    backgroundColor: "#29AB87",
-    left: "32px"
-  }
-});
 
 export const ToggleLang = () => {
   const { setResources } = useLanguage();
@@ -61,16 +21,20 @@ export const ToggleLang = () => {
   }, [language, setResources]);
 
   return (
-    <div className={css(styles.container)} onClick={onToggle}>
-      <div className={css(styles.toggleOut)}>
+    <div
+      className="hidden absolute sm:flex left-6 top-5 items-center"
+      onClick={onToggle}
+    >
+      <div className="bg-gray-100 border-2 border-indigo-100 rounded-3xl h-8 w-14">
         <div
-          className={css(
-            styles.toggleIn,
-            language === "EN" ? styles.left : styles.right
-          )}
+          className={`rounded-full h-6 w-6 relative left-0.5 top-0.5 transition-transform ${
+            language === "EN"
+              ? "bg-indigo-600 transform translate-x-0"
+              : "bg-green-600 transform translate-x-6"
+          }`}
         ></div>
       </div>
-      <span className={css(styles.language)}>{language}</span>
+      <span className="ml-4 font-bold">{language}</span>
     </div>
   );
 };

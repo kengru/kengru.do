@@ -1,15 +1,14 @@
-import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
+import { LanguageProvider } from "./context/language";
 import * as serviceWorker from "./serviceWorker";
 
 import { App } from "./containers/App";
 import "./index.css";
 
 ReactDOM.render(
-  <Router>
+  <LanguageProvider>
     <App />
-  </Router>,
+  </LanguageProvider>,
   document.getElementById("root")
 );
 

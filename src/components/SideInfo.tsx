@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { StyleSheet, css } from "aphrodite/no-important";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGithub,
@@ -10,106 +8,22 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { useLanguage } from "../context/language";
 
-import { ToggleLang } from "./ToggleLang";
 import { Config } from "../utils/config";
 import { lastfm } from "../utils/axios";
-import { roboto } from "../fonts/fonts";
 
 import logo from "../images/kengru-logo.png";
 
-const styles = StyleSheet.create({
-  side: {
-    display: "flex",
-    flex: 2,
-    height: "100%",
-    paddingLeft: "2em",
-    flexDirection: "column",
-    justifyContent: "flex-end",
-    fontSize: "calc(10px + 1vmin)",
-    "@media (max-width: 1110px)": {
-      display: "none"
-    }
-  },
-  logo: {
-    alignSelf: "flex-start",
-    height: "2em"
-  },
-  name: {
-    paddingTop: "0.2em",
-    fontFamily: roboto.i500
-  },
-  text: {
-    fontSize: "calc(9px + 1vmin)"
-  },
-  navList: {
-    display: "flex",
-    flexDirection: "column",
-    listStyle: "none",
-    padding: "0em"
-  },
-  listItem: {
-    color: "#07020D",
-    width: "100%",
-    textDecoration: "none",
-    padding: "0.4em 0em 0.4em 0em",
-    transform: "perspective(1px) translateZ(0)",
-    transitionProperty: "transform",
-    transitionDuration: "0.3s",
-    ":hover": {
-      transform: "translateX(8px)"
-    }
-  },
-  listItemActive: {
-    fontWeight: "bold"
-  },
-  container: {
-    display: "flex",
-    height: "100%",
-    flexDirection: "column",
-    justifyContent: "space-between"
-  },
-  menu: {},
-  icons: {
-    marginBottom: "1em"
-  },
-  brandLink: {
-    textDecoration: "none",
-    ":hover": {
-      color: "#03254C"
-    },
-    ":visited": {
-      color: "#07020D"
-    }
-  },
-  icon: {
-    color: "#07020D",
-    textDecoration: "none",
-    ":hover": {
-      color: "#1167b1"
-    },
-    height: "2em",
-    paddingLeft: "1em",
-    paddingRight: "1em"
-  },
-  listening: {
-    display: "flex",
-    marginBottom: "2em",
-    flexDirection: "column",
-    fontSize: "calc(7px + 1vmin)",
-    lineHeight: "1.3"
-  },
-  lto: {
-    fontFamily: roboto.i500
-  },
-  footer: {
-    marginBottom: "2em"
-  }
-});
+type LastFMData = {
+  artist: string;
+  track: string;
+};
 
 function SideInfo() {
-  const [artist, setArtist] = useState("");
-  const [track, setTrack] = useState("");
   const { resources } = useLanguage();
+  const [lastFM, setLastFM] = useState<LastFMData>({
+    artist: "Loading",
+    track: "Song"
+  });
 
   useEffect(() => {
     const fetchArtistTrack = async () => {
@@ -118,10 +32,15 @@ function SideInfo() {
           `/?method=user.getrecenttracks&user=kengru&api_key=${Config.LASTFM_KEY}&format=json`
         );
         const lastSong = listening.data.recenttracks.track[0];
-        setArtist(lastSong.artist["#text"]);
-        setTrack(lastSong.name);
+        setLastFM({
+          artist: lastSong.artist["#text"],
+          track: lastSong.name
+        });
       } catch (error) {
-        setArtist(`Error with the lastFM API.`);
+        setLastFM({
+          artist: `Error with the lastFM API.`,
+          track: ``
+        });
       }
     };
 
@@ -129,95 +48,84 @@ function SideInfo() {
   }, []);
 
   return (
-    <div className={css(styles.side)}>
-      <div className={css(styles.container)}>
-        <ToggleLang />
-        <div className={css(styles.menu)}>
-          <Link to="/">
-            <img className={css(styles.logo)} src={logo} alt="logo" />
-          </Link>
-          <div className={css(styles.name)}>Kendry Alexander Grullón</div>
-          <nav>
-            <ul className={css(styles.navList)}>
-              <NavLink
-                activeClassName={css(styles.listItemActive)}
-                className={css(styles.listItem)}
-                to={"/projects"}
-              >
-                {resources.Projects}
-              </NavLink>
-              <NavLink
-                activeClassName={css(styles.listItemActive)}
-                className={css(styles.listItem)}
-                to={"/skills"}
-              >
-                {resources.Skills}
-              </NavLink>
-            </ul>
-          </nav>
-          <div className={css(styles.listening)}>
-            <span className={css(styles.lto)}>{resources.ListeningTo}</span>
-            <span>{artist}</span>
-            <span>{track}</span>
-          </div>
-          <div className={css(styles.icons)}>
+    <div className="flex flex-col sm:h-full pl-4 pr-4 sm:pl-8 sm:pr-0 mt-10 justify-end">
+      <div className="flex h-full flex-col justify-center">
+        <img
+          className="object-fit w-40 sm:h-10 sm:w-60"
+          src={logo}
+          alt="logo"
+        />
+        <div className="pt-1 font-semibold italic">
+          Kendry Alexander Grullón
+        </div>
+        <div className="flex flex-col mt-5 text-base">
+          <span className="font-semibold italic">{resources.ListeningTo}</span>
+          <span>{lastFM.artist}</span>
+          <span>{lastFM.track}</span>
+        </div>
+        <ul className="flex mt-5 mb-5">
+          <li>
             <a
-              className={css(styles.brandLink)}
+              aria-label="Github"
               target="_blank"
               rel="noopener noreferrer"
               href="https://github.com/kengru"
             >
-              <FontAwesomeIcon className={css(styles.icon)} icon={faGithub} />
+              <FontAwesomeIcon
+                className="hover:text-indigo-800 m-2"
+                icon={faGithub}
+              />
             </a>
+          </li>
+          <li>
             <a
-              className={css(styles.brandLink)}
+              aria-label="Twitter"
               target="_blank"
               rel="noopener noreferrer"
               href="https://twitter.com/kxngru"
             >
-              <FontAwesomeIcon className={css(styles.icon)} icon={faTwitter} />
+              <FontAwesomeIcon
+                className="hover:text-indigo-800 m-2"
+                icon={faTwitter}
+              />
             </a>
+          </li>
+          <li>
             <a
-              className={css(styles.brandLink)}
+              aria-label="LinkedIn"
               target="_blank"
               rel="noopener noreferrer"
               href="https://www.linkedin.com/in/kengru/"
             >
               <FontAwesomeIcon
-                className={css(styles.icon)}
+                className="hover:text-indigo-800 m-2"
                 icon={faLinkedinIn}
               />
             </a>
+          </li>
+          <li>
             <a
-              className={css(styles.brandLink)}
+              aria-label="Medium"
               target="_blank"
               rel="noopener noreferrer"
               href="https://medium.com/@kengru"
             >
-              <FontAwesomeIcon className={css(styles.icon)} icon={faMedium} />
+              <FontAwesomeIcon
+                className="hover:text-indigo-800 m-2"
+                icon={faMedium}
+              />
             </a>
-          </div>
-          {/* <div>
-            <a
-              className={css(styles.brandLink)}
-              target="_blank"
-              rel="noopener noreferrer"
-              href={`https://firebasestorage.googleapis.com/v0/b/kengru-do.appspot.com/o/public%2FKGrullon-Resume.pdf?alt=media&token=c884163a-356c-437e-9df5-5ca29c8b96f5`}
-            >Resume</a>
-          </div> */}
-        </div>
-        <div className={css(styles.footer)}>
-          <strong>kengru.do</strong> {resources.By}{" "}
+          </li>
+        </ul>
+        <div className="hidden sm:block">
           <a
-            className={css(styles.brandLink)}
+            className="w-24 h-10 flex items-center justify-center rounded-md bg-black text-white"
             target="_blank"
             rel="noopener noreferrer"
-            href="https://github.com/kengru"
+            href={`https://firebasestorage.googleapis.com/v0/b/kengru-do.appspot.com/o/public%2FKAG_Resume.pdf?alt=media&token=6741e986-0571-40ce-8c3d-edbb507f2590`}
           >
-            Kendry Grullon
+            Resume
           </a>
-          .
-          <br />
         </div>
       </div>
     </div>
