@@ -124,7 +124,7 @@ function SideInfo() {
             rel="noopener noreferrer"
             href={`https://firebasestorage.googleapis.com/v0/b/kengru-do.appspot.com/o/public%2FKAG_Resume.pdf?alt=media&token=6741e986-0571-40ce-8c3d-edbb507f2590`}
           >
-            Resume
+            {resources.Resume}
           </a>
         </div>
       </div>

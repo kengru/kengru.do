@@ -5,6 +5,7 @@ export const enResources: LocaleResource = {
   ListeningTo: "Listening to:",
   Live: "Live",
   Projects: "projects",
+  Resume: "Resume",
   Skills: "skills",
   Source: "Source"
 };
