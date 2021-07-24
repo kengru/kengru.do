@@ -48,7 +48,7 @@ function SideInfo() {
   }, []);
 
   return (
-    <div className="flex flex-col sm:h-full pl-4 pr-4 sm:pl-8 sm:pr-0 mt-10 justify-end">
+    <div className="flex flex-col pl-4 pr-4 sm:pl-8 sm:pr-0 mt-10 justify-end">
       <div className="flex h-full flex-col justify-center">
         <img
           className="object-fit w-40 sm:h-10 sm:w-60"
