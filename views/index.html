@@ -11,20 +11,7 @@
 
 <body>
   {{ template "form" .Form }}
-  <hr />
-  {{ template "display" .Data }}
 </body>
-
-<script>
-  document.addEventListener("DOMContentLoaded", (event) => {
-    document.body.addEventListener("htmx:beforeSwap", function (evt) {
-      if (evt.detail.xhr.status === 422) {
-        evt.detail.shouldSwap = true;
-        evt.detail.isError = false;
-      }
-    });
-  });
-</script>
 
 </html>
 {{ end }}
@@ -39,25 +26,4 @@
   {{ end }}
   <button type="submit">Create Contact</button>
 </form>
-{{ end }}
-
-{{ block "display" . }}
-<div id="contacts" style="display: flex; flex-direction: column;">
-  {{ range .Contacts }}
-  {{ template "contact" . }}
-  {{ end }}
-</div>
-{{ end }}
-
-{{ block "contact" . }}
-<div>
-  Name: <span>{{ .Name }}</span>
-  Email: <span>{{ .Email }}</span>
-</div>
-{{ end }}
-
-{{ block "oob-contact" . }}
-<div id="contacts" hx-swap-oob="true">
-  {{ template "contact" . }}
-</div>
 {{ end }}
