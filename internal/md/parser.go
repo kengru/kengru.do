@@ -23,23 +23,32 @@ type MD struct {
 
 func ParseMDFile(file *os.File) (MD, error) {
 	md := MD{}
+	content := ""
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		if scanner.Text() == "---" {
-			scanner.Scan()
-			metaText := ""
-			for scanner.Text() != "---" {
-				metaText += fmt.Sprintln(scanner.Text())
-				scanner.Scan()
-			}
+			metaText := GetMetadataText(scanner)
 			meta, err := GetMetadata(metaText)
 			if err != nil {
 				return md, err
 			}
 			md.Metadata = meta
+		} else {
+			content += fmt.Sprintln(scanner.Text())
 		}
 	}
+	md.Content = content[:len(content)-1]
 	return md, nil
+}
+
+func GetMetadataText(scn *bufio.Scanner) string {
+	scn.Scan()
+	metaText := ""
+	for scn.Text() != "---" {
+		metaText += fmt.Sprintln(scn.Text())
+		scn.Scan()
+	}
+	return metaText[:len(metaText)-1]
 }
 
 func GetMetadata(meta string) (Metadata, error) {
@@ -63,6 +72,12 @@ func GetMetadata(meta string) (Metadata, error) {
 			metaData.Slug = value
 		case "tags":
 			metaData.Tags = strings.Split(value, ", ")
+		case "published":
+			date, err := time.Parse("02-01-2006", value)
+			if err != nil {
+				return metaData, err
+			}
+			metaData.Published = date
 		}
 	}
 	return metaData, nil

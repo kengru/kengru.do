@@ -1,7 +1,11 @@
 package md
 
 import (
+	"bufio"
+	"fmt"
+	"strings"
 	"testing"
+	"time"
 )
 
 var testCorrectContent = `title: the good old test
@@ -9,11 +13,29 @@ description: the new descriptions are good
 published: 12-08-2024
 tags: books, thoughts, tech, more
 slug: the-one-slug`
+var testUnparsedMeta = `---
+title: the good old test
+description: the new descriptions are good
+published: 12-08-2024
+tags: books, thoughts, tech, more
+slug: the-one-slug
+---`
+
+func TestGetMetadataText(t *testing.T) {
+	scn := bufio.NewScanner(strings.NewReader(testUnparsedMeta))
+	scn.Scan()
+	metaText := GetMetadataText(scn)
+	fmt.Println(metaText)
+	if metaText != testCorrectContent {
+		t.Fatal("got the wrong parsed text")
+	}
+}
 
 func TestGetMetadata(t *testing.T) {
 	correctMetadata := Metadata{
 		Title:       "the good old test",
 		Description: "the new descriptions are good",
+		Published:   time.Date(2024, 8, 12, 0, 0, 0, 0, time.UTC),
 		Tags:        []string{"books", "thoughts", "tech", "more"},
 		Slug:        "the-one-slug",
 	}
@@ -53,6 +75,15 @@ func TestGetMetadata(t *testing.T) {
 		correctTags := len(correctMetadata.Tags)
 		if amountTags != correctTags {
 			t.Fatalf(`wanted %d got %d`, correctTags, amountTags)
+		}
+	})
+	t.Run("should get the correct published date", func(t *testing.T) {
+		meta, err := GetMetadata(testCorrectContent)
+		if err != nil {
+			t.Fatal(err)
+		}
+		if meta.Published != correctMetadata.Published {
+			t.Fatalf(`wanted "%s" got "%s"`, correctMetadata.Published, meta.Published)
 		}
 	})
 }
