@@ -5,25 +5,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=v, initial-scale=1.0">
-  <script src="https://unpkg.com/htmx.org/dist/htmx.min.js"></script>
+  <!-- <script src="https://unpkg.com/htmx.org/dist/htmx.min.js"></script> -->
   <title>kengru.do</title>
 </head>
 
 <body>
-  {{ template "form" .Form }}
+  <main style="display: flex; flex-wrap: wrap; max-width: 60em; margin: 2rem auto; padding: 1rem;">
+    <header aria-hidden="true" style="padding: 1rem; flex-basis: 10em; flex-grow: 1; position: relative;">
+      <h1>kengru.do</h1>
+      <nav role="navigation" aria-hidden="true">
+        <ul>
+          <li>tech</li>
+          <li>books</li>
+          <li>thoughts</li>
+        </ul>
+      </nav>
+    </header>
+    <section
+      style="display: flex; flex-direction: column; flex-grow: 999; flex-basis: 0; min-width: 70%; padding: 1rem;">
+      <ul style="list-style: none;">
+        {{ range . }}
+        <li style="display: flex; align-items: center; justify-content: space-between; margin-bottom: .5rem;">
+          <a href="{{ .Slug }}">{{ .Title }}</a>
+          <time>{{ .Published.Format "Jan 02, 2006" }}</time>
+        </li>
+        {{ end }}
+      </ul>
+    </section>
+  </main>
 </body>
 
 </html>
-{{ end }}
-
-{{ block "form" . }}
-<form hx-swap="outerHTML" hx-post="/contacts">
-  name: <input {{ if .Values.name }} value="{{ .Values.name }}" {{ end }} type="text" name="name" />
-  email: <input {{ if .Values.email }} value="{{ .Values.email }}" {{ end }} type="text" name="email" />
-
-  {{ if .Errors.email }}
-  <div style="color: red;">{{ .Errors.email }}</div>
-  {{ end }}
-  <button type="submit">Create Contact</button>
-</form>
 {{ end }}

@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	"html/template"
 	"log"
 	"net/http"
 	"os"
@@ -16,22 +18,39 @@ func check(e error) {
 	}
 }
 
+func translateMDIntoSlugs(dirName string) Slugs {
+	slugs := Slugs{}
+	dir, err := os.ReadDir(dirName)
+	check(err)
+	for _, entry := range dir {
+		fileName := fmt.Sprintf("%s/%s", dirName, entry.Name())
+		fil, err := os.Open(fileName)
+		check(err)
+		mdFile, err := md.ParseMDFile(fil)
+		check(err)
+		fil.Close()
+		slugs[mdFile.Metadata.Slug] = mdFile
+	}
+	return slugs
+}
+
 func main() {
 	mux := http.NewServeMux()
-	slugs := Slugs{}
-	fil, err := os.Open("posts/initial.md")
-	check(err)
-	mdFile, err := md.ParseMDFile(fil)
-	check(err)
-	fil.Close()
-	slugs[mdFile.Metadata.Slug] = mdFile
+	slugs := translateMDIntoSlugs("posts")
+
+	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		t, _ := template.ParseFiles("views/index.html")
+		err := t.Execute(w, slugs)
+		check(err)
+	})
 	mux.HandleFunc("/{slug}", func(w http.ResponseWriter, r *http.Request) {
 		slug := r.PathValue("slug")
-		md, ok := slugs[slug]
+		_, ok := slugs[slug]
 		if !ok {
 			w.WriteHeader(http.StatusNotFound)
+			return
 		}
-		log.Println(md)
 		w.WriteHeader(http.StatusOK)
 	})
 	log.Fatal(http.ListenAndServe(":42069", mux))
