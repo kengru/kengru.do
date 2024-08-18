@@ -87,3 +87,7 @@ func TestGetMetadata(t *testing.T) {
 		}
 	})
 }
+
+func TestParseMDFile(t *testing.T) {
+	
+}
