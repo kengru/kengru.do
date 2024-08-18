@@ -1,8 +1,8 @@
 ---
-title: Things I'm doing now.
+title: Book Review, The Chronicles of Narnia.
 description: these new titles have been a pain to write, i usually dislike speaking so much.
 published: 13-08-2024
-tags: books, thoughts, tech
+tags: books
 slug: now
 ---
 
