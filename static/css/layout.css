@@ -1,0 +1,29 @@
+body {
+  font-family: monospace;
+  font-size: 14px;
+  margin: 1rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  max-width: 60em;
+}
+
+header {
+  flex-grow: 1;
+  position: relative;
+}
+
+nav {
+  border-bottom: 1px solid gainsboro;
+
+  ul {
+    display: flex;
+    padding: 0;
+    list-style: none;
+    justify-content: space-between;
+  }
+
+
+}

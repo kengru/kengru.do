@@ -37,14 +37,17 @@ func translateMDIntoSlugs(dirName string) Slugs {
 func main() {
 	mux := http.NewServeMux()
 	slugs := translateMDIntoSlugs("posts")
+	fs := http.FileServer(http.Dir("./static"))
 
-	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	mux.Handle("GET /static/", http.StripPrefix("/static/", fs))
+
+	mux.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
-		t, _ := template.ParseFiles("views/index.html")
-		err := t.Execute(w, slugs)
+		t, _ := template.ParseFiles("views/layout.html", "views/index.html")
+		err := t.ExecuteTemplate(w, "layout", slugs)
 		check(err)
 	})
-	mux.HandleFunc("/{slug}", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("GET /{slug}", func(w http.ResponseWriter, r *http.Request) {
 		slug := r.PathValue("slug")
 		_, ok := slugs[slug]
 		if !ok {

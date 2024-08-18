@@ -1,40 +1,16 @@
-{{ block "index" . }}
-<!DOCTYPE html>
-<html lang="en">
+{{ define "css" }}
+<link rel="stylesheet" href="/static/css/index.css" />
+{{ end }}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=v, initial-scale=1.0">
-  <!-- <script src="https://unpkg.com/htmx.org/dist/htmx.min.js"></script> -->
-  <title>kengru.do</title>
-</head>
-
-<body>
-  <main style="display: flex; flex-wrap: wrap; max-width: 60em; margin: 2rem auto; padding: 1rem;">
-    <header aria-hidden="true"
-      style="padding: 1rem; flex-basis: 10em; flex-grow: 1; position: relative; border-right: 1px solid #DDD;">
-      <h2>kengru.do</h2>
-      <nav role="navigation" aria-hidden="true">
-        <ul>
-          <li>tech</li>
-          <li>books</li>
-          <li>thoughts</li>
-        </ul>
-      </nav>
-    </header>
-    <section
-      style="display: flex; flex-direction: column; flex-grow: 999; flex-basis: 0; min-width: 70%; padding: 1rem;">
-      <ul style="list-style: none;">
-        {{ range . }}
-        <li style="display: flex; align-items: center; justify-content: space-between; margin-bottom: .5rem;">
-          <a href="{{ .Slug }}">{{ .Title }}</a>
-          <time>{{ .Published.Format "Jan 02, 2006" }}</time>
-        </li>
-        {{ end }}
-      </ul>
-    </section>
-  </main>
-</body>
-
-</html>
+{{ define "body" }}
+<section>
+  <ul>
+    {{ range . }}
+    <li>
+      <a href="{{ .Slug }}">{{ .Title }}</a>
+      <time>{{ .Published.Format "Jan 02, 2006" }}</time>
+    </li>
+    {{ end }}
+  </ul>
+</section>
 {{ end }}
