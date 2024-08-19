@@ -6,11 +6,19 @@ tags: books
 slug: now
 ---
 
-# The new expressions
-
 There was a time a different time of these aumount of things that then
-lorem ipsum home aligator house yes no forever more sorry I dislike that
+lorem ipsum home _aligator_ house yes no **forever** more sorry _I_ dislike that
 
 ### new section
 
-There is something different in the air about this.
+There is something _different_ in the air about this.
+Hello **still** the same `p` right?
+
+What happens here though?
+
+- last list of **things**
+- that _are_ a list
+- **of** things
+- of more things
+
+byebye

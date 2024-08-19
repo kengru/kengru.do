@@ -6,10 +6,8 @@ tags: books, thoughts, tech
 slug: old-expressions
 ---
 
-# The old expressions
-
 There was a time a different time of these aumount of things that then
-lorem ipsum home aligator house yes no forever more sorry I dislike that
+_lorem_ ipsum home aligator **house** yes no forever more sorry I dislike that
 
 ## new section
 

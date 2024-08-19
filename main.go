@@ -16,6 +16,7 @@ type Tags map[string]bool
 type PostData struct {
 	Title     string
 	Published time.Time
+	Tags      []string
 	Content   template.HTML
 }
 
@@ -99,6 +100,7 @@ func main() {
 		postData := PostData{
 			Title:     mark.Title,
 			Published: mark.Published,
+			Tags:      mark.Tags,
 			Content:   template.HTML(final.String()),
 		}
 		err := t.ExecuteTemplate(w, "layout", postData)

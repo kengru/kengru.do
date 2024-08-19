@@ -6,10 +6,8 @@ tags: books, thoughts, tech
 slug: new-expressions
 ---
 
-# The new expressions
-
 There was a time a different time of these aumount of things that then
-lorem ipsum home aligator house yes no forever more sorry I dislike that
+**lorem** ipsum home aligator house yes no forever more sorry I dislike that
 
 ## new section
 
