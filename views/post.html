@@ -1,0 +1,13 @@
+{{ define "css" }}
+<link rel="stylesheet" href="/static/css/post.css" />
+{{ end }}
+
+{{ define "body" }}
+<section>
+  <div class="meta">
+    <h1>{{ .Title }}</h1>
+    <time>{{ .Published.Format "Jan 02, 2006" }}</time>
+  </div>
+  {{ .Content }}
+</section>
+{{ end }}

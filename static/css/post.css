@@ -1,0 +1,10 @@
+section {
+  margin-bottom: 1rem;
+  font-size: 12px;
+}
+
+.meta {
+  h1 {
+    margin-bottom: 0;
+  }
+}

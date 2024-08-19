@@ -6,12 +6,18 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 
 	"github.com/kengru/kengru.do/internal/md"
 )
 
 type Slugs map[string]md.MD
 type Tags map[string]bool
+type PostData struct {
+	Title     string
+	Published time.Time
+	Content   template.HTML
+}
 
 func check(e error) {
 	if e != nil {
@@ -83,12 +89,24 @@ func main() {
 	})
 	mux.HandleFunc("GET /{slug}", func(w http.ResponseWriter, r *http.Request) {
 		slug := r.PathValue("slug")
-		_, ok := slugs[slug]
+		mark, ok := slugs[slug]
 		if !ok {
 			w.WriteHeader(http.StatusNotFound)
 			return
 		}
-		w.WriteHeader(http.StatusOK)
+		final := md.MDtoHTML(mark.Content)
+		t, _ := template.ParseFiles("views/layout.html", "views/post.html")
+		postData := PostData{
+			Title:     mark.Title,
+			Published: mark.Published,
+			Content:   template.HTML(final.String()),
+		}
+		err := t.ExecuteTemplate(w, "layout", postData)
+		if err != nil {
+			log.Println(err)
+			w.WriteHeader(http.StatusInternalServerError)
+			return
+		}
 	})
 	log.Fatal(http.ListenAndServe(":42069", mux))
 }
