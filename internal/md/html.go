@@ -213,7 +213,7 @@ func replaceLink(text string) string {
 	fidx := strings.LastIndex(first, "[")
 	lidx := strings.Index(second, ")")
 	tx := first[fidx+1:]
-	ur := second[:lidx+1]
+	ur := second[:lidx]
 	link := linkValue{
 		Text: tx,
 		Url:  ur,
@@ -227,6 +227,6 @@ func replaceLink(text string) string {
 		log.Println(err)
 	}
 	firstPart := text[0:fidx]
-	secondPart := text[len(first)+len(ur)+2:]
+	secondPart := text[len(first)+len(ur)+3:]
 	return firstPart + buf.String() + secondPart
 }
