@@ -73,7 +73,12 @@ func main() {
 		category := r.PathValue("category")
 		_, ok := tags[category]
 		if !ok {
-			w.WriteHeader(http.StatusNotFound)
+			t, _ := template.ParseFiles("views/layout.html", "views/404.html")
+			err := t.ExecuteTemplate(w, "layout", "")
+			if err != nil {
+				log.Println(err)
+				w.WriteHeader(http.StatusInternalServerError)
+			}
 			return
 		}
 		categorySlugs := Slugs{}
@@ -92,7 +97,12 @@ func main() {
 		slug := r.PathValue("slug")
 		mark, ok := slugs[slug]
 		if !ok {
-			w.WriteHeader(http.StatusNotFound)
+			t, _ := template.ParseFiles("views/layout.html", "views/404.html")
+			err := t.ExecuteTemplate(w, "layout", "")
+			if err != nil {
+				log.Println(err)
+				w.WriteHeader(http.StatusInternalServerError)
+			}
 			return
 		}
 		final := md.MDtoHTML(mark.Content)
