@@ -31,6 +31,9 @@ func translateMDIntoSlugs(dirName string) Slugs {
 	dir, err := os.ReadDir(dirName)
 	check(err)
 	for _, entry := range dir {
+		if entry.IsDir() {
+			continue
+		}
 		fileName := fmt.Sprintf("%s/%s", dirName, entry.Name())
 		fil, err := os.Open(fileName)
 		check(err)
@@ -55,10 +58,18 @@ func getTagsFromSlugs(slugs Slugs) Tags {
 	return tags
 }
 
+func (t Tags) appendMoreTags(tags Tags) {
+	for k, v := range tags {
+		t[k] = v
+	}
+}
+
 func main() {
 	mux := http.NewServeMux()
 	slugs := translateMDIntoSlugs("posts")
+	staticSlugs := translateMDIntoSlugs("posts/static")
 	tags := getTagsFromSlugs(slugs)
+	tags.appendMoreTags(getTagsFromSlugs(staticSlugs))
 	fs := http.FileServer(http.Dir("./static"))
 
 	mux.Handle("GET /static/", http.StripPrefix("/static/", fs))
@@ -97,13 +108,17 @@ func main() {
 		slug := r.PathValue("slug")
 		mark, ok := slugs[slug]
 		if !ok {
-			t, _ := template.ParseFiles("views/layout.html", "views/404.html")
-			err := t.ExecuteTemplate(w, "layout", "")
-			if err != nil {
-				log.Println(err)
-				w.WriteHeader(http.StatusInternalServerError)
+			check, ok := staticSlugs[slug]
+			if !ok {
+				t, _ := template.ParseFiles("views/layout.html", "views/404.html")
+				err := t.ExecuteTemplate(w, "layout", "")
+				if err != nil {
+					log.Println(err)
+					w.WriteHeader(http.StatusInternalServerError)
+				}
+				return
 			}
-			return
+			mark = check
 		}
 		final := md.MDtoHTML(mark.Content)
 		t, _ := template.ParseFiles("views/layout.html", "views/post.html")
