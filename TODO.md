@@ -1,3 +1,4 @@
 - After I have some posts, I should email nowx3.com for this blog to be integrated into their page :).
 - Write a /uses page.
 - Order posts on the main page by published date.
+- Make this work on Desktop.
