@@ -2,3 +2,4 @@
 - Write a /uses page.
 - Order posts on the main page by published date.
 - Make this work on Desktop.
+- Add description into the meta tag of posts.

@@ -65,7 +65,11 @@ func GetMetadata(meta string) (Metadata, error) {
 		value := sep[1]
 		switch property {
 		case "title":
-			metaData.Title = value
+			if len(sep) > 2 {
+				metaData.Title = strings.Join(sep[1:], ": ")
+			} else {
+				metaData.Title = value
+			}
 		case "description":
 			metaData.Description = value
 		case "slug":

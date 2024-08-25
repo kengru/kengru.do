@@ -8,7 +8,9 @@
     <h1>{{ .Title }}</h1>
     <time>{{ .Published.Format "January 02, 2006" }}</time>
   </div>
-  {{ .Content }}
+  <div id="post">
+    {{ .Content }}
+  </div>
   <ul class="tags">
     {{ range .Tags }}
     <li><a href="/category/{{.}}">{{.}}</a></li>

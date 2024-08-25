@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"sort"
 	"time"
 
 	"github.com/kengru/kengru.do/internal/md"
@@ -18,6 +19,11 @@ type PostData struct {
 	Published time.Time
 	Tags      []string
 	Content   template.HTML
+}
+
+type KeyData struct {
+	Key  string
+	Data md.MD
 }
 
 func check(e error) {
@@ -64,9 +70,21 @@ func (t Tags) appendMoreTags(tags Tags) {
 	}
 }
 
+func (s Slugs) getSortedSlugs() []KeyData {
+	var ss []KeyData
+	for k, v := range s {
+		ss = append(ss, KeyData{k, v})
+	}
+	sort.Slice(ss, func(i, j int) bool {
+		return ss[i].Data.Published.After(ss[j].Data.Published)
+	})
+	return ss
+}
+
 func main() {
 	mux := http.NewServeMux()
 	slugs := translateMDIntoSlugs("posts")
+	sortedSlugs := slugs.getSortedSlugs()
 	staticSlugs := translateMDIntoSlugs("posts/static")
 	tags := getTagsFromSlugs(slugs)
 	tags.appendMoreTags(getTagsFromSlugs(staticSlugs))
@@ -77,7 +95,7 @@ func main() {
 	mux.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 		t, _ := template.ParseFiles("views/layout.html", "views/index.html")
-		err := t.ExecuteTemplate(w, "layout", slugs)
+		err := t.ExecuteTemplate(w, "layout", sortedSlugs)
 		check(err)
 	})
 	mux.HandleFunc("GET /category/{category}", func(w http.ResponseWriter, r *http.Request) {

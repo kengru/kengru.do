@@ -1,5 +1,5 @@
 ---
-title: QR Code Generator
+title: Draft - QR Code Generator
 description: Bytes, encoding and .
 published: 26-08-2024
 tags: tech, learning, project
@@ -41,6 +41,28 @@ even though it's an easy thing, I figured I needed to learn about
 character encoding first.
 
 This [article](https://medium.com/@tyler_brewer2/bits-bytes-and-byte-slices-in-go-8a99012dcc8f)
-took me to [Joel's The absolute minimum every software developer must know about unicode](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
-, which in turn made me understand character encoding when using Unicode. I also learned
-about [Endianness](https://en.wikipedia.org/wiki/Endianness), [UTF-8](https://www.utf8.com/)
+took me to
+[Joel's The absolute minimum every software developer must know about unicode](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/),
+which in turn made me understand character encoding when using Unicode. I also learned
+about [Endianness](https://en.wikipedia.org/wiki/Endianness),
+[UTF-8](https://www.utf8.com/)
+and [Bitmasks](https://www.practical-go-lessons.com/chap-27-enum-iota-and-bitmask#fig:AND-NOT).
+
+I swear, this is the coolest function I have ever written/though of:
+
+```
+func GetEncodingMode(text string) EncodingMode {
+	var r = 0b0111
+	for _, t := range text {
+		if t > 57 || t < 48 {
+			r = r &^ int(NUMERIC_MODE)
+		}
+		if t >= 'a' && t <= 'z' {
+			r = r &^ int(ALPHA_MODE)
+		}
+	}
+	return EncodingMode(r & -r)
+}
+```
+
+###

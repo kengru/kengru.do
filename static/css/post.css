@@ -16,6 +16,10 @@ section {
   gap: 1rem;
 }
 
+#post {
+  margin-top: 1em;
+}
+
 img {
   max-width: 100%;
   height: auto;

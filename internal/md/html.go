@@ -13,7 +13,7 @@ const (
 	headingToken = "#"
 	listToken    = "-"
 	boldToken    = "**"
-	italicToken  = "_"
+	italicToken  = "__"
 	spaceToken   = "  "
 	blockToken   = "```"
 	imageToken   = "!["
