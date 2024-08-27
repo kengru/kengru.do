@@ -118,8 +118,9 @@ func main() {
 				}
 			}
 		}
+		orderedSlugs := categorySlugs.getSortedSlugs()
 		t, _ := template.ParseFiles("views/layout.html", "views/index.html")
-		err := t.ExecuteTemplate(w, "layout", categorySlugs)
+		err := t.ExecuteTemplate(w, "layout", orderedSlugs)
 		check(err)
 	})
 	mux.HandleFunc("GET /{slug}", func(w http.ResponseWriter, r *http.Request) {

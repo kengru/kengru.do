@@ -15,7 +15,7 @@ of encoding the string acording to the size and padding in the
 [specifications](https://www.qrcode.com/en/about/standards.html).
 What got me was the error correction step of the algorithm that
 needed to be applied to the encoded string of bits. Just look at
-[the math](<https://en.wikipedia.org/wiki/Reed%E2%80%93Solomon_error_correction#Constructions_(encoding)>),
+[the math](https://en.wikipedia.org/wiki/Reed%E2%80%93Solomon_error_correction),
 it involves coding polynomial division. I repeat, coding
 polynomial division.
 
@@ -34,7 +34,7 @@ all the images from the server every 5 minutes, this could potentially
 be used by anybody and it would not incur much cost on storage, only
 in traffic.
 
-Thanks for reading! These is the link:
+Thanks for reading! These are the links:
 
 Link: [QR Code Generator](https://qr.odin.do)
 

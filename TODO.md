@@ -1,5 +1,6 @@
 - After I have some posts, I should email nowx3.com for this blog to be integrated into their page :).
-- Write a /uses page.
+- ~~Write a /uses page.~~
+- Create a PR to add `/uses` to uses.tech
 - ~~Order posts on the main page by published date.~~
 - Make this work on Desktop.
 - Add description into the meta tag of posts.
