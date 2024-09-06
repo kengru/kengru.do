@@ -34,6 +34,8 @@ all the images from the server every 5 minutes, this could potentially
 be used by anybody and it would not incur much cost on storage, only
 in traffic.
 
+![QR Code](/static/images/qr_c.png "QR Code")
+
 Thanks for reading! These are the links:
 
 Link: [QR Code Generator](https://qr.odin.do)
