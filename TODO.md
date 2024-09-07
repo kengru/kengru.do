@@ -3,5 +3,6 @@
 - ~~Create a PR to add `/uses` to uses.tech~~
 - ~~Order posts on the main page by published date.~~
 - ~~Make this work on Desktop.~~
-- Add description into the meta tag of posts.
+- Create a rss feed for this blog.
+- ~~Add description into the meta tag of posts.~~
 - Add some more meta tags for discoverability on the hobbie projects.

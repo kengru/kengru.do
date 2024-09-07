@@ -9,8 +9,7 @@ slug: bought-books-1
 I was listening to an episode of
 [The Lex Fridman Podcast](https://www.youtube.com/watch?v=WA9gVKKPsBo)
 with Jordan Jonas, the person who won season 6 of the show
-[Alone](<https://en.wikipedia.org/wiki/Alone_(TV_series)>),
-and there was an interesting part where they started
+Alone, and there was an interesting part where they started
 talking about the tenacity, resilience, and lyricism that
 people from Eastern Europe usually have due to the years
 of struggle they have endured and the sometimes catastrophic
@@ -22,7 +21,7 @@ what we Dominicans are accustomed to. We deal with weather within
 a specific timeframe of the year. We have not dealt with
 government instability in years. Being a country so close
 to the United States makes our economy stable enough
-(at least from now).
+(at least for now).
 
 I believe there is wisdom to be obtained from the writings and
 stories of people who have been through difficulties even if

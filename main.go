@@ -15,10 +15,12 @@ import (
 type Slugs map[string]md.MD
 type Tags map[string]bool
 type PostData struct {
-	Title     string
-	Published time.Time
-	Tags      []string
-	Content   template.HTML
+	Content     template.HTML
+	Description string
+	Url         string
+	Published   time.Time
+	Tags        []string
+	Title       string
 }
 
 type KeyData struct {
@@ -142,10 +144,12 @@ func main() {
 		final := md.MDtoHTML(mark.Content)
 		t, _ := template.ParseFiles("views/layout.html", "views/post.html")
 		postData := PostData{
-			Title:     mark.Title,
-			Published: mark.Published,
-			Tags:      mark.Tags,
-			Content:   template.HTML(final.String()),
+			Content:     template.HTML(final.String()),
+			Description: mark.Description,
+			Url:         fmt.Sprintf("https://kengru.do/%s", mark.Slug),
+			Published:   mark.Published,
+			Tags:        mark.Tags,
+			Title:       mark.Title,
 		}
 		err := t.ExecuteTemplate(w, "layout", postData)
 		if err != nil {

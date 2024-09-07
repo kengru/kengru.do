@@ -13,8 +13,8 @@ Last update: August 20, 2024
 ### Personal
 
 - Expecting a child for January 2025, pretty excited about it and I'm constantly reading to feel a bit more secure going into it.
-- Bought a [bunch](/bought-books-1) of books and I'm planning on reading them and review them as I go.
-- I retook creating generative art and started with [something](/milo-1), I would love to print out the results and give some of them to my family.
+- Bought a [bunch](/bought-books-1) of books and I'm planning on reading and review them as I go.
+- I retook creating generative art and started with [something](/milo-1). I would love to print out the results and give some of them to my family.
 - Taking writing seriously.
 
 ### Projects
