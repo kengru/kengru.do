@@ -6,4 +6,4 @@ tags: books, review, narnia
 slug: narnia-1
 ---
 
-ll
+![The Magician's Nephew](/static/images/books/narnia-1.webp "The Magician's Nephew")
