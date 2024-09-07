@@ -6,29 +6,29 @@ tags: books, thoughts
 slug: bought-books-1
 ---
 
-I was listening an episode of
+I was listening to an episode of
 [The Lex Fridman Podcast](https://www.youtube.com/watch?v=WA9gVKKPsBo)
 with Jordan Jonas, the person who won season 6 of the show
 [Alone](<https://en.wikipedia.org/wiki/Alone_(TV_series)>),
-and there was a very interesting part where they started
-talking about the tenacity, resiliance and lyricism that
-people from eastern europe usually have due to the years
+and there was an interesting part where they started
+talking about the tenacity, resilience, and lyricism that
+people from Eastern Europe usually have due to the years
 of struggle they have endured and the sometimes catastrophic
-weather they recieve throughout the year.
+weather they receive throughout the year.
 
 The conversation made me realize that those experiences
-would definitely create a different kind of human from
+would create a different kind of human from
 what we Dominicans are accustomed to. We deal with weather within
 a specific timeframe of the year. We have not dealt with
-goverment instability in years. Being a country so close
-to the United States makes our economy really stable
+government instability in years. Being a country so close
+to the United States makes our economy stable enough
 (at least from now).
 
-I believe there is wisdom to be obtained by the writings and
+I believe there is wisdom to be obtained from the writings and
 stories of people who have been through difficulties even if
 we are not living through any ourselves. For that reason, I choose
-to buy a bunch of books from Russian authors which curiosly enough
-are almost all translated into english by the same
+to buy a bunch of books from Russian authors which curiously enough
+are almost all translated into English by the same
 [couple](https://en.wikipedia.org/wiki/Richard_Pevear_and_Larissa_Volokhonsky).
 
 ![A bunch of books](/static/images/books/books-1.webp "A bunch of books")
