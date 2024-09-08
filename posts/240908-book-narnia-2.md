@@ -7,3 +7,5 @@ slug: narnia-2
 ---
 
 ![The Lion, The Witch and The Wardrobe](/static/images/books/narnia-2.webp "The Lion, The Witch and The Wardrobe")
+
+This book is a classic
