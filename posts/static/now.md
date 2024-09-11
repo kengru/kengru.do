@@ -8,7 +8,7 @@ slug: now
 
 This is a page that contains the things I'm doing or working at the moment, I will update this regularly.
 
-Last update: August 20, 2024
+Last update: September 11, 2024
 
 ### Personal
 
@@ -25,5 +25,10 @@ Last update: August 20, 2024
 
 - I'm working at [X-Team](https://x-team.com/) as a full-stack engineer.
 - Taking work as a software consultant, mostly web development.
+
+### Currently reading
+
+- The Chronicles of Narnia (book 4) - C.S. Lewis
+- Hell Yeah or No - Derek Sivers
 
 ###
