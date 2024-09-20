@@ -2,7 +2,7 @@
 title: Transformer, a file manipulation tool
 description: Tool to manipulate files, mostly images.
 published: 20-09-2024
-tags: tech, images, files, project
+tags: tech, images, files, project, go
 slug: transformer
 ---
 

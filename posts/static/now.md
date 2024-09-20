@@ -8,7 +8,7 @@ slug: now
 
 This is a page that contains the things I'm doing or working at the moment, I will update this regularly.
 
-Last update: September 11, 2024
+Last update: September 20, 2024
 
 ### Personal
 
@@ -16,6 +16,7 @@ Last update: September 11, 2024
 - Bought a [bunch](/bought-books-1) of books and I'm planning on reading and review them as I go.
 - I retook creating generative art and started with [something](/milo-1). I would love to print out the results and give some of them to my family.
 - Taking writing seriously.
+- Buying a motorcycle?
 
 ### Projects
 

@@ -2,7 +2,7 @@
 title: QR Code Generator
 description: Creating a qr code generator on the web.
 published: 27-08-2024
-tags: tech, project
+tags: tech, project, go
 slug: qr-code-generator
 ---
 
