@@ -1,7 +1,7 @@
 ---
 title: Review: Hell Yeah or No
 description: Book review of Hell Yeah or No by Derek Sivers
-published: 24-09-2024
+published: 08-10-2024
 tags: books, review
 slug: hell-yeah-or-no
 ---
