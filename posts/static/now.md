@@ -8,7 +8,7 @@ slug: now
 
 This is a page that contains the things I'm doing or working at the moment, I will update this regularly.
 
-Last update: September 20, 2024
+Last update: October 14, 2024
 
 ### Personal
 
@@ -29,7 +29,7 @@ Last update: September 20, 2024
 
 ### Currently reading
 
-- The Chronicles of Narnia (book 4) - C.S. Lewis
+- The Chronicles of Narnia (book 5) - C.S. Lewis
 - Hell Yeah or No - Derek Sivers
 
 ###
