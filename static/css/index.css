@@ -1,6 +1,9 @@
 section {
   display: flex;
   flex-direction: column;
+  line-height: 20px;
+  font-size: 16px;
+  font-weight: 500;
 
   ul {
     list-style: none;
@@ -12,6 +15,15 @@ section {
       align-items: flex-start;
       justify-content: space-between;
       margin-bottom: .8rem;
+
+
+      a {
+        color: cornflowerblue;
+
+        &:hover {
+          font-style: italic;
+        }
+      }
     }
   }
 }

@@ -1,22 +1,22 @@
 body {
-  font-family: monospace;
+  font-family: Archivo;
   font-size: 14px;
   margin: 1rem;
-
 }
 
 main {
   display: flex;
   flex-direction: column;
   max-width: 50em;
-
 }
 
 header {
   flex-grow: 1;
   position: relative;
 
-  h2 {
+  h1 {
+    letter-spacing: 4px;
+    font-style: italic;
     a {
       color: black;
       text-decoration: none;
@@ -48,7 +48,7 @@ nav {
   }
 
   main {
-    flex-direction: row;
+    flex-direction: column;
     min-width: 40em;
   }
 
@@ -64,7 +64,24 @@ nav {
     border-bottom: 0;
 
     ul {
-      flex-direction: column;
+      flex-direction: row;
+
+      li {
+        font-size: 1.2rem;
+
+        a {
+          text-decoration: underline;
+          color: black;
+
+          &:hover {
+            font-weight: 500;
+            font-style: italic;
+          }
+          &:visited {
+            color: black;
+          }
+        }
+      }
     }
   }
 
