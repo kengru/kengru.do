@@ -8,7 +8,9 @@
     {{ range . }}
     <li>
       <a href="/{{ .Data.Slug }}">{{ .Data.Title }}</a>
-      <time>{{ .Data.Published.Format "Jan 02, 2006" }}</time>
+      <span>
+        <time>{{ .Data.Published.Format "Jan 02, 2006" }}</time>
+      </span>
     </li>
     {{ end }}
   </ul>

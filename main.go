@@ -96,7 +96,7 @@ func main() {
 
 	mux.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
-		t, _ := template.ParseFiles("views/layout.html", "views/index.html")
+		t, _ := template.New("index").ParseFiles("views/layout.html", "views/index.html")
 		err := t.ExecuteTemplate(w, "layout", sortedSlugs)
 		check(err)
 	})

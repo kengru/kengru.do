@@ -6,7 +6,7 @@ tags: uses
 slug: uses
 ---
 
-Last update: August 27, 2024
+Last update: May 15th, 2025
 
 ### Desktop
 
@@ -23,7 +23,6 @@ Last update: August 27, 2024
 - [iTerm2](https://iterm2.com/) terminal for MacOS.
 - [NeoVIM](https://neovim.io/) to edit files in the terminal.
 - [Table Plus](https://tableplus.com/) for database management.
-- [Insomnia](https://insomnia.rest/) for API testing.
 
 ### Apps
 
@@ -38,5 +37,10 @@ Last update: August 27, 2024
 
 - IPhone SE 2022
 - IPad 6th generation
+
+### Motorcycles
+
+- Yamaha MT03 2022
+- CFMoto 450MT 2025
 
 ###
