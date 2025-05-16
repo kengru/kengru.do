@@ -8,13 +8,13 @@ slug: now
 
 This is a page that contains the things I'm doing or working at the moment, I will update this regularly.
 
-Last update: December 28, 2024
+Last update: May 15th, 2025
 
 ### Personal
 
-- Expecting a child for January 2025, pretty excited about it and I'm constantly reading to feel a bit more secure going into it.
-- Bought a motorcycle 2 months ago and I have already put it about 2.5k kilometers, really enjoying the experience and will be talking about it at some point.
-- Didn't write for about 2 months, but have started writing on next things.
+- My daughter was born in January, I am loving this part of life.
+- Enjoying the experience of riding a motorcycle a lot. Bought another one.
+- Going to the gym and eating healthy, let's see how long this lasts.
 
 ### Projects
 
@@ -27,8 +27,6 @@ Last update: December 28, 2024
 
 ### Currently reading
 
-- The Chronicles of Narnia (book 5) - C.S. Lewis
-- There is no antimemetics division - qntm
-- The opposite of worry - Lawrence J. Cohen
+- Geometry for Ocelots - exurb1a
 
 ###
