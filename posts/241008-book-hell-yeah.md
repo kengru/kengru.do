@@ -12,7 +12,7 @@ slug: hell-yeah-or-no
 
 That's a strong start.
 
-This book is a collection of essays written in [Derek Sivers](https://sive.rs)' blog,
+This book is a collection of essays written in [Derek Sivers](https://sive.rs)'s blog,
 curated around the theme of how to know what is worth doing.
 
 One morning, I sat down to start reading this book and found that phrase in the first essay.
