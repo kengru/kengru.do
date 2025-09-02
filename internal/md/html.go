@@ -186,6 +186,7 @@ func processLine(text string) string {
 	final := replaceToken(text, boldToken, "<b>", "</b>")
 	final = replaceToken(final, italicToken, "<i>", "</i>")
 	final = replaceLink(final)
+	final = replaceLink(final)
 	return final
 }
 
@@ -212,6 +213,9 @@ func replaceLink(text string) string {
 	second := textAndUrl[1]
 	fidx := strings.LastIndex(first, "[")
 	lidx := strings.Index(second, ")")
+	if second[lidx+1] == ')' {
+		lidx++
+	}
 	tx := first[fidx+1:]
 	ur := second[:lidx]
 	link := linkValue{
