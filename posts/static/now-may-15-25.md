@@ -8,7 +8,7 @@ slug: now
 
 This is a page that contains the things I'm doing or working at the moment, I will update this regularly.
 
-Last update: September 11th, 2025
+Last update: May 15th, 2025
 
 ### Personal
 
@@ -18,8 +18,7 @@ Last update: September 11th, 2025
 
 ### Projects
 
-- Revamping all of my little projects.
-- Working on a better identity 
+- Doing some styling changes in the blog.
 
 ### Work
 

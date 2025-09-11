@@ -1,7 +1,7 @@
 section {
   display: flex;
   flex-direction: column;
-  line-height: 20px;
+  line-height: 24px;
   font-size: 16px;
   font-weight: 500;
 
@@ -14,15 +14,29 @@ section {
       flex-direction: column;
       align-items: flex-start;
       justify-content: space-between;
-      margin-bottom: .8rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      margin-bottom: 0;
 
+      &:last-child {
+        border-bottom: none;
+      }
 
       a {
         color: cornflowerblue;
 
         &:hover {
-          font-style: italic;
+          background-color: rgba(100, 149, 237, 0.1);
+          padding: 0.2rem 0.4rem;
+          margin: -0.2rem -0.4rem;
+          border-radius: 3px;
         }
+      }
+
+      time {
+        color: #666;
+        font-size: 0.9rem;
+        font-weight: 400;
       }
     }
   }
