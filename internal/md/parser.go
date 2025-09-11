@@ -14,6 +14,7 @@ type Metadata struct {
 	Published   time.Time
 	Tags        []string
 	Slug        string
+	Draft       bool
 }
 
 type MD struct {
@@ -37,7 +38,17 @@ func ParseMDFile(file *os.File) (MD, error) {
 			content += fmt.Sprintln(scanner.Text())
 		}
 	}
-	md.Content = content[:len(content)-1]
+	if len(content) > 1 {
+		md.Content = content[:len(content)-1]
+	} else {
+		md.Content = content
+	}
+
+	if strings.HasPrefix(strings.TrimSpace(md.Content), "DRAFT") {
+		md.Metadata.Draft = true
+		md.Content = strings.TrimSpace(strings.TrimPrefix(strings.TrimSpace(md.Content), "DRAFT"))
+	}
+
 	return md, nil
 }
 

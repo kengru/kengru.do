@@ -197,7 +197,9 @@ func replaceToken(text string, token string, sub1 string, sub2 string) string {
 	final += split[idx]
 	for idx < len(split)-1 {
 		final += sub1 + split[idx+1] + sub2
-		final += split[idx+2]
+		if idx+2 < len(split) {
+			final += split[idx+2]
+		}
 		idx += 2
 	}
 	return final
@@ -213,7 +215,7 @@ func replaceLink(text string) string {
 	second := textAndUrl[1]
 	fidx := strings.LastIndex(first, "[")
 	lidx := strings.Index(second, ")")
-	if second[lidx+1] == ')' {
+	if lidx+1 < len(second) && second[lidx+1] == ')' {
 		lidx++
 	}
 	tx := first[fidx+1:]

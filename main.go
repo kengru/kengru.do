@@ -48,7 +48,10 @@ func translateMDIntoSlugs(dirName string) Slugs {
 		mdFile, err := md.ParseMDFile(fil)
 		check(err)
 		fil.Close()
-		slugs[mdFile.Metadata.Slug] = mdFile
+
+		if !mdFile.Metadata.Draft {
+			slugs[mdFile.Metadata.Slug] = mdFile
+		}
 	}
 	return slugs
 }
