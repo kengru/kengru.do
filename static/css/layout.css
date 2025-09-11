@@ -1,6 +1,6 @@
 body {
   font-family: Archivo;
-  font-size: 14px;
+  font-size: 16px;
   margin: 1rem;
 }
 
@@ -11,27 +11,45 @@ main {
 }
 
 header {
-  flex-grow: 1;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #ddd;
 
   h1 {
-    letter-spacing: 4px;
-    font-style: italic;
+    font-family: 'Georgia', serif;
+    letter-spacing: 1px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.2rem;
+    margin: 0;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: cornflowerblue;
+      border-radius: 50%;
+      margin-left: 8px;
+    }
+
     a {
-      color: black;
+      color: #1a1a1a;
       text-decoration: none;
     }
   }
 }
 
 nav {
-  border-bottom: 1px solid gainsboro;
-
   ul {
     display: flex;
     padding: 0;
+    margin: 0;
     list-style: none;
-    justify-content: space-between;
+    gap: 2rem;
   }
 }
 
@@ -58,6 +76,10 @@ nav {
 
   header {
     flex: 2;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0;
   }
 
   nav {
@@ -70,13 +92,17 @@ nav {
         font-size: 1.2rem;
 
         a {
-          text-decoration: underline;
+          text-decoration: none;
           color: black;
+          transition: all 0.2s ease;
+          padding: 0.3rem 0.5rem;
+          border-radius: 3px;
 
           &:hover {
-            font-weight: 500;
-            font-style: italic;
+            text-decoration: underline;
+            background-color: rgba(0, 0, 0, 0.05);
           }
+
           &:visited {
             color: black;
           }

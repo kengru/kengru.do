@@ -6,7 +6,7 @@ tags: uses
 slug: uses
 ---
 
-Last update: May 15th, 2025
+Last update: September 11th, 2025
 
 ### Desktop
 
@@ -16,17 +16,19 @@ Last update: May 15th, 2025
 - Magic Trackpad
 - Corsair Katar Pro Mouse
 - [Bose QuietComfort 35](https://global.bose.com/content/consumer_electronics/b2c_catalog/worldwide/websites/en_ae/product/qc35_ii.html)
+- I also have a PC.
 
 ### Development
 
 - VS Code (with VIM motions)
+- [Cursor](https://cursor.com/agents)
+- [Table Plus](https://tableplus.com/) for database management.
 - [iTerm2](https://iterm2.com/) terminal for MacOS.
 - [NeoVIM](https://neovim.io/) to edit files in the terminal.
-- [Table Plus](https://tableplus.com/) for database management.
 
 ### Apps
 
-- [Arc browser](https://arc.net/)
+- [Arc browser](https://arc.net/), but probably moving out of it soon.
 
 ### Utilities
 
@@ -35,7 +37,7 @@ Last update: May 15th, 2025
 
 ### Personal
 
-- IPhone SE 2022
+- IPhone 13
 - IPad 6th generation
 
 ### Motorcycles
