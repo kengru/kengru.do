@@ -28,5 +28,3 @@ Link: [Transformer](https://transformer.odin.do)
 Code: [Source Code](https://github.com/odin-software/transformer)
 
 Thank you!
-
-###
