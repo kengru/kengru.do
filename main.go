@@ -161,5 +161,6 @@ func main() {
 			return
 		}
 	})
+	log.Println("Running at http://localhost:42069")
 	log.Fatal(http.ListenAndServe(":42069", mux))
 }
