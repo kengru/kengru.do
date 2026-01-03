@@ -4,9 +4,10 @@ description: Book review of The Gardener and the Carpenter by Alison Gopnik
 published: 24-08-2024
 tags: books, review
 slug: gardener-carpenter
+type: review
+rating: 9
+image: /static/images/books/gardener-carpenter-cover.webp
 ---
-
-![The Gardener and the Carpenter](/static/images/books/gardener-carpenter-cover.webp "The Gardener and the Carpenter")
 
 First of all, I **loved** this book.
 

@@ -4,9 +4,10 @@ description: Book review of The Horse and His Boy by C.S. Lewis
 published: 11-09-2024
 tags: books, review, narnia
 slug: narnia-3
+type: review
+rating: 9
+image: /static/images/books/narnia-3.webp
 ---
-
-![The Horse and His Boy](/static/images/books/narnia-3.webp "The Horse and His Boy")
 
 This is my favorite book of the series so far, it's full
 of cool mini-plots, crazy adventure and Christian symbolism.
@@ -21,7 +22,7 @@ having an adventure through an unforgiving land.
 By this point, there is no further evidence needed to understand
 that Aslan is a representation of God. The heroes are attacked
 and also saved by a Lion in more than one occasion and it's clear
-at the end that whatever happens that lead you to where you
+at the end that whatever happens that leads you to where you
 belong its God's will. God will chase you out of the places
 you are not supposed to be. God will take care of you when
 you feel lonely. God will push you to your limits so that you

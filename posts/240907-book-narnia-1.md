@@ -4,9 +4,10 @@ description: Book review of The Magician's Nephew by C.S. Lewis
 published: 07-09-2024
 tags: books, review, narnia
 slug: narnia-1
+type: review
+rating: 7
+image: /static/images/books/narnia-1.webp
 ---
-
-![The Magician's Nephew](/static/images/books/narnia-1.webp "The Magician's Nephew")
 
 The Magician's Nephew tells the story of the creation
 of Narnia, but more importanly, a story about a boy,

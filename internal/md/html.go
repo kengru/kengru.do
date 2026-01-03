@@ -10,20 +10,21 @@ import (
 )
 
 const (
-	headingToken = "#"
-	listToken    = "-"
-	boldToken    = "**"
-	italicToken  = "__"
-	spaceToken   = "  "
-	blockToken   = "```"
-	imageToken   = "!["
+	headingToken    = "#"
+	listToken       = "-"
+	boldToken       = "**"
+	italicToken     = "_"
+	inlineCodeToken = "`"
+	spaceToken      = "  "
+	blockToken      = "```"
+	imageToken      = "!["
 )
 
 const (
 	headingTemplate   = `<h{{.Level}}>{{.Title}}</h{{.Level}}>`
 	listItemTemplate  = `<li>{{.}}</li>`
 	paragraphTemplate = `<p>{{.}}</p>`
-	blockTemplate     = `<blockquote>{{.}}</blockquote>`
+	codeBlockTemplate = `<pre><code>{{.}}</code></pre>`
 	imageTemplate     = `<img src="{{.Url}}" alt="{{.AltText}}" title="{{.Title}}"/>`
 	linkTemplate      = `<a href="{{.Url}}">{{.Text}}</a>`
 )
@@ -61,8 +62,8 @@ func MDtoHTML(content string) bytes.Buffer {
 			ul(&final, false)
 			continue
 		}
-		if strings.Contains(scn.Text(), blockToken) {
-			block(scn, &final)
+		if strings.HasPrefix(scn.Text(), blockToken) {
+			codeBlock(scn, &final)
 			continue
 		}
 		if strings.Contains(scn.Text(), imageToken) {
@@ -76,20 +77,29 @@ func MDtoHTML(content string) bytes.Buffer {
 
 func image(line string, w io.Writer) {
 	parts := strings.Split(line, "]")
+	if len(parts) < 2 {
+		return
+	}
 	altText := strings.Replace(parts[0], "![", "", 1)
 	urlAndTitle := strings.ReplaceAll(parts[1], "(", "")
 	urlAndTitle = strings.ReplaceAll(urlAndTitle, ")", "")
-	uT := strings.Split(urlAndTitle, " ")
-	image := imageValue{
-		Title:   strings.Replace(uT[1], `"`, "", 1),
+	uT := strings.SplitN(urlAndTitle, " ", 2)
+
+	img := imageValue{
 		Url:     uT[0],
 		AltText: altText,
 	}
+	// Handle optional title
+	if len(uT) > 1 {
+		img.Title = strings.Trim(uT[1], `"`)
+	}
+
 	t, err := template.New("image").Parse(imageTemplate)
 	if err != nil {
 		log.Println(err)
+		return
 	}
-	err = t.Execute(w, image)
+	err = t.Execute(w, img)
 	if err != nil {
 		log.Println(err)
 	}
@@ -127,21 +137,32 @@ func ul(w io.Writer, opening bool) {
 }
 
 func list(scn *bufio.Scanner, w io.Writer) {
-	line := processLine(scn.Text())
+	// Process the first line (current scanner position)
+	renderListItem(scn.Text(), w)
+
+	// Continue processing while we have more list items
 	for scn.Scan() {
-		_, af, _ := strings.Cut(line, " ")
-		t, err := template.New("listItem").Parse(listItemTemplate)
-		if err != nil {
-			log.Println(err)
-		}
-		err = t.Execute(w, template.HTML(af))
-		if err != nil {
-			log.Println(err)
-		}
 		if len(scn.Text()) < 1 {
 			return
 		}
-		line = processLine(scn.Text())
+		if string(scn.Text()[0]) != listToken {
+			return
+		}
+		renderListItem(scn.Text(), w)
+	}
+}
+
+func renderListItem(line string, w io.Writer) {
+	processed := processLine(line)
+	_, content, _ := strings.Cut(processed, " ")
+	t, err := template.New("listItem").Parse(listItemTemplate)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	err = t.Execute(w, template.HTML(content))
+	if err != nil {
+		log.Println(err)
 	}
 }
 
@@ -164,19 +185,20 @@ func paragraph(scn *bufio.Scanner, w io.Writer) {
 	}
 }
 
-func block(scn *bufio.Scanner, w io.Writer) {
-	final := ""
+func codeBlock(scn *bufio.Scanner, w io.Writer) {
+	lines := []string{}
 	for scn.Scan() {
-		if strings.Contains(scn.Text(), blockToken) {
+		if strings.HasPrefix(scn.Text(), blockToken) {
 			break
 		}
-		final += scn.Text() + `<br>`
+		lines = append(lines, template.HTMLEscapeString(scn.Text()))
 	}
-	t, err := template.New("block").Parse(blockTemplate)
+	t, err := template.New("codeBlock").Parse(codeBlockTemplate)
 	if err != nil {
 		log.Println(err)
+		return
 	}
-	err = t.Execute(w, template.HTML(final))
+	err = t.Execute(w, template.HTML(strings.Join(lines, "\n")))
 	if err != nil {
 		log.Println(err)
 	}
@@ -185,24 +207,40 @@ func block(scn *bufio.Scanner, w io.Writer) {
 func processLine(text string) string {
 	final := replaceToken(text, boldToken, "<b>", "</b>")
 	final = replaceToken(final, italicToken, "<i>", "</i>")
-	final = replaceLink(final)
-	final = replaceLink(final)
+	final = replaceToken(final, inlineCodeToken, "<code>", "</code>")
+	final = replaceLinks(final)
 	return final
 }
 
 func replaceToken(text string, token string, sub1 string, sub2 string) string {
-	final := ""
-	idx := 0
 	split := strings.Split(text, token)
-	final += split[idx]
-	for idx < len(split)-1 {
-		final += sub1 + split[idx+1] + sub2
-		if idx+2 < len(split) {
-			final += split[idx+2]
+	// If odd number of parts, we have unclosed tokens - handle gracefully
+	if len(split) == 1 {
+		return text
+	}
+
+	final := split[0]
+	for i := 1; i < len(split); i += 2 {
+		if i+1 < len(split) {
+			// We have a matching pair
+			final += sub1 + split[i] + sub2 + split[i+1]
+		} else {
+			// Unclosed token - just append it as-is with the token
+			final += token + split[i]
 		}
-		idx += 2
 	}
 	return final
+}
+
+// replaceLinks recursively replaces all markdown links in the text
+func replaceLinks(text string) string {
+	result := replaceLink(text)
+	// Keep replacing until no more links are found
+	for result != text {
+		text = result
+		result = replaceLink(text)
+	}
+	return result
 }
 
 func replaceLink(text string) string {
@@ -214,7 +252,13 @@ func replaceLink(text string) string {
 	first := textAndUrl[0]
 	second := textAndUrl[1]
 	fidx := strings.LastIndex(first, "[")
+	if fidx == -1 {
+		return text
+	}
 	lidx := strings.Index(second, ")")
+	if lidx == -1 {
+		return text
+	}
 	if lidx+1 < len(second) && second[lidx+1] == ')' {
 		lidx++
 	}
@@ -227,10 +271,12 @@ func replaceLink(text string) string {
 	t, err := template.New("link").Parse(linkTemplate)
 	if err != nil {
 		log.Println(err)
+		return text
 	}
 	err = t.Execute(&buf, link)
 	if err != nil {
 		log.Println(err)
+		return text
 	}
 	firstPart := text[0:fidx]
 	secondPart := text[len(first)+len(ur)+3:]

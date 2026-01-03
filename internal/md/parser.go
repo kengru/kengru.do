@@ -2,8 +2,10 @@ package md
 
 import (
 	"bufio"
+	"errors"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -15,6 +17,9 @@ type Metadata struct {
 	Tags        []string
 	Slug        string
 	Draft       bool
+	Type        string // e.g., "review" for book reviews
+	Rating      int    // 1-10 scale for reviews
+	Image       string // Path to OG/cover image
 }
 
 type MD struct {
@@ -28,7 +33,10 @@ func ParseMDFile(file *os.File) (MD, error) {
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		if scanner.Text() == "---" {
-			metaText := GetMetadataText(scanner)
+			metaText, err := GetMetadataText(scanner)
+			if err != nil {
+				return md, err
+			}
 			meta, err := GetMetadata(metaText)
 			if err != nil {
 				return md, err
@@ -52,14 +60,21 @@ func ParseMDFile(file *os.File) (MD, error) {
 	return md, nil
 }
 
-func GetMetadataText(scn *bufio.Scanner) string {
-	scn.Scan()
+func GetMetadataText(scn *bufio.Scanner) (string, error) {
 	metaText := ""
-	for scn.Text() != "---" {
+	for scn.Scan() {
+		if scn.Text() == "---" {
+			break
+		}
 		metaText += fmt.Sprintln(scn.Text())
-		scn.Scan()
 	}
-	return metaText[:len(metaText)-1]
+	if err := scn.Err(); err != nil {
+		return "", err
+	}
+	if len(metaText) == 0 {
+		return "", nil
+	}
+	return metaText[:len(metaText)-1], nil
 }
 
 func GetMetadata(meta string) (Metadata, error) {
@@ -68,7 +83,7 @@ func GetMetadata(meta string) (Metadata, error) {
 		if len(line) < 3 {
 			continue
 		}
-		sep := strings.Split(line, ": ")
+		sep := strings.SplitN(line, ": ", 2)
 		if len(sep) < 2 {
 			continue
 		}
@@ -76,11 +91,7 @@ func GetMetadata(meta string) (Metadata, error) {
 		value := sep[1]
 		switch property {
 		case "title":
-			if len(sep) > 2 {
-				metaData.Title = strings.Join(sep[1:], ": ")
-			} else {
-				metaData.Title = value
-			}
+			metaData.Title = value
 		case "description":
 			metaData.Description = value
 		case "slug":
@@ -93,6 +104,19 @@ func GetMetadata(meta string) (Metadata, error) {
 				return metaData, err
 			}
 			metaData.Published = date
+		case "type":
+			metaData.Type = value
+		case "rating":
+			rating, err := strconv.Atoi(value)
+			if err != nil {
+				return metaData, err
+			}
+			if rating < 1 || rating > 10 {
+				return metaData, errors.New("rating must be between 1 and 10")
+			}
+			metaData.Rating = rating
+		case "image":
+			metaData.Image = value
 		}
 	}
 	return metaData, nil

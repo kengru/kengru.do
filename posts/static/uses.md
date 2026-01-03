@@ -33,7 +33,7 @@ Last update: September 11th, 2025
 ### Utilities
 
 - [Yabai](https://github.com/koekeishiya/yabai) as tiling manager.
-- [Nyusu](https://nyusu.do) for rss feeds reading.
+- [Nyusu](https://nyusu.odin.do) for rss feeds reading.
 
 ### Personal
 
@@ -42,7 +42,4 @@ Last update: September 11th, 2025
 
 ### Motorcycles
 
-- Yamaha MT03 2022
 - CFMoto 450MT 2025
-
-###

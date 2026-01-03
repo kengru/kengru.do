@@ -4,9 +4,10 @@ description: Book review of Hell Yeah or No by Derek Sivers
 published: 08-10-2024
 tags: books, review
 slug: hell-yeah-or-no
+type: review
+rating: 8
+image: /static/images/books/hyon.webp
 ---
-
-![Hell Yeah or No](/static/images/books/hyon.webp "Hell Yeah or No")
 
 "What would you do then, if you didn’t need the money and didn’t need the attention?"
 

@@ -12,12 +12,10 @@ I love generative art and I've been creating things for a few years now.
 
 I love my wife a lot.
 
-You can contact me at: kengrullon@gmail.com
+You can contact me at: kg@odin.do
 
 Also on:
 
 - [Github](https://github.com/kengru)
 - [LinkedIn](https://www.linkedin.com/in/kengru/)
 - [Instagram](https://www.instagram.com/kengru/)
-
-###

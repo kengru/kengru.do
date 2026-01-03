@@ -4,9 +4,10 @@ description: Book review of The Lion, The Witch and The Wardrobe by C.S. Lewis
 published: 10-09-2024
 tags: books, review, narnia
 slug: narnia-2
+type: review
+rating: 7
+image: /static/images/books/narnia-2.webp
 ---
-
-![The Lion, The Witch and The Wardrobe](/static/images/books/narnia-2.webp "The Lion, The Witch and The Wardrobe")
 
 A lot of people know this story because of the movie adaptation.
 It's a very mysterious story from the beginning and it's intended

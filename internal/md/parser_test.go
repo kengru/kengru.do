@@ -24,7 +24,10 @@ slug: the-one-slug
 func TestGetMetadataText(t *testing.T) {
 	scn := bufio.NewScanner(strings.NewReader(testUnparsedMeta))
 	scn.Scan()
-	metaText := GetMetadataText(scn)
+	metaText, err := GetMetadataText(scn)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
 	fmt.Println(metaText)
 	if metaText != testCorrectContent {
 		t.Fatal("got the wrong parsed text")
@@ -89,5 +92,5 @@ func TestGetMetadata(t *testing.T) {
 }
 
 func TestParseMDFile(t *testing.T) {
-	
+
 }

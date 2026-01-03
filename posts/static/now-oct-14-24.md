@@ -31,5 +31,3 @@ Last update: October 14, 2024
 
 - The Chronicles of Narnia (book 5) - C.S. Lewis
 - Hell Yeah or No - Derek Sivers
-
-###

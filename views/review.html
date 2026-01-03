@@ -1,0 +1,50 @@
+{{ define "meta" }}
+<meta property="og:title" content="{{ .Title }}" />
+<meta property="og:url" content="{{ .Url }}" />
+<meta property="og:description" content="{{ .Description }}" />
+<meta property="og:type" content="article" />
+<meta property="article:author" content="kengru" />
+{{ if .Image }}
+<meta property="og:image" content="https://kengru.do{{ .Image }}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://kengru.do{{ .Image }}" />
+{{ end }}
+<link rel="stylesheet" href="/static/css/post.css" />
+<link rel="stylesheet" href="/static/css/review.css" />
+{{ end }}
+
+{{ define "body" }}
+<article class="review">
+  <header class="review-header">
+    {{ if .Image }}
+    <div class="review-cover">
+      <img src="{{ .Image }}" alt="{{ .Title }}" />
+    </div>
+    {{ end }}
+    <div class="review-meta">
+      <h1>{{ .Title }}</h1>
+      {{ if .Description }}<p class="description">{{ .Description }}</p>{{ end }}
+      <div class="review-info">
+        <time>{{ .Published.Format "January 02, 2006" }}</time>
+        <div class="review-rating">
+          <span class="rating-value">{{ .Rating }}</span>
+          <span class="rating-max">/10</span>
+          <div class="rating-bar">
+            <div class="rating-fill" style="width: {{ .Rating }}0%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="post">
+    {{ .Content }}
+  </div>
+
+  <ul class="tags">
+    {{ range .Tags }}
+    <li><a href="/category/{{.}}">{{.}}</a></li>
+    {{ end }}
+  </ul>
+</article>
+{{ end }}

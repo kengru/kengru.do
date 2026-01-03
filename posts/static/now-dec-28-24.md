@@ -30,5 +30,3 @@ Last update: December 28, 2024
 - The Chronicles of Narnia (book 5) - C.S. Lewis
 - There is no antimemetics division - qntm
 - The opposite of worry - Lawrence J. Cohen
-
-###

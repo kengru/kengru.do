@@ -5,28 +5,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f1822" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f8f9fa" media="(prefers-color-scheme: light)">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,200..900;1,200..900&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="alternate" type="application/rss+xml" title="kengru.do RSS Feed" href="/feed/rss" />
   {{ template "meta" . }}
   <title>kengru.do</title>
 </head>
 
 <body>
   <main>
-    <header aria-hidden="true">
+    <header>
       <h1><a href="/">kengru</a></h1>
-      <nav role="navigation" aria-hidden="true">
+      <nav role="navigation">
         <ul>
           <li><a href="/category/tech">tech</a></li>
           <li><a href="/category/books">books</a></li>
           <li><a href="/category/thoughts">thoughts</a></li>
           <li><a href="/about">about</a></li>
           <li><a href="/now">now</a></li>
-          <!-- <li><a href="/search">search</a></li>
-          <li><a href="/feed/rss">rss</a></li> -->
+          <li><a href="/feed/rss">rss</a></li>
         </ul>
       </nav>
     </header>

@@ -4,6 +4,11 @@
 <meta property="og:description" content="{{ .Description }}" />
 <meta property="og:type" content="article" />
 <meta property="article:author" content="kengru" />
+{{ if .Image }}
+<meta property="og:image" content="https://kengru.do{{ .Image }}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://kengru.do{{ .Image }}" />
+{{ end }}
 <link rel="stylesheet" href="/static/css/post.css" />
 {{ end }}
 
@@ -11,6 +16,7 @@
 <section>
   <div class="meta">
     <h1>{{ .Title }}</h1>
+    {{ if .Description }}<p class="description">{{ .Description }}</p>{{ end }}
     <time>{{ .Published.Format "January 02, 2006" }}</time>
   </div>
   <div id="post">

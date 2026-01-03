@@ -4,9 +4,10 @@ description: Book review of Geometry for Ocelots by Exurb1a.
 published: 13-08-2025
 tags: books, review
 slug: geometry-for-ocelots
+type: review
+rating: 10
+image: /static/images/books/geometry-for-ocelots.webp
 ---
-
-![Geometry for Ocelots by Exurb1a](/static/images/books/geometry-for-ocelots.webp "Geometry for Ocelots by Exurb1a")
 
 What a book!
 

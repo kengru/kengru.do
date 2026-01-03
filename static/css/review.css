@@ -1,0 +1,142 @@
+/* Book Review Layout */
+.review {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-header {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border-color);
+  align-items: flex-start;
+}
+
+/* Cover image - balanced size, not hero */
+.review-cover {
+  flex-shrink: 0;
+  width: 100px;
+}
+
+.review-cover img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Meta info alongside cover */
+.review-meta {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.review-meta h1 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.review-meta .description {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.review-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.review-info time {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+/* Rating display */
+.review-rating {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.rating-value {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.rating-max {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-right: var(--space-xs);
+}
+
+.rating-bar {
+  flex: 1;
+  min-width: 60px;
+  max-width: 100px;
+  height: 4px;
+  background: var(--bg-secondary);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.rating-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+
+/* Desktop adjustments */
+@media screen and (min-width: 640px) {
+  .review-cover {
+    width: 140px;
+  }
+
+  .review-meta h1 {
+    font-size: 2rem;
+  }
+
+  .review-info {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .rating-value {
+    font-size: 2rem;
+  }
+
+  .rating-bar {
+    min-width: 80px;
+    max-width: 120px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .review-cover {
+    width: 160px;
+  }
+
+  .review-meta h1 {
+    font-size: 2.25rem;
+  }
+}
