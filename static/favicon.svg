@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="4" fill="#0f1822"/>
+  <!-- Two interlocking arcs — weave/rotation motif -->
+  <path d="M8 20 C8 11, 16 7, 24 12" stroke="#dde61f" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M24 12 C24 21, 16 25, 8 20" stroke="#D6D7D5" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- Node accents at the crossing points -->
+  <circle cx="16" cy="14.5" r="1.8" fill="#dde61f"/>
+  <circle cx="16" cy="17.5" r="1.8" fill="#D6D7D5"/>
+</svg>
