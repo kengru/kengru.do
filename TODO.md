@@ -3,9 +3,9 @@
 - ~~Create a PR to add `/uses` to uses.tech~~
 - ~~Order posts on the main page by published date.~~
 - ~~Make this work on Desktop.~~
-- Create a rss feed for this blog.
+- ~~Create a rss feed for this blog.~~
 - ~~Add description into the meta tag of posts.~~
-- Fix favicon.
-- Maybe add post images as a meta tag and on the properties of a md file.
+- ~~Fix favicon.~~
+- ~~Maybe add post images as a meta tag and on the properties of a md file.~~
 - Implement a search functionality.
 - Add some more meta tags for discoverability on the hobbie projects.
