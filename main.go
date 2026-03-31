@@ -25,6 +25,8 @@ type PostData struct {
 	Type        string
 	Rating      int
 	Image       string
+	AltLangURL  string
+	AltLangName string
 }
 
 type KeyData struct {
@@ -118,6 +120,7 @@ func main() {
 	mux := http.NewServeMux()
 	slugs := translateMDIntoSlugs("posts")
 	sortedSlugs := slugs.getSortedSlugs()
+	enSlugs := translateMDIntoSlugs("posts/en")
 	staticSlugs := translateMDIntoSlugs("posts/static")
 	tags := getTagsFromSlugs(slugs)
 	tags.appendMoreTags(getTagsFromSlugs(staticSlugs))
@@ -176,7 +179,7 @@ func main() {
 				Title:         "kengru.do",
 				Link:          "https://kengru.do",
 				Description:   "Personal blog by kengru - tech, books, and thoughts",
-				Language:      "en-us",
+				Language:      "es",
 				LastBuildDate: time.Now().Format(time.RFC1123Z),
 				Items:         items,
 			},
@@ -188,6 +191,47 @@ func main() {
 		enc.Indent("", "  ")
 		if err := enc.Encode(rss); err != nil {
 			log.Println(err)
+		}
+	})
+
+	mux.HandleFunc("GET /en/{slug}", func(w http.ResponseWriter, r *http.Request) {
+		slug := r.PathValue("slug")
+		mark, ok := enSlugs[slug]
+		if !ok {
+			t, _ := template.ParseFiles("views/layout.html", "views/404.html")
+			err := t.ExecuteTemplate(w, "layout", "")
+			if err != nil {
+				log.Println(err)
+				w.WriteHeader(http.StatusInternalServerError)
+			}
+			return
+		}
+		final := md.MDtoHTML(mark.Content)
+
+		templateFile := "views/post.html"
+		if mark.Type == "review" {
+			templateFile = "views/review.html"
+		}
+
+		t, _ := template.ParseFiles("views/layout.html", templateFile)
+		postData := PostData{
+			Content:     template.HTML(final.String()),
+			Description: mark.Description,
+			Url:         fmt.Sprintf("https://kengru.do/en/%s", mark.Slug),
+			Published:   mark.Published,
+			Tags:        mark.Tags,
+			Title:       mark.Title,
+			Type:        mark.Type,
+			Rating:      mark.Rating,
+			Image:       mark.Image,
+			AltLangURL:  fmt.Sprintf("/%s", mark.Slug),
+			AltLangName: "Español",
+		}
+		err := t.ExecuteTemplate(w, "layout", postData)
+		if err != nil {
+			log.Println(err)
+			w.WriteHeader(http.StatusInternalServerError)
+			return
 		}
 	})
 
@@ -209,7 +253,6 @@ func main() {
 		}
 		final := md.MDtoHTML(mark.Content)
 
-		// Choose template based on post type
 		templateFile := "views/post.html"
 		if mark.Type == "review" {
 			templateFile = "views/review.html"
@@ -226,6 +269,11 @@ func main() {
 			Type:        mark.Type,
 			Rating:      mark.Rating,
 			Image:       mark.Image,
+		}
+		// Link to English version if it exists
+		if _, hasEn := enSlugs[slug]; hasEn {
+			postData.AltLangURL = fmt.Sprintf("/en/%s", slug)
+			postData.AltLangName = "English"
 		}
 		err := t.ExecuteTemplate(w, "layout", postData)
 		if err != nil {

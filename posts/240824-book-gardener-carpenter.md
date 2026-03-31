@@ -1,6 +1,6 @@
 ---
-title: Review: The Gardener and the Carpenter
-description: Book review of The Gardener and the Carpenter by Alison Gopnik
+title: Reseña: The Gardener and the Carpenter
+description: Reseña del libro The Gardener and the Carpenter de Alison Gopnik
 published: 24-08-2024
 tags: books, review
 slug: gardener-carpenter
@@ -9,26 +9,25 @@ rating: 9
 image: /static/images/books/gardener-carpenter-cover.webp
 ---
 
-First of all, I **loved** this book.
+Primero, **amé** este libro.
 
-Alison challenges the popular idea of **parenting** by presenting
-a different way of taking care of children. The modern model
-of **parenting** is to try and mold your child into what we
-believe could be a functionally productive adult in our
-society. This, to Alison (and to me), is just how a carpenter
-works, their piece is treated with the utmost detail
-so that the result will look as it is pictured in their head.
+Alison reta la idea popular de la **paternidad** presentando
+una forma diferente de cuidar a los niños. El modelo moderno de
+paternidad es de intentar moldear tu hijo a lo que nosotros
+creemos que sería un adulto funcional productivo en nuestra
+sociedad. Esto, para Alison (y para mi), es exactamente como
+funciona un carpintero, su pieza se trata con el mayor detalle
+para que el resultado se vea justo como lo tiene pintado en
+su cabeza.
 
-I think the gardener's way of looking at your child that the
-book presents sounds both more demanding and rewarding. To
-care for a child has a new meaning for me, the job of a
-caretaker is never to create a type of adult but to provide
-an environment where adaptability reigns. We **cannot** predict
-the future. The children born today will have their own
-set of difficulties and opportunities, if we choose to
-rigidly dictate the path they will take, we are leaving
-them with no room for the unknowns and no one but ourselves
-to blame.
+Creo que la forma del jardinero de ver a tu hijo que es presentada
+en este libro suena más demandante y valiosa. El trabajo de un
+guardian no es el crear un tipo de adulto, es proveer un
+ambiente donde la adaptibilidad reine. **No** podemos preveer
+el futuro, los niños que nacen hoy tendran sus propios
+desafios y oportunidades. Si elegimos dictar rígidamente el
+camino que tomarán, los estaríamos dejando sin espacio para lo desconocido
+(de lo cual la vida está llena) y no tendremos a nadie mas que a
+nosotros para culpar.
 
-I'm sure I will be coming back to this book in the near
-future.
+Estoy seguro que volveré a este libro en el futuro cercano.
