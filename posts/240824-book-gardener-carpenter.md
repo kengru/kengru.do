@@ -1,6 +1,6 @@
 ---
 title: Reseña: The Gardener and the Carpenter
-description: Reseña del libro The Gardener and the Carpenter de Alison Gopnik
+description: Reseña del libro "The Gardener and the Carpenter" de Alison Gopnik
 published: 24-08-2024
 tags: books, review
 slug: gardener-carpenter

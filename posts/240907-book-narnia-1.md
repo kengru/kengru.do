@@ -1,6 +1,6 @@
 ---
-title: Review: The Chronicles of Narnia I
-description: Book review of The Magician's Nephew by C.S. Lewis
+title: Reseña: The Chronicles of Narnia I
+description: Reseña del libro "The Magician's Nephew" de C.S. Lewis
 published: 07-09-2024
 tags: books, review, narnia
 slug: narnia-1
@@ -9,38 +9,36 @@ rating: 7
 image: /static/images/books/narnia-1.webp
 ---
 
-The Magician's Nephew tells the story of the creation
-of Narnia, but more importanly, a story about a boy,
-a girl, and a cabby.
+"The Magician's Nephew" narra la historia de la
+creación de Narnia, pero más importante, la historia de un niño,
+una niña y un taxista.
 
-Here are some thoughts on this book:
+Aquí algunos pensamientos acerca del libro:
 
-### The Boy & The Girl
+### El niño y la niña
 
-Braveness and curiosity are key for any story about
-adventure. Digory and Polly have no lack of these, which
-is why a figure like Aslan, which I presume is God in
-this story, recognizes them as worthy witnesses of the
-creation of the world. They are examples of how a
-child should go around their life: With confidence and
-wonder.
+La valentía y la curiosidad son clave para cualquier
+historia de aventura. Digory y Polly no les falta ninguna,
+por tanto, una figura como Aslan, que presumo es Dios en esta historia,
+los reconoce como dignos testigos de la creación del mundo.
+Son ejemplo de como un niño debería andar por la vida: con
+confianza y asombro.
 
-### The Cabby
+### El taxista
 
-The cab driver is shown as a man who grew up in the country
-side of London. He is calm, kind and strong. In the book
-these traits lead him to become the first King of Narnia.
-This is ironic since in the "real world" he is a poor
-cab driver and the wonderful characteristics he possess
-are undervalued by everyone.
+El taxista es un hombre que creció en un campo de
+Londres. Es calmado, amable y fuerte. En el libro estas
+cualidades lo llevaron a convertirse en el primer Rey
+de Narnia. Lo cual es un poco irónico porque en el "mundo
+real" es un pobre taxista y sus maravillosas características
+son subestimadas por todos.
 
-### Review
+### Reseña
 
-What I liked the most out of this book is the depiction
-of a childhood that I experienced in some ways.
-Having less distractions leads to more adventures.
+Lo que más me gusto de este libro es la descripción de
+una infancia que yo experimenté en algunas formas.
+Tener menos distraciones lleva a tener más aventuras.
 
-The Chronicles of Narnia were not written in **chronological**
-order (by chronological I mean from the point of view of
-Narnians). I am, however, reading these books in **chronological order**
-going from the creation of Narnia to "The last battle".
+The Chronicles of Narnia no fueron escritas en orden cronológico (desde
+el punto de vista de la historia del pueblo de Narnia). Sin embargo, la
+estoy leyendo desde ese orden.

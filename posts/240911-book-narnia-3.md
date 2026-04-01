@@ -1,6 +1,6 @@
 ---
-title: Review: The Chronicles of Narnia III
-description: Book review of The Horse and His Boy by C.S. Lewis
+title: Reseña: The Chronicles of Narnia III
+description: Reseña del libro "The Horse and His Boy" de C.S. Lewis
 published: 11-09-2024
 tags: books, review, narnia
 slug: narnia-3
@@ -9,27 +9,26 @@ rating: 9
 image: /static/images/books/narnia-3.webp
 ---
 
-This is my favorite book of the series so far, it's full
-of cool mini-plots, crazy adventure and Christian symbolism.
+Este es mi libro favorito de la serie hasta ahora, está
+lleno de pequeñas tramas interesantes, aventuras locas y
+simbolismo Cristiano.
 
-The protagonists are trapped in Calormen, a country depicted
-as a middle eastern desert with Sultans and Camels. They are
-desperate to leave into a foreign, almost legendary, land
-called Narnia, where there are springs, trees and even talking
-beasts. In this tale, Narnia represents hope, a place worth
-having an adventure through an unforgiving land.
+Los protagonistas están atrapado en Calormen, un país representado
+como un desierto del medio oriente con sultanes y camellos. Están
+desesperados por irse a una tierra lejana, casi legendaria, llamada
+Narnia. Allá hay manantiales, árboles e incluso bestias parlantes.
+En este cuento, Narnia representa esperanza, un lugar al cual vale
+la pena tener una aventura para llegar.
 
-By this point, there is no further evidence needed to understand
-that Aslan is a representation of God. The heroes are attacked
-and also saved by a Lion in more than one occasion and it's clear
-at the end that whatever happens that leads you to where you
-belong its God's will. God will chase you out of the places
-you are not supposed to be. God will take care of you when
-you feel lonely. God will push you to your limits so that you
-can conquer your fears and achieve what you must.
+Para este punto no se necesita más evidencia para entender que
+Aslan es una representación de Dios. Los héroes son atacados y
+salvados por un león en múltiples ocaciones y está claro al final
+que la voluntad de Dios es lo que te lleva a donde perteneces.
+Dios te echará a la fuerza de los lugares donde no estás supuesto
+a estar. Dios te cuidará cuando estés solo. Dios te empujará
+a tus límites para que puedas conquistar tus miedos.
 
-This story happens between the first 2 movies and feels like
-it's setting up for something bigger in the future.
+La historia pasa entre las dos primeras peliculas y se siente como
+si estuviera preparando el terreno para algo mayor para el futuro.
 
-The boy is a good and humble character and the horse is very
-funny.
+El niño es un personaje humilde y el caballo es muy gracioso.
