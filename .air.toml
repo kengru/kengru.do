@@ -4,15 +4,13 @@ tmp_dir = "tmp"
 
 [build]
 args_bin = []
-bin = "./tmp/main"
-cmd = "go build -o ./tmp/main main.go"
 delay = 0
 exclude_dir = ["node_modules", "assets", "tmp", "vendor", "testdata"]
 exclude_file = []
 exclude_regex = ["_test.go"]
 exclude_unchanged = false
 follow_symlink = false
-full_bin = ""
+full_bin = "ADMIN_PASS=test go run main.go"
 include_dir = ["views", "internal", "posts"]
 include_ext = ["go", "html", "md"]
 include_file = ["main.go"]

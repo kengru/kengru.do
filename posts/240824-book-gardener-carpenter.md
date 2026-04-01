@@ -16,7 +16,7 @@ una forma diferente de cuidar a los niños. El modelo moderno de
 paternidad es de intentar moldear tu hijo a lo que nosotros
 creemos que sería un adulto funcional productivo en nuestra
 sociedad. Esto, para Alison (y para mi), es exactamente como
-funciona un carpintero, su pieza se trata con el mayor detalle
+funciona un carpintero, su pieza se trata con el mayor detalle posible
 para que el resultado se vea justo como lo tiene pintado en
 su cabeza.
 

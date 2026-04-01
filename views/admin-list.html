@@ -1,0 +1,22 @@
+{{ define "admin-body" }}
+<section>
+  <ul class="admin-posts">
+    {{ range . }}
+    <li>
+      <div class="admin-post-info">
+        <a href="/admin/edit?file={{ .Path }}">{{ .Title }}</a>
+        <span class="admin-post-meta">
+          <span class="admin-post-path">{{ .Path }}</span>
+          <time>{{ .Published.Format "Jan 02, 2006" }}</time>
+          {{ if .Draft }}<span class="admin-draft">draft</span>{{ end }}
+        </span>
+      </div>
+      <form method="POST" action="/admin/delete?file={{ .Path }}" class="admin-delete"
+        onsubmit="return confirm('Delete {{ .Title }}?')">
+        <button type="submit">delete</button>
+      </form>
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}

@@ -3,6 +3,8 @@ services:
     image: localhost:5000/kengru-do:latest
     container_name: kengru-do
     restart: unless-stopped
+    environment:
+      - ADMIN_PASS=${ADMIN_PASS}
     ports:
       - "42069:42069"
     networks:

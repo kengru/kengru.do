@@ -27,6 +27,37 @@ type MD struct {
 	Metadata
 }
 
+func ParseMDString(content string) (MD, error) {
+	md := MD{}
+	body := ""
+	scanner := bufio.NewScanner(strings.NewReader(content))
+	for scanner.Scan() {
+		if scanner.Text() == "---" {
+			metaText, err := GetMetadataText(scanner)
+			if err != nil {
+				return md, err
+			}
+			meta, err := GetMetadata(metaText)
+			if err != nil {
+				return md, err
+			}
+			md.Metadata = meta
+		} else {
+			body += fmt.Sprintln(scanner.Text())
+		}
+	}
+	if len(body) > 1 {
+		md.Content = body[:len(body)-1]
+	} else {
+		md.Content = body
+	}
+	if strings.HasPrefix(strings.TrimSpace(md.Content), "DRAFT") {
+		md.Metadata.Draft = true
+		md.Content = strings.TrimSpace(strings.TrimPrefix(strings.TrimSpace(md.Content), "DRAFT"))
+	}
+	return md, nil
+}
+
 func ParseMDFile(file *os.File) (MD, error) {
 	md := MD{}
 	content := ""

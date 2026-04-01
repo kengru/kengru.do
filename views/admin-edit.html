@@ -1,0 +1,45 @@
+{{ define "admin-body" }}
+<section>
+  {{ if .IsNew }}
+  <form method="POST" action="/admin/new" class="admin-form">
+    <div class="admin-field">
+      <label for="dir">directory</label>
+      <select name="dir" id="dir">
+        <option value="posts">posts</option>
+        <option value="posts/en">posts/en</option>
+        <option value="posts/static">posts/static</option>
+      </select>
+    </div>
+    <div class="admin-field">
+      <label for="content">content</label>
+      <textarea name="content" id="content" spellcheck="false">---
+title:
+description:
+published: {{ .Today }}
+tags:
+slug:
+---
+
+</textarea>
+    </div>
+    <div class="admin-actions">
+      <button type="submit">create</button>
+      <a href="/admin">cancel</a>
+    </div>
+  </form>
+  {{ else }}
+  <form method="POST" action="/admin/save?file={{ .Path }}" class="admin-form">
+    <div class="admin-field">
+      <label>{{ .Path }}</label>
+    </div>
+    <div class="admin-field">
+      <textarea name="content" id="content" spellcheck="false">{{ .Content }}</textarea>
+    </div>
+    <div class="admin-actions">
+      <button type="submit">save</button>
+      <a href="/admin">cancel</a>
+    </div>
+  </form>
+  {{ end }}
+</section>
+{{ end }}
