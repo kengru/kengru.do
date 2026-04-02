@@ -1,6 +1,6 @@
 ---
-title: Reseña: The Chronicles of Narnia IV
-description: Reseña del libro "Prince Caspian" de C.S. Lewis
+title: Review: The Chronicles of Narnia IV
+description: Book review of Prince Caspian by C.S. Lewis
 published: 29-09-2024
 tags: books, review, narnia
 slug: narnia-4
@@ -8,8 +8,6 @@ type: review
 rating: 7
 image: /static/images/books/narnia-4.webp
 ---
-
-Este libro cuenta la historia de
 
 This book tells a great story of an oppressed group of Narnians
 and their quite preparations to return to their former glory.

@@ -1,30 +1,26 @@
 ---
-title: Transformer, a file manipulation tool
-description: Tool to manipulate files, mostly images.
+title: Transformer, una herramienta para manipular archivos
+description: Herramienta para manipular archivos, mayormente imágenes.
 published: 20-09-2024
 tags: tech, images, files, project, go
 slug: transformer
 ---
 
-Including in this page, I normally have some need of image
-manipulation, either turning images to webp, compressing
-down images or rezising them.
+Incluyendo en esta página, normalmente tengo necesidad de manipular
+imágenes, ya sea comprimiendo, modificando el tamaño o convirtiendo
+a algo menos pesado como un `webp`.
 
-I was using [cloud convert](https://cloudconvert.com/) and
-it was nice for the most part but after converting about
-8 images it asked me to pay. So I did what any respectable
-programmer would do in my case, I created my own solution
-for this issue.
+Estaba usando [cloud convert](https://cloudconvert.com/), estuvo
+bueno pero luego de convertir 8 imágenes ya me estaba cobrando.
+Así que hice lo que cualquier programador respetable haría en mi
+caso y creé mi propia solución a este problema.
 
-Its called Transformer and it's online. Processed files stay
-active for about 5 minutes then they are deleted so I don't
-need to worry about other people using it.
-
-This is my second attempt at doing this, but this time I like
-it a lot more.
+Se llama Transformer y está online. Los archivos procesados se quedan
+activos por 5 minutos y luego se borran, así no tendré que preocuparme
+por otras personas usándolo.
 
 Link: [Transformer](https://transformer.odin.do)
 
-Code: [Source Code](https://github.com/odin-software/transformer)
+Código: [Source Code](https://github.com/odin-software/transformer)
 
-Thank you!
+¡Gracias!
