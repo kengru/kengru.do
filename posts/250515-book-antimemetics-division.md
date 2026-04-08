@@ -1,6 +1,6 @@
 ---
-title: Review: There Is No Antimemetics Division
-description: Book review of There Is No Antimemetics Division by qntm
+title: Reseña: There Is No Antimemetics Division
+description: Reseña del libro "There Is No Antimemetics Division" de qntm
 published: 15-05-2025
 tags: books, review
 slug: antimemetics-division
@@ -9,11 +9,13 @@ rating: 6
 image: /static/images/books/antimemetics-division.webp
 ---
 
-A clever and entertaining book that may go over your head if you do not give it a chance.
+Un libro ingenioso y entretenido que podría pasarte por encima si no le das la oportunidad.
 
-It starts very confusing and keeps getting more confusing until you reach the middle of the book when suddenly old stories
-being told start making sense of the world.
+Empieza bastante
 
-I was very entertained reading it and the concept of an antimeme was novel to me.
+Empieza muy confuso y sigue volviéndose más confuso hasta que llegas a la mitad del libro,
+cuando de repente las viejas historias que se van contando empiezan a darle sentido al mundo.
 
-I liked it but I would not read it a second time.
+Me entretuve leyendolo y el concepto de un "antimeme" fue novedoso para mi.
+
+Me gustó pero no lo leería una segunda vez.

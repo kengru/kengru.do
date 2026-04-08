@@ -9,32 +9,26 @@ rating: 7
 image: /static/images/books/narnia-4.webp
 ---
 
-Este libro cuenta la historia de
+Este libro cuenta la historia de un grupo de Narnianos oprimidos
+y sus silenciosas preparaciones para retornar a sus tiempos de oro.
 
-This book tells a great story of an oppressed group of Narnians
-and their quite preparations to return to their former glory.
+Me gustó como construyeron el personaje de Caspian, de un niño
+que era heredero de un trono robado a ser un hombre que valía la
+pena seguir.
 
-I liked how they built up the character of Prince Caspian from
-a heir of the usurper's throne to a man worth following.
+Esta historia trae de nuevo a los niños del segundo libro. Son
+de nuevo tomados desde su mundo para jugar un role mayor en
+restaurar el reino de Narnia. Esta vez, sin embargo, no son
+presentados como los sarvadores sino como los facilitadores de
+la historia. Vienen a ayudar a los Narnianos a salvarse a ellos
+mismos.
 
-This story brings back the children from the second book, as
-they are once again taken out of their world to play a mayor role
-into restoring the kingdom of Narnia. However, this time they are not
-presented as saviors but as facilitators of the story. They come
-to help the Narnians save themselves.
+El final del libro es bastante entretenido, Peter (el niño mas
+viejo) tiene una pelea uno a uno contra el lider de los Temarines.
+Esto lleva a que Caspian se convierta en el nuevo rey de Narnia y
+que los niños vuelvan a sus casas. Antes de irse, Aslan le dice
+a los dos niños mayores que ellos no volverían más a narnia porque
+muy viejos ya. Supongo que es una forma de C.S. Lewis de decir que
+la fantasía y la aventura era para los niños, lo cual tiene sentido.
 
-There is a strange part where the boys address a dwarf by
-a somewhat of derrogatory name and they continue to do so even
-after the dwarf ask them not to. I guess it's a thing of the times
-(though he did tried to belittle them a bit).
-
-The end of the book is very exciting, with Peter (the oldest boy)
-having a one-on-one match with the leader of the Telmarines.
-This leads to Caspian becoming the new High King of Narnia,
-and the kids returning to their homes. Aslan tells the oldest
-children that they will not return to Narnia because they are
-too old. I guess that is C.S. Lewis's way of saying that fantasy
-and adventure was for the realm of the children, which makes
-sense.
-
-Another great book.
+Otro buen libro.

@@ -1,6 +1,6 @@
 ---
-title: Review: Hell Yeah or No
-description: Book review of Hell Yeah or No by Derek Sivers
+title: Reseña: Hell Yeah or No
+description: Reseña del libro "Hell Yeah or No" de Derek Sivers
 published: 08-10-2024
 tags: books, review
 slug: hell-yeah-or-no
@@ -9,30 +9,31 @@ rating: 8
 image: /static/images/books/hyon.webp
 ---
 
-"What would you do then, if you didn’t need the money and didn’t need the attention?"
+"Qué harías si no necesitaras dinero ni atención?"
 
-That's a strong start.
+Es un buen inicio.
 
-This book is a collection of essays written in [Derek Sivers](https://sive.rs)'s blog,
-curated around the theme of how to know what is worth doing.
+Este libro es una colección de ensayos escritos en el blog de
+[Derek Sivers](https://sive.rs), curados con el tema de como saber
+lo que vale la pena hacer.
 
-One morning, I sat down to start reading this book and found that phrase in the first essay.
-I immediately put the book down and started trying to answer that question as honestly as
-I could. This led be to grab my thinking notebook, where I began adding and removing
-bullet points of actions I've wanted to take for the past four years and hadn't started yet.
+Una mañana, me senté a leer este libro y me encontré con esa frase en el primer ensayo.
+Inmediatamente dejé el libro y empecé a tratar de responder esa pregunta lo mas honestamente
+posible. Esto me llevó a tomar mi mascota para pensar y empezar a listar acciones que
+he querido tomar por los últimos cuatro años y aún no las había tomado.
 
-I spent about 20 minutes trying to select one thing. Eventually, I decided that reading
-a bit more might be the best approach to start answering the question.
+Duré unos 20 minutos tratando de seleccionar una sola cosa. Eventualmente decidí que
+leer un poco más del libro sería la mejor forma de poder responder esa pregunta.
 
-As I countinued reading, I found that the answer became clearer. With each essay it
-felt like I was peeling back a layer of fog surrounding what's truly important to me.
-I think, if I didn’t need money or attention, I would play video games and share that
-experience with my family. I often avoid playing because it doesn’t bring me money,
-but it’s something I care about and love doing. Being involved in the video game
-industry would be nice too, but I know that making video games as a job would probably
-make me hate it.
+Mientras continuaba leyendo, la respuesta se volvía más clara. Con cada ensayo, sentía
+como se removía una capa de neblina sobre lo que realmente era importante para mi.
+Creo, que si no necesitara dinero o atención, jugaría videojuegos y compartiría la
+experiencia con mi familia. Usualmente evito jugar porque no me trae dinero, pero
+es algo que me importa mucho y que amo hacer. Estar involucrado en la industria
+de los videojuegos también sería bien, pero se que trabajar haciendo videojuegos
+probablemente me haría odiarlo.
 
-These were my favorite essays:
+Estos fueron mis ensayos favoritos:
 
 - [If you’re not feeling “hell yeah!” then say no](https://sive.rs/hyn)
 - [Disconnect](https://sive.rs/dc)
@@ -42,6 +43,6 @@ These were my favorite essays:
 - [Parenting : Who is it really for?](https://sive.rs/pa)
 - [Goals shape the present, not the future.](https://sive.rs/goals) (resonates a lot with me)
 
-This is a great book, full of good advices, food for though, and carefully curated insigths.
-I think there is at least one essay that would reasonate with any kind of person.
-I would recomend this book to anyone.
+Es un gran libro, lleno de buenos consejos, ideas para pensar y perspectivas cuidadosamente
+seleccionadas. Creo que a lo menos, un ensayo de estos resonaría con cualquier persona.
+Le recomendaría este libro a quien sea.

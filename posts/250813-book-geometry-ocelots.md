@@ -1,6 +1,6 @@
 ---
-title: Review: Geometry for Ocelots
-description: Book review of Geometry for Ocelots by Exurb1a.
+title: Reseña: Geometry for Ocelots
+description: Reseña del libro "Geometry for Ocelots" de Exurb1a.
 published: 13-08-2025
 tags: books, review
 slug: geometry-for-ocelots
@@ -9,18 +9,17 @@ rating: 10
 image: /static/images/books/geometry-for-ocelots.webp
 ---
 
-What a book!
+¡Que libro!
 
-I've followed [exurb1a](https://www.youtube.com/@Exurb1a) for a long while, he is a Youtuber and author of science fiction and
-philosophy books and videos. I decided last year to buy some of his books as part of my [book buying last year](https://kengru.do/bought-books-1)
-and I don't regret it at all.
+Sigo a [exurb1a](https://www.youtube.com/@Exurb1a) hace un tiempo, él es un Youtuber y autor de ciencia ficción y filosofía.
+El año pasado decidí comprar algunos de sus libros en mi [gran compra de libros](https://kengru.do/bought-books-1) y no me arrepiento para nada.
 
-This book is a masterpiece on science fiction and love. It takes on religion, science, politics, philosophy, family and man itself.
+Este libro es una obra maestra en ciencia ficción y amor. Trata de religión, ciencia, política, filosofía, familia y sobre el hombre en si mismo.
 
-I now have a favorite moment of 2025 where I was reading a love letter from a mother to her son while listening to [127 North by Caspian](https://www.youtube.com/watch?v=8EzKkFCimRk&pp=ygUJMTI3IG5vcnRo).
-It brought tears to my eyes and reminded me again why music is so powerful and how parenthood is something so important to me. I
-wish some day I could write something so beautiful.
+Ahora tengo un momento favorito del 2025 donde estaba leyendo una carta de amor que le escribió una madre a su hijo mientras escuchaba [127 North de Caspian](https://www.youtube.com/watch?v=8EzKkFCimRk&pp=ygUJMTI3IG5vcnRo).
+Me puso a llorar y me recordó lo poderosa que es la música y por que la paternidad es tan importante para mi. Deseo algún día
+escribir algo tan hermoso.
 
-It has a great final chapter and a conclusion that I think couldn't be better.
+Tiene un excelente capítulo final y una conclusión que no podría ser mejor.
 
-I'll give it a 5/5, I would read it again and it's now on my newly created list of: "Books I'll give my daughter to read... eventually."
+Le doy un 10/10, lo leería de nuevo y ahora está en mi lista de libros que le daré a leer a mi hija.
