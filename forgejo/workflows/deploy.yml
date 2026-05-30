@@ -1,0 +1,19 @@
+name: Deploy kengru.do
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: host
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build binary
+        run: make build-linux-amd64
+
+      - name: Deploy to mimir
+        run: sudo /usr/local/bin/kengru-blog-deploy "$(pwd)/bin/kengru-blog-linux-amd64"
