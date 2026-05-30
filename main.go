@@ -1,19 +1,21 @@
 package main
 
 import (
+	"embed"
 	"encoding/xml"
 	"fmt"
 	"html/template"
+	"io/fs"
 	"log"
 	"net/http"
-	"os"
-	"path/filepath"
 	"sort"
-	"strings"
 	"time"
 
 	"github.com/kengru/kengru.do/internal/md"
 )
+
+//go:embed posts views static
+var content embed.FS
 
 type Slugs map[string]md.MD
 type Tags map[string]bool
@@ -60,22 +62,6 @@ type RSSItem struct {
 	GUID        string `xml:"guid"`
 }
 
-// Admin types
-type AdminPost struct {
-	Path      string
-	Title     string
-	Slug      string
-	Published time.Time
-	Draft     bool
-}
-
-type AdminEditData struct {
-	Path    string
-	Content string
-	IsNew   bool
-	Today   string
-}
-
 // Site holds all reloadable state
 type Site struct {
 	slugs       Slugs
@@ -93,7 +79,7 @@ func check(e error) {
 
 func translateMDIntoSlugs(dirName string) Slugs {
 	slugs := Slugs{}
-	dir, err := os.ReadDir(dirName)
+	dir, err := fs.ReadDir(content, dirName)
 	if err != nil {
 		return slugs
 	}
@@ -102,11 +88,11 @@ func translateMDIntoSlugs(dirName string) Slugs {
 			continue
 		}
 		fileName := fmt.Sprintf("%s/%s", dirName, entry.Name())
-		fil, err := os.Open(fileName)
+		fil, err := content.Open(fileName)
 		if err != nil {
 			continue
 		}
-		mdFile, err := md.ParseMDFile(fil)
+		mdFile, err := md.ParseMD(fil)
 		fil.Close()
 		if err != nil {
 			continue
@@ -164,75 +150,18 @@ func (s *Site) reload() {
 	s.tags.appendMoreTags(getTagsFromSlugs(s.staticSlugs))
 }
 
-func adminAuth(next http.HandlerFunc) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		pass := os.Getenv("ADMIN_PASS")
-		if pass == "" {
-			http.Error(w, "Admin not configured", http.StatusServiceUnavailable)
-			return
-		}
-		_, p, ok := r.BasicAuth()
-		if !ok || p != pass {
-			w.Header().Set("WWW-Authenticate", `Basic realm="admin"`)
-			http.Error(w, "Unauthorized", http.StatusUnauthorized)
-			return
-		}
-		next(w, r)
-	}
-}
-
-func validateFilePath(path string) bool {
-	clean := filepath.Clean(path)
-	return strings.HasPrefix(clean, "posts/") && !strings.Contains(clean, "..")
-}
-
-func getAdminPosts() []AdminPost {
-	var posts []AdminPost
-	dirs := []string{"posts", "posts/en", "posts/static"}
-	for _, dir := range dirs {
-		entries, err := os.ReadDir(dir)
-		if err != nil {
-			continue
-		}
-		for _, entry := range entries {
-			if entry.IsDir() {
-				continue
-			}
-			path := dir + "/" + entry.Name()
-			f, err := os.Open(path)
-			if err != nil {
-				continue
-			}
-			mdFile, err := md.ParseMDFile(f)
-			f.Close()
-			if err != nil {
-				continue
-			}
-			posts = append(posts, AdminPost{
-				Path:      path,
-				Title:     mdFile.Title,
-				Slug:      mdFile.Slug,
-				Published: mdFile.Published,
-				Draft:     mdFile.Draft,
-			})
-		}
-	}
-	sort.Slice(posts, func(i, j int) bool {
-		return posts[i].Published.After(posts[j].Published)
-	})
-	return posts
-}
-
 func main() {
 	mux := http.NewServeMux()
 	site := newSite()
-	fs := http.FileServer(http.Dir("./static"))
-
-	mux.Handle("GET /static/", http.StripPrefix("/static/", fs))
+	staticFS, err := fs.Sub(content, "static")
+	if err != nil {
+		log.Fatal(err)
+	}
+	mux.Handle("GET /static/", http.StripPrefix("/static/", http.FileServer(http.FS(staticFS))))
 
 	mux.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
-		t, _ := template.New("index").ParseFiles("views/layout.html", "views/index.html")
+		t, _ := template.New("index").ParseFS(content, "views/layout.html", "views/index.html")
 		err := t.ExecuteTemplate(w, "layout", site.sortedSlugs)
 		check(err)
 	})
@@ -241,7 +170,7 @@ func main() {
 		category := r.PathValue("category")
 		_, ok := site.tags[category]
 		if !ok {
-			t, _ := template.ParseFiles("views/layout.html", "views/404.html")
+			t, _ := template.ParseFS(content, "views/layout.html", "views/404.html")
 			err := t.ExecuteTemplate(w, "layout", "")
 			if err != nil {
 				log.Println(err)
@@ -258,7 +187,7 @@ func main() {
 			}
 		}
 		orderedSlugs := categorySlugs.getSortedSlugs()
-		t, _ := template.ParseFiles("views/layout.html", "views/index.html")
+		t, _ := template.ParseFS(content, "views/layout.html", "views/index.html")
 		err := t.ExecuteTemplate(w, "layout", orderedSlugs)
 		check(err)
 	})
@@ -302,7 +231,7 @@ func main() {
 		slug := r.PathValue("slug")
 		mark, ok := site.enSlugs[slug]
 		if !ok {
-			t, _ := template.ParseFiles("views/layout.html", "views/404.html")
+			t, _ := template.ParseFS(content, "views/layout.html", "views/404.html")
 			err := t.ExecuteTemplate(w, "layout", "")
 			if err != nil {
 				log.Println(err)
@@ -317,7 +246,7 @@ func main() {
 			templateFile = "views/review.html"
 		}
 
-		t, _ := template.ParseFiles("views/layout.html", templateFile)
+		t, _ := template.ParseFS(content, "views/layout.html", templateFile)
 		postData := PostData{
 			Content:     template.HTML(final.String()),
 			Description: mark.Description,
@@ -345,7 +274,7 @@ func main() {
 		if !ok {
 			check, ok := site.staticSlugs[slug]
 			if !ok {
-				t, _ := template.ParseFiles("views/layout.html", "views/404.html")
+				t, _ := template.ParseFS(content, "views/layout.html", "views/404.html")
 				err := t.ExecuteTemplate(w, "layout", "")
 				if err != nil {
 					log.Println(err)
@@ -362,7 +291,7 @@ func main() {
 			templateFile = "views/review.html"
 		}
 
-		t, _ := template.ParseFiles("views/layout.html", templateFile)
+		t, _ := template.ParseFS(content, "views/layout.html", templateFile)
 		postData := PostData{
 			Content:     template.HTML(final.String()),
 			Description: mark.Description,
@@ -385,135 +314,6 @@ func main() {
 			return
 		}
 	})
-
-	// Admin routes
-	mux.HandleFunc("GET /admin", adminAuth(func(w http.ResponseWriter, r *http.Request) {
-		posts := getAdminPosts()
-		t, err := template.ParseFiles("views/admin-layout.html", "views/admin-list.html")
-		if err != nil {
-			log.Println(err)
-			http.Error(w, "Template error", http.StatusInternalServerError)
-			return
-		}
-		t.ExecuteTemplate(w, "admin-layout", posts)
-	}))
-
-	mux.HandleFunc("GET /admin/new", adminAuth(func(w http.ResponseWriter, r *http.Request) {
-		data := AdminEditData{
-			IsNew: true,
-			Today: time.Now().Format("02-01-2006"),
-		}
-		t, err := template.ParseFiles("views/admin-layout.html", "views/admin-edit.html")
-		if err != nil {
-			log.Println(err)
-			http.Error(w, "Template error", http.StatusInternalServerError)
-			return
-		}
-		t.ExecuteTemplate(w, "admin-layout", data)
-	}))
-
-	mux.HandleFunc("POST /admin/new", adminAuth(func(w http.ResponseWriter, r *http.Request) {
-		r.ParseForm()
-		content := r.FormValue("content")
-		dir := r.FormValue("dir")
-
-		if dir != "posts" && dir != "posts/en" && dir != "posts/static" {
-			http.Error(w, "Invalid directory", http.StatusBadRequest)
-			return
-		}
-
-		// Parse frontmatter to derive filename
-		parsed, err := md.ParseMDString(content)
-		if err != nil {
-			http.Error(w, "Invalid frontmatter: "+err.Error(), http.StatusBadRequest)
-			return
-		}
-
-		var filename string
-		if dir == "posts/static" {
-			filename = fmt.Sprintf("%s/%s.md", dir, parsed.Slug)
-		} else {
-			datePrefix := parsed.Published.Format("060102")
-			filename = fmt.Sprintf("%s/%s-%s.md", dir, datePrefix, parsed.Slug)
-		}
-
-		if _, err := os.Stat(filename); err == nil {
-			http.Error(w, "File already exists: "+filename, http.StatusConflict)
-			return
-		}
-
-		err = os.WriteFile(filename, []byte(content), 0644)
-		if err != nil {
-			http.Error(w, "Failed to write file", http.StatusInternalServerError)
-			return
-		}
-
-		site.reload()
-		http.Redirect(w, r, "/admin", http.StatusSeeOther)
-	}))
-
-	mux.HandleFunc("GET /admin/edit", adminAuth(func(w http.ResponseWriter, r *http.Request) {
-		file := r.URL.Query().Get("file")
-		if !validateFilePath(file) {
-			http.Error(w, "Invalid file path", http.StatusBadRequest)
-			return
-		}
-
-		content, err := os.ReadFile(file)
-		if err != nil {
-			http.Error(w, "File not found", http.StatusNotFound)
-			return
-		}
-
-		data := AdminEditData{
-			Path:    file,
-			Content: string(content),
-		}
-		t, err := template.ParseFiles("views/admin-layout.html", "views/admin-edit.html")
-		if err != nil {
-			log.Println(err)
-			http.Error(w, "Template error", http.StatusInternalServerError)
-			return
-		}
-		t.ExecuteTemplate(w, "admin-layout", data)
-	}))
-
-	mux.HandleFunc("POST /admin/save", adminAuth(func(w http.ResponseWriter, r *http.Request) {
-		file := r.URL.Query().Get("file")
-		if !validateFilePath(file) {
-			http.Error(w, "Invalid file path", http.StatusBadRequest)
-			return
-		}
-
-		r.ParseForm()
-		content := r.FormValue("content")
-
-		err := os.WriteFile(file, []byte(content), 0644)
-		if err != nil {
-			http.Error(w, "Failed to write file", http.StatusInternalServerError)
-			return
-		}
-
-		site.reload()
-		http.Redirect(w, r, "/admin", http.StatusSeeOther)
-	}))
-
-	mux.HandleFunc("POST /admin/delete", adminAuth(func(w http.ResponseWriter, r *http.Request) {
-		file := r.URL.Query().Get("file")
-		if !validateFilePath(file) {
-			http.Error(w, "Invalid file path", http.StatusBadRequest)
-			return
-		}
-
-		err := os.Remove(file)
-		if err != nil {
-			http.Error(w, "Failed to delete file", http.StatusInternalServerError)
-			return
-		}
-
-		site.reload()
-		http.Redirect(w, r, "/admin", http.StatusSeeOther)
-	}))
 
 	log.Println("Running at http://localhost:42069")
 	log.Fatal(http.ListenAndServe(":42069", mux))
