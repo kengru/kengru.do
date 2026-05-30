@@ -4,7 +4,7 @@ import (
 	"bufio"
 	"errors"
 	"fmt"
-	"os"
+	"io"
 	"strconv"
 	"strings"
 	"time"
@@ -58,10 +58,10 @@ func ParseMDString(content string) (MD, error) {
 	return md, nil
 }
 
-func ParseMDFile(file *os.File) (MD, error) {
+func ParseMD(r io.Reader) (MD, error) {
 	md := MD{}
 	content := ""
-	scanner := bufio.NewScanner(file)
+	scanner := bufio.NewScanner(r)
 	for scanner.Scan() {
 		if scanner.Text() == "---" {
 			metaText, err := GetMetadataText(scanner)

@@ -92,5 +92,25 @@ func TestGetMetadata(t *testing.T) {
 }
 
 func TestParseMDFile(t *testing.T) {
-
+	input := `---
+title: the good old test
+description: the new descriptions are good
+published: 12-08-2024
+tags: books, thoughts, tech, more
+slug: the-one-slug
+---
+Hello body.`
+	md, err := ParseMD(strings.NewReader(input))
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if md.Title != "the good old test" {
+		t.Fatalf(`wanted title "the good old test" got "%s"`, md.Title)
+	}
+	if md.Slug != "the-one-slug" {
+		t.Fatalf(`wanted slug "the-one-slug" got "%s"`, md.Slug)
+	}
+	if md.Content != "Hello body." {
+		t.Fatalf(`wanted content "Hello body." got "%s"`, md.Content)
+	}
 }
