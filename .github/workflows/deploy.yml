@@ -36,4 +36,4 @@ jobs:
           printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/known_hosts
 
       - name: Desplegar en mimir
-        run: ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes deploy@mimir.odin.do kengru-blog < bin/kengru-blog-linux-amd64
+        run: ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes deploy@mimir.odin.do "kengru-blog $GITHUB_SHA $GITHUB_ACTOR" < bin/kengru-blog-linux-amd64
